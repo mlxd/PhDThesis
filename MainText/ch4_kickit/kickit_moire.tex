@@ -6,35 +6,53 @@ Another such model, building upon the kicked rotor, is the kicked harmonic oscil
 Here I propose such a system, given a rapidly Bose-Einstein condensate featuring a well ordered vortex lattice. The goal is to generate chaotic motion of the vortices in the condensate through kicking with an optical lattice that with a period given by the rotation and translational symmetry of the vortex lattice. Since we know the vortex lattice is an Abrikosov lattice with 6-fold symmetry, we can say that given a rotation frequency of $\Omega$, the lattice will return to the same orientation after a rotation of $\Omega/6$. Thus, we can kick the system at this interval with a stationary optical lattice potential, without the need to rotate with the system, making this more experimentally realistic.
 
 
+
+
+For the purpose of this work the standard single component Bose--Einstein condensate in a radially symmetric trap of frequency $\omega_\perp$ was assumed. By tightly confining the condensate along the $z$-dimension, with trapping frequency $\omega_z$, such that $\omega_z >> \omega_\perp$, the condensate attains a pancake-shaped geometry. Since the energy required to excite any higher modes along $z$ is $\hbar\omega_z$, we can assume all excitations are planar along the radial coordinate $x-y$ axes. Modelling of this system is performed in the  mean-field limit, given by the Gross--Pitaevskii equation, with Hamiltonian
+
+\begin{equation}\label{eqn:gpe_h0}
+	H_{\mathrm{GP}} = -\frac{\hbar^2}{2m}\nabla^2 + \frac{1}{2}m\omega\perp^2\mathbf{r}^2 + g\vert\Psi(\mathbf{r},t)\vert^2.
+\end{equation}
+
+Here $g$ describes the interaction between atoms in the condensate, and is given by \begin{equation}
+g = \frac{4\pi\hbar^2a_s}{m}
+\end{equation},
+where $a_s$ is the s-wave scattering length of the atomic species. The move to a two-dimensional geomtetry also requires the move to a effective interaction which encompasses the net effect of the integrated $z$-dimension. This is enabled by scaling the interaction by the length of the harmonic oscillator along the $z$-dimension, and becomes
+\begin{equation}
+g_{2D} = g\sqrt{\frac{m\omega_\perp}{2\pi\hbar}}.
+\end{equation}
+
+To generate vortices in the condensate angular momentum must be added to the system. This is achieved numerically by assuming that we are in the co-rotating frame with the condensate, and accounted for by addition of an angular momentum operator sclaed by rotation frequency, $\Omega L$ to the Hamiltonian. The time dependent nature of the system can be analysed using the form
+
+\begin{equation}\label{eqn:gpe}
+	i\hbar\frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \left[ H_{\text{GP}}  -  \Omega_z L_z \right] \Psi(\mathbf{r},t),
+\end{equation}
+where $\Omega_z$ is the angular frequency about the $z$-axis and $L_z = xp_y - yp_x$ is the angular momentum operator. If the angular rotation frequency approaches the condensate trapping frequency, $\Omega \approx \omega_\perp$ the condensate gains a large triangular lattice of vortices. Assuming an upper limit frequency of $\Omega = 0.995\omega_\perp$ allows the system to have a very large vortex lattice, and still be described capably by mean-field theory. Further increases in the rotation frequency would allow the condensate to enter into a strongly correlated regime, and no longer be described using Gross--Pitaveskii theory.
+
+As we are interested in lattice ordering effects, the assumption that the trapping frequency along the $z$-axis, $\omega_z$, is be much larger than the one along the transverse axis, $\omega_\perp$,  allowing the condensate to enter a pancake-shaped geometry is valid~\cite{BEC:Fetter_revmodphys_2009}. Neglecting the $z$ dimension ($\textbf{r}\equiv [x,y]$) simplifies the analysis of the system and resulting dynamics. For this work eq.~\eqref{eqn:gpe} will be numerically solved, using the pseudospectral Fourier split operator method making use of GPU computing\cite{NUMERICS}. For realistic experimental parameters I assumed  $N=4.9\times 10^5$ atoms of $^{87}$Rb, with an s-wave scattering length of $a_s=4.76\times10^{-9}$ m~\cite{BEC:Roberts_prl_1998}.
+
+The numerically evaluated ground-state for the given set of parameters is shown in Fig.~\ref{fig:vlatt_gnd}, and it can be characterised by the filling factor (or filling fraction) $\nu=N/N_v$, i.e.~the ratio of atoms to vortices~\cite{BEC:Fetter_revmodphys_2009}. Values of $10 \leq \nu \leq 1000$ enter the so-called ``mean-field quantum Hall'' regime, with Gross-Pitaevskii theory working well. For values $\nu \leq 10$ the system is said to be strongly correlated. For the chosen parameters, the number of vortices within the visible density region is approximately 600, giving a filling factor of $\nu \approx 800 $. This places the system within the mean-field quantum Hall regime, and therefore a description using Gross--Pitaevskii theory is adequate~\cite{Vtx:Schweikhard_prl_2004}
+
+\begin{figure}[tb]
+    \includegraphics[width=0.5\textwidth, angle=0, trim=0 0 0 0]{fig1}
+    \caption{(a) Vortex lattice ground-state in a harmonic trap with $\omega_\perp=2\pi$ s$^{-1}$ and rotating at $\Omega=0.995\omega_\perp$. This plot shows a condensate with a diameter of approximately $580~\mu\textrm{m}$; (b) Zoom in of vortex lattice at central density; (c) Optical lattice potential with a periodicity matching that of the vortex lattice.}
+    \label{fig:vlatt_gnd}
+\end{figure}
+
+Given the large number of vortices in the condesate density, as well as the lowered density resulting from large centrifugal forces, the vortex cores become large and form a highly periodic triangular lattice. The non-orthogonal lattice vectors are given in $\mathbf{r}$-space by $\mathbf{a}_1 = a_v\{1,0\}$ and $\mathbf{a}_2 = a_v\{-1/2, \sqrt{3}/2\}$, where $a_v$ is the distance between vortex cores. The lattice constant is truly only constant in areas of near uniform density. Thus, due to the inhomogeneous wavefunction density, the vortices near the edges are separated by a much greater distance than those at the centre. For my analysis I have chosen to ignore all vortices near the condensate edge. The momentum space ($\mathbf{k}$-space) lattice vectors reciprocal to the given $\mathbf{r}$-space vectors are $\mathbf{b}_1 = 4\pi/(\sqrt{3}a_v)\{\sqrt{3}/2,1/2\}$ and $\mathbf{b}_2 = (4\pi/(\sqrt{3}a_v))\{0,1\}$.
+
 %######################################################%#################################################################################%############################################################################################################
 %               PAPER to be modified
 %######################################################%#################################################################################%############################################################################################################
-We consider a single component Bose--Einstein condensate in a harmonic trap, which in the mean-field limit can be described by the standard Gross--Pitaevskii Hamiltonian
-\begin{equation}\label{eqn:gpe_h0}
-	H_\text{GP} = -\frac{\hbar^2}{2m}\nabla^2 + \frac{1}{2}m\omega^2\mathbf{r}^2 + g\vert\Psi(\mathbf{r},t)\vert^2.
-\end{equation}
-Here $\omega$ is the trapping frequency, $g$ describes the strength of the two-particle interaction, and $m$ is the atomic mass. Imposing an external rotation around the $z$-axis and going into the co-rotating frame leads to a Gross--Pitaevskii equation of the form
-\begin{equation}\label{eqn:gpe}
-	i\hbar\frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \left[ H_\text{GP}  -  \Omega_z L_z\right] \Psi(\mathbf{r},t),
-\end{equation}
-where $\Omega_z$ is the rotation frequency around the $z$-axis and $L_z = xp_y - yp_x$ is the angular momentum operator. For a rotational frequency close to the transverse trapping frequency, $\omega_{\perp}$, the condensate is known to respond by forming a triangular lattice of vortex lines in the $x$\nobreakdash-$y$~plane~\cite{Vtx:AboShaeer_sci_2001}. Since we are only interested in the effects stemming from the lattice ordering, we will choose the trapping frequency along the $z$-axis, $\omega_z$, to be much larger than the one along the transverse axis, $\omega_\perp$, so that the condensate assumes a pancake-shaped geometry~\cite{BEC:Fetter_revmodphys_2009}. This allows us to simplify our analysis by neglecting the $z$ dimension ($\textbf{r}\equiv [x,y]$), and treat the condensate as a two-dimensional system.
 
-In the following we will solve eq.~\eqref{eqn:gpe_h0} numerically, using a GPU implemented Fourier split operator method \cite{NUMERICS}.
-All simulations will use $N=4.9\times 10^5$ atoms of $^{87}$Rb, which have an  s-wave scattering length of $a_s=4.76\times10^{-9}$ m~\cite{BEC:Roberts_prl_1998}. The trapping frequency will be fixed at $\omega_{\perp}=2\pi$ s$^{-1}$, the rotation frequency at $\Omega=0.995\omega_\perp$, and the effective two-dimensional interaction strength is given by
-	\begin{equation}
-		g_\text{2d} = \frac{4\pi\hbar^2 a_s N}{m}\sqrt{\frac{m\omega_z}{2\pi\hbar}}.
-	\end{equation}
-The numerically calculated ground-state for the above set of parameters is shown in Fig.~\ref{fig:vlatt_gnd} and it can be characterised by the filling factor (or filling fraction) $\nu=N/N_v$, i.e.~the ratio of atoms to vortices~\cite{BEC:Fetter_revmodphys_2009}. For the chosen parameters, the number of vortices within the visible density region is approximately 600, giving a filling factor of $\nu \approx 800 $. This places the system within the mean-field quantum Hall regime, and therefore a description using Gross--Pitaevskii theory is adequate~\cite{Vtx:Schweikhard_prl_2004}.
-		\begin{figure}[tb]
-			\includegraphics[width=0.5\textwidth, angle=0, trim=0 0 0 0]{fig1}
-			\caption{(a) Vortex lattice ground-state in a harmonic trap with $\omega_\perp=2\pi$ s$^{-1}$ and rotating at $\Omega=0.995\omega_\perp$. This plot shows a condensate with a diameter of approximately $580~\mu\textrm{m}$; (b) Zoom in of vortex lattice at central density; (c) Optical lattice potential with a periodicity matching that of the vortex lattice.}
-			\label{fig:vlatt_gnd}
-		\end{figure}
-The vortex lattice is highly periodic and the triangular lattice vectors in $\mathbf{r}$-space are given by $\mathbf{a}_1 = a_v\{1,0\}$ and $\mathbf{a}_2 = a_v\{-1/2, \sqrt{3}/2\}$, where $a_v$ is the distance between vortex cores. For our analysis we chose to ignore vortices close to the condensate edge, as the distortions in the vortex lattice mean the system can no longer be modelled as a homogeneous arrangement of vortices. The reciprocal ($\mathbf{k}$-space) lattice vectors corresponding to the given $\mathbf{r}$-space vectors are $\mathbf{b}_1 = 4\pi/(\sqrt{3}a_v)\{\sqrt{3}/2,1/2\}$ and $\mathbf{b}_2 = (4\pi/(\sqrt{3}a_v))\{0,1\}$.
+
+
+
+%######################################################%#################################################################################%############################################################################################################
 
 To create a perturbation the condensate is {\it kicked} by switching on an additional optical potential for a period of time that is much shorter than the rotation period of the Abrikosov lattice ($\tau_{\text{kick}}=10^{-5}$~s). The vortex lattice is therefore effectively stationary during the kick. In order to create effects based on periodicity, we chose the optical potential to have the form of a standing lattice, which has the same geometry as the Abrikosov lattice, however not necessarily the same orientation (see Fig.~\ref{fig:vlatt_gnd}(c)). To construct such a lattice potential, $V_{\text{opt}}$, we sum counter-propagating laser beams to get
 	\begin{equation}
-		V_\text{opt} = V_0\displaystyle\sum_{j}\cos^2 \left[ \textbf{k}_{j}\cdot\textbf{r} \right],
+		V_{\text{opt}} = V_0\displaystyle\sum_{j}\cos^2 \left[ \textbf{k}_{j}\cdot\textbf{r} \right],
 	\end{equation}
 	where $V_0$ is the amplitude of the optical lattice potential, and $j=\lbrace 0,1,2,\ldots \rbrace$ is the index of each respective laser with a differing $\mathbf{k}$-space wave-vector. The triangular structure of the vortex lattice can then be matched by choosing wave-vectors corresponding to the optical potential that follow the vortex lattice vectors $\mathbf{b}_{1,2}$ and adding a third wave-vector with $\mathbf{k}_3 = 4\pi/(\sqrt{3}a_o)\{\sqrt{3}/2,-1/2\}$. Note that these wave-vectors have a lattice constant $a_o$, which is based on the optical intensity in order to compare with the vortex lattice later.
  However, as the inter-vortex separation in atomic Bose--Einstein condensates is large, one needs to employ optical lattices with wavelengths on the order of tens of microns \cite{BEC:Fallani_optexp_2005,BEC:Williams_optexp_2008}.
@@ -48,7 +66,7 @@ $
 $
 and obtain from the kinetic energy term in the Gross--Pitaevskii energy functional
 	\begin{equation}
-		E_\text{kqp} = \int d\mathbf{r} \left( \frac{\hbar^2}{2m}| \nabla\sqrt{\rho(\mathbf{r},t)} |^2  + \frac{m}{2}|\sqrt{\rho(\mathbf{r},t)}\mathbf{v}(\mathbf{r},t) |^2\right).
+		E_{\text{kqp}} = \int d\mathbf{r} \left( \frac{\hbar^2}{2m}| \nabla\sqrt{\rho(\mathbf{r},t)} |^2  + \frac{m}{2}|\sqrt{\rho(\mathbf{r},t)}\mathbf{v}(\mathbf{r},t) |^2\right).
 	\end{equation}
 The first term in this expression can be interpreted as the quantum pressure term, and
 the second describes the kinetic energy. We denote the density weighted velocity field as $\mathbf{u}(\mathbf{r},t) = \sqrt{\rho(\mathbf{r},t)}\mathbf{v}(\mathbf{r},t)$, and further decompose it into compressible, $\mathbf{u}^c(\mathbf{r},t)$, and incompressible, $\mathbf{u}^i(\mathbf{r},t)$ terms
@@ -70,7 +88,7 @@ defined by $\nabla \times \mathbf{u}^c(\mathbf{r},t) = 0$, and $\nabla \cdot \ma
 
     To understand the effect kicking has on a condensate carrying a vortex lattice, we will first briefly examine the situation where the vortex lattice is absent, i.e.~where there is no external rotation. In order to compare this situation with a rapidly rotating condensate, we adjust the trapping frequency in this section such that the background densities match.
 
-    For a stationary (non-kicked) condensate the kinetic energy spectrum is constant during time-evolution and a kick leads to the appearance of new, time varying components. To observe this we numerically evolve the system by setting $V(\mathbf{r},t) = V_\text{ext}(\mathbf{r}) + V_\text{opt}(\mathbf{r},t)$, where the time dependent optical potential is only active for $\tau=10^{-5}$ s of the simulation time, and examine the compressible kinetic energy spectrum following the kick (see Fig.~\ref{fig:ekc_eki_novtx}). Unsurprisingly, the spectrum is dominated by a peak corresponding to the wave-vector associated with the optical potential at $k=4\pi/(\sqrt{3}a_o)$, and several smaller ones corresponding to its higher harmonics and higher harmonics of next nearest neighbour components of the lattice. As no rotation is created by the imparted phonon modes, the incompressible energy is negligible and we will therefore restrict our analysis to the compressible part of the spectrum.
+    For a stationary (non-kicked) condensate the kinetic energy spectrum is constant during time-evolution and a kick leads to the appearance of new, time varying components. To observe this we numerically evolve the system by setting $V(\mathbf{r},t) = V_{\text{ext}}(\mathbf{r}) + V_{\text{opt}}(\mathbf{r},t)$, where the time dependent optical potential is only active for $\tau=10^{-5}$ s of the simulation time, and examine the compressible kinetic energy spectrum following the kick (see Fig.~\ref{fig:ekc_eki_novtx}). Unsurprisingly, the spectrum is dominated by a peak corresponding to the wave-vector associated with the optical potential at $k=4\pi/(\sqrt{3}a_o)$, and several smaller ones corresponding to its higher harmonics and higher harmonics of next nearest neighbour components of the lattice. As no rotation is created by the imparted phonon modes, the incompressible energy is negligible and we will therefore restrict our analysis to the compressible part of the spectrum.
 
     		\begin{figure}[tb]
     			\includegraphics[width=0.48\textwidth]{fig2}
@@ -118,7 +136,7 @@ defined by $\nabla \times \mathbf{u}^c(\mathbf{r},t) = 0$, and $\nabla \cdot \ma
     		\label{eq:InterferenceVectors}
     	\end{equation}
     	where
-    	$\mathbf{g}_{ll'}=\mathbf{g}_{l}^\text{V}-\mathbf{g}_{l'}^\text{P}$, and
+    	$\mathbf{g}_{ll'}=\mathbf{g}_{l}^{\text{V}}-\mathbf{g}_{l'}^{\text{P}}$, and
     	$\lambda_0 = 4\pi/\sqrt{3}$ for our commensurate triangular lattices.
     One can see from Fig.~\ref{fig:dtheta20_ev} that a pattern matching the longest wavelength, $\lambda_M= \max[\lambda_{ll'}] \approx 2.9 a$, appears around $t=24$~ms and is clearly the most visible one. While patterns with shorter wavelength exist, they are harder to discern in our system and we therefore concentrate on the lowest wave-number in the following.
 
