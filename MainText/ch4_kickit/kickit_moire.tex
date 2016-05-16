@@ -6,8 +6,6 @@ Another such model, building upon the kicked rotor, is the kicked harmonic oscil
 Here I propose such a system, given a rapidly Bose-Einstein condensate featuring a well ordered vortex lattice. The goal is to generate chaotic motion of the vortices in the condensate through kicking with an optical lattice that with a period given by the rotation and translational symmetry of the vortex lattice. Since we know the vortex lattice is an Abrikosov lattice with 6-fold symmetry, we can say that given a rotation frequency of $\Omega$, the lattice will return to the same orientation after a rotation of $\Omega/6$. Thus, we can kick the system at this interval with a stationary optical lattice potential, without the need to rotate with the system, making this more experimentally realistic.
 
 
-
-
 For the purpose of this work the standard single component Bose--Einstein condensate in a radially symmetric trap of frequency $\omega_\perp$ was assumed. By tightly confining the condensate along the $z$-dimension, with trapping frequency $\omega_z$, such that $\omega_z >> \omega_\perp$, the condensate attains a pancake-shaped geometry. Since the energy required to excite any higher modes along $z$ is $\hbar\omega_z$, we can assume all excitations are planar along the radial coordinate $x-y$ axes. Modelling of this system is performed in the  mean-field limit, given by the Gross--Pitaevskii equation, with Hamiltonian
 
 \begin{equation}\label{eqn:gpe_h0}
@@ -41,6 +39,12 @@ The numerically evaluated ground-state for the given set of parameters is shown 
 
 Given the large number of vortices in the condesate density, as well as the lowered density resulting from large centrifugal forces, the vortex cores become large and form a highly periodic triangular lattice. The non-orthogonal lattice vectors are given in $\mathbf{r}$-space by $\mathbf{a}_1 = a_v\{1,0\}$ and $\mathbf{a}_2 = a_v\{-1/2, \sqrt{3}/2\}$, where $a_v$ is the distance between vortex cores. The lattice constant is truly only constant in areas of near uniform density. Thus, due to the inhomogeneous wavefunction density, the vortices near the edges are separated by a much greater distance than those at the centre. For my analysis I have chosen to ignore all vortices near the condensate edge. The momentum space ($\mathbf{k}$-space) lattice vectors reciprocal to the given $\mathbf{r}$-space vectors are $\mathbf{b}_1 = 4\pi/(\sqrt{3}a_v)\{\sqrt{3}/2,1/2\}$ and $\mathbf{b}_2 = (4\pi/(\sqrt{3}a_v))\{0,1\}$.
 
+Using an optical potential we can create a perturbation in the condensate density by switching it on for a brief period of time. Such a {\it kick} must occur only for a time much shorter than the rotation period of the vortex lattice, $\Omega = 0.995\omega_\perp$. For the work carried out herein, the time of the kick was given by $\tau_{\text{kick}}=10^{-5}$~s. This ensured that the vortex lattice was essentially stationary relative during the kick. To examine the effect that periodicity plays on the system, the optical potential was chosen to match the structure of the Abrikosov vortex lattice, with the angle of relative rotation $\theta_\Delta$ given as a free parameter. The optical potential was modeled as the sum of counter-propagating laser beams, as
+\begin{equation}
+    V_{\text{opt}} = V_0\displaystyle\sum_{j}\cos^2 \left[ \textbf{k}_{j}\cdot\textbf{r} \right],
+\end{equation}
+where $V_0$ is the optical lattice potential amplitude, and $j=\lbrace 0,1,2,\ldots \rbrace$ is the index of each respective laser with a differing $\mathbf{k}$-space wave-vector. By careful choice of the wave-vectors $\textbf{k}_{j}$ we match the density modulation given by the vortices to the optical potential. This is achieved using the reciprocal lattice vectors defined by the vortex lattice, $\mathbf{b}_{1,2}$, and an additional third wave-vector, $\mathbf{k}_3 = 4\pi/(\sqrt{3}a_o)\{\sqrt{3}/2,-1/2\}$. The lattice constant of the resulting potential is based on the optical intensity to match that of the vortex lattice.
+
 %######################################################%#################################################################################%############################################################################################################
 %               PAPER to be modified
 %######################################################%#################################################################################%############################################################################################################
@@ -48,13 +52,12 @@ Given the large number of vortices in the condesate density, as well as the lowe
 
 
 
+
+
+
 %######################################################%#################################################################################%############################################################################################################
 
-To create a perturbation the condensate is {\it kicked} by switching on an additional optical potential for a period of time that is much shorter than the rotation period of the Abrikosov lattice ($\tau_{\text{kick}}=10^{-5}$~s). The vortex lattice is therefore effectively stationary during the kick. In order to create effects based on periodicity, we chose the optical potential to have the form of a standing lattice, which has the same geometry as the Abrikosov lattice, however not necessarily the same orientation (see Fig.~\ref{fig:vlatt_gnd}(c)). To construct such a lattice potential, $V_{\text{opt}}$, we sum counter-propagating laser beams to get
-	\begin{equation}
-		V_{\text{opt}} = V_0\displaystyle\sum_{j}\cos^2 \left[ \textbf{k}_{j}\cdot\textbf{r} \right],
-	\end{equation}
-	where $V_0$ is the amplitude of the optical lattice potential, and $j=\lbrace 0,1,2,\ldots \rbrace$ is the index of each respective laser with a differing $\mathbf{k}$-space wave-vector. The triangular structure of the vortex lattice can then be matched by choosing wave-vectors corresponding to the optical potential that follow the vortex lattice vectors $\mathbf{b}_{1,2}$ and adding a third wave-vector with $\mathbf{k}_3 = 4\pi/(\sqrt{3}a_o)\{\sqrt{3}/2,-1/2\}$. Note that these wave-vectors have a lattice constant $a_o$, which is based on the optical intensity in order to compare with the vortex lattice later.
+
  However, as the inter-vortex separation in atomic Bose--Einstein condensates is large, one needs to employ optical lattices with wavelengths on the order of tens of microns \cite{BEC:Fallani_optexp_2005,BEC:Williams_optexp_2008}.
 For short kicks, and amplitudes on the order of $10^{-2} \mu $, where $\mu$ is the chemical potential of the system, the effect of the kick is limited to a phase imprint on the condensates wavefunction \cite{Vtx:Dobrek_pra_1999}, which subsequently leads to the development of a flow originating from the position of each maximum of the optical potential. In the following we will show that this in turn leads to well-defined phonon interferences, which, when overlaid on the periodically arranged vortex cores,  gives rise to the appearance of moir\'e super-lattice structures \cite{mor:murata_acsn_2010} in the condensate density. While in many solid state systems, for example graphene on hexagonal boron nitride~\cite{nphys2272}, the moir\'e structures are static super-structures, in our case they are dynamical and appear at well defined intervals.
 

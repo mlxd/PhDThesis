@@ -7,6 +7,7 @@
 ## Chapter I: Introduction and literature review
 
 - Thesis statement
+    - What and why?
 - Cold atoms and BEC
 - Superfluidity and quantum vortices
 - Thesis structure and outline
