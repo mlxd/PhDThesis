@@ -1,6 +1,6 @@
 CC	=	pdflatex
 
-build:
+build: Final_Thesis.tex
 	${CC} Final_Thesis
 
 clean:
