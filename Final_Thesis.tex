@@ -130,36 +130,51 @@
 
 \numberedchapter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Literature review}
-\input{MainText/ch1_litrev/litrev_intro} % Import your chapters here
-\input{MainText/ch1_litrev/litrev_coldatoms} % Import your chapters here
-\input{MainText/ch1_litrev/litrev_superfluids} % Import your chapters here
-%\input{MainText/ch1_litrev/litrev_numerics} % Import your chapters here
-%\input{MainText/ch1_litrev/litrev_chaos} % Import your chapters here
-%\input{MainText/ch1_litrev/litrev_prelim} % Import your chapters here
+\newif\iflitrev
+\iflitrev
+    \chapter{Literature review}
+        \input{MainText/ch1_litrev/litrev_intro} % Import your chapters here
+        \input{MainText/ch1_litrev/litrev_coldatoms} % Import your chapters here
+        \input{MainText/ch1_litrev/litrev_superfluids} % Import your chapters here
+        %\input{MainText/ch1_litrev/litrev_numerics} % Import your chapters here
+        %\input{MainText/ch1_litrev/litrev_chaos} % Import your chapters here
+        %\input{MainText/ch1_litrev/litrev_prelim} % Import your chapters here
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Numerics}
-\input{MainText/ch2_numerics/num_splitop}
-\input{MainText/ch2_numerics/num_gpgpu}
-\input{MainText/ch2_numerics/num_gpue}
-\input{MainText/ch2_numerics/num_bogo}
-%\input{MainText/ch2_numerics/num_errors}
-
-\input{MainText/ch2_numerics/Arxiv_Resub}
+\newif\ifnumerics
+\ifnumerics
+    \chapter{Numerics}
+        \input{MainText/ch2_numerics/num_splitop}
+        \input{MainText/ch2_numerics/num_gpgpu}
+        \input{MainText/ch2_numerics/num_gpue}
+        \input{MainText/ch2_numerics/num_bogo}
+    %\input{MainText/ch2_numerics/num_errors}
+    %\input{MainText/ch2_numerics/Arxiv_Resub}
+\fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Vortex dynamics}
-\input{MainText/ch3_vort/vort_lattice}
+\newif\ifvtxdyn
+\ifvtxdyn
+    \chapter{Vortex dynamics}
+        \input{MainText/ch3_vort/vort_lattice}
+    \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Moir\'e superlattice structures}
-\input{MainText/ch4_kickit/kickit_moire}
-
+\newif\ifmoire
+\moiretrue
+\ifmoire
+    \chapter{Moir\'e superlattice structures}
+        \input{MainText/ch4_kickit/kickit_moire}
+\fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Defect engineering}
-\input{MainText/ch5_phasegineer/phasegineer_dislocate}
+\newif\ifdefect
+\ifdefect
+    \chapter{Defect engineering}
+        \input{MainText/ch5_phasegineer/phasegineer_dislocate}
+\fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Unnumbered chapters (for example conclusion) - Comment if unnecessary
+\newif\ifconc
 \unnumberedchapter{Conclusion} % Title of the unnumbered chapter
 \input{MainText/conclusion}% Conclusion (unnumbered)
 
