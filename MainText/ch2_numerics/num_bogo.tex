@@ -2,22 +2,45 @@
 \label{sec:bogo}
 
 
-Bogo tbc 
-\begin{equation}
-\Psi_0(\mathbf{r},t) = \exp\left(-i\frac{\mu t}{\hbar}\right)[\Psi_0(\mathbf{r}) + u(\mathbf{r})\exp\left(-i\omega t\right) + v^{*}(\mathbf{r})\exp\left(i\omega t\right) ]
+Bogo tbc
+\begin{equation}\label{eqn:bogo_psi}
+\Psi_0(\mathbf{r},t) = \exp\left(-i\frac{\mu t}{\hbar}\right)[\phi_0(\mathbf{r}) + u(\mathbf{r})\exp\left(-i\omega t\right) + v^{*}(\mathbf{r})\exp\left(i\omega t\right) ]
 \end{equation}
 
 
 
-\begin{equation}
-H_0 = -\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}) + 2g\vert \Psi_0 \vert^2
+\begin{equation}\label{eqn:bogo_h0}
+H_0 = -\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}) + 2g\vert \phi_0 \vert^2
 \end{equation}
 
+\begin{equation}\label{eqn:bogo_lhs}
+    \partial_t \Psi(\mathbf{r},t) = \exp\left(\frac{-i\mu t}{\hbar}\right)\left[\mu\phi_0 + (\mu+\hbar\omega)u\exp\left(-it\omega\right) + (\mu+\hbar\omega)v^{*}\exp\left(it\omega\right) \right]
+\end{equation}
 
+\begin{align}\label{eqn:bogo_nonlin}
+    g|\Psi|^2\Psi &= g \phi_0^{*}\phi_0\phi_0 \\
+                &= g\exp\left(\frac{-i\mu t}{\hbar}\right)\left(\phi_0^{*} + u^{*}\exp(i\omega t) + v\exp(-i\omega t)\right)\left(\phi_0 + u\exp(-i\omega t) + v^{*}\exp(i\omega t)\right)^2 \\
+                & \approx g\exp\left(\frac{-i\mu t}{\hbar}\right)\left[
+                |\phi_0|^2\left(
+                 \phi_0 + 2(u\exp\left(-i\omega t\right) + v^{*}\exp\left(i\omega t\right) )\right) + \phi_0^2\left( u^{*}\exp\left(i\omega t\right) + v\exp\left(-i\omega t\right)
+                \right)
+                \right]
+\end{align}
+Equating terms gives
+\begin{subequations}\label{eqn:bogo_lhsrhs}
+Bogoliubov-de Gennes equations:
+\begin{align}
+    \mu \phi_0 &= (H_0 - \Omega L + g |\phi_0|^2)\phi_0,\\
+    (\mu +\hbar\omega)u &= (H_0 - \Omega L + 2g|\phi_0|^2)u + g\phi_0^2 v,\\
+    (\mu +\hbar\omega)v^{*} &= (H_0 - \Omega L + 2g|\phi_0|^2)v^{*} + g\phi_0^2 u^{*}
+\end{align}
+\end{subequations}
+
+Concentrating on the excitations, we can form a matrix as
 \begin{equation}
     \begin{pmatrix}
-        H_0 - \mu -\Omega L_z & g\Psi_0^2 \\
-        -g\Psi_0^{*2} & -H_0 + \mu +\Omega L_z
+        H_0 - \mu -\Omega L_z & g\phi_0^2 \\
+        -g\phi_0^{*2} & -H_0 + \mu +\Omega L_z
     \end{pmatrix}
     \begin{pmatrix}
         u \\
@@ -28,4 +51,10 @@ H_0 = -\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}) + 2g\vert \Psi_0 \vert^2
         u \\
         v
     \end{pmatrix}
+\end{equation}
+where the eigenvalues of which can be used to determine the stability of the system. For energy eigenvalues with imaginary components, the system will be dynamically unstable.
+
+\begin{equation}
+
+
 \end{equation}
