@@ -36,6 +36,7 @@ where $\theta_c$ is the unperturbed condensate phase, and $\theta_i$ is the phas
     \label{fig:num_splitop}
 \end{figure}
 
+
 \section{Angular momentum operators using FSO method}
 The Fourier split-operator method described earlier works well in handing cases where the operators live in position or momentum space respectively. However, the angular momentum operators are essentially a combination of both spaces as we deal with each basis respectively. Take, for example, the angular momentum operator along the $z$-axis, given by $L_z = xp_y - yp_x$. To apply $L_z$ we must take not that the $x$ and $y$ components of the wavefunction must be in alternating bases for the evolution. Thus, to apply this operator we must Fourier transform along a single dimension, multiply by the respective operator, take the inverse, and perform this operation along the other dimension.
 
@@ -83,13 +84,17 @@ where I have replaced the Hamiltonian operator with the energy eigenvalue of the
 \end{equation}
 The we have removed the complex term in the operator, which now takes the form of an exponentially decaying operator. When applied to the wavefunction all higher energy terms will decay at a rate faster than lower energy components. This process also causes a loss of probability density, and so the wavefunction must be renormalised after application. Through repeated application of this operator, and a renormalisation afterwards, the quantum system can converge to the groundstate. To begin, however, we must assume an intial guess for the wavefunction, which has some finite overlap with the lowest lying state.
 
+Given that in the presence of large values angular momentum, the condensate wavefunction will accomodate many vortices. To ensure a well ordered lattice, it is insufficient to numerically solve the GPE at the required rotation rate. Assuming an initial Gaussian guess, the large number of vortices will enter the condensate from the edge and compete for lattice sites to form the expected Abrikosov pattern. Thus, to overcome this issue, following the groundstate of the condensate with a ramp of the rotation rate is often necessary. This is essentially adiabatic evolution during imaginary time, and for all required rotation rates of the condensate we get a vortex lattice (for vortex count greater than 2).
 
 
 
+\subsection{Resolution considerations}
+As the Fourier split-operator method does not take into account resolution in strictly position space, but momentum space, care must be taken to chose numerical grids. The reciprocal relationship between position and momentum space is known as \begin{equation}
+    k_{\text{max}} = \frac{2\pi}{x_{\text{min}}},
+\end{equation}
+which follows the uncertainty relation meaning better resolution in one space, implies worse in the other. Thus, to allow for a condensate to be simulated effectively in both spaces, it must fit within the grid on which it is defined. It is easy to estimate a radius for the position space wavefunction, following the Thomas-Fermi limit. It is also rather easy to know that for a non-rotating condensate the wavefunction should occupy the lowest lying mode ($\mathbf{k}=0$), and those close to it, assuming a harmonic trap. Rotating the condensate, however, has the effect of expanding the wavefunction in position space due to centrifugal forces. Additionally, the momentum space wavefunction expands and occupies a larger space. With the addition of vortices to the system, there are now small scale structures to resolve, especially including the resolution of the wavefunction phase. Complex branch-cuts must be resolvable to ensure the correct behaviour of vortices. This leads to a difficult to simulate system, given that we have a growing position space, as well as momentum space, wavefunction, where further resolution of one, reduces resolution of the other.
 
-
-
-
+One such way of ensuring we can accurately resolve the system is to define a sufficient smallest length-scale on one such grid (say position). With this, we can maintain a constant reolsution in position space, whilst furthering momentum space reoslution by increasing the number of smaples of our grid. By ensuring the position grid remains defined with the same lowest increment, it is possible to increase resolution in the reciprocal space. Computationally, this is costly, but is quite effective when using compute accelerators (GPUs). For the purpose of the work carried out herein, unless otherwise specified the simulations were resolved on a grid of $2^{10}\times 2^{10}$ elements.
 
 
 
