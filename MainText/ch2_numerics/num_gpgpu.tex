@@ -19,10 +19,14 @@ compute device, it is essential to break down the problem into easily parallelis
 
 Another typical algorithm following this logic is the Hadamard product (element-wise multiplication) of two vectors, or matices. Although in parallel the number of operations and complexity remains the same, the advantage comes from the lack of interdependence between elements. The multiplications can be carried out asynchronously, allowing all freely available cores to work continuously until every element pair is multiplied.
 
-
 \begin{figure}
     \centering
     \includegraphics[scale=0.5]{./ch2_numerics/CUDA/gputhreads.pdf}
     \caption{GPU threads, blocks, grid breakdown.}
     \label{fig:gpu_threads}
 \end{figure}
+
+Given that GPUs are first and foremost image processing devices, their ability to perform Fourier transforms rapidly should be a well developed strength. It is. Given the large number of available cores, FFTs can be significantly faster on a GPU than performing the same operation on many CPUs \cite{AO:Morgan_ORiordan_pra_2013}. The CUFFT (Cuda FFT) library allows for a seamless way to take advantage of this performance increase using GPUs, with performance gains discussed in the following section.
+
+\section{3D STIRAP using GPU}
+For performance metrics, I will discuss the use of a GPU-enabled Schrodinger equation integrator developed by myself, comparing the results to a multi-core MPI enabled version by T. Morgan and N. Crowley. We solved the Schrodinger equation for a fully three-dimensional potential, demonstrating its accuracy and improved performance compared to standard HPC methods.

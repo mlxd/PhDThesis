@@ -1,5 +1,56 @@
 \section{GPU-enabled parallel Schrodinger simulations}
 \label{sec:3D Stirap parallel Schrodinger simulations}
+For performance metrics, I will discuss the use of a GPU-enabled Schrodinger equation integrator developed by myself, comparing the results to a multi-core MPI enabled version by T. Morgan and N. Crowley. We solved the Schrodinger equation for a fully three-dimensional potential, demonstrating its accuracy and improved performance compared to standard HPC methods.
+
+The problem we examined was that of a realistic system for coherent atomic control. The controllable movement of atoms between adjacent trapping potentials via adiabatic techniques, collectively known as \textit{spatial adiabatic passage} (SAP), has recently become a popular topic of investigation [cite review]. The STIRAP process [cite] is a widely studied and used optical technique for controlled state transfer, with an analogous effect in atom-optical systems. Herein I describe the motivation, physical system, and the numerical implementation for solution of this problem.
+
+
+\subsection{Spatial adiabatic passage}
+The goal of this project was to develop a system for controlled movement of atoms with high fidelity amongst adjacent trapping potentials. Tunneling between traps is an effective means of allowing atomic population to transfer between adjacent traps. Assuming two intiailly well isolated harmonic traps, with an atom localised in one, a reduction the distance between the traps increases the coupling between them. As such, with an increase in coupling strength, the atom will tunnel from the localised trap, to the adjacent one. However, this processes is difficult to control, as Rabi oscillations introduce an explicit time-dependence and cause the atom to continuously move between both traps. This will require precise timing and control to ensure full transfer of population. Thus, a double-well potential is a difficult means to realise coherent control.
+
+Another more robust method, using three adjacent harmonic traps, improves upon the double-well system. Following the same principles describing the STIRAP process in optical systems, we model the adjacent trapping potentials as coupled by their nearest neighbour solely. A model of this sytem for potentials $L,M,R$ on resonance, is given by the Hamiltonian
+\begin{equation}\label{eqn:sap_ham}
+    H = -\frac{\hbar}{2}
+    \begin{pmatrix}
+        0 & J_{LM} & 0 \\
+        J_{LM} & 0 & J_{MR} \\
+        0 & J_{MR} & 0
+    \end{pmatrix},
+\end{equation}
+where $J_{LM},~J_{MR}$ describe the coupling between left-middle and middle-right potentials respectively. For the $\lambda=0$ eigenstate of this Hamiltionian, known as the \texit{dark state}, the dependence on the middle potential vanishes, with the state given by
+\begin{equation}
+ | 0 \rangle = \cos\ \Theta| L \rangle - \sin \Theta | R \rangle
+\end{equation}
+where $\Theta=J_{MR}/J_{LM}$ is the mixing angle. From the adiabatic theorem of quantum mechanics, it is known that if an eigenstate has its Hamiltonian perturbed slowly enough, then we can follow its evolution ensuring that it always remains in an eigenstate of the Hamiltonian. Thus, by preparing the system in state $| L \rangle$, and varying $\Theta$ slowly, we can shift the population from the leftmost harmonic potential to the rightmost, without populating the center.
+
+It is instructive to note the counter-intuitive change of couplings between these potentials. For an atom initially located in the left potential, we increase $J_{MR}$ for the empty middle and right traps, before reducing again and increasing $J_{LM}$ for the left and middle. This is in direct contrast with a direct tunneling scheme, for which we directly increase the coupling between the populated left and empty middle, followed by middle and right. However, the direct scheme can be seen as two distinct combinations of the double-well case, and so carries the same time-dependent Rabi-oscillations. Comparing both methods will be instructive in discussing the advantages of the SAP routine over direct tunelling. I will first discuss the physical model of this system.
+
+\subsection{Physical model}
+To realise a system that effectively follows Eq. \ref{eqn:sap_ham}, one can make use of magnetic waveguides as the trapping potentials. By assuming each waveguide as given by the minima of three adjacent magnetic potentials, it is possible to control and adjust the currents to ensure the fields are always on resonance. An effective means of creating and controlling such fields are
+\textit{atom chips}. These devices consist of microfabricated current-carrying wires, and allow for precise control magnetic field gradients both spatially, and temporally (via current control), and have been used successfully in trapping atoms close to the device surface [citations].
+
+To realise the suggested Hamiltonian using
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\iffalse
+
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%
 
 \subsection{Introduction}
 \label{sec:Introduction}
@@ -169,7 +220,7 @@ It is exactly these Rabi oscillations in the intuitive process that lead to the 
 
 From Fig.~\ref{fig:Current} it is also clear that, while there are large oscillations in the fidelity of the intuitive process, there is an upward trend in the fidelity of the process towards unity as the current in the middle wire increases. However, at these higher values of the middle wire current, the waveguides are no longer resonant at all times and one would expect that neither the CTAP nor the intuitive processes would lead to high fidelity transfer. Nevertheless, the simulations show that this is not the case.
 
-We conjecture that in the regime of larger currents in the middle wire the population transfer is due to  Stark-shift-chirped rapid-adiabatic-passage (SCRAP) \cite{Bergmann:05}. In this process a time-depend shift of the energy of the intermediate state in the traditional three-level arrangement allows for high-fidelity population transfer  between two states, independent of being in the intuitive or counter-intuitive situation. A translation of this to the spatial realm is straightforward: the approach and retreat of the outer wires from the middle one shift the energy of the central waveguide in a spatially dependent manner. This effect is the topic of a future investigation.
+We conjecture that in the regime of larger currents in the middle wire the population transfer is due to Stark-shift-chirped rapid-adiabatic-passage (SCRAP) \cite{Bergmann:05}. In this process a time-depend shift of the energy of the intermediate state in the traditional three-level arrangement allows for high-fidelity population transfer  between two states, independent of being in the intuitive or counter-intuitive situation. A translation of this to the spatial realm is straightforward: the approach and retreat of the outer wires from the middle one shift the energy of the central waveguide in a spatially dependent manner. This effect is the topic of a future investigation.
 \subsection{Conclusions}
 \label{sec:Conclusions}
 
@@ -181,3 +232,5 @@ Finally, we have also seen a first indication that waveguide systems might be na
 
 \subsection{Acknowledgements}
 The authors would like to thank Peter Kr\"uger and Thomas Fernholz for valuable discussions and ICHEC for use of their computing resources for the MPI-enabled code. This work was supported by Science Foundation Ireland under project number 10/IN.1/I2979.
+
+\fi
