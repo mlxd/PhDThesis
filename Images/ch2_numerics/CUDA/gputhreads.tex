@@ -3,23 +3,23 @@
 \usepackage{ifthen}
 \begin{document}
 \newcommand{\q}{0}
-\newcommand{\w}{0}
+\newcommand{\w}{3}
 
 \begin{tikzpicture}
     %\draw[step=1cm, gray, thin,dashed] (0,0) grid (16,16);
-    \draw[step=1cm, blue, thick] (0,0) grid (4,4);
+    \draw[step=1cm, blue, thick] (0,12) grid (4,16);
     \draw[step=4cm, gray, thick,dashdotted] (0,0) grid (16,16);
     \draw[step=4cm, green,  thick, loosely dashed] (0,0) grid (4,4);
     \draw[step=16cm, red, very thick] (0,0) grid (16,16);
 
-	
-    \foreach \x in {0,...,3}
+
+    \foreach \x in {3,...,0}
     {
-    \foreach \y in {0,...,3}
+    \foreach \y in {3,...,0}
       {
-        \node (\x\y) at (\x+0.5, \y+0.5) {$T_{\pgfmathparse{int(abs(\x - \q))}\pgfmathresult,\pgfmathparse{int(abs(\y - \w))}\pgfmathresult}$};
-          
-         \ifthenelse{\NOT 0 = \x \OR \NOT 0 = \y}{\node (b\x\y) at ({(4*\x)+2}, {(4*abs(\y)+2)}) { \huge $\mathbf{B}_{\pgfmathparse{int(abs(\x - \q))}\pgfmathresult,\pgfmathparse{int(abs(\y - \w ))}\pgfmathresult}$};}{} 
+        \node (\x\y) at (\x+0.5, 15-\y+0.5) {$T_{\pgfmathparse{int(abs(\x - \q))}\pgfmathresult,\pgfmathparse{int(abs(3-\y - \w))}\pgfmathresult}$};
+
+         \ifthenelse{\NOT 0 = \x \OR \NOT 3 = \y}{\node (b\x\y) at ({(4*\x)+2}, {(4*abs(\y)+2)}) { \huge $\mathbf{B}_{\pgfmathparse{int(abs(\x - \q))}\pgfmathresult,\pgfmathparse{int(abs(\y - \w ))}\pgfmathresult}$};}{}
 
       }
     }
@@ -28,5 +28,5 @@
 
 
 \end{tikzpicture}
-    
+
 \end{document}

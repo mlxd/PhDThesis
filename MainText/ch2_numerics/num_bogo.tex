@@ -53,3 +53,27 @@ Concentrating on the excitations, we can form a matrix as
     \end{pmatrix}
 \end{equation}
 where the eigenvalues of which can be used to determine the stability of the system. For energy eigenvalues with imaginary components, the system will be dynamically unstable.
+
+\subsection{Numerical implementation}
+To solve the Bogoliubov equations numerically requires searching for the solution to a generalised non-Hermitian eigenvalue problem. Thus, the system must be formally specified in matrix form. The derivative operators of $H_0$ are specified using second-order central differences, represented by
+\begin{equation}
+    \partial_i = \frac{U_{i+1,j} + U_{i-1,j} - 2U_{i,j}}{h^2}
+\end{equation}
+where $i$ is the respective dimension for the derivative, and $h$ is the step size. In matrix form, this becomes
+\begin{equation}
+    B =
+    \begin{bmatrix}
+            -2      &   1    &    0   &  \cdots   &  \cdots   &  \cdots   & 0 \\
+            1       &   -2   &    1   &           &           &     &  \vdots \\
+            0       &    1   &   -2   & \ddots    &           &     &  \vdots \\
+            \vdots  &        & \ddots & \ddots    & {\ddots}  &     &  \vdots \\
+            \vdots  &        &        & \ddots    &    -2     &  1  &       0 \\
+            \vdots  &        &        &           &     1     & -2  &       1 \\
+            0       & \cdots & \cdots & \cdots    &     0     &  1  &      -2
+        \end{bmatrix}.
+\end{equation}
+where the number of rows and columns equal the number of elements along the dimension to be differentiated. To construct a multidimensional version, we take a Kronecker sum of the matrix $B$ along each respective dimension of the system. This can be represented as
+\begin{equation}
+    \mathbf{B}_{i,j} = \mathbf{B}_i \oplus \mathbf{B}_j = \mathbf{B}_i \otimes \mathbf{I}_j + \mathbf{I}_i \otimes \mathbf{B}_j
+\end{equation}
+were $i,j$ are the indices of the respective dimensions, and $\mathbf{I}$ is the identity equal in size to dimensions $i,j$. With this operation, we can obtain a block diagonal matrix of the form

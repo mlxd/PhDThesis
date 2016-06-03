@@ -131,6 +131,7 @@
 \numberedchapter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\iflitrev
+\litrevtrue
 \iflitrev
     \chapter{Literature review}
         \input{MainText/ch1_litrev/litrev_intro} % Import your chapters here
@@ -155,19 +156,21 @@
 \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifvtxdyn
+\vtxdyntrue
 \ifvtxdyn
-    \chapter{Vortex dynamics}
+    \chapter{Bose-Eisntein condensate dynamics}
         \input{MainText/ch3_vort/vort_lattice}
     \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifmoire
-%\moiretrue
+\moiretrue
 \ifmoire
     \chapter{Moir\'e superlattice structures}
         \input{MainText/ch4_kickit/kickit_moire}
 \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifdefect
+\defecttrue
 \ifdefect
     \chapter{Defect engineering}
         \input{MainText/ch5_phasegineer/phasegineer_dislocate}
@@ -176,6 +179,7 @@
 
 % Unnumbered chapters (for example conclusion) - Comment if unnecessary
 \newif\ifconc
+\conctrue
 \unnumberedchapter{Conclusion} % Title of the unnumbered chapter
 \input{MainText/conclusion}% Conclusion (unnumbered)
 

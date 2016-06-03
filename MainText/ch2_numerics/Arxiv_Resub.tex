@@ -17,7 +17,7 @@ Another more robust method, using three adjacent harmonic traps, improves upon t
         0 & J_{MR} & 0
     \end{pmatrix},
 \end{equation}
-where $J_{LM},~J_{MR}$ describe the coupling between left-middle and middle-right potentials respectively. For the $\lambda=0$ eigenstate of this Hamiltionian, known as the \texit{dark state}, the dependence on the middle potential vanishes, with the state given by
+where $J_{LM},~J_{MR}$ describe the coupling between left-middle and middle-right potentials respectively. For the $\lambda=0$ eigenstate of this Hamiltionian, known as the \textit{dark state}, the dependence on the middle potential vanishes, with the state given by
 \begin{equation}
  | 0 \rangle = \cos\ \Theta| L \rangle - \sin \Theta | R \rangle
 \end{equation}
@@ -29,11 +29,82 @@ It is instructive to note the counter-intuitive change of couplings between thes
 To realise a system that effectively follows Eq. \ref{eqn:sap_ham}, one can make use of magnetic waveguides as the trapping potentials. By assuming each waveguide as given by the minima of three adjacent magnetic potentials, it is possible to control and adjust the currents to ensure the fields are always on resonance. An effective means of creating and controlling such fields are
 \textit{atom chips}. These devices consist of microfabricated current-carrying wires, and allow for precise control magnetic field gradients both spatially, and temporally (via current control), and have been used successfully in trapping atoms close to the device surface [citations].
 
-To realise the suggested Hamiltonian using
+To realise the suggested Hamiltonian using these devices
 
 
 
 
+\subsubsection{GPU computing performance}
+
+As fully three-dimensional simulations of the Schrodinger equation are challenging numerically, the use of GPU computing is an effective way to overcome many of the barriers. Whereas traditional computers perform computations using the central processing unit (CPU), GPU computing allows some of the work to be offloaded to the graphics processor. As discussed in Section \ref{gpu section}, one example where they offer large performance gains are fast Fourier transformations (FFTs), with the Fourier split operator method being an ideal candidate for GPU systems \cite{Bauke:11}. The body of work for implementing this algorithm was using C, CUDA and Nvidia's CUFFT libraries for the Fourier transforms, whereas the MPI-enabled code similarly, was implemented using C.
+
+To demonstrate the performance offered by GPU computing we compared it to using FFTW with MPI, a well used parallel programming paradigm and library. The message passing interface (MPI) implementation allows the code to be run across multiple machines, benefiting from the parallelism which may be offered by a supercomputing cluster. Although MPI-enabled FFTW is fast and supports extremely large grid sizes, it requires cluster access of a significant size to be a viable option.
+
+
+Given the limited available memory on the GPU, and the requirement that the system has dyanmics of most importance along $x-z$ plane, the simulation resolution was scaled to allow an effective fit ($256\times 64\times1024$ ($x\times y\times z$)). Of next importance was the timestep of the simulation.  For accurate time evolution a timestep of $\Delta t = 1\times 10^{-6}$ s was found to be adequate. For the GPU simulations, the test system was an Intel Core i7 2600K CPU at stock frequency, 8GB DDR3 memory operating at 1600 MHz, 7200 RPM HDD, Nvidia GeForce GTX 580 with 3GB of onboard memory running at 783 MHz GPU core frequency, 1566 MHz shader processor frequency, and 2010 MHz memory frequency. For all simulations the desktop was running Ubuntu 11.10 64-bit operating system and all calculations were performed in double precision (64-bit floating point) where applicable.
+
+Table \ref{tbl:timing} shows the approximate timings for the completion of runs on GPU and CPU. As one can see, not only does GPU computing offer a 6-fold improvement over a single CPU, it also allows us to achieve a performance level which is comparable to a 64 core MPI enabled CPU calculation. Such performance has previously been restricted to high powered supercomputers. Having such computational power available to a single user on a Desktop computer allows us to obtain a large volume of simulated data on a much shorter timescale rather than through the use of a shared resource CPU-based computer cluster. Additionally, a second GPU card added to the system allowed concurrent runs of the code, which effectively halved the overall time required for a large number of simulations. It is also worth mentioning that moving computations over to the GPU of the system frees up the CPU and a large part of the system memory to be used for other task that would have previously been inhibited by CPU bound computations.
+
+\begin{table}[tb]
+  \begin{center}
+    \begin{tabular}{|c||c|c|c|}
+      \hline
+      Device & Num. Devices & Timing  & Rel. Improvement \\ \hline
+      CPU (MPI) & 8 & $\sim$6 Hr & 1.0$\times$ \\
+      & 16 & $\sim$4 Hr & 1.5$\times$ \\
+      & 32 & $\sim$1.5 Hr & 4.0$\times$ \\
+      & 64 & $\sim$1 Hr & 6.0$\times$ \\ \hline
+      GPU & 1 & $\sim$1 Hr & 6.0$\times$ \\ \hline
+    \end{tabular}
+  \end{center}
+   \caption{The approximate times taken to simulate the propagation of an atom through our atom chip system on both GPU and CPU.}
+   \label{tbl:timing}
+\end{table}
+
+
+\subsection{3D Simulations}
+\label{sec:Results}
+In the following section we will present a set of typical results from the GPU accelerated 3D simulations we have carried out over a large range of experimentally controllable parameters and show that the atom chip allows for the CTAP process to take place. All parameters for our atom chip are the same as in Fig.~\ref{fig:Potentials} unless otherwise stated.
+
+Our simulations start out with a single $^{6}$Li atom which is initially located in the left waveguide. Its transversal wavefunction corresponds to the ground state of the potential in the transversal direction (determined numerically) and longitudinally we assume a Gaussian profile of similar width. We then evolve this initial state in time and due to the longitudinal harmonic oscillator potential centred at the middle of the atom chip ($z=500 \mu$m), the atom starts to propagate along the waveguide.
+
+Initially the wires are far enough away from each other for each waveguide to be approximately given by the current of the wire closest to it and if all currents are identical, the waveguides are in resonance. However, once the wires start approaching each other, the respective magnetic fields add and create waveguide potentials of unequal size (see Figs.~\ref{fig:Potentials} (a) and \ref{fig:slice} (a)). This drives the transversal ground states of the guides out of resonance and the conditions for observing the CTAP process are no longer given.
+
+However, atom chips offer an intriguingly straightforward way to adjust for this, as the current in each wire can be individually (and even time-dependently) controlled. This can be used to compensate for effects stemming from the potentials overlapping and ensure resonance between the waveguides \cite{OSullivan:10}. While one can imagine a numerically optimised algorithm that adjusts the currents in a time-dependent manner based on the position of the centre-of-mass of the atom, here we will show that a much simpler approach, which maintains the simplicity of all currents being constant in time, is already sufficient. We suggest to reduce the current in the middle wire so that in the crucial coupling region, where the magnetic fields from neighbouring waveguides have the strongest influence on each other, the waveguides are approximately resonant.
+
+To demonstrate the effect of this adjustment we show in Fig.~\ref{fig:slice} a transversal cut through the system at the middle of the chip ($z=500 \mu$m) for the case where (a) all three currents are identical ($I=0.1$A) and (b) where the current in the middle wire is reduced ($I_M=0.07$A). One can clearly see that the transversal shape of the waveguides is very similar for the case of the reduced centre current, which indicates that this approach can lead to enhanced resonance between the guides.
+
+In the areas where the guides are further away from each other, however, the reduced current in the middle wire will have the opposite effect and reduce the quality of the resonance. This can clearly be seen from the iso-potential surface plot in Fig.~\ref{fig:Potentials} (b). Yet, since the tunnelling in these areas is small, it has only a negligible influence on the CTAP process and we will in the following demonstrate that the near resonant setup of Fig.~\ref{fig:slice} (b) allows to observe the CTAP process.
+
+In Fig.~\ref{fig:Populations} we show the population in each waveguide as a function of time for an atom chip with reduced current in the central wire. The results in Fig.~\ref{fig:Populations} (a) are obtained for the situations where the wires are arranged such that the counterintuitive tunnelling sequence takes place and full transfer from the initial guide into the final guide is clearly visible. Only a small population in the central guide appears halfway through the process, and while the ideal CTAP process does not allow for population in the central trap at any time, the limited adiabaticity and resonance of the simulated setup leads to this temporary deviation. However, it has no effect on the final state.
+
+In contrast to this, and confirming that the large fidelity of the transport process above is due to CTAP, we show in Fig.~\ref{fig:Populations} (b) the results for an intuitive arrangement of the waveguides on the atom chip. As is clearly visible, this does not produce high fidelity population transfer to the guide on the right hand side, but rather leads to a split of the probability between the middle and the right hand side wire.
+
+\begin{figure}[tb]
+  \includegraphics[width=\linewidth]{ch2_numerics/Populations.pdf}
+  \caption{(Color online) The population in the left (blue dashed line), middle (green dot-dash line) and right (red solid line) waveguides as a function of time for (a) the counter-intuitive waveguide arrangement and (b) for intuitive, direct tunnelling one. The current in the middle wire is reduced to $I_M=0.07 A$.}
+  \label{fig:Populations}
+\end{figure}
+
+While Fig.~\ref{fig:Populations} only gives an indication of the ongoing process as a function of time, the presence of the CTAP process for the counter-intuitively arranged wires can also be inferred from looking at the atomic probability distribution in real space. For this we show in Fig.~\ref{fig:Pcolor}  the density of the atomic state in the $x$ and $z$ plane at $t=0.048$ s integrated over the $y$-direction. At this time the atomic wavepacket is in the region where the tunnelling interaction between all three waveguides is large and clear differences between the two situations are visible. Fig.~\ref{fig:Pcolor} (a) shows the counter-intuitive situation where the wavepacket can be seen to follows the dark state with only a negligible population component in the middle waveguide. In contrast, Fig.~\ref{fig:Pcolor} (b) shows the intuitive setup, in which the population is distributed between all three waveguides and clear signatures of Rabi oscillations due to the direct tunnelling are clearly visible.
+
+\begin{figure}[tb]
+  \includegraphics[width=\linewidth]{ch2_numerics/Pcolor.pdf}
+  \caption{(Color online) The density of the atomic state at $t=0.048$ for (a) the counter-intuitive setup and (b) the intuitive one. The current in the middle wire is $I_M=0.07$ A in both cases.}
+  \label{fig:Pcolor}
+\end{figure}
+
+It is exactly these Rabi oscillations in the intuitive process that lead to the time-dependence of the final population in each waveguide and therefore a strong dependence of the outcome on small changes in the system parameters. This can be seen when examining Fig.~\ref{fig:Current}, where we show the final population in the right hand side waveguide as a function of the current in the middle wire $I_M$. For the intuitive process (blue line), the final population varies significantly with changing $I_M$, whereas the counter-intuitive setup (red line) is very robust to these changes, with the fidelity of population transfer never dropping below $0.98$. This is another indication that the transfer is due to CTAP.
+
+\begin{figure}[tbh]
+  \includegraphics[width=\linewidth]{ch2_numerics/Current_3.pdf}
+  \caption{(Color online) The final population in the  target waveguide for both the CTAP (red solid line) and intuitive (blue dashed line) processes, for values of $I_M=0.0672$A to $I_M=0.0761$ A in steps of $0.001$ A.}
+  \label{fig:Current}
+\end{figure}
+
+From Fig.~\ref{fig:Current} it is also clear that, while there are large oscillations in the fidelity of the intuitive process, there is an upward trend in the fidelity of the process towards unity as the current in the middle wire increases. However, at these higher values of the middle wire current, the waveguides are no longer resonant at all times and one would expect that neither the CTAP nor the intuitive processes would lead to high fidelity transfer. Nevertheless, the simulations show that this is not the case.
+
+We conjecture that in the regime of larger currents in the middle wire the population transfer is due to Stark-shift-chirped rapid-adiabatic-passage (SCRAP) \cite{Bergmann:05}. In this process a time-depend shift of the energy of the intermediate state in the traditional three-level arrangement allows for high-fidelity population transfer  between two states, independent of being in the intuitive or counter-intuitive situation. A translation of this to the spatial realm is straightforward: the approach and retreat of the outer wires from the middle one shift the energy of the central waveguide in a spatially dependent manner.
 
 
 

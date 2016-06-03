@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/MacPorts 2015_10) (preloaded format=pdflatex 2016.5.9)  3 JUN 2016 10:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/MacPorts 2015_10) (preloaded format=pdflatex 2016.5.9)  3 JUN 2016 10:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./gputhreads.tex
-(./gputhreads.tex
+**./prefixsum.tex
+(./prefixsum.tex
 LaTeX2e <2015/01/01>
 Babel <3.9l> and hyphenation patterns for 44 languages loaded.
 (/opt/local/share/texmf-texlive/tex/latex/standalone/standalone.cls
@@ -444,36 +444,113 @@ File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.1 (rcs-revision 1.1)
 
 (/opt/local/share/texmf/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
 File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1 (rcs-revision 1.14)
-))) (/opt/local/share/texmf-texlive/tex/latex/base/ifthen.sty
-Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-) (./gputhreads.aux)
-\openout1 = `gputhreads.aux'.
+))) (/opt/local/share/texmf-texlive/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count116
+\calc@Bcount=\count117
+\calc@Adimen=\dimen165
+\calc@Bdimen=\dimen166
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count118
+\calc@Cskip=\skip45
+)
+(/opt/local/share/texmf-texlive/tex/latex/fp/fp.sty
+Package: fp 1995/04/02
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
+`Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
+(/opt/local/share/texmf-texlive/tex/latex/fp/defpattern.sty
+Package: defpattern 1994/10/12
+\actioncount=\count119
+)
+(/opt/local/share/texmf-texlive/tex/latex/fp/fp-basic.sty
+Package: fp-basic 1996/05/13
+\FP@xs=\count120
+\FP@xia=\count121
+\FP@xib=\count122
+\FP@xfa=\count123
+\FP@xfb=\count124
+\FP@rega=\count125
+\FP@regb=\count126
+\FP@regs=\count127
+\FP@times=\count128
+)
+(/opt/local/share/texmf-texlive/tex/latex/fp/fp-addons.sty
+Package: fp-addons 1995/03/15
+)
+(/opt/local/share/texmf-texlive/tex/latex/fp/fp-snap.sty
+Package: fp-snap 1995/04/05
+)
+(/opt/local/share/texmf-texlive/tex/latex/fp/fp-exp.sty
+Package: fp-exp 1995/04/03
+)
+(/opt/local/share/texmf-texlive/tex/latex/fp/fp-trigo.sty
+Package: fp-trigo 1995/04/14
+)
+(/opt/local/share/texmf-texlive/tex/latex/fp/fp-pas.sty
+Package: fp-pas 1994/08/29
+)
+(/opt/local/share/texmf-texlive/tex/latex/fp/fp-random.sty
+Package: fp-random 1995/02/23
+\FPseed=\count129
+)
+(/opt/local/share/texmf-texlive/tex/latex/fp/fp-eqn.sty
+Package: fp-eqn 1995/04/03
+)
+(/opt/local/share/texmf-texlive/tex/latex/fp/fp-upn.sty
+Package: fp-upn 1996/10/21
+)
+(/opt/local/share/texmf-texlive/tex/latex/fp/fp-eval.sty
+Package: fp-eval 1995/04/03
+))
+(/opt/local/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrar
+yarrows.code.tex
+File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.1 (rcs-revision 1.1)
+
+(/opt/local/share/texmf/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1 (rcs-revision 1.16)
+\arrowsize=\dimen167
+))
+(/opt/local/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrar
+ydecorations.markings.code.tex
+(/opt/local/share/texmf/tex/generic/pgf/libraries/decorations/pgflibrarydecorat
+ions.markings.code.tex))
+(/opt/local/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrar
+ycalc.code.tex
+File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1 (rcs-revision 1.9)
+) (/opt/local/share/texmf-texlive/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(./prefixsum.aux)
+\openout1 = `prefixsum.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
  ABD: EveryShipout initializing macros
 (/opt/local/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count116
-\scratchdimen=\dimen165
+\scratchcounter=\count130
+\scratchdimen=\dimen168
 \scratchbox=\box39
-\nofMPsegments=\count117
-\nofMParguments=\count118
+\nofMPsegments=\count131
+\nofMParguments=\count132
 \everyMPshowfont=\toks32
-\MPscratchCnt=\count119
-\MPscratchDim=\dimen166
-\MPnumerator=\count120
-\makeMPintoPDFobject=\count121
+\MPscratchCnt=\count133
+\MPscratchDim=\dimen169
+\MPnumerator=\count134
+\makeMPintoPDFobject=\count135
 \everyMPtoPDFconversion=\toks33
 ) (/opt/local/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -518,45 +595,39 @@ e
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.12} into 
 your preamble.
- on input line 4.
+ on input line 5.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 25.
+(Font)              <9> on input line 24.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 25.
+(Font)              <6> on input line 24.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <20.74> on input line 25.
+(Font)              <5> on input line 24.
+( FP-EVAL ( FP-UPN ( FP-DIV ) ( FP-SUB ) ( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN
+( FP-DIV ) ( FP-SUB ) ( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN ( FP-DIV ) ( FP-SUB )
+( FP-CLIP ) ) ) ( FP-EVAL ( FP-UPN ( FP-DIV ) ( FP-SUB ) ( FP-CLIP ) ) )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 25.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 25.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <24.88> on input line 26.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 26.
+(Font)              <7> on input line 33.
+
 [1
 
 {/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-(./gputhreads.aux) ) 
+(./prefixsum.aux) ) 
 Here is how much of TeX's memory you used:
- 20966 strings out of 494185
- 539237 string characters out of 6156888
- 709828 words of memory out of 5000000
- 23941 multiletter control sequences out of 15000+600000
- 10670 words of font info for 37 fonts, out of 8000000 for 9000
+ 22178 strings out of 494185
+ 563610 string characters out of 6156888
+ 758500 words of memory out of 5000000
+ 25098 multiletter control sequences out of 15000+600000
+ 5463 words of font info for 20 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 62i,7n,77p,727b,699s stack positions out of 5000i,500n,10000p,200000b,80000s
-</opt/local/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
-mmi10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12
-.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
-/opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></opt/l
-ocal/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></opt/local/s
-hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb>
-Output written on gputhreads.pdf (1 page, 53711 bytes).
+ 62i,7n,77p,756b,692s stack positions out of 5000i,500n,10000p,200000b,80000s
+</opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/
+cm/cmmi9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr
+10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb>
+Output written on prefixsum.pdf (1 page, 32121 bytes).
 PDF statistics:
- 39 PDF objects out of 1000 (max. 8388607)
- 28 compressed objects within 1 object stream
+ 23 PDF objects out of 1000 (max. 8388607)
+ 16 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
