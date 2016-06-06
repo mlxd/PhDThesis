@@ -125,7 +125,8 @@
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 \mainmatter % Begin numeric (1,2,3...) page numbering
 
-\unnumberedchapter{Introduction} % Title of the unnumbered chapter
+%\unnumberedchapter{Introduction} % Title of the unnumbered chapter
+\chapter{Introduction} % Title of the unnumbered chapter
 \input{MainText/introduction} % Introduction (unnumbered)
 
 \numberedchapter
@@ -149,10 +150,10 @@
     \chapter{Numerics}
         \input{MainText/ch2_numerics/num_splitop}
         \input{MainText/ch2_numerics/num_gpgpu}
+        \input{MainText/ch2_numerics/Arxiv_Resub}
         \input{MainText/ch2_numerics/num_gpue}
         \input{MainText/ch2_numerics/num_bogo}
     %\input{MainText/ch2_numerics/num_errors}
-    \input{MainText/ch2_numerics/Arxiv_Resub}
 \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifvtxdyn

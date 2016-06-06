@@ -95,7 +95,11 @@ the Hamiltonian Eq. \eqref{eqn:ham2ndq} can be rewritten in the following form
 \begin{equation}\label{eqn:h_many}
 \mathcal{H} = \displaystyle\sum\limits_{i=1}^N \left( -\frac{\hbar^2}{2m}\nabla^2  + V(\textbf{r}_i)\right) + \frac{1}{2}g\displaystyle\sum\limits_{i\neq j}\delta(\textbf{r}_i - \textbf{r}_j).
 \end{equation}
-Due to the macroscopic occupation of the lowest lying single-particle state, $\hat{\Psi}$ can be treated as a classical field, $\Psi$, neglecting all quantum fluctuations involving higher-lying states. Substituting Eq. \eqref{eqn:h_many} and \eqref{eqn:psi_heisenberg} into \eqref{eqn:heisenberg}, the time dependent mean-field Gross--Pitaevskii equation (GPE) can then be written as
+Due to the macroscopic occupation of the lowest lying single-particle state, $\hat{\Psi}$ can be treated as the sum of a classical field and a quantum fluctuation term, as
+\begin{equation}\label{eqn:gpe_fluc}
+    \hat{\Psi} = \Psi + \delta\hat{\Psi}.
+\end{equation}
+As the quantum fluctuation component is small in the zero-temperature limit, we can safely neglect these, and use the classical field as the wavefunction describing the system. Substituting Eq. \eqref{eqn:h_many} and \eqref{eqn:psi_heisenberg} into \eqref{eqn:heisenberg}, the time dependent mean-field Gross--Pitaevskii equation (GPE) can then be written as
 \begin{equation}\label{eqn:gpe}
 i\hbar\frac{\partial}{\partial t}\Psi(\textbf{r},t) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\textbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 \right]\Psi(\textbf{r},t).
 \end{equation}

@@ -32,20 +32,13 @@ where $\hat{U}_{r}=e^{-i\hat{H}_{r}(t)\tau/\hbar}$ is the time evolution operato
     \label{fig:num_splitop}
 \end{figure}
 
-
-
 %%% TO BE MOVED IN WITH PHASE ENGINEERING
-
 Following \cite{BK:Pitaevskii_Stringari_2003} and taking the Madelung transform of the wavefunction given by Eq. \eqref{eqn:madelung}, the phase of the condensate may be specified as
 \begin{equation}
 \theta = \theta_c + \theta_i,
 \end{equation}
 where $\theta_c$ is the unperturbed condensate phase, and $\theta_i$ is the phase pattern to be imprinted. Thus, upon solving for the initial condensate phase, an additional phase pattern can be imprinted at any time by multiplying the wavefunction by the intended phase pattern. This is in line with the phase imprinting method, as previously introduced by Dobrek \textit{et al}. \cite{Vtx:Dobrek_pra_1999}. The underlying theory of the Fourier split-operator method for the Gross--Pitaevskii equation is given by Javanainen \textit{et al}. \cite{BEC:Javanainen_jphysa_2006}, showing how the choice of non-linearity and operator splitting affects the outcome of the method. The authors arrive at the conclusion that treating the non-linearity and potential terms together with the most current wavefunction definition yields results with an error magnitude that matches those obtained in the Schr\"{o}dinger Fourier split-operator case, indicating its applicability to this type of problem.
-
 %%% TO BE MOVED IN WITH PHASE ENGINEERING
-
-
-
 
  \subsection{Time evolution}
 
@@ -96,7 +89,6 @@ The Fourier split-operator method described earlier works well in handing cases 
  \end{equation}
 
  Although alternating will provide a cancellation of this error, it can be assumed that for large timesteps the error will have a non-insignificant contribution to the overall dynamics, as the wavefunction evolves from timestep to timestep. Thus, for this method to remain accurate we can perform the previous decomposition for third-order, or use as is for a second-order accurate scheme.
-
 
 \subsection{Resolution considerations}
 As the Fourier split-operator method does not take into account resolution in strictly position space, but momentum space, care must be taken to chose numerical grids. The reciprocal relationship between position and momentum space is known as \begin{equation}

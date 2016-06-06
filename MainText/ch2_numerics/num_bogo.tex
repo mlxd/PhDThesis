@@ -1,42 +1,45 @@
 \section{Bogoliubov equations}
 \label{sec:bogo}
-
-
-Bogo tbc
+While simulation of the Gross--Pitaevskii equation captures the rich array of dynamics exhibited by a condensate system, it is often instructive to examine the stability of such solutions. Where earlier I neglected the small quantum fluctuations (see eq. \ref{eqn:gpe_fluc}), we can instead reformulate this term as a combination of counterpropagating waves with the stationary state as
+\begin{equation}
+    \delta\hat{\Psi} = \exp\left(\frac{-i\mu t}{\hbar}\right)[\Psi_0 + u\exp(-it\omega) + v^{*}\exp(it\omega)].
+\end{equation}
+Taking this expression where $\mu$ is the chemical potential of the condensate, the wavefunction in the groundstate can be defined as
 \begin{equation}\label{eqn:bogo_psi}
-\Psi_0(\mathbf{r},t) = \exp\left(-i\frac{\mu t}{\hbar}\right)[\phi_0(\mathbf{r}) + u(\mathbf{r})\exp\left(-i\omega t\right) + v^{*}(\mathbf{r})\exp\left(i\omega t\right) ]
+\Psi_0(\mathbf{r},t) = \exp\left(-i\frac{\mu t}{\hbar}\right)[\phi_0(\mathbf{r}) + u(\mathbf{r})\exp\left(-i\omega t\right) + v^{*}(\mathbf{r})\exp\left(i\omega t\right) ].
 \end{equation}
 
-
-
-\begin{equation}\label{eqn:bogo_h0}
-H_0 = -\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}) + 2g\vert \phi_0 \vert^2
-\end{equation}
-
+Firstly, we calculate the time-derivative of eq. \ref{eqn:bogo_psi}, which after simplificant becomes
 \begin{equation}\label{eqn:bogo_lhs}
-    \partial_t \Psi(\mathbf{r},t) = \exp\left(\frac{-i\mu t}{\hbar}\right)\left[\mu\phi_0 + (\mu+\hbar\omega)u\exp\left(-it\omega\right) + (\mu+\hbar\omega)v^{*}\exp\left(it\omega\right) \right]
+    \partial_t \Psi(\mathbf{r},t) = \exp\left(\frac{-i\mu t}{\hbar}\right)\left[\mu\phi_0 + (\mu+\hbar\omega)u\exp\left(-it\omega\right) + (\mu+\hbar\omega)v^{*}\exp\left(it\omega\right) \right].
 \end{equation}
 
+Next, the nonlinear interaction term is given as
+\begin{subequations}
 \begin{align}\label{eqn:bogo_nonlin}
     g|\Psi|^2\Psi &= g \phi_0^{*}\phi_0\phi_0 \\
-                &= g\exp\left(\frac{-i\mu t}{\hbar}\right)\left(\phi_0^{*} + u^{*}\exp(i\omega t) + v\exp(-i\omega t)\right)\left(\phi_0 + u\exp(-i\omega t) + v^{*}\exp(i\omega t)\right)^2 \\
+                &= g\exp\left(\frac{-i\mu t}{\hbar}\right)\left(\phi_0^{*} + u^{*}\exp(i\omega t) + v\exp(-i\omega t)\right)\left(\phi_0 + u\exp(-i\omega t) + v^{*}\exp(i\omega t)\right)^2, \\
                 & \approx g\exp\left(\frac{-i\mu t}{\hbar}\right)\left[
                 |\phi_0|^2\left(
                  \phi_0 + 2(u\exp\left(-i\omega t\right) + v^{*}\exp\left(i\omega t\right) )\right) + \phi_0^2\left( u^{*}\exp\left(i\omega t\right) + v\exp\left(-i\omega t\right)
                 \right)
-                \right]
-\end{align}
-Equating terms gives
-\begin{subequations}\label{eqn:bogo_lhsrhs}
-Bogoliubov-de Gennes equations:
-\begin{align}
-    \mu \phi_0 &= (H_0 - \Omega L + g |\phi_0|^2)\phi_0,\\
-    (\mu +\hbar\omega)u &= (H_0 - \Omega L + 2g|\phi_0|^2)u + g\phi_0^2 v,\\
-    (\mu +\hbar\omega)v^{*} &= (H_0 - \Omega L + 2g|\phi_0|^2)v^{*} + g\phi_0^2 u^{*}
+                \right].
 \end{align}
 \end{subequations}
 
-Concentrating on the excitations, we can form a matrix as
+Plugging these terms into the GPE, and linearising in terms of $u$ and $v$ yields the Bogoliubov-de Gennes equations,
+\begin{subequations}\label{eqn:bogo_lhsrhs}
+\begin{align}
+    \mu \phi_0 &= (H_0 - \Omega L + g |\phi_0|^2)\phi_0,\\
+    (\mu +\hbar\omega)u &= (H_0 - \Omega L + 2g|\phi_0|^2)u + g\phi_0^2 v,\\
+    (\mu +\hbar\omega)v^{*} &= (H_0 - \Omega L + 2g|\phi_0|^2)v^{*} + g\phi_0^2 u^{*},
+\end{align}
+\end{subequations}
+where
+\begin{equation}\label{eqn:bogo_h0}
+H_0 = -\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}) + 2g\vert \phi_0 \vert^2
+\end{equation}
+This can be written as a matrix as
 \begin{equation}
     \begin{pmatrix}
         H_0 - \mu -\Omega L_z & g\phi_0^2 \\
@@ -52,7 +55,7 @@ Concentrating on the excitations, we can form a matrix as
         v
     \end{pmatrix}
 \end{equation}
-where the eigenvalues of which can be used to determine the stability of the system. For energy eigenvalues with imaginary components, the system will be dynamically unstable.
+where the eigenvalues of these modes can be used to determine the stability of the system. The norm of these values is given by $\int d\mathbf{r}(|u|^2 - |v|^2)$. If the norm is positive, with positive eigenvalues, we can say the system is stable. If the norm is negative, the system will have an energetic instability. This will cause the system to move towards the lowest energy state only in the presence of dissipation. If, however, the norm is 0 with imaginary eigenvalues, the modes of fluctuations are dynamically unstable. Due to the complex eigenvalues over time the mode will dominate exponentially and destroy the initial state of the condensate. In a later section I  will use this approach later to examine the behaviour of the Bose--Einstein condensate.
 
 \subsection{Numerical implementation}
 To solve the Bogoliubov equations numerically requires searching for the solution to a generalised non-Hermitian eigenvalue problem. Thus, the system must be formally specified in matrix form. The derivative operators of $H_0$ are specified using second-order central differences, represented by
@@ -61,7 +64,7 @@ To solve the Bogoliubov equations numerically requires searching for the solutio
 \end{equation}
 where $i$ is the respective dimension for the derivative, and $h$ is the step size. In matrix form, this becomes
 \begin{equation}
-    B =
+    \mathbf{B} =
     \begin{bmatrix}
             -2      &   1    &    0   &  \cdots   &  \cdots   &  \cdots   & 0 \\
             1       &   -2   &    1   &           &           &     &  \vdots \\
@@ -69,11 +72,24 @@ where $i$ is the respective dimension for the derivative, and $h$ is the step si
             \vdots  &        & \ddots & \ddots    & {\ddots}  &     &  \vdots \\
             \vdots  &        &        & \ddots    &    -2     &  1  &       0 \\
             \vdots  &        &        &           &     1     & -2  &       1 \\
-            0       & \cdots & \cdots & \cdots    &     0     &  1  &      -2
+            0       & \cdots & \cdots & \cdots    &     0     &  1  &      -2 \\
         \end{bmatrix}.
 \end{equation}
 where the number of rows and columns equal the number of elements along the dimension to be differentiated. To construct a multidimensional version, we take a Kronecker sum of the matrix $B$ along each respective dimension of the system. This can be represented as
 \begin{equation}
     \mathbf{B}_{i,j} = \mathbf{B}_i \oplus \mathbf{B}_j = \mathbf{B}_i \otimes \mathbf{I}_j + \mathbf{I}_i \otimes \mathbf{B}_j
 \end{equation}
-were $i,j$ are the indices of the respective dimensions, and $\mathbf{I}$ is the identity equal in size to dimensions $i,j$. With this operation, we can obtain a block diagonal matrix of the form
+were $i,j$ are the indices of the respective dimensions, and $\mathbf{I}$ is the identity equal in size to dimensions $i,j$. With this operation, we can obtain a block diagonal matrix that represents the laplacian operator as
+
+\begin{equation}
+    \nabla=
+    \begin{bmatrix}
+        \mathbf{B}    & \mathbf{I} &      0      &  \cdots      &      0       \\
+        \mathbf{I}    & \mathbf{B} &  \ddots     &              &  \vdots      \\
+        0             & \ddots     &  \ddots     &  \ddots      &      0       \\
+        \vdots        &            &  \ddots     &  \ddots      &  \mathbf{I}  \\
+        0             & \cdots     &      0      &  \mathbf{I}  &  \mathbf{B}
+    \end{bmatrix}.
+\end{equation}
+
+Similarly, the angular momentum operator $L_z = i\hbar(x\partial_y + y\partial_x$ can be defined in terms of first derivative matrices. The non-derivative operators require a reshaping into lexicographical indexing ($N$-d to 1-D), and will sit along the diagonal. As these systems have many more 0's than elements, it makes sense to store them in a sparse matrix format. For the sake of simplicity, these systems can be solved in MATLAB, using \textit{eigs}, which makes use of the Lanczos algorithm for finding the specified number of eigenvectors and values.
