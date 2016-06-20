@@ -14,7 +14,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[12pt, twoside]{book} % 12 pt font, two-sided book style
+\documentclass[11pt, twoside]{book} % 12 pt font, two-sided book style
 \usepackage[a4paper, includehead, headheight=0.6cm, inner=3cm ,outer=2.5cm, top=2.5 cm, bottom=2.5cm]{geometry}  % Changing size of document
 \usepackage[english]{babel} % The document is in English
 \usepackage[utf8]{inputenc} % UTF8 encoding
@@ -49,7 +49,7 @@
 \vfill
 }}}
 
-\usepackage{hyperref} % Adds clickable links at references
+%\usepackage{hyperref} % Adds clickable links at references
 
 %----------------------------------------------------------------------------------------
 %	ADD YOUR CUSTOM VALUES, COMMANDS AND PACKAGES
@@ -135,7 +135,7 @@
 \litrevtrue
 \iflitrev
     \chapter{Literature review}
-        \input{MainText/ch1_litrev/litrev_intro} % Import your chapters here
+        %\input{MainText/ch1_litrev/litrev_intro} % Import your chapters here
         \input{MainText/ch1_litrev/litrev_coldatoms} % Import your chapters here
         \input{MainText/ch1_litrev/litrev_superfluids} % Import your chapters here
         %\input{MainText/ch1_litrev/litrev_numerics} % Import your chapters here
@@ -150,7 +150,7 @@
     \chapter{Numerics}
         \input{MainText/ch2_numerics/num_splitop}
         \input{MainText/ch2_numerics/num_gpgpu}
-        \input{MainText/ch2_numerics/Arxiv_Resub}
+        \input{MainText/ch2_numerics/num_stirap}
         \input{MainText/ch2_numerics/num_gpue}
         \input{MainText/ch2_numerics/num_bogo}
     %\input{MainText/ch2_numerics/num_errors}
@@ -159,7 +159,7 @@
 \newif\ifvtxdyn
 \vtxdyntrue
 \ifvtxdyn
-    \chapter{Bose-Eisntein condensate dynamics}
+    \chapter{Bose-Einstein condensate dynamics}
         \input{MainText/ch3_vort/vort_lattice}
     \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
