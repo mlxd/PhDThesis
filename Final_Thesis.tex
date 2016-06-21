@@ -136,8 +136,8 @@
 \iflitrev
     \chapter{Literature review}
         %\input{MainText/ch1_litrev/litrev_intro} % Import your chapters here
-        \input{MainText/ch1_litrev/litrev_coldatoms} % Import your chapters here
-        \input{MainText/ch1_litrev/litrev_superfluids} % Import your chapters here
+        \input{MainText/ch2_litrev/litrev_coldatoms} % Import your chapters here
+        \input{MainText/ch2_litrev/litrev_superfluids} % Import your chapters here
         %\input{MainText/ch1_litrev/litrev_numerics} % Import your chapters here
         %\input{MainText/ch1_litrev/litrev_chaos} % Import your chapters here
         %\input{MainText/ch1_litrev/litrev_prelim} % Import your chapters here
@@ -148,11 +148,11 @@
 \numericstrue
 \ifnumerics
     \chapter{Numerics}
-        \input{MainText/ch2_numerics/num_splitop}
-        \input{MainText/ch2_numerics/num_gpgpu}
-        \input{MainText/ch2_numerics/num_stirap}
-        \input{MainText/ch2_numerics/num_gpue}
-        \input{MainText/ch2_numerics/num_bogo}
+        \input{MainText/ch3_numerics/num_splitop}
+        \input{MainText/ch3_numerics/num_gpgpu}
+        \input{MainText/ch3_numerics/num_stirap}
+        \input{MainText/ch3_numerics/num_gpue}
+        \input{MainText/ch3_numerics/num_bogo}
     %\input{MainText/ch2_numerics/num_errors}
 \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -160,21 +160,21 @@
 \vtxdyntrue
 \ifvtxdyn
     \chapter{Bose-Einstein condensate dynamics}
-        \input{MainText/ch3_vort/vort_lattice}
+        \input{MainText/ch4_vort/vort_lattice}
     \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifmoire
 \moiretrue
 \ifmoire
     \chapter{Moir\'e superlattice structures}
-        \input{MainText/ch4_kickit/kickit_moire}
+        \input{MainText/ch5_kickit/kickit_moire}
 \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifdefect
 \defecttrue
 \ifdefect
     \chapter{Defect engineering}
-        \input{MainText/ch5_phasegineer/phasegineer_dislocate}
+        \input{MainText/ch6_phasegineer/phasegineer_dislocate}
 \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
