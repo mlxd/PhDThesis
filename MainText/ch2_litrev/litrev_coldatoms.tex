@@ -1,6 +1,6 @@
-\section{Cold atoms}
+\section{Cold atoms}\label{sec:coldatoms}
 \subsection{Cooling of atomic gases}\label{sub:cooling}
-One of the major advances in experimental physics in recent times has been the laser cooling of trapped atoms to temperatures near absolute zero. This feat, which garnered the Nobel Prize in Physics in 1997, resulted from the pioneering work of C. Cohen-Tannoudji, S. Chu and W. Phillips \cite{AO:Chu_revmod_1998,AO:Cohen_revmod_1998,AO:Phillips_revmod_1998}. It relies on the use of counter-propagating detuned laser fields which are directed upon a trapped cloud of atoms. Due to Doppler shifting of the frequencies, atoms moving towards the respective beams see resonant photons, absorb them and slow down due to the momentum absorbed, with this technique being termed Doppler cooling. This is followed by a spontaneous emission in a random direction, for which the recoil kicks average out to zero. Hence, the atoms become cooler. As a result, the atoms will eventually reach a velocity below that which will cause an absorption from the lasers, leaving a less broad velocity distribution. Although laser cooling allowed temperatures to reach micro-Kelvin regimes, additional techniques must be used to obtain atoms deep in the nano-Kelvin temperature range. One such method, known as evaporative cooling, involves relaxation of the trapping potential height, which in turn allows many of the higher energy atoms to escape \cite{AO:Ketterle_amop_1996}. The remaining atoms rethermalise and are thus of lower energy, and therefore at a lower temperature. With these techniques the creation of Bose--Einstein condensates in dilute atomic gases became possible.
+One of the major advances in experimental physics in recent times has been the laser cooling of trapped atoms to temperatures near absolute zero. This feat, which earned the Nobel Prize in Physics in 1997, resulted from the pioneering work of C. Cohen-Tannoudji, S. Chu and W. Phillips \cite{AO:Chu_revmod_1998,AO:Cohen_revmod_1998,AO:Phillips_revmod_1998}. It relies on the use of counter-propagating detuned laser fields which are directed upon a trapped cloud of atoms. Due to Doppler shifting of the frequencies, atoms moving towards the respective beams see resonant photons, absorb them and slow down due to the momentum absorbed, with this technique being termed ``Doppler cooling''. This is followed by a spontaneous emission in a random direction, for which the recoil kicks average out to zero; hence, the atoms become cooler. As a result, the atoms eventually reach a velocity below that which can be absorbed from the lasers due to the change in resonance frequencies, leaving a narrower velocity distribution. Although laser cooling allowed temperatures to reach micro-Kelvin regimes, additional techniques must be used to obtain atoms deep in the nano-Kelvin temperature range. One such method, known as evaporative cooling, involves relaxation of the trapping potential height, which in turn allows many of the higher energy atoms to escape \cite{AO:Ketterle_amop_1996}. The remaining atoms rethermalise and are thus of lower energy, and therefore at a lower temperature. With these techniques the creation of Bose--Einstein condensates in dilute atomic gases became possible.
 
 \subsection{Introduction to Bose--Einstein condensation}\label{sub:becintro}
 Bose--Einstein condensation was theoretically predicted by N. Bose and A. Einstein \cite{BEC:Ketterle_revmod_2002}. This began as a work on the statistical behaviour of photons, eventually leading to the derivation of the ``Bose--Einstein distribution'' for an ideal bosonic gas.
@@ -13,7 +13,7 @@ The total number of particles in the system, $N$, can be evaluated by summing ov
 \begin{equation}
 N=\displaystyle\sum_i \bar{n}_i.
 \end{equation}
-This work predicted that non-interacting, indistinguishable (bosonic) particles would, if their energy was sufficiently low, undergo a phase transition below a critical temperature into a new phase in which the atoms would occupy the same lowest lying energy state of the system. The number of atoms occupying this lowest lying state, $N_0$, is given by the relationship
+This work predicted that non-interacting, indistinguishable (bosonic) particles would, if their energy was sufficiently low, undergo a phase transition below a critical temperature into a new phase in which the particles would occupy the same lowest lying energy state of the system. The number of atoms occupying this lowest lying state, $N_0$, is given by the relationship
 \begin{equation}
 N_0 \equiv \bar{n}_0 = \frac{1}{e^{\beta(\epsilon_0 - \mu)} - 1},
 \end{equation}
@@ -25,7 +25,7 @@ a relation for the the onset of Bose--Einstein condensation can be given. This w
 
 BECs are a prime example of coherent matter waves, and demonstrate quantum mechanical effects on length-scales which can be considered mesoscopic. Given a cloud of identical bosons at higher temperature, the atoms exhibit billiard-ball type behaviour. As they are cooled, the thermal de Broglie wavelength of the atoms, given by
 \begin{equation}
-\lambda_{dB} = \sqrt{2\pi\hbar^2/mk_{B}T},
+\lambda_{dB} = \frac{\sqrt{2\pi\hbar^2}{mk_{B}T}},
 \end{equation}
 where $m$ is the atom mass, grows, causes the wave-nature of the atoms to become more prominent, and the atomic waves start to overlap when $\lambda_{dB} \approx$ inter-particle separation. The quantity $n\lambda_{dB}^3$, where $n$ is the density of the gas, is known as the \emph{phase-space density}. Physically this denotes the number of particles present in a box with sides of $\lambda_{dB}$ length, and the phase transition to the condensate sets in at $\zeta\left(\frac{3}{2}\right)$, where $\zeta$ is the Riemann-Zeta function \cite{BK:Ueda_2010}. The value of $T_c$ for this to occur in a uniform gas is given by
 \begin{equation}
@@ -125,6 +125,65 @@ where $\mu$ is the chemical potential, and $\Theta$ is the Heaviside step functi
 \end{equation}
 where the characteristic length of the harmonic oscillator is given by
 $\bar{a} = \sqrt{{\hbar}/{m\bar{\omega}}}$. Thus, within the Thomas-Fermi radius, it is possible to explain the behaviour of the BEC analytically and compare with exact numerical results from integrating the full GPE.
+
+\subsection{Bogoliubov-de Gennes equations}
+\label{sec:bogo}
+While the Gross--Pitaevskii equation captures the rich array of dynamics exhibited by a condensate system, it is often instructive to examine the stability of its solutions. Where earlier I neglected the small quantum fluctuations (see eq. \ref{eqn:gpe_fluc}), we can instead reformulate this term as a combination of counterpropagating waves with the stationary state solution as
+\begin{equation}
+    \delta\hat{\Psi} = \exp\left(\frac{-i\mu t}{\hbar}\right)[\Psi_0 + u\exp(-it\omega) + v^{*}\exp(it\omega)].
+\end{equation}
+Taking this expression where $\mu$ is the chemical potential of the condensate, the wavefunction in the groundstate can be defined as
+\begin{equation}\label{eqn:bogo_psi}
+\Psi_0(\mathbf{r},t) = \exp\left(-i\frac{\mu t}{\hbar}\right)[\phi_0(\mathbf{r}) + u(\mathbf{r})\exp\left(-i\omega t\right) + v^{*}(\mathbf{r})\exp\left(i\omega t\right) ].
+\end{equation}
+
+Firstly, we calculate the time-derivative of eq. \ref{eqn:bogo_psi}, which after simplificant becomes
+\begin{equation}\label{eqn:bogo_lhs}
+    \partial_t \Psi(\mathbf{r},t) = \exp\left(\frac{-i\mu t}{\hbar}\right)\left[\mu\phi_0 + (\mu+\hbar\omega)u\exp\left(-it\omega\right) + (\mu+\hbar\omega)v^{*}\exp\left(it\omega\right) \right].
+\end{equation}
+
+Next, the nonlinear interaction term is given as
+\begin{subequations}
+\begin{align}\label{eqn:bogo_nonlin}
+    g|\Psi|^2\Psi &= g \phi_0^{*}\phi_0\phi_0 \\
+                &= g\exp\left(\frac{-i\mu t}{\hbar}\right)\left(\phi_0^{*} + u^{*}\exp(i\omega t) + v\exp(-i\omega t)\right)\left(\phi_0 + u\exp(-i\omega t) + v^{*}\exp(i\omega t)\right)^2, \\
+                & \approx g\exp\left(\frac{-i\mu t}{\hbar}\right)\left[
+                |\phi_0|^2\left(
+                 \phi_0 + 2(u\exp\left(-i\omega t\right) + v^{*}\exp\left(i\omega t\right) )\right) + \phi_0^2\left( u^{*}\exp\left(i\omega t\right) + v\exp\left(-i\omega t\right)
+                \right)
+                \right].
+\end{align}
+\end{subequations}
+
+Plugging these terms into the GPE, and linearising in terms of $u$ and $v$ yields the Bogoliubov-de Gennes equations,
+\begin{subequations}\label{eqn:bogo_lhsrhs}
+\begin{align}
+    \mu \phi_0 &= (H_0 - \Omega L + g |\phi_0|^2)\phi_0,\\
+    (\mu +\hbar\omega)u &= (H_0 - \Omega L + 2g|\phi_0|^2)u + g\phi_0^2 v,\\
+    (\mu +\hbar\omega)v^{*} &= (H_0 - \Omega L + 2g|\phi_0|^2)v^{*} + g\phi_0^2 u^{*},
+\end{align}
+\end{subequations}
+where
+\begin{equation}\label{eqn:bogo_h0}
+H_0 = -\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}) + 2g\vert \phi_0 \vert^2
+\end{equation}
+This can be written as a matrix as
+\begin{equation}
+    \begin{pmatrix}
+        H_0 - \mu -\Omega L_z & g\phi_0^2 \\
+        -g\phi_0^{*2} & -H_0 + \mu +\Omega L_z
+    \end{pmatrix}
+    \begin{pmatrix}
+        u \\
+        v
+    \end{pmatrix}
+    = \hbar\omega
+    \begin{pmatrix}
+        u \\
+        v
+    \end{pmatrix}
+\end{equation}
+where the eigenvalues of these modes can be used to determine the stability of the system. The norm of these values is given by $\int d\mathbf{r}(|u|^2 - |v|^2)$. If the norm is positive, with positive eigenvalues, we can say the system is stable. If the norm is negative, the system will have an energetic instability. This will cause the system to move towards the lowest energy state only in the presence of dissipation. If, however, the norm is 0 with imaginary eigenvalues, the modes of fluctuations are dynamically unstable. Due to the complex eigenvalues over time the mode will dominate exponentially and destroy the initial state of the condensate. %In a later section I  will use this approach later to examine the behaviour of the Bose--Einstein condensate.
 
 \subsection{Realisation of Bose--Einstein condensation in dilute gases}\label{sub:becdev}
 Following the first experimental realisations of a BEC in dilute atomic gases by E. Cornell and C. Wiemann at University of Colorado, Boulder \cite{BEC:Cornell_science_1995}, and W. Ketterle at M.I.T. \cite{BEC:Ketterle_prl_1995}, work was carried out by Baym and Pethick \cite{BEC:Baym_prl_1996}, who investigated the mean-field ground-state solution in the Thomas-Fermi limit of a magnetically trapped rubidium BEC, as was created in the Boulder experiment.

@@ -1,8 +1,13 @@
 CC	=	pdflatex
 BCC	=	bibtex
+FLAGS	=	-interaction=nonstopmode -halt=on-error -file-line-error
 
 Final_thesis: Final_Thesis.tex
-	${CC} Final_Thesis;
+	${CC} ${FLAGS} Final_Thesis;
+	bibtex Final_Thesis;
+	${CC} ${FLAGS} Final_Thesis;
+	${CC} ${FLAGS} Final_Thesis;
+	cp ./Final_thesis.pdf ../TheBookTB/Thesis.pdf
 
 bibtex:	Final_Thesis.pdf
 	${CC} Final_Thesis
