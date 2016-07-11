@@ -1,0 +1,81 @@
+
+This body of work was carried out during my time as a Ph.D student at Okinawa Institute of Science and Technology Graduate University (OIST), and briefly at University College Cork (UCC), Ireland. The purpose of the work described herein was to understand the dynamics of rapidly rotating Bose--Einstein condensates subjected to perturbations for which to control and engineer specific states during the evolution. While it is possible derive some analytical solutions to rapidly rotating condensate behaviour (e.g. lowest Landau level), such solutions are rare. This thesis concentrates on the numerical solutions of the Gross--Pitaevskii equation, and the resulting dynamics of those solutions.
+
+This work is motivated by the use of Bose--Einstein condensate (BEC) systems as model tools to investigate turbulent, and leading to chaotic quantum behaviour. Given the difficulties in understanding turbulence in classical systems, quantum turbulence offers a more controllable route thereto. Such understandings can be practically made useful with the engineering of quantum states for future technologies. Ideally, these systems can be used for long-term memory storage for quantum computing systems. Finally, these type of systems allow the study of quantum mechanical effects on mesoscopic scales, making them a great tool for simulating condensed matter physics. Given these statements, being able to manipulate and engineer specific states, and thus behaviour, from BECs requires novel new tools. I investigate the use of kicked optical potentials and direct phase engineering of the wavefunction and examine their usefulness for generating such behaviour.
+
+To do this we assume a trial system of a rapidly rotating BEC having a large number of vortices, arranged in a triangular Abrikosov lattice pattern pattern. The trial wavefunction is subjected to the different manipulations listed earlier, and I examine the resulting dynamics. A large numerical component will be required to perform such simulations, and so I will also discuss the development of such tools using graphics processing units (GPU) for these studies, with comparisons drawn against standard simulation techniques.
+
+The thesis will be outlined as follows:
+
+\section{Chapter 2}
+The field of cold-atomic gas systems will be introduced, and the theory of Bose--Einstein condensation discussed. The field will be thoroughly examined and discussed via a literature review, examining theory, experimentation, origins and also future of the field. Emphasis will be placed on material and works relevant to the study performed herein. I outline the necessary topics of relevance to the work, and discuss implications of each.
+
+\iffalse
+Introduction (~5-10 pages)
+
+    - Thesis Statement (one or two sentences)
+        What is your thesis about and what have you done?
+        If you have a hypothesis what is it?
+        How will you test (prove/disprove) your hypothesis?
+    - Motivation
+        Why is this problem you've worked on important
+    - Goals / Objectives
+        What are you trying to do and why?
+        How will you or the reader know if or when you've met your objectives?
+    - **** Contributions *****
+        What is new, different, better, significant?
+        Why is the world a better place because of what you've done?
+        What have you contributed to the field of research?
+        What is now known/possible/better because of your thesis?
+    Outline of the thesis (optional)
+\fi
+
+\section{Chapter 3}
+    Here I examine the use of methods for numerically solving the Bose--Einstein condensate. I introduce the necessary algorithms and considerations to simulate such a system. General purpose GPU (GPGPU) computing will be introduced here, with the implementation of the Gross--Pitaevskii equation discussed. Calculation of the Bogoliubov spectrum, and its implementation is discussed here also.
+
+\iffalse
+Background / Related Work (~8-20 pages)
+    More than a literature review
+    Organize related work - impose structure
+    Be clear as to how previous work being described relates to your own.
+    The reader should not be left wondering why you've described something!!
+    Critique the existing work - Where is it strong where is it weak? What are the unreasonable/undesirable assumptions?
+    Identify opportunities for more research (i.e., your thesis) Are there unaddressed, or more important related topics?
+    After reading this chapter, one should understand the motivation for and importance of your thesis
+    You should clearly and precisely define all of the key concepts dealt with in the rest of the thesis, and teach the reader what s/he needs to know to understand the rest of the thesis.
+\fi
+
+\section{Chapter 4}
+\iffalse
+Theory / Solution / Program / Problem (~15-30 pages)
+
+    continuing from Chapter 2 explain the issues
+    outline your solution / extension / refutation
+\fi
+
+\section{Chapter 5}
+
+\iffalse Implementation / Formalism (~15-30 pages)
+    not every thesis has or needs an implementation
+\fi
+
+\section{Chapter 6}
+
+\iffalse
+Results and Evaluation (~15-30 pages)
+
+    adequacy, efficiency, productiveness, effectiveness (choose your criteria, state them clearly and justify them)
+    be careful that you are using a fair measure, and that you are actually measuring what you claim to be measuring
+    if comparing with previous techniques those techniques must be described in Chapter 2
+    be honest in evaluation
+    admit weaknesses
+\fi
+
+\section{Chapter 7}
+\iffalse
+ Conclusions and Future Work (~5-10 pages)
+
+    State what you've done and what you've found
+    Summarize contributions (achievements and impact)
+    Outline open issues/directions for future work
+\fi

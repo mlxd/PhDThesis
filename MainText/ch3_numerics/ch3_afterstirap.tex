@@ -1,0 +1,31 @@
+\section{Angular momentum operators using FSO method}
+
+Given that in the presence of large values of angular momentum, the condensate wavefunction will accommodate many vortices. To ensure a well ordered lattice, it is insufficient to numerically solve the GPE at the required rotation rate. Assuming an initial Gaussian guess, the large number of vortices will enter the condensate from the edge and compete for lattice sites to form the expected Abrikosov pattern. Thus, to overcome this issue, following the groundstate of the condensate with a ramp of the rotation rate is often necessary. This is essentially adiabatic evolution during imaginary time, and for all required rotation rates of the condensate we get a vortex lattice ground-state. To allow for this we must examine the behaviour of the angular momentum operators within the FSO algorithm.
+
+The Fourier split-operator method described earlier works well in handling cases where the operators live in position or momentum space respectively. However, the angular momentum operators are essentially a combination of both spaces. Take, for example, the angular momentum operator along the $z$-axis, given by $L_z = xp_y - yp_x$. To apply $L_z$ it is essential that the wavefunction along each direction be in the correct space, given the mixed dependencies. Thus, to apply this operator we must Fourier transform along a single dimension, multiply by the $\mathbf{k}$-space operator, take the inverse, multiply by the $\mathbf{r}$-space operator, and then perform this operation along the other dimension, summing the results.
+
+ This mixed phase approach accrues an error not encountered using methods solely in position or momentum space. The error can be determined by checking the commutativity of the respective components of the angular momentum operator as
+
+ \begin{subequations}
+ \begin{align}
+ 	L_1 = [x p_y,-y p_x] &= [x p_y,-y] p_x  -  y[x p_y,p_x], \\
+ 				   &= -[-y,x p_y] p_x + y [p_x, x p_y], \\
+ 				   &= -\left( {\cancelto{0}{[-y,x]}} p_y + x [-y,p_y] \right) p_x + y \left( [p_x,x] p_y + x {\cancelto{0}{[p_x,p_y]}} \right), \\
+ 				   &= -x {\cancelto{i\hbar}{[-y, p_y]}} p_x + y {\cancelto{-i\hbar}{[p_x,x]}} p_y, \\
+ 				   &= -i\hbar \left(x p_x + y p_y \right).
+ \end{align}
+\end{subequations}
+
+ The complex error term can be seen as, in the case of the implemented evolution, allowing the angular momentum operator to change from imaginary time to real-time, and vice-versa in each respective case. To overcome this, we simply swap the application order of the operator components, between even and odd steps during the evolution. Starting with the alternate order we obtain a value of $L_2 = [-y p_x, x p_y] = i\hbar \left(x p_x + y p_y \right)$. Since we are applying this phase to the condensate we can overcome the error of one term by the application of the other, as
+ \begin{equation}
+ \exp{i L_1}\exp{i L_2} = 1.
+ \end{equation}
+
+ Although alternating will provide a cancellation of this error, it can be assumed that for large timesteps the error will have a non-insignificant contribution to the overall dynamics, as the wavefunction evolves from timestep to timestep. Thus, for this method to remain accurate we can perform the previous decomposition for a second-order accurate scheme.
+
+ \section{Vortex tracking}
+ To efficiently follow the vortex dynamics, some robust algorithm is needed to track their positions. One could track regions where the density drops to zero. However, this gives very little information on the topological excitation, and may mistake density dips such as phonons for the presence of such excitations. One of the most effective ways is to locate the $\pm 2\pi$ charge in the wavefunction phase, which is a signature of quantum vortices. We can assume that around a $2\times 2$ subgrid, the phase rotates from $-\pi$ to $+\pi$ in the presence of a vortex located on the subgrid. After an initial pass to determine the vortex locations closest the nearest grid element, a least-squares fit is performed to more accurately determine the vortex core position. With this, we can accurately determine the motion of the vortices with high precision.
+
+ To track the vortices during the evolution, the creation of an initial list of vortices is performed, with each given a unique identifier. Assuming the vortex cores can travel a limited distance (some multiple of the grid resolution) between time steps, we can say at subsequent times which vortex has moved to the newly found positions.
+
+ This is performed through representing vortices as a graph, each with an assigned unique identifier, associated location, phase winding and on/off flag. Edges are created between vortices that are separated by at most root-two the average of the inter-vortex spacings. A finite boundary is chosen to examine only vortices at the center, which can cause vortices to appear and disappear on the boundary. Thus, any vortex which appears without association to an initial vortex, or any vortex that leaves the boundary, is switched off and remains so for all analysis.
