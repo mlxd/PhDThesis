@@ -1,6 +1,6 @@
 CC	=	pdflatex
 BCC	=	bibtex
-FLAGS	=	-interaction=nonstopmode -halt=on-error -file-line-error
+FLAGS	=	#-interaction nonstopmode -halt=on-error -file-line-error
 
 Final_thesis: Final_Thesis.tex
 	${CC} ${FLAGS} Final_Thesis;

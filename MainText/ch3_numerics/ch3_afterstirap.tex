@@ -24,8 +24,73 @@ The Fourier split-operator method described earlier works well in handling cases
  Although alternating will provide a cancellation of this error, it can be assumed that for large timesteps the error will have a non-insignificant contribution to the overall dynamics, as the wavefunction evolves from timestep to timestep. Thus, for this method to remain accurate we can perform the previous decomposition for a second-order accurate scheme.
 
  \section{Vortex tracking}
- To efficiently follow the vortex dynamics, some robust algorithm is needed to track their positions. One could track regions where the density drops to zero. However, this gives very little information on the topological excitation, and may mistake density dips such as phonons for the presence of such excitations. One of the most effective ways is to locate the $\pm 2\pi$ charge in the wavefunction phase, which is a signature of quantum vortices. We can assume that around a $2\times 2$ subgrid, the phase rotates from $-\pi$ to $+\pi$ in the presence of a vortex located on the subgrid. After an initial pass to determine the vortex locations closest the nearest grid element, a least-squares fit is performed to more accurately determine the vortex core position. With this, we can accurately determine the motion of the vortices with high precision.
+ To efficiently follow the vortex dynamics, some robust algorithm is needed to track their positions. One could track regions where the density drops to zero. However, this gives very little information on the topological excitation, and may mistake density dips such as phonons for the presence of such excitations. One of the most effective ways is to locate the $\pm 2\pi$ charge in the wavefunction phase, which is a signature of quantum vortices. We can assume that around a $2\times 2$ subgrid, the phase rotates from $-\pi$ to $+\pi$ in the presence of a vortex located on the subgrid. After an initial pass to determine the vortex locations closest the nearest grid element, a least-squares fit is performed to more accurately determine the vortex core position.
 
- To track the vortices during the evolution, the creation of an initial list of vortices is performed, with each given a unique identifier. Assuming the vortex cores can travel a limited distance (some multiple of the grid resolution) between time steps, we can say at subsequent times which vortex has moved to the newly found positions.
+
+ Linear least squares is used generally for an overdetermined linear system $\mathbf{A}\mathbf{x} = \mathbf{b}$, where unique solutions are likely to not exist. Thus, for a solution, we seek the best fit plane that minimises the error, of the form
+
+ \begin{equation}
+ S(\mathbf{x}) = \displaystyle\sum |b_i - \displaystyle\sum A_{ij} x_j |^2
+ \end{equation}
+ where $S$ is the objective function to be minimised, following $\mathbf{b} = \argmin S(\mathbf{x})$. The solution of this minimisation problem is given by
+\begin{align}
+    \mathbf{A} ^{T}\mathbf{A} \mathbf{x} &= \mathbf{A} ^{T}\mathbf{b} \\
+    \mathbf{x} &= (\mathbf{A}^{T}\mathbf{A})^{-1}\mathbf{A}^{T}\mathbf{b}
+\end{align}
+and assuming a plane of the form $x + y + c = f(x,y)$,
+\begin{equation}
+    \mathbf{A} = \left(
+    \begin{array}{ccc}
+        0 & 0 & 1 \\
+        0 & 1 & 1 \\
+        1 & 0 & 1 \\
+        1 & 1 & 1
+    \end{array}\right),
+\end{equation}
+and
+\begin{equation}
+    \mathbf{b} = \left(
+    \begin{array}{cccc}
+        \Psi(x_0,y_0) & \Psi(x_0,y_1) & \Psi(x_1,y_0) & \Psi(x_1,y_1)
+    \end{array}^{T} \right),
+\end{equation}
+are the wavefunction values around the sampled $2\times 2$ grid.
+Upon evaluating the vector $\mathbf{x}$ above, one can obtain the best fit plane  solution as
+\begin{equation}\left(
+    \begin{array}{c}
+        x \\
+        y \\
+        c
+    \end{array}\right(
+    = \left(
+    \begin{array}{c}
+        0.5( -\Psi(x_0,y_0) + \Psi(x_0,y_1) - \Psi(x_1,y_0) + \Psi(x_1,y_1) ) \\
+        0.5( -\Psi(x_0,y_0) - \Psi(x_0,y_1) + \Psi(x_1,y_0) + \Psi(x_1,y_1) ) \\
+        3\Psi(x_0,y_0) + \Psi(x_0,y_1) - \Psi(x_1,y_0) - \Psi(x_1,y_1) )
+    \end{array}\right).
+\end{equation}
+
+The goal is to find where both the real and imaginary components cross through zero, and thus we seek a solution of the form $x + y = -c$. Arranging the above equations into matrix form as
+\begin{equation}\left(
+    \begin{array}{cc}
+        \Re(x) & \Re(y) \\
+        \Im(x) & \Im(y) \\
+    \end{array}\right)
+    \left(
+    \begin{array}{c}
+        \delta x \\
+        \delta y
+    \end{array}\right)
+    =
+    \left(
+    \begin{array}{c}
+        \Re(c)
+        \Im(c)
+    \end{array}\right).
+\end{equation}
+and again solving the linear system by inverting the left-hand matrix and multiplying across allows one to seek the corrections to the vortex position, $\delta \mathbf{r} = \{\delta x, \delta y \}$.
+
+
+ With this, we can accurately determine the motion of the vortices with high precision. To track the vortices during the evolution, the creation of an initial list of vortices is performed, with each given a unique identifier. Assuming the vortex cores can travel a limited distance (some multiple of the grid resolution) between time steps, we can say at subsequent times which vortex has moved to the newly found positions.
 
  This is performed through representing vortices as a graph, each with an assigned unique identifier, associated location, phase winding and on/off flag. Edges are created between vortices that are separated by at most root-two the average of the inter-vortex spacings. A finite boundary is chosen to examine only vortices at the center, which can cause vortices to appear and disappear on the boundary. Thus, any vortex which appears without association to an initial vortex, or any vortex that leaves the boundary, is switched off and remains so for all analysis.
