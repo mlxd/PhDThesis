@@ -1,13 +1,56 @@
 %\chapter{Bose--Einstein condensate dynamics}
 \section{Condensate dynamics}
-With the background theory outlined in Sections~\ref{sec:superfluid,sec:coldatoms}, I will now discuss manipulations and dynamics of the condensate. Due to phase coherence over all atoms, we can say that any perturbation to the condensate phase will (given sufficient time), have some affect on all condensed atoms. Direct manipulation of the phase is interesting as the condensate phase encapsulates all quantum behaviour of the system. Secondly, given the phase term is, following Eq.~\ref{eqn:madelung}, modifiable to any arbitrary values (within the range $\pm \pi$).
+With the background theory outlined in Sections~\ref{sec:superfluid,sec:coldatoms}, I will now discuss manipulations and dynamics of the condensate. Due to phase coherence over all atoms, we can say that any perturbation to the condensate phase will (given sufficient time), have some effect on all condensed atoms. Direct manipulation of the phase is interesting as the condensate phase encapsulates all quantum behaviour of the system. Secondly, given the phase term is, following Eq.~\ref{eqn:madelung}, modifiable to any arbitrary values (within the range $\pm \pi$).
 
 Also, with the condensate velocity determined by Eq.~\ref{eqn:velocity}, it is possible, upon engineering of the condensate phase, to control the atomic velocity. This opens an interesting set of possibilities as control of the phase, and hence velocity, allows for development of a wide range of quantum states and dynamics.
 
 
 
+
+
 \section{Rapidly rotating vortex lattice}
 Given the need for a well ordered vortex lattice it is instructive to discuss the generation of such a system. I assume an initial wavefunction guess of a two-dimensional gaussian having some finite overlap with the groundstate of the system in the absence of angular rotation. Following an imaginary time-evolution like what was outlined in Sec.~\ref{sec:numerics}, the groundstate of the condensate is found.
+
+\section{Hamiltonian manipulation methods}
+For steady-state solutions of the Gross--Pitaevskii equation one can examine the properties of a condensate for many different initial conditions, wherein we make use of Eq.~\ref{eqn:gpe_stationary}. However, the dynamics of a condensate out-of-equilibrium (OOE) can often yield exciting new results. Herein I will discuss some experimentally realistic methods to examine such OOE condensate behaviour, wherein I can manipulate various aspects of the Hamiltonian and resulting wavefunction to examine the effect on the resulting condensate.
+
+Two such manipulations I will focus on will be control of the trapping potential geometry in the Hamiltonian, $V$, as well as direct control of the wavefunction phase. I will begin with a discussion of the former.
+
+\subsection{Trapping potential control}
+
+Assuming a system is modeled effectively by GPE Eq.~\ref{eqn:gpe}, with Hamiltonian $H = H_0$, allows for a numerically evaluated ground-state with respect to this Hamiltonian. Any change to the Hamiltonian, performed slowly enough (adiabatically) will allow for the wavefunction to follow this change and remain in the groundstate of the new Hamiltonian. However, let us now imagine an abrupt change to, $H = H_0 + \alpha H_1$. In this scenario, the wavefunction, formerly a stationary state of $H_0$, will no longer remain so in the new Hamiltonian. Any modification of the Hamiltonian in this way can be viewed as a method for changinng the phase of the resulting wavefunction, given sufficient time, $t$ following
+\begin{equation}
+    e^{i\phi} \mapsto \exp\left(-i\frac{Ht}{\hbar}\right),
+\end{equation}
+wherein I have made use of Eq.~\ref{eqn:madelung}. By modifying the Hamiltonian the resulting components of the wavefunction see a different phase which governs their evolution. One common means to manipulate the Hamiltonian is through the use of optical potentials, which can be adjusted and manipulated through a variety of ways. Given the importance of magneto-optical traps (MOT) in trapping BECs, the addition of other optical fields should be possible experimentally.
+
+Optical lattices have become very prolific in BEC experiments, with experimental control being very highly developed.
+
+For an arbitrary set of optical potentials, the corresponding total potential is given by
+\begin{equation}\label{eqn:vopt}
+    V_{\textrm{P}} = \displaystyle\sum\limits_{j} \alpha_j e^{\textrm{i}\mathbf{k}_j\cdot\mathbf{r} - \omega t},
+\end{equation}
+where $j$ indexes the optical potentials, $\alpha_j$ is the amplitude of the respective optical potential, $\mathbf{k}_j$ is the respective wavevector, and $\omega$ is the oscillation frequency of the wave. By careful choice of $\alpha$ and $\mathbf{k}$ any arbitrary potential geometry can be formed through Fourier synthesis. However, as is often the case, some simplification of this results in a more realistic system. Given that an explicit time-dependence on the potentials would introduce experimental difficulties, one can assume that for the cases examine herein that the potentials are plane wave solutions (i.e $\omega=0$).
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Phase imprinting defects}\label{sec:phase}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Where previously I added an optical potential to the Hamiltonian for a short time during the evolution, here I directly engineer the wavefunction phase. For the previously chosen kicking strengths and timestep, the limiting values of the phase change are $\approx 0.2 < \phi < \approx 0.94$. This is determined by writing the phase as
+\begin{equation}
+    e^{i\phi} \mapsto \exp\left(-i\frac{V_{\textrm{opt}}dt}{\hbar}\right),
+\end{equation}
+and filling in for the defined simulation values. Thus, for a much stronger phase change a longer lasting pulse, or a greater amplitude are two possible contenders. However, as discussed previously, neither are suitable candidates in this system, given the lattice rotation, as well as the excitation of higher-order wavenumbers. With the use of direct phase imprinting we can realise arbitrary phase patterns on the condensate. Previously the vortex lattice was unaffected by the imprint; here I attempt to destroy the vortex lattice by directly engineering the opposite phase winding profile atop a lattice vortex. This has the distinct advantage of locally erasing a vortex and disordering the lattice. I will now discuss this method.
+
+Phase imprinting is a technique that applies a spatially inhomogeneous optical potential across a condensate in such a way that the phase is modified to a desired form. As a consequence the density distribution will adjust itself and in ground state condensates dark solitons \cite{BEC:Denschlag_science_2000}, as well as vortices \cite{Vtx:Dobrek_pra_1999} have been created this way. For the latter the signature is given by a phase singularity, around which the phase winds through $\pm 2\pi$, depending upon the direction of rotation.
+
+The phase imprinting method can also be used to annihilate a vortex from the lattice by applying a phase profile of opposite winding, removing the phase singularity.  This will leave the condensate with a density depletion at the prior location of the phase singularity. Without the singularity this depletion will fill in and excite phonon modes in the condensate during time evolution. This method will form the basis for which the further discussions and analysis are performed on the vortex carrying condensate.
+
+
+
 
 
 
