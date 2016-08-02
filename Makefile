@@ -1,4 +1,4 @@
-CC	=	pdflatex
+CC	=	xelatex
 BCC	=	bibtex
 FLAGS	=	#-interaction nonstopmode -halt=on-error -file-line-error
 
