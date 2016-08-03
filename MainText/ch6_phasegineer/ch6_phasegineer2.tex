@@ -47,17 +47,17 @@ Additionally, we make use of the Delaunay triangulation of the vortex lattice to
 To fully understand the effect of removing a vortex from the lattice system, let us first investigate the effects from removing the vorticity from a single vortex carrying condensate. Since the presence of vorticity requires the presence of a phase singularity, vortices possess the characteristic density depletion in their centre, which becomes unstable once the angular momentum is removed. The results of such a process can be seen in Fig.~\ref{fig:annihilation_1vtx}, and, as expected, the depletion of the condensate density fills in after the vortex phase is removed. An examination of the squared-radial expectation value, $\langle r^2 \rangle$, where $r^2 = x^2 + y^2$, shows that removing the vortex from the condensate excites a breathing mode, at the expected frequency of $2\omega_\perp$ for a two-dimensional system. The change in energy of the condensate is shown via the ratio of compressible (phonon) and incompressible (vortex) kinetic energy spectra given by Fig.~\ref{fig:kinspec}. As the vortex is annihilated we see a drop in the ratio of energies to favor a lower incompressible-to-compressible values for higher wavenumbers, resulting from the creation of a sound wave.
 
 \begin{figure} \centering
-    \includegraphics[width=0.85\textwidth]{ch6_phasegineer/imgs/NEWPICS/1vtx_remove1_centred2}
+    \includegraphics[width=0.55\textwidth]{ch6_phasegineer/imgs/NEWPICS/1vtx_remove1_centred2}
     \caption{The evolution of the condensate density and phase is shown for the initial state, and after 10 ms of evolution. The application of the phase creates sound waves which expand radially from the point of application. The line-plot shows the squared-radial expectation value which indicates the excitation of a breathing mode at $\omega_B = 2\omega_\perp$.}\label{fig:annihilation_1vtx}
 \end{figure}
 
 \begin{figure} \centering
-    \includegraphics[width=0.85\textwidth]{ch6_phasegineer/tikz/EKt}
+    \includegraphics[width=0.55\textwidth]{ch6_phasegineer/tikz/EKt}
     \caption{The ratio of incompressible to compressible energies at times $t=0$ (solid) and $t=\tau$ (dashed), where $\tau=10$ ms. Initially the incompressible energy is greater than the compressible due to the presence of a vortex giving values greater than unity for all $k$. After application of the phase profile, the vortex is annihilated, with the energy released as phonons, indicated by a decrease in incompressible energy for higher $k$ values.}\label{fig:kinspec}
 \end{figure}
 
 \begin{figure} \centering
-    \includegraphics[width=0.85\textwidth]{ch6_phasegineer/imgs/1vtx_remove1_uncentred}
+    \includegraphics[width=0.55\textwidth]{ch6_phasegineer/imgs/1vtx_remove1_uncentred}
     \caption{The condensate evolution following an uncentered phase imprint. For an imprint that is of the order of the healing length from centre to centre, the annihilation occurs during the evolution (a,b). However, beyond this distance, we create an antivortex which travels with the pre-existing vortex and circulates the condensate (c,d,e).}\label{fig:annihilation_1vtx_uncentred}
 \end{figure}
 
@@ -80,7 +80,7 @@ Although we have globally affected the angular momentum of the system, the other
 The removal of a single vortex from the vortex lattice is expected to affect only the nearest neighbours by altering their velocity profile, with the overall angular momentum of the condensate decremented by a single quantum. Since phonons have been shown to yield minimal impact on the vortex lattice structure \cite{VTX:oriordan_pra_2016}, we can safely ignore their contribution from the phase imprint and annihilation. To examine the vortex dynamics following the application of the phase profile, each individual vortex is tracked independently. We can observe the local effects of disturbing the lattice by examining trajectory plots and the Delaunay triangulation of the vortex lattice.
 
 \begin{figure}
-    \includegraphics[width=0.85\textwidth, trim=0mm 0 0 0]{ch6_phasegineer/imgs/g2d/varr_161/Trajectory}
+    \includegraphics[width=0.55\textwidth, trim=0mm 0 0 0]{ch6_phasegineer/imgs/g2d/varr_161/Trajectory}
     \caption{The trajectories of the vortices over 10 s following a removal at the center shows a clear vacancy that remains into long times. The trajectories show almost perfect solid-body rotation of the lattice, with the only notable deviations resulting from the vortices adjacent to the vacancy.}
     \label{fig:trajplot}
 \end{figure}
@@ -88,33 +88,33 @@ The removal of a single vortex from the vortex lattice is expected to affect onl
 We remove a vortex from the centre of the vortex lattice, with a trajectory plot of the lattice following this removal over 10 s of time evolution given by Fig.~\ref{fig:trajplot}. The center of the lattice maintains a long-lived vacancy (order of seconds), with the adjacent vortices rotating faster than the lattice due to the loss of local velocity field. The stability of the nearest neighbour honeycomb-like structure is long lived, before eventually decaying akin to that described by \cite{Vtx:Leipold_jsm_2016}, creating a locally disordered region. This stable vacancy was observed irrespective of initial vortex choice provided it is within the region of constant areal density, though less stable than central placement. The overall vortex lattice remains well structured after a removal, as evidenced by examining the orientational correlation function given by Fig.~\ref{fig:g6}. It is interesting to note that the long-ranged behaviour following a removal has a higher correlation than without.
 
 \begin{figure} \centering
-    \includegraphics[width=0.85\textwidth]{ch6_phasegineer/imgs/NEWPICS/g6_varr0_varr161}
+    \includegraphics[width=0.55\textwidth]{ch6_phasegineer/imgs/NEWPICS/g6_varr0_varr161}
     \caption{The orientational correlation function for the unperturbed (V0) and central vortex removed (V1) are given for $t={1,4,10}$ s (t,m,b).}\label{fig:g6}
 \end{figure}
 
 The Delaunay triangulation of the lattice upon removing a single vortex is given in Fig.~\ref{fig:deltri_1vtx}. A pair of 5 and 7-fold defects act as a lattice dislocation, where two such pairs can be seen to remain localised and persist for long times following a vortex removal. Removing vortices at different positions in the lattice shows similar behaviour, with a localisation of the disordered region not far from the site of removal. Paired appearances of 5 and 7-fold connected edges indicate the presence of a dislocation, and we can measure the disorder of the lattice by counting the presence of these such defects. While generally not all 5 and 7-fold defects are paired due to the presence of $n$-fold connected vortices, coincidental appearance of these is good indication of a lattice dislocation.
 
 \begin{figure} \centering
-    \includegraphics[width=0.85\textwidth]{./ch6_phasegineer/imgs/NEWPICS/Delaunay_varr161.pdf}
+    \includegraphics[width=0.55\textwidth]{./ch6_phasegineer/imgs/NEWPICS/Delaunay_varr161.pdf}
     \caption{Delaunay triangulation of vortex lattice after removing 1 vortex, viewed at $t=\{0.01,0.8,2,10\}$ s. A pair of 5-7 dislocations persists in the lattice into long times.}\label{fig:deltri_1vtx}
 \end{figure}
 
 As a perfect vortex imprint may be challenging experimentally, as discussed earlier, we examine the situation where an imprint is not directly centred on a lattice vortex. For an Abrikosov vortex lattice in a rapidly rotating condensate, the core size becomes comparable to the distance between cores, allowing a core to be hit much more easily. Fig.~\ref{fig:lattice_misalign} gives a time-averaged examination of the number of lattice defects following an imprint relative to a vortex and lattice vector. The resulting lattice disorder is almost always comparable in the long time limit for perfect and imperfect alignment, with the number of defects observed to be on average between 1 and 4.  We can see that within the vortex core we have on average between 1 and 2 defects created for both 5- (a) and 7-fold (b) connected vortices. At the cusp of the core, the imprint tends to create upwards of 3 to 4, which again tends back to the average of 2 beyond this region. The previously discussed issue with the imperfect alignment thus is no longer problematic as in the low vortex number scenario. We will concentrate on the perfect imprint in future discussions.
 
 \begin{figure} \centering
-    \includegraphics[width=0.85\textwidth]{ch6_phasegineer/imgs/NEWPICS/arc_def57.pdf}
+    \includegraphics[width=0.55\textwidth]{ch6_phasegineer/imgs/NEWPICS/arc_def57.pdf}
     \caption{The time-averaged number of defects appearing over a range of imprint positions relative to a central vortex from $t=1\rightarrow$10 s, allowing 1 s of settling time. Both 5-fold (a) and 7-fold (b) defects are shown. A high coincidence is observed between their appearance, where a paired 5-7 defect indicates a lattice dislocation. Due to the presence of 4 and 8-fold defects additional counts can be observed when paired.} \label{fig:lattice_misalign}
 \end{figure}
 
 We can also examine the effect of removing more than one vortex from the lattice. Here we examine the case of removing two from a region away from the centre. Fig.~\ref{fig:traj_2vtx_edge} gives the trajectory plot of this, where we can again observe the localised vacancy and resulting defects in the lattice over 10 s of time. We track the number of edges formed between vortices, and plot this over time for 5, 6 and 7 nearest neighbours respectively ($N_x$), and we can observe such appearances as indicated by Fig.~\ref{fig:vtx_rem2_edge}. One can see that the behaviour is very similar to a singular imprint at the condensate centre.
 
 \begin{figure} \centering
-    \includegraphics[width=0.85\textwidth,trim=0mm 0 0 0]{ch6_phasegineer/imgs/NEWPICS/Trajectory2edge.png}
+    \includegraphics[width=0.55\textwidth,trim=0mm 0 0 0]{ch6_phasegineer/imgs/NEWPICS/Trajectory2edge.png}
     \caption{Vortex trajectories over 10 s upon removal of two vortices at either sides of the lattice show localised vacancies for long times. The lattice largely remains ordered as observed with removing the central vortex.}\label{fig:traj_2vtx_edge}
 \end{figure}
 
 \begin{figure} \centering
-    \includegraphics[width=0.85\textwidth]{ch6_phasegineer/imgs/NEWPICS/2edge_Defect57_t}
+    \includegraphics[width=0.55\textwidth]{ch6_phasegineer/imgs/NEWPICS/2edge_Defect57_t}
     \caption{The defect count taken from a Delaunay triangulation of the vortex lattice following the removal of 2 vortices on opposite sides. After a brief settling time, the lattice attains an almost constant defect count with between 2 and 4 vortices, depending upon time.}\label{fig:remove7_defect}
     \label{fig:vtx_rem2_edge}
 \end{figure}
@@ -127,7 +127,7 @@ We can also use the phase imprinting as a means to create a varying degrees of d
 
 \begin{figure} \centering
     \vspace{1cm}
-    \includegraphics[width=0.85\textwidth]{ch6_phasegineer/imgs/NEWPICS/Defect57_varr161anti.pdf}
+    \includegraphics[width=0.55\textwidth]{ch6_phasegineer/imgs/NEWPICS/Defect57_varr161anti.pdf}
     \caption{The defect count taken from a Delaunay triangulation of the vortex lattice following an insertion of an antivortex. The number of defects increases largely as the local structure decays, and eventually gives rise to a constant-plus-fluctuations region of defect numbers.}\label{fig:varr161anti_defect}
 \end{figure}
 
@@ -135,7 +135,7 @@ While we have shown that it is possible to create low and moderate numbers of lo
 
 \begin{figure} \centering
     %\vspace{1cm}
-    \includegraphics[width=0.85\textwidth]{ch6_phasegineer/imgs/NEWPICS/Defect57_nuclear.pdf}
+    \includegraphics[width=0.55\textwidth]{ch6_phasegineer/imgs/NEWPICS/Defect57_nuclear.pdf}
     \caption{The defect count taken from a Delaunay triangulation of the vortex lattice following the removal of 7 vortices. Defects can be seen to rise as a function of time.}\label{fig:remove7_defect}
 \end{figure}
 
@@ -143,7 +143,7 @@ Comparing the orientational correlation function for removing 2, creating an ant
 
 \begin{figure} \centering
     %\vspace{1cm}
-    \includegraphics[width=0.85\textwidth]{ch6_phasegineer/imgs/NEWPICS/g6_2edge_anti_nuclear.pdf}
+    \includegraphics[width=0.55\textwidth]{ch6_phasegineer/imgs/NEWPICS/g6_2edge_anti_nuclear.pdf}
     \caption{The orientational correlation function is given for moderate ($t=4$ s, top) and long ($t=10$ s, bottom) times. Short range order is clearly distinct between all three cases, with long range comparable for both removing 2 non-central and creating an antivortex at moderate and long times. Removing 7 vortices significantly lowers correlations across all length scales, indicating a globally disordered lattice.}\label{fig:g6_2edge_anti_nuclear}
 \end{figure}
 
@@ -162,7 +162,7 @@ These defects can be created controllably, by varying the degree to which we per
 
 \begin{figure}\centering
     \includegraphics[width=0.5\textwidth]{ch6_phasegineer/imgs/mono}
-    \caption{Monopole mode of the condensate following a different charged vortex imprint. A step-like increase or decrease in oscillation ampltiude can be observed.}\label{fig:monopoles}
+    \caption{Monopole mode of the condensate following a different charged vortex imprint. A step-like increase or decrease in oscillation amplitude can be observed.}\label{fig:monopoles}
 \end{figure}
 
 \begin{figure}\centering

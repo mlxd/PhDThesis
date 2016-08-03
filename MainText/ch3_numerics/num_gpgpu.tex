@@ -18,7 +18,7 @@ compute device, it is essential to break down the problem into easily parallelis
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.75\textwidth]{./ch3_numerics/CUDA/prefixsum.pdf}
+    \includegraphics[width=0.55\textwidth]{./ch3_numerics/CUDA/prefixsum.pdf}
     \caption{A simplified parallel summation algorithm. After each pass the number of elements to sum is halved, leading to a $\mathcal{O}(\log{} n)$ complexity in time. Since we require only the total sum, this algorithm choses to read the value at $T_0$ at the end of the run.}
     \label{fig:prefixsum}
 \end{figure}

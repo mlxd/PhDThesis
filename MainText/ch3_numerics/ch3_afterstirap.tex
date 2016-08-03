@@ -27,16 +27,18 @@ The Fourier split-operator method described earlier works well in handling cases
  To efficiently follow the vortex dynamics, some robust algorithm is needed to track their positions. One could track regions where the density drops to zero. However, this gives very little information on the topological excitation, and may mistake density dips such as phonons for the presence of such excitations. One of the most effective ways is to locate the $\pm 2\pi$ charge in the wavefunction phase, which is a signature of quantum vortices. We can assume that around a $2\times 2$ subgrid, the phase rotates from $-\pi$ to $+\pi$ in the presence of a vortex located on the subgrid. After an initial pass to determine the vortex locations closest the nearest grid element, a least-squares fit is performed to more accurately determine the vortex core position.
 
 
- Linear least squares is used generally for an overdetermined linear system $\mathbf{A}\mathbf{x} = \mathbf{b}$, where unique solutions are likely to not exist. Thus, for a solution, we seek the best fit plane that minimises the error, of the form
+ Linear least squares is used generally for an overdetermined linear system $\mathbf{A}\mathbf{x} = \mathbf{b}$, where unique solutions are unlikely to exist. Thus, for a solution, we seek the best fit plane that minimises the error, of the form
 
  \begin{equation}
  S(\mathbf{x}) = \displaystyle\sum |b_i - \displaystyle\sum A_{ij} x_j |^2
  \end{equation}
  where $S$ is the objective function to be minimised, following $\mathbf{b} = \argmin S(\mathbf{x})$. The solution of this minimisation problem is given by
+ \begin{subequations}
 \begin{align}
     \mathbf{A} ^{T}\mathbf{A} \mathbf{x} &= \mathbf{A} ^{T}\mathbf{b} \\
     \mathbf{x} &= (\mathbf{A}^{T}\mathbf{A})^{-1}\mathbf{A}^{T}\mathbf{b}
 \end{align}
+\end{subequations}
 and assuming a plane of the form $x + y + c = f(x,y)$,
 \begin{equation}
     \mathbf{A} = \left(
@@ -52,7 +54,7 @@ and
     \mathbf{b} = \left(
     \begin{array}{cccc}
         \Psi(x_0,y_0) & \Psi(x_0,y_1) & \Psi(x_1,y_0) & \Psi(x_1,y_1)
-    \end{array}^{T} \right),
+    \end{array} \right)^{T},
 \end{equation}
 are the wavefunction values around the sampled $2\times 2$ grid.
 Upon evaluating the vector $\mathbf{x}$ above, one can obtain the best fit plane  solution as
@@ -61,7 +63,7 @@ Upon evaluating the vector $\mathbf{x}$ above, one can obtain the best fit plane
         x \\
         y \\
         c
-    \end{array}\right(
+    \end{array}\right)
     = \left(
     \begin{array}{c}
         0.5( -\Psi(x_0,y_0) + \Psi(x_0,y_1) - \Psi(x_1,y_0) + \Psi(x_1,y_1) ) \\

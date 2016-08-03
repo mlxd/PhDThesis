@@ -30,10 +30,13 @@
 \usepackage[bf]{caption} % caption: FIG in bold
 \usepackage{fancyhdr} % For the headers
 
-\newcommand{\numberedchapter}{ % Preparation for numbered chapters
+\newcommand{\numberedchapter}[1]{ % Preparation for numbered chapters
 	\cleardoublepage % To make sure the previous headers are passed
+    \chapter{#1}
 	\fancyhead[RE]{{\bfseries \leftmark}}% Headers for left pages
-	\fancyhead[LO]{{\bfseries \rightmark}}}% Headers for right pages
+	\fancyhead[LO]{{\bfseries \rightmark}}% Headers for right pages
+}
+
 \newcommand{\unnumberedchapter}[1]{ % Preparation for unnumbered chapters
 	\cleardoublepage % To make sure the previous headers are passed
 	\addcontentsline{toc}{chapter}{#1} % Also adds the chapter name to the Contents
@@ -131,16 +134,17 @@
 \newif\ifintro
 \introtrue
 \ifintro
-    \chapter{Introduction} % Title of the unnumbered chapter
+    \numberedchapter{Introduction} % Title of the unnumbered chapter
+        %\chapter{Introduction}
         \input{MainText/ch1_intro/introduction} % Introduction (unnumbered)
-
 \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\iflitrev
 \litrevtrue
 \iflitrev
-    \chapter{Literature review}
+    \numberedchapter{Literature review}
+    %\chapter{Literature review}
         %\input{MainText/ch1_litrev/litrev_intro} % Import your chapters here
         \input{MainText/ch2_litrev/litrev_coldatoms} % Import your chapters here
         \input{MainText/ch2_litrev/litrev_superfluids} % Import your chapters here
@@ -153,7 +157,8 @@
 \newif\ifnumerics
 \numericstrue
 \ifnumerics
-    \chapter{Numerics}
+    \numberedchapter{Numerics}
+    %\chapter{Numerics}
         \input{MainText/ch3_numerics/num_splitop}
         \input{MainText/ch3_numerics/num_gpgpu}
         \input{MainText/ch3_numerics/num_stirap}
@@ -167,21 +172,25 @@
 \newif\ifvtxdyn
 \vtxdyntrue
 \ifvtxdyn
-    \chapter{Bose-Einstein condensate dynamics}
+    \numberedchapter{Bose--Einstein condensate dynamics}
+    %\chapter{Bose--Einstein condensate dynamics}
         \input{MainText/ch4_vort/vort_lattice}
     \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifmoire
 \moiretrue
 \ifmoire
+    \numberedchapter{Moir\'e superlattice structures}
     \chapter{Moir\'e superlattice structures}
+
         \input{MainText/ch5_kickit/kickit_moire}
 \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifdefect
 \defecttrue
 \ifdefect
-    \chapter{Defect engineering}
+    \numberedchapter{Defect engineering}
+    %\chapter{Defect engineering}
         %\input{MainText/ch6_phasegineer/phasegineer_dislocate}
         \input{MainText/ch6_phasegineer/ch6_phasegineer2}
         \input{MainText/ch6_phasegineer/ch6_delaunay_voronoi}
@@ -193,7 +202,8 @@
 \newif\ifconc
 \conctrue
 \ifconc
-    \chapter{Conclusion} % Title of the unnumbered chapter
+    \numberedchapter{Conclusion} % Title of the unnumbered chapter
+    %\chapter{Conclusion} % Title of the unnumbered chapter
         \input{MainText/ch7_disclusions/conclusion}% Conclusion (unnumbered)
 \fi
 %----------------------------------------------------------------------------------------
@@ -203,7 +213,7 @@
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 \appendix % Starts of appendices
 
-\numberedchapter
+\numberedchapter{Appendix}
 \input{MainText/appendixA}
 %\input{MainText/appendixB}
 %\input{MainText/appendixC}
