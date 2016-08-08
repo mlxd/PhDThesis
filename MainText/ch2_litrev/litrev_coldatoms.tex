@@ -1,9 +1,12 @@
-\section{Cold atoms}\label{sec:coldatoms}
+\section{Ultracold atoms}\label{sec:coldatoms}
 \subsection{Cooling of atomic gases}\label{sub:cooling}
-One of the major advances in experimental physics in recent times has been the laser cooling of trapped atoms to temperatures near absolute zero. This feat, which earned the Nobel Prize in Physics in 1997, resulted from the pioneering work of C. Cohen-Tannoudji, S. Chu and W. Phillips \cite{AO:Chu_revmod_1998,AO:Cohen_revmod_1998,AO:Phillips_revmod_1998}. It relies on the use of counter-propagating detuned laser fields which are directed upon a trapped cloud of atoms. Due to Doppler shifting of the frequencies, atoms moving towards the respective beams see resonant photons, absorb them and slow down due to the momentum absorbed, with this technique being termed ``Doppler cooling''. This is followed by a spontaneous emission in a random direction, for which the recoil kicks average out to zero; hence, the atoms become cooler. As a result, the atoms eventually reach a velocity below that which can be absorbed from the lasers due to the change in resonance frequencies, leaving a narrower velocity distribution. Although laser cooling allowed temperatures to reach micro-Kelvin regimes, additional techniques must be used to obtain atoms deep in the nano-Kelvin temperature range. One such method, known as evaporative cooling, involves relaxation of the trapping potential height, which in turn allows many of the higher energy atoms to escape \cite{AO:Ketterle_amop_1996}. The remaining atoms rethermalise and are thus of lower energy, and therefore at a lower temperature. With these techniques the creation of Bose--Einstein condensates in dilute atomic gases became possible.
+One of the major advances in experimental physics towards creating matter in extreme situations has been the laser cooling of trapped atoms to temperatures near absolute zero. This feat resulted from the pioneering work of C. Cohen-Tannoudji, S. Chu and W.
+Phillips, and earned them the Nobel Prize in Physics in 1997 \cite{AO:Chu_revmod_1998,AO:Cohen_revmod_1998,AO:Phillips_revmod_1998}.
+It relies on the use of counter-propagating detuned laser fields which are shown at a trapped cloud of atoms. Due to Doppler shifting of the frequencies, atoms moving towards the respective beams see resonant photons, absorb them and slow down due to the momentum absorbed, with this technique being termed ``Doppler cooling''. This is followed by a spontaneous emission in a random direction, for which the recoil kicks average out to zero; hence, the atoms become cooler. As a result, the atoms eventually reach a velocity below that which can be absorbed from the lasers due to the change in resonance frequencies, leaving a narrower velocity distribution. Although laser cooling allowed temperatures to reach micro-Kelvin regimes, additional techniques must be used to obtain atoms deep in the nano-Kelvin temperature range. A further discussion of these methods is presented in [Atomic physics, Foot; Laser cooling and trapping, Metcalf].
+I will assume the effectiveness of these techniques to allow the creation of Bose--Einstein condensates in dilute atomic gases.
 
 \subsection{Introduction to Bose--Einstein condensation}\label{sub:becintro}
-Bose--Einstein condensation was theoretically predicted by N. Bose and A. Einstein \cite{BEC:Ketterle_revmod_2002}. This began as a work on the statistical behaviour of photons, eventually leading to the derivation of the ``Bose--Einstein distribution'' for an ideal bosonic gas.
+Bose--Einstein condensation was predicted by N. Bose and A. Einstein \cite{BEC:Ketterle_revmod_2002}. This began as a work on the statistical behaviour of photons, eventually leading to the derivation of the ``Bose--Einstein distribution'' for an ideal bosonic gas.
 In the framework of the grand canonical ensemble and following the description given by Pitaevskii and Stringari \cite[chap. 2]{BK:Pitaevskii_Stringari_2003}, the Bose--Einstein distribution is given by
 \begin{equation}
 \bar{n}_i = \frac{1}{e^{\beta(\epsilon_i - \mu)} -1},
@@ -13,7 +16,7 @@ The total number of particles in the system, $N$, can be evaluated by summing ov
 \begin{equation}
 N=\displaystyle\sum_i \bar{n}_i.
 \end{equation}
-This work predicted that non-interacting, indistinguishable (bosonic) particles would, if their energy was sufficiently low, undergo a phase transition below a critical temperature into a new phase in which the particles would occupy the same lowest lying energy state of the system. The number of atoms occupying this lowest lying state, $N_0$, is given by the relationship
+This work predicted that non-interacting, indistinguishable (bosonic) particles would, if their energy was sufficiently low, undergo a phase transition below a critical temperature into a new phase in which the particles would occupy the same lowest lying energy state of the system. The number of atoms occupying this lowest lying state, $N_0$, is given by
 \begin{equation}
 N_0 \equiv \bar{n}_0 = \frac{1}{e^{\beta(\epsilon_0 - \mu)} - 1},
 \end{equation}
@@ -21,19 +24,19 @@ with $\epsilon_0$ representing the lowest energy eigenvalue. Since negative occu
 \begin{equation}
 N = N_0 + N_T = N_0 + \displaystyle\sum_{i\neq 0}\bar{n}_i(T,\mu),
 \end{equation}
-a relation for the the onset of Bose--Einstein condensation can be given. This will happen when the temperature drops below a critical value, $T_c$, where $\mu$ will approach $\epsilon_0$, resulting in the macroscopic occupation of the lowest lying state, yielding a Bose--Einstein condensate (BEC).
+a relation for the the onset of Bose--Einstein condensation can be given. For a finite temperature system ($T>0$) this will happen when the temperature drops below a critical value, $T_c$, where $\mu$ will approach $\epsilon_0$, resulting in the macroscopic occupation of the lowest lying state, yielding a Bose--Einstein condensate (BEC).
 
-BECs are a prime example of coherent matter waves, and demonstrate quantum mechanical effects on length-scales which can be considered mesoscopic. Given a cloud of identical bosons at higher temperature, the atoms exhibit billiard-ball type behaviour. As they are cooled, the thermal de Broglie wavelength of the atoms, given by
+BECs of ultracold atomic gases are a prime example of coherent matter waves, and demonstrate quantum mechanical effects on length-scales which can be considered mesoscopic. Given a cloud of identical bosons at higher temperature, the atoms exhibit billiard-ball type behaviour. As they are cooled, their thermal de Broglie wavelength increases as
 \begin{equation}
-\lambda_{dB} = \frac{\sqrt{2\pi\hbar^2}{mk_{B}T}},
+\lambda_{dB} = \sqrt{\frac{\hbar^2}{2\pi mk_{B}T}},
 \end{equation}
-where $m$ is the atom mass, grows, causes the wave-nature of the atoms to become more prominent, and the atomic waves start to overlap when $\lambda_{dB} \approx$ inter-particle separation. The quantity $n\lambda_{dB}^3$, where $n$ is the density of the gas, is known as the \emph{phase-space density}. Physically this denotes the number of particles present in a box with sides of $\lambda_{dB}$ length, and the phase transition to the condensate sets in at $\zeta\left(\frac{3}{2}\right)$, where $\zeta$ is the Riemann-Zeta function \cite{BK:Ueda_2010}. The value of $T_c$ for this to occur in a uniform gas is given by
+where $m$ is the atom mass, because the wave-nature of the atoms becomes more prominent, and the de Broglie waves start to overlap when $\lambda_{dB} \approx$ inter-particle separation. The quantity $n\lambda_{dB}^3$, where $n$ is the density of the gas, is known as the \emph{phase-space density}. Physically this denotes the number of particles present in a box with sides of $\lambda_{dB}$ length, and the phase transition to the condensate sets in at $\zeta\left(\frac{3}{2}\right)$, where $\zeta$ is the Riemann-Zeta function \cite{BK:Ueda_2010}. The value of $T_c$ for this to occur in a uniform gas is given by
 \begin{equation}
-k_BT_C = \frac{2\pi}{\zeta\left(\frac{3}{2}\right)^{2/3}}\frac{\hbar^2n^{2/3}}{m},
+k_BT_c = \frac{2\pi}{\zeta\left(\frac{3}{2}\right)^{2/3}}\frac{\hbar^2n^{2/3}}{m}.
 \end{equation}
-or, in the case of a harmonic oscillator potential,
+For a finite number of atoms in a realistic experimental scenario one can consider the case of a BEC trapped in a harmonic oscillator potential. For this finite-sized sample, and inhomogeneous density profile, the transition temperature is given by
 \begin{equation}
-k_BT_C = \frac{\hbar\bar{\omega}N^{1/3}}{\zeta(3)^{1/3}},
+k_BT_c = \frac{\hbar\bar{\omega}N^{1/3}}{\zeta(3)^{1/3}},
 \end{equation}
 where $\bar{\omega}=(\omega_x\omega_y\omega_z)^{1/3}$ is the geometric mean of the oscillator frequencies. Critical temperatures for harmonically trapped gases are on the order of nano-Kelvin assuming realisable trapping frequencies, which were experimentally inaccessible during the time of Bose and Einstein.
 
@@ -45,7 +48,7 @@ present at the time, this type of system came close, but did not quite reach the
 Bose--Einstein condensation to occur until over twenty years later \cite{BEC:Fried_prl_1998}. Given the advent of laser cooling in the 1980's, the use of alkali atoms was considered partly due to the ease of accessibility of their optical transition frequencies. It was not until 1995 that the first BECs would be experimentally realised \cite{BEC:Cornell_science_1995,BEC:Ketterle_prl_1995}.
 
 \subsection{Theoretical description of BECs: Gross--Pitaevskii equation}\label{sub:gpederiv}
-I will, in the following section, outline the derivation of the mean-field Gross--Pitaevskii equation, which is widely used to study the behaviour of the condensate in many works cited in this review. Following the \textit{Les Houches 2013 Lecture Course} by J. Walraven \cite{LEC:Walraven_lh_2013} the second quantization form of the many-body Hamiltonian for interacting particles in a harmonic potential is given by
+I will, in the following section, outline the derivation of the mean-field Gross--Pitaevskii equation, which is widely used to study the behaviour of the condensate in many works cited in this review. Following the \textit{Les Houches 2013 Lecture Course} by J. Walraven \cite{LEC:Walraven_lh_2013} the second quantization form of the many-body Hamiltonian for interacting particles in an external potential is given by
 \begin{equation}\label{eqn:ham2ndq}
 \hat{\mathcal{H}} = \hat{H_1} + \hat{H_2} = \int \hat{\Psi}^{\dagger} H_0\left(\textbf{r},\textbf{p} \right)  \hat{\Psi} \; d\textbf{r}  + \frac{1}{2} \int\hat{\Psi}^{\dagger}\hat{\Psi}^{\dagger}V_{\textrm{int}}(\textbf{r}^\prime-\textbf{r})\hat{\Psi}\hat{\Psi} \; d\textbf{r}^\prime d\textbf{r},
 \end{equation}
@@ -61,11 +64,14 @@ and with $\omega_i$ representing the trapping frequency in the $i$-th spatial di
 	g = \frac{4\pi\hbar^2 a_s}{m},
 \end{equation}
 with $a_s$ being the s-wave scattering length. Inserting the contact potential Eq. \eqref{eqn:v_int} into the second quantised interaction Hamiltonian $\hat{H}_2$ from Eq. \eqref{eqn:ham2ndq} above yields the following relations
+\begin{subequations}
 \begin{align}
 \hat{H}_2 &= \frac{g}{2} \int \hat{\Psi}^{\dagger}(\textbf{r})\hat{\Psi}^{\dagger}(\textbf{r\textprime}) \delta\left(\textbf{r} - \textbf{r\textprime}\right)\hat{\Psi}(\textbf{r\textprime})\hat{\Psi}(\textbf{r})d\textbf{r}d\textbf{r\textprime} \\
  & = \frac{g}{2}\int \hat{\Psi}^{\dagger}(\textbf{r})\hat{\Psi}^{\dagger}(\textbf{r}) \hat{\Psi}(\textbf{r})\hat{\Psi}(\textbf{r})d\textbf{r}d\textbf{r} \\
  & = \frac{g}{2}\int \hat{\Psi}^{\dagger}\left(\textbf{r}\right)\hat{n}\left(\textbf{\textbf{r}}\right)\hat{\Psi}^{\dagger}d\textbf{r}.
 \end{align}
+\end{subequations}
+
 In the Heisenberg picture, the evolution of the system is governed by the equation
 \begin{equation}\label{eqn:heisenberg}
 i\hbar \frac{\partial}{\partial t}\hat{\Psi}_H\left(\textbf{r}, t\right) = \left[\hat{\Psi}_{H}\left(\textbf{r}, t\right), \hat{\mathcal{H}}  \right],
@@ -75,11 +81,14 @@ where the Heisenberg field annihilation operator, $\hat{\Psi}_H\left(\textbf{r},
 \hat{\Psi}_H\left(\textbf{r}, {t} \right) = e^{\frac{i\hat{\mathcal{H}}t}{\hbar}}\hat{\Psi}\left(\textbf{r}\right) e^{\frac{-i\hat{\mathcal{H}}t}{\hbar}}.
 \end{equation}
 The operator, $\hat{\Psi}_H$ can be interpreted as the one removing an atom from a given state of the system. Therefore, if all $N$ atoms in the system are in the ground-state, $\vert 0_N\rangle$, as would be the case in an ideal condensate, the following relationship holds
+\begin{subequations}
 \begin{align}
 \hat{\Psi}_{H}(\textbf{r},t)\vert 0_N \rangle &= e^{\frac{iE_0(N-1)t}{\hbar}}\hat{\Psi}(\textbf{r})e^{\frac{-iE_0(N)t}{\hbar}}\vert 0_N \rangle \\
 &= \hat{\Psi}(\textbf{r})e^{\frac{i[E_0(N-1) - E_0(N)]t}{\hbar}} \vert 0_N \rangle \\
-&= \hat{\Psi}(\textbf{r})e^{\frac{-i\mu t}{\hbar}} \vert 0_N \rangle, \label{eqn:stationary_soln}
+&= \hat{\Psi}(\textbf{r})e^{\frac{-i\mu t}{\hbar}} \vert 0_N \rangle,\label{eqn:psi_dagger_time} \label{eqn:stationary_soln}
 \end{align}
+\end{subequations}
+
 where $\mu=E_0(N) - E_0(N-1)$ is the chemical potential. Using the bosonic commutation relations
 \begin{eqnarray}
 \left[\hat{\Psi}(\textbf{r}'), \hat{\Psi}^{\dagger}(\textbf{r})\right] &=& \delta(\textbf{r}' - \textbf{r}), \\
@@ -89,17 +98,24 @@ and noting the following relations
 \begin{align}
 \left[\hat{\Psi}(\textbf{r}),\hat{H}_1 \right] & = \hat{H}_0(\textbf{r},\textbf{p})\hat{\Psi}(\textbf{r}), \\
 \left[\hat{\Psi}(\textbf{r}),\hat{H}_2 \right] & = g\hat{n}(\textbf{r})\hat{\Psi}(\textbf{r}), \\
-\left[\hat{\Psi}(\textbf{r}),\hat{n} \right] & = \hat{\Psi}(\textbf{r}) ,
+\left[\hat{\Psi}(\textbf{r}),\hat{N} \right] & = \hat{\Psi}(\textbf{r}) ,
 \end{align}
-the Hamiltonian Eq. \eqref{eqn:ham2ndq} can be rewritten in the following form
+upon substitution of Eq.~\ref{eqn:psi_dagger_time} into Eq.~\ref{eqn:heisenberg}, it be rewritten as
+\begin{equation}
+    i \hbar \partial_t \left( \hat{\Psi}(\textbf{r}) e^{-\frac{i\mu t}{\hbar}} \right) = H \hat{\Psi}(\textbf{r}) e^{-\frac{i\mu t}{\hbar}}
+\end{equation}
+with
+%\begin{equation}\label{eqn:h_many}
+%\mathcal{H} = \displaystyle\sum\limits_{i=1}^N \left( -\frac{\hbar^2}{2m}\nabla^2  + V(\textbf{r}_i)\right) + \frac{1}{2}g\displaystyle\sum\limits_{i\neq j}\delta(\textbf{r}_i - \textbf{r}_j).
+%\end{equation}
 \begin{equation}\label{eqn:h_many}
-\mathcal{H} = \displaystyle\sum\limits_{i=1}^N \left( -\frac{\hbar^2}{2m}\nabla^2  + V(\textbf{r}_i)\right) + \frac{1}{2}g\displaystyle\sum\limits_{i\neq j}\delta(\textbf{r}_i - \textbf{r}_j).
+H =  -\frac{\hbar^2}{2m}\nabla^2  + V(\textbf{r}) + g\hat{n}(\textbf{r})\right).
 \end{equation}
 Due to the macroscopic occupation of the lowest lying single-particle state, $\hat{\Psi}$ can be treated as the sum of a classical field and a quantum fluctuation term, as
 \begin{equation}\label{eqn:gpe_fluc}
     \hat{\Psi} = \Psi + \delta\hat{\Psi}.
 \end{equation}
-As the quantum fluctuation component is small in the zero-temperature limit, we can safely neglect these, and use the classical field as the wavefunction describing the system. Substituting Eq. \eqref{eqn:h_many} and \eqref{eqn:psi_heisenberg} into \eqref{eqn:heisenberg}, the time dependent mean-field Gross--Pitaevskii equation (GPE) can then be written as
+As the quantum fluctuation component is small in the zero-temperature limit, we can safely neglect these, and use the classical field as the wavefunction describing the system. The time dependent mean-field Gross--Pitaevskii equation (GPE) can then be written as
 \begin{equation}\label{eqn:gpe}
 i\hbar\frac{\partial}{\partial t}\Psi(\textbf{r},t) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\textbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 \right]\Psi(\textbf{r},t).
 \end{equation}
