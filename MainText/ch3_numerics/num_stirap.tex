@@ -8,6 +8,8 @@ The problem we examined was that of a realistic system for coherent atomic contr
 
 Significant work and progress has been made for control of the internal degrees of freedom of atoms. External degrees of freedom are, however, only recently being made realisable. The use of adiabatic techniques such as the SAP family of methods are very promising tools for high fidelity state generation and transfer. One such technique from this family is known as {\textit matter-wave STIRAP}[cite], which is an analogous technique to that of STIRAP in optical systems. This technique can be used for high fidelity atomic centre-of-mass control \cite{Eckert:04}, and can be used to transfer atomic population between trapping potentials due to its highly robust to variation in the system parameters. The use of this technique has recently become experimentally accessible [private communication with S.~Taei from group of Y.~Takahashi], although many other accessible systems have been proposed \cite{Eckert:06,Morgan:11,Kohler:13,Morgan:13}.
 
+The goal of this project was to develop a realistic system for controlled movement of atoms with high fidelity amongst trapping potentials. The atomic population transfer between traps is controlled by the tunneling rate, through variation of the spatial separation between adjacent traps. It is instructive to note the counter-intuitive change of couplings between these potentials. For an atom initially located in the left potential, we increase $J_{MR}$ for the empty middle and right traps, before reducing again and increasing $J_{LM}$ for the left and middle. This is in direct contrast with a direct tunneling scheme, for which we directly increase the coupling between the populated left and empty middle, followed by middle and right. However, the direct scheme can be seen as two distinct combinations of the double-well case, and so carries the same time-dependent Rabi-oscillations. Comparing both methods will be instructive in discussing the advantages of the SAP routine over direct tunneling. %I will first discuss the physical model of this system.
+
 If we initially consider two separated harmonic potentials (traps), with groundstates given by $| L \rangle$ and $| R \rangle$, a reduction of the distance between the traps will increase the coupling, and hence tunneling rate, between them. This is modeled with the two-level Hamiltonian as
 \begin{equation}
     H = -\hbar
@@ -27,11 +29,11 @@ A more robust method, using three adjacent harmonic traps and the aforementioned
         0 & \Omega_{MR} & 0
     \end{pmatrix},
 \end{equation}
-where $\Omega_{LM},~\Omega_{MR}$ describe the coupling between left-middle and middle-right potentials respectively. Diagonalising this Hamiltonian gives three distinctive eigenstates, however only one is of interest here. For the $\lambda=0$ eigenstate of this Hamiltonian, known as the \textit{dark state}, the dependence on the middle potential vanishes, with the state given by
+where $\Omega_{LM},~\Omega_{MR}$ describe the coupling between left-middle and middle-right potentials respectively. Diagonalising this Hamiltonian gives three distinctive eigenstates, however only one is of interest here. For the zero-valued eigenstate of this Hamiltonian, known as the \textit{dark state}, the dependence on the middle potential vanishes, with the state given by
 \begin{equation}
  | 0 \rangle = \cos\ \Theta| L \rangle - \sin \Theta | R \rangle
 \end{equation}
-where $\Theta=J_{MR}/J_{LM}$ is the mixing angle. From the adiabatic theorem of quantum mechanics, it is known that if an eigenstate has its Hamiltonian perturbed slowly enough, then we can follow its evolution ensuring that it always remains in an eigenstate of the Hamiltonian. Thus, by preparing the system in state $| L \rangle$, and varying $\Theta$ slowly, we can shift the population from the leftmost harmonic potential to the rightmost, without populating the center.
+where $\Theta=J_{MR}/J_{LM}$ is the mixing angle. From the adiabatic theorem of quantum mechanics, it is known that if an eigenstate has its Hamiltonian perturbed slowly enough, then we can follow its evolution ensuring that it always remains in an eigenstate of the Hamiltonian. Thus, by preparing the system in state $| L \rangle$, and varying $\Theta$ slowly, we can shift the population from the leftmost harmonic potential to the rightmost, without populating the center. [\lee{***MORE TECHNICAL DETAILS***}]
 
 \begin{figure}
     \centering
@@ -41,11 +43,6 @@ where $\Theta=J_{MR}/J_{LM}$ is the mixing angle. From the adiabatic theorem of 
 \end{figure}
 
 This technique makes use of tunneling, with the rate of transfer between trapping potentials controlled by the respective spatial separation, and is demonstrated by Fig.~\ref{fig:ch3_stirap}. Typically, the method would be performed with time-dependent potentials. However, a static potential variant can be considered using parallel atomic waveguides, wherein the separation varies as a function of distance along the parallel axis. If we consider an atom that travels along such a waveguide, the coupling and hence tunneling rates seen by the atom in the waveguide are altered as the atom propagates. Such work has been discussed and considered in a realistic system for two spatial dimensions \cite{OSullivan:10}. Although a two dimensional model will be effective at describing much of the relevant dynamics, the lack of $z$-dimension ensures the effects stemming from dispersion, curvature of the waveguides and the absence of any such eigenstates along $z$ reduce the realism of such a model.
-
-
-
-Thus, the goal of this project was to develop a realistic system for controlled movement of atoms with high fidelity amongst trapping potentials. The atomic population transfer between traps is controlled by the tunneling rate, through variation of the spatial separation between adjacent traps. It is instructive to note the counter-intuitive change of couplings between these potentials. For an atom initially located in the left potential, we increase $J_{MR}$ for the empty middle and right traps, before reducing again and increasing $J_{LM}$ for the left and middle. This is in direct contrast with a direct tunneling scheme, for which we directly increase the coupling between the populated left and empty middle, followed by middle and right. However, the direct scheme can be seen as two distinct combinations of the double-well case, and so carries the same time-dependent Rabi-oscillations. Comparing both methods will be instructive in discussing the advantages of the SAP routine over direct tunneling. %I will first discuss the physical model of this system.
-
 
 \subsection{Physical model}
 

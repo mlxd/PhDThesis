@@ -101,7 +101,7 @@ and noting the following relations
 \left[\hat{\Psi}(\textbf{r}),\hat{N} \right] & = \hat{\Psi}(\textbf{r}) ,
 \end{align}
 upon substitution of Eq.~\ref{eqn:psi_dagger_time} into Eq.~\ref{eqn:heisenberg}, it be rewritten as
-\begin{equation}
+\begin{equation}\label{eqn:almost_gpe}
     i \hbar \partial_t \left( \hat{\Psi}(\textbf{r}) e^{-\frac{i\mu t}{\hbar}} \right) = H \hat{\Psi}(\textbf{r}) e^{-\frac{i\mu t}{\hbar}}
 \end{equation}
 with
@@ -109,17 +109,18 @@ with
 %\mathcal{H} = \displaystyle\sum\limits_{i=1}^N \left( -\frac{\hbar^2}{2m}\nabla^2  + V(\textbf{r}_i)\right) + \frac{1}{2}g\displaystyle\sum\limits_{i\neq j}\delta(\textbf{r}_i - \textbf{r}_j).
 %\end{equation}
 \begin{equation}\label{eqn:h_many}
-H =  -\frac{\hbar^2}{2m}\nabla^2  + V(\textbf{r}) + g\hat{n}(\textbf{r})\right).
+H =  -\frac{\hbar^2}{2m}\nabla^2  + V(\textbf{r}) + g\hat{n}(\textbf{r}).
 \end{equation}
-Due to the macroscopic occupation of the lowest lying single-particle state, $\hat{\Psi}$ can be treated as the sum of a classical field and a quantum fluctuation term, as
+Due to the macroscopic occupation of the lowest lying single-particle state, $\hat{\Psi}$ can be treated as the sum of a condensed term and a quantum fluctuation (uncondensed) term, as
 \begin{equation}\label{eqn:gpe_fluc}
     \hat{\Psi} = \Psi + \delta\hat{\Psi}.
 \end{equation}
-As the quantum fluctuation component is small in the zero-temperature limit, we can safely neglect these, and use the classical field as the wavefunction describing the system. The time dependent mean-field Gross--Pitaevskii equation (GPE) can then be written as
+Substituting Eq.~\ref{eqn:gpe_fluc} into \ref{eqn:ham2ndq}, taking terms in $\Psi$, and following the above procedure gives the time dependent mean-field Gross--Pitaevskii equation (GPE) as
 \begin{equation}\label{eqn:gpe}
-i\hbar\frac{\partial}{\partial t}\Psi(\textbf{r},t) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\textbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 \right]\Psi(\textbf{r},t).
+i\hbar\frac{\partial}{\partial t}\Psi(\textbf{r},t) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\textbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 \right]\Psi(\textbf{r},t),
 \end{equation}
-The time independent form can be found by substituting Eq. \eqref{eqn:stationary_soln} into \eqref{eqn:gpe}, yielding
+where $\Psi(\textbf{r},t) = \Psi(\textbf{r})e^{-\frac{i\mu t}{\hbar}}$.
+Assuming a zero-temperature condensate, the number of uncondensed atoms will be zero, and thus one can we can safely ignore all terms in $\delta\hat{\Psi}$, all of which are order greater than unity. The remaining condensed term is of the form of a classical field, wherein the problem moves from a quantum one to semiclassical. The time independent form can be found by evaluating the left-hand side derivative and dividing across by $e^{-\frac{i\mu t}{\hbar}}$, yielding
 \begin{equation}
 \mu\Psi(\textbf{r}) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\textbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 \right]\Psi(\textbf{r}),
 \end{equation}
@@ -144,28 +145,28 @@ $\bar{a} = \sqrt{{\hbar}/{m\bar{\omega}}}$. Thus, within the Thomas-Fermi radius
 
 \subsection{Bogoliubov-de Gennes equations}
 \label{sec:bogo}
-While the Gross--Pitaevskii equation captures the rich array of dynamics exhibited by a condensate system, it is often instructive to examine the stability of its solutions. Where earlier I neglected the small quantum fluctuations (see eq. \ref{eqn:gpe_fluc}), we can instead reformulate this term as a combination of counterpropagating waves with the stationary state solution as
+While the Gross--Pitaevskii equation captures the rich array of dynamics exhibited by a condensate system, it is often necessary to examine the stability of its solutions. Where earlier I neglected the small quantum fluctuations (see eq. \ref{eqn:gpe_fluc}), we can instead reformulate this term as a combination of counterpropagating waves with the stationary state solution as
 \begin{equation}
-    \delta\hat{\Psi} = \exp\left(\frac{-i\mu t}{\hbar}\right)[\Psi_0 + u\exp(-it\omega) + v^{*}\exp(it\omega)].
+    \delta\hat{\Psi} = \exp\left(\frac{-i\mu t}{\hbar}\right)[u\exp(-it\omega) + v^{*}\exp(it\omega)].
 \end{equation}
-Taking this expression where $\mu$ is the chemical potential of the condensate, the wavefunction in the groundstate can be defined as
+Taking this expression where $\mu$ is the chemical potential of the condensate, the wavefunction can be defined as
 \begin{equation}\label{eqn:bogo_psi}
-\Psi_0(\mathbf{r},t) = \exp\left(-i\frac{\mu t}{\hbar}\right)[\phi_0(\mathbf{r}) + u(\mathbf{r})\exp\left(-i\omega t\right) + v^{*}(\mathbf{r})\exp\left(i\omega t\right) ].
+\Psi(\mathbf{r},t) = \exp\left(-i\frac{\mu t}{\hbar}\right)[\Psi_0(\mathbf{r}) + u(\mathbf{r})\exp\left(-i\omega t\right) + v^{*}(\mathbf{r})\exp\left(i\omega t\right) ],
 \end{equation}
+where $\Psi_0(\mathbf{r})$ is the stationary state solution.
 
-Firstly, we calculate the time-derivative of eq. \ref{eqn:bogo_psi}, which after simplificant becomes
+Firstly, we calculate the time-derivative of eq. \ref{eqn:bogo_psi}, which after simplification becomes
 \begin{equation}\label{eqn:bogo_lhs}
-    \partial_t \Psi(\mathbf{r},t) = \exp\left(\frac{-i\mu t}{\hbar}\right)\left[\mu\phi_0 + (\mu+\hbar\omega)u\exp\left(-it\omega\right) + (\mu+\hbar\omega)v^{*}\exp\left(it\omega\right) \right].
+    i\hbar\partial_t \Psi(\mathbf{r},t) = \exp\left(\frac{-i\mu t}{\hbar}\right)\left[\mu\Psi_0 + (\mu+\hbar\omega)u\exp\left(-it\omega\right) + (\mu+\hbar\omega)v^{*}\exp\left(it\omega\right) \right],
 \end{equation}
-
-Next, the nonlinear interaction term is given as
+where I have dropped the dependence on $\mathbf{r}$ for notational simplicity. Next, the nonlinear interaction term is given as
 \begin{subequations}
 \begin{align}\label{eqn:bogo_nonlin}
-    g|\Psi|^2\Psi &= g \phi_0^{*}\phi_0\phi_0 \\
-                &= g\exp\left(\frac{-i\mu t}{\hbar}\right)\left(\phi_0^{*} + u^{*}\exp(i\omega t) + v\exp(-i\omega t)\right)\left(\phi_0 + u\exp(-i\omega t) + v^{*}\exp(i\omega t)\right)^2, \\
+    g|\Psi|^2\Psi &= g \Psi_0^{*}\Psi_0\Psi_0 \\
+                &= g\exp\left(\frac{-i\mu t}{\hbar}\right)\left(\Psi_0^{*} + u^{*}\exp(i\omega t) + v\exp(-i\omega t)\right)\left(\Psi_0 + u\exp(-i\omega t) + v^{*}\exp(i\omega t)\right)^2, \\
                 & \approx g\exp\left(\frac{-i\mu t}{\hbar}\right)\left[
-                |\phi_0|^2\left(
-                 \phi_0 + 2(u\exp\left(-i\omega t\right) + v^{*}\exp\left(i\omega t\right) )\right) + \phi_0^2\left( u^{*}\exp\left(i\omega t\right) + v\exp\left(-i\omega t\right)
+                |\Psi_0|^2\left(
+                 \Psi_0 + 2(u\exp\left(-i\omega t\right) + v^{*}\exp\left(i\omega t\right) )\right) + \Psi_0^2\left( u^{*}\exp\left(i\omega t\right) + v\exp\left(-i\omega t\right)
                 \right)
                 \right].
 \end{align}
@@ -174,20 +175,20 @@ Next, the nonlinear interaction term is given as
 Plugging these terms into the GPE, and linearising in terms of $u$ and $v$ yields the Bogoliubov-de Gennes equations,
 \begin{subequations}\label{eqn:bogo_lhsrhs}
 \begin{align}
-    \mu \phi_0 &= (H_0 - \Omega L + g |\phi_0|^2)\phi_0,\\
-    (\mu +\hbar\omega)u &= (H_0 - \Omega L + 2g|\phi_0|^2)u + g\phi_0^2 v,\\
-    (\mu +\hbar\omega)v^{*} &= (H_0 - \Omega L + 2g|\phi_0|^2)v^{*} + g\phi_0^2 u^{*},
+    \mu \Psi_0 &= (H_0 - \Omega L + g |\Psi_0|^2)\Psi_0,\\
+    (\mu +\hbar\omega)u &= (H_0 - \Omega L + 2g|\Psi_0|^2)u + g\Psi_0^2 v,\\
+    (\mu +\hbar\omega)v^{*} &= (H_0 - \Omega L + 2g|\Psi_0|^2)v^{*} + g\Psi_0^2 u^{*},
 \end{align}
 \end{subequations}
 where
 \begin{equation}\label{eqn:bogo_h0}
-H_0 = -\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}) + 2g\vert \phi_0 \vert^2
+H_0 = -\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r})
 \end{equation}
 This can be written as a matrix as
 \begin{equation}
     \begin{pmatrix}
-        H_0 - \mu -\Omega L_z & g\phi_0^2 \\
-        -g\phi_0^{*2} & -H_0 + \mu +\Omega L_z
+        H_0 - \mu -\Omega L_z & g\Psi_0^2 \\
+        -g\Psi_0^{*2} & -H_0 + \mu +\Omega L_z
     \end{pmatrix}
     \begin{pmatrix}
         u \\
@@ -201,6 +202,7 @@ This can be written as a matrix as
 \end{equation}
 where the eigenvalues of these modes can be used to determine the stability of the system. The norm of these values is given by $\int d\mathbf{r}(|u|^2 - |v|^2)$. If the norm is positive, with positive eigenvalues, we can say the system is stable. If the norm is negative, the system will have an energetic instability. This will cause the system to move towards the lowest energy state only in the presence of dissipation. If, however, the norm is 0 with imaginary eigenvalues, the modes of fluctuations are dynamically unstable. Due to the complex eigenvalues over time the mode will dominate exponentially and destroy the initial state of the condensate. %In a later section I  will use this approach later to examine the behaviour of the Bose--Einstein condensate.
 
+\iffalse
 \subsection{Realisation of Bose--Einstein condensation in dilute gases}\label{sub:becdev}
 Following the first experimental realisations of a BEC in dilute atomic gases by E. Cornell and C. Wiemann at University of Colorado, Boulder \cite{BEC:Cornell_science_1995}, and W. Ketterle at M.I.T. \cite{BEC:Ketterle_prl_1995}, work was carried out by Baym and Pethick \cite{BEC:Baym_prl_1996}, who investigated the mean-field ground-state solution in the Thomas-Fermi limit of a magnetically trapped rubidium BEC, as was created in the Boulder experiment.
 %Learning from the techniques used and developed for condensation of alkali atoms, the group of D.~Kleppner and T.~Greytak succeeded in developing a condensate of spin-polarised hydrogen \cite{Fried_prl_1998}, following a twenty-year experimental search.
@@ -216,3 +218,4 @@ Another area of interest in BEC systems is that of low-dimensional condensates, 
 condensate in the $z$-dimension is used to effectively create a ``pancake'' condensate in an optical trap. This trapping geometry restricts motion in the axial direction, creating effective two-dimensional dynamics. This may be extended further to one-dimension by using elongated ``cigar'' traps via magnetic potentials, such as those existing on atom-chip structures \cite{AO:Denschlag_prl_1999,AO:Folman_prl_2000,AO:Haase_pra_2001}, or in optical potentials. G\"{o}rlitz \textit{et al.} state that in lower dimensional systems phenomena such as solitons and vortices should have much greater stability, and should therefore be more suitable for investigating them. Realisation of a Tonks-Girardeau gas is also discussed, with such systems becoming accessible using optical potentials such as described by Moritz \textit{et al}. \cite{OL:Moritz_prl_2003}. Work in the effective 2D regime is of particular interest, and condensate behaviour in relation to excitations has been examined under such conditions. Kimura \cite{BEC:Kimura_pra_2002} investigates the dynamical behaviour of condensate breathing modes in both two and one dimensions. Tanatar \textit{et al}. \cite{BEC:Tanatar_arxiv_2002} consider the use of a tightly-confined pancake condensate, and discuss differences occurring to the inter-atomic scattering as a function of confinement strength along the $z$-dimension. Both mentioned works consider use of the Thomas--Fermi approximation, comparing results obtained analytically with that of numerical integration using the Gross--Pitaevskii equation.
 
 %In the following section, I will discuss the condensate behaviour from the perspective of a superfluid, as superfluidity is an inherent property of a gaseous BEC. This will be approached using a GPE formalism.
+\fi
