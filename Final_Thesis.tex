@@ -105,6 +105,7 @@
 \fancyhf{}% Clears header and footer
 \fancyhead[RO,LE]{\thepage} % page number on the outside of headers
 
+\iffalse
 \input{Preamble/declaration}
 \input{Preamble/abstract}
 \input{Preamble/acknowledgments}
@@ -113,7 +114,7 @@
 \input{Preamble/nomenclature}
 \input{Preamble/dedication}
 \input{Preamble/quotation}
-
+\fi
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES
 %----------------------------------------------------------------------------------------
@@ -133,6 +134,7 @@
 \mainmatter % Begin numeric (1,2,3...) page numbering
 \newif\ifintro
 \introtrue
+%\introfalse
 \ifintro
     \numberedchapter{Introduction} % Title of the unnumbered chapter
         %\chapter{Introduction}
@@ -142,6 +144,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\iflitrev
 \litrevtrue
+%\litrevfalse
 \iflitrev
     \numberedchapter{Background}
     %\chapter{Literature review}
@@ -156,6 +159,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifnumerics
 \numericstrue
+%\numericsfalse
 \ifnumerics
     \numberedchapter{Numerics}
     %\chapter{Numerics}
@@ -171,6 +175,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifvtxdyn
 \vtxdyntrue
+%\vtxdynfalse
 \ifvtxdyn
     \numberedchapter{Bose--Einstein condensate dynamics}
     %\chapter{Bose--Einstein condensate dynamics}
@@ -179,6 +184,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifmoire
 \moiretrue
+%\moirefalse
 \ifmoire
     \numberedchapter{Moir\'e superlattice structures}
     %\chapter{Moir\'e superlattice structures}
@@ -187,6 +193,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifdefect
 \defecttrue
+%\defectfalse
 \ifdefect
     \numberedchapter{Defect engineering}
     %\chapter{Defect engineering}
@@ -200,8 +207,9 @@
 % Unnumbered chapters (for example conclusion) - Comment if unnecessary
 \newif\ifconc
 \conctrue
+%\concfalse
 \ifconc
-    \numberedchapter{Conclusion} % Title of the unnumbered chapter
+    \numberedchapter{Conclusions} % Title of the unnumbered chapter
     %\chapter{Conclusion} % Title of the unnumbered chapter
         \input{MainText/ch7_disclusions/conclusion}% Conclusion (unnumbered)
 \fi
@@ -213,7 +221,7 @@
 \appendix % Starts of appendices
 
 \numberedchapter{Appendix}
-\input{MainText/appendixA}
+%\input{MainText/appendixA}
 %\input{MainText/appendixB}
 %\input{MainText/appendixC}
 

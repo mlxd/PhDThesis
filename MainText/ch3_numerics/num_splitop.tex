@@ -1,7 +1,7 @@
 Numerical solutions to problems in quantum physics are important, given the limited availability of exact solutions. Many such models and methods exist when dealing with many-body systems, that have been shown to provide good estimates of physical behaviour. Techniques such as Monte Carlo methods, exact diagonalisation, and DMRG are often used to solve a wide variety of many-body problems, but often fail to capture the full dynamics of problems. To understand the behaviour of systems such as Bose--Einstein condensates, the use of these methods is incredibly limited. The increased complexity of the problem with increasing dimensionality of the system renders DMRG unusable. Exact diagonalisation requires a linear system to obtain realistic solutions, and also grows in complexity with increase dimension. Monte Carlo methods do not allow for real-time dynamics or information about the underlying wavefunction. To obtain solutions to BEC problems I make use of a mean-field approach, outlined previously as the Gross--Pitaevskii equation \ref{sec:gpe}. While this method is well suited to obtain solutions via partial differential equation solvers, it can be noted that the computational cost increases significantly with increased dimensions, and is already non-trivial for two-dimensions. I will lay the framework for the methods I have used to overcome this problem, and discuss the cutting edge numerical techniques involved.
 
 
-\subsection{Time evolution}
+\section{Time evolution}
 We can write the wavefunction of a quantum system as a linear superposition of states as
 \begin{equation}
     |\Psi \rangle = \displaystyle\sum\limits_{n} C_n |\Psi_n \rangle,
@@ -49,7 +49,7 @@ Following Bauke \textit{et al}. \cite{Num:Bauke_cpc_2011}, we can numerically so
 \begin{equation}
 \Psi\left(\textbf{r},t+\tau\right) = \left[\hat{U}_{\mathbf{r}}\left(t+\frac{\tau}{2}\right) \mathscr{F}^{-1} \left[ \hat{U}_{\mathbf{k}}(t+\tau) \mathscr{F} \left[ \hat{U}_{\mathbf{r}}\left(t+\frac{\tau}{2}\right) \Psi\left(\mathbf{r},t\right) \right] \right] \right]  \\ + \mathcal{O}\left(\tau^2\right),
 \end{equation}
-where $\hat{U}_{r}=e^{-i\hat{H}_{r}(t)\tau/\hbar}$ is the time evolution operator in real space, $\hat{U}_{k}=e^{-i\hat{H}_{p}(t)\tau/\hbar}$ in momentum space,  $\mathscr{F}$ and $\mathscr{F}^{-1}$ are the forward and inverse Fourier transform respectively. Fig.\ref{fig:num_splitop} outlines a schematic representation of the method during a single pass of the algorithm.
+where $\hat{U}_{r}=e^{-i\hat{H}_{r}(t)\tau/\hbar}$ is the time evolution operator in real space, $\hat{U}_{k}=e^{-i\hat{H}_{p}(t)\tau/\hbar}$ in momentum space,  $\mathscr{F}$ and $\mathscr{F}^{-1}$ are the forward and inverse Fourier transform respectively. Fig.~\ref{fig:num_splitop} outlines a schematic representation of the method during a single pass of the algorithm.
 
 \begin{figure}
     \centering
