@@ -3,11 +3,11 @@ BCC	=	bibtex
 FLAGS	=	#-interaction nonstopmode -halt=on-error -file-line-error
 
 Final_thesis: Final_Thesis.tex
-	${CC} ${FLAGS} Final_Thesis;
+	${CC} ${FLAGS} Final_Thesis.tex;
 	bibtex Final_Thesis;
 	${CC} ${FLAGS} Final_Thesis;
 	${CC} ${FLAGS} Final_Thesis;
-	cp ./Final_thesis.pdf ../TheBookTB/Thesis.pdf
+	#cp ./Final_thesis.pdf ../TheBookTB/Thesis.pdf
 
 bibtex:	Final_Thesis.pdf
 	${CC} Final_Thesis
