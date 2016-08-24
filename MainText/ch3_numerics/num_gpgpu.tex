@@ -23,8 +23,8 @@ compute device, it is essential to break down the problem into easily parallelis
     \label{fig:prefixsum}
 \end{figure}
 
-Another typical algorithm following this logic is the Hadamard product (element-wise multiplication) of two vectors, or matices. Although in parallel the number of operations and complexity remains the same, the advantage comes from the lack of interdependence between elements. The multiplications can be carried out asynchronously, allowing all freely available cores to work continuously until every element pair is multiplied.
 
+Another typical algorithm following this logic is the Hadamard product (element-wise multiplication) of two vectors, or matices. Although in parallel the number of operations and complexity remains the same, the advantage comes from the lack of interdependence between elements. The multiplications can be carried out asynchronously, allowing all freely available cores to work continuously until every element pair is multiplied.
 
 Given that GPUs are first and foremost image processing devices, their ability to perform Fourier transforms rapidly should be a well developed strength. It is. Due to the large number of available cores, FFTs can be significantly faster on a GPU than performing the same operation on many CPUs \cite{AO:Morgan_ORiordan_pra_2013}. The CUFFT (CUDA FFT) library allows for a seamless way to take advantage of this performance increase using GPUs.
 
@@ -49,7 +49,10 @@ Limiting transfers between the CPU/RAM to the GPU/global memory are of high impo
     \item Return final output of computation to host system when completed.
 \end{itemize}
 
-Although idealised and highly simplified, close adherence to such a model should yield significant performance gains compared to multicore CPU-based computation. Next, I will discuss a real-world example of GPU-enabled simulations, and offer some realistic performance measurements.
+
+Although idealised and highly simplified, close adherence to such a model should yield significant performance gains compared to multicore CPU-based computation. As an example, though the prefix sum method dicussed in Section \ref{subsec:par_op} is superior than an iterative summation, it is not an optimal example for GPU architectures. The number of available threads that may execute simulataneously should aalways have some work to perform. The above method halves its throughput after every pass through the algorithm. A more efficient approach is to recursively call the algorithm, and sum elements that are separated by a memory stride equal to half of the block dimension. For every subsequent pass, the stride is halved, and continues until the number of elements to be summed is less than the total available cores. In this way, the summation ensures that the available threads are always working optimally. The final run-through of the algorithm will be the only suboptimal pass.
+
+Next, I will discuss a real-world example of GPU-enabled simulations, and offer some realistic performance measurements.
 
 %\section{3D STIRAP using GPU}
 %For performance metrics, I will discuss the use of a GPU-enabled Schr\"odinger equation integrator developed by myself, comparing the results to a multi-core MPI enabled version by T. Morgan and N. Crowley. We solved the Schr\"odinger equation for a fully three-dimensional potential, demonstrating its accuracy and improved performance compared to standard HPC methods.

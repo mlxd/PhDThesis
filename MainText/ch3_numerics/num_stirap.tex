@@ -6,8 +6,10 @@ The problem we examined was that of a realistic system for coherent atomic contr
 
 \subsection{Spatial adiabatic passage}
 
-Significant work and progress has been made for control of the internal degrees of freedom of atoms. External degrees of freedom are, however, only recently being made realisable. The use of adiabatic techniques such as the SAP family of methods are very promising tools for high fidelity state generation and transfer. One such technique from this family is known as {\textit matter-wave STIRAP}[cite], which is an analogous technique to that of STIRAP in optical systems. This technique can be used for high fidelity atomic centre-of-mass control \cite{Eckert:04}, and can be used to transfer atomic population between trapping potentials due to its highly robust to variation in the system parameters. The use of this technique has recently become experimentally accessible [private communication with S.~Taei from group of Y.~Takahashi], although many other accessible systems have been proposed \cite{Eckert:06,Morgan:11,Kohler:13,Morgan:13}.
+Significant work and progress has been made for control of the internal degrees of freedom of atoms. External degrees of freedom are, however, only recently being made realisable. The use of adiabatic techniques such as the SAP family of methods are very promising tools for high fidelity state generation and transfer. One such technique from this family is known as {\textit matter-wave STIRAP}[cite], which is an analogous technique to that of STIRAP in optical systems. This technique can be used for high fidelity atomic centre-of-mass control \cite{Eckert:04}, and can be used to transfer atomic population between trapping potentials due to its highly robust to variation in the system parameters. The use of this technique has recently become experimentally accessible [private communication with S.~Taei from group of Y.~Takahashi], although many other accessible systems have been proposed \cite{Eckert:06,Morgan:11,Kohler:13}.
 
+
+\lee{[REWORD THIS]}
 The goal of this project was to develop a realistic system for controlled movement of atoms with high fidelity amongst trapping potentials. The atomic population transfer between traps is controlled by the tunneling rate, through variation of the spatial separation between adjacent traps. It is instructive to note the counter-intuitive change of couplings between these potentials. For an atom initially located in the left potential, we increase $J_{MR}$ for the empty middle and right traps, before reducing again and increasing $J_{LM}$ for the left and middle. This is in direct contrast with a direct tunneling scheme, for which we directly increase the coupling between the populated left and empty middle, followed by middle and right. However, the direct scheme can be seen as two distinct combinations of the double-well case, and so carries the same time-dependent Rabi-oscillations. Comparing both methods will be instructive in discussing the advantages of the SAP routine over direct tunneling. %I will first discuss the physical model of this system.
 
 If we initially consider two separated harmonic potentials (traps), with groundstates given by $| L \rangle$ and $| R \rangle$, a reduction of the distance between the traps will increase the coupling, and hence tunneling rate, between them. This is modeled with the two-level Hamiltonian as
@@ -18,9 +20,9 @@ If we initially consider two separated harmonic potentials (traps), with grounds
         \Omega_{RL} & \Delta
     \end{pmatrix}
 \end{equation}
-where $\Omega_{LR} = \Omega_{RL}$ are the couplings between states, and $\Delta$ is the detuning of state $| R \rangle$, relative to $| L \rangle$. Assuming an atom initially localised in $| L \rangle$, and with an increase in coupling strength between the levels, the localised atom will tunnel from $| L \rangle$ to $| R \rangle $. However, this processes is difficult to control, as Rabi oscillations introduce an explicit time-dependence and cause the atomic population to continuously transfer between both traps. This will require precise timing and control to ensure a fully robust transfer of population. Thus, a double-well potential is a difficult system in which to realise coherent control.
+where $\Omega_{LR} = \Omega_{RL}$ are the couplings between states, and $\Delta$ is the detuning of state $| R \rangle$, relative to $| L \rangle$. Assuming an atom initially localised in $| L \rangle$, and with an increase in coupling strength between the levels, the localised atom will tunnel from $| L \rangle$ to $| R \rangle $. However, this processes is difficult to control, as Rabi oscillations introduce an explicit time-dependence and cause the atomic population to continuously transfer between both traps. This will require precise timing and control to ensure a fully robust transfer of population. From this we see that a double-well potential is a difficult system in which to realise coherent control.
 
-A more robust method, using three adjacent harmonic traps and the aforementioned matter-wave STIRAP process, improves upon the double-well system. For this SAP technique, we model the adjacent trapping potentials as coupled by their nearest neighbour solely. For three such potentials, $L,M,R$, on resonance,  this is given by the Hamiltonian
+A more robust method, using three adjacent harmonic traps and the aforementioned matter-wave STIRAP process, improves upon the double-well system. For this SAP technique, we model the adjacent trapping potentials as coupled with their nearest neighbour solely. For three such potentials, $L,M,R$, on resonance, this is given by the Hamiltonian
 \begin{equation}\label{eqn:sap_ham}
     H = -\frac{\hbar}{2}
     \begin{pmatrix}
@@ -33,7 +35,12 @@ where $\Omega_{LM},~\Omega_{MR}$ describe the coupling between left-middle and m
 \begin{equation}
  | 0 \rangle = \cos\ \Theta| L \rangle - \sin \Theta | R \rangle
 \end{equation}
-where $\Theta=J_{MR}/J_{LM}$ is the mixing angle. From the adiabatic theorem of quantum mechanics, it is known that if an eigenstate has its Hamiltonian perturbed slowly enough, then we can follow its evolution ensuring that it always remains in an eigenstate of the Hamiltonian. Thus, by preparing the system in state $| L \rangle$, and varying $\Theta$ slowly, we can shift the population from the leftmost harmonic potential to the rightmost, without populating the center. [\lee{***MORE TECHNICAL DETAILS***}]
+where $\tan \Theta=\Omega_{MR}/\Omega_{LM}$ is the mixing angle. From the adiabatic theorem of quantum mechanics, it is known that if an eigenstate has its Hamiltonian perturbed slowly enough, then we can follow its evolution ensuring that it always remains in an eigenstate of the Hamiltonian. By preparing the system in state $| L \rangle$, and varying $\Theta$ slowly, we can shift the population from the leftmost harmonic potential to the rightmost, without populating the center.
+
+ [\lee{***MORE TECHNICAL DETAILS***}]
+Varying the couplings between trapping potentials, and hence controlling this mixing angle, can be achieved by either lowering the barrier height of adjacent potentials, or decreasing the distance between them. Here, I will discuss the use of varying the spatial separation of the traps. To ensure full transfer from
+$|L \rangle$ to $| R \rangle$, the mixing angle must vary smoothly from $\Theta = 0 \rightarrow \pi/2$. Given the properties of $\arctan$, this can be achieved by applying the same spatial variation between $|M \rangle$ and $| R\rangle$, as with $|L \rangle$ and $| M\rangle$ following a delay, $\tau$. Assuming a stationary central potential, $| L \rangle$ and $| R\rangle$ can be varied following a $\cos(0 \rightarrow 2\pi)$ spatial shift of separation with $| M \rangle$, with the peaks separated by $\tau$.
+
 
 \begin{figure}
     \centering
@@ -46,25 +53,99 @@ This technique makes use of tunneling, with the rate of transfer between trappin
 
 \subsection{Physical model}
 
-As discussed previously, to fully understand the dynamics of such a system we must investigate the fully three-dimensional model. One method of creating the required potential landscape is through the use of atom chips \cite{Bartenstein_ieee_2000}[cite Atoms and Wires: Toward Atom Chips]. These systems consist of micro-fabricated current-carrying wires, and can be used to create a variety of trapping potential shapes. With the application of current a magnetic field is created around individual wires, of which has a minima at the wire core. By applying an additional field orthogonal to the direction of current, this minima can be raised to a location above the wire surface, and can behave as a trapping potential for atoms, with an additional field applied to prevent Majorana losses in the trap. Spatial and temporal adjustments of the potentials are possible, with a fine degree of control. These have been used extensively in recent years for trapping potentials [cite], and as atomic manipulators [cite].
+As discussed previously, to fully understand the dynamics of such a system we must investigate the fully three-dimensional model. One method of creating the required potential landscape is through the use of atom chips \cite{Bartenstein_ieee_2000}[cite Atoms and Wires: Toward Atom Chips]. These systems consist of micro-fabricated current-carrying wires, and can be used to create a variety of trapping potential shapes. With the application of current a magnetic field is created around individual wires, of which has a minima at the wire core. A magnetic field $\mathbf{B}$ through a wire of negligible thickness at position $\mathbf{r}$ can be modelled using the Biot-Savart law as
+\begin{equation}
+    \mathbf{B}(\mathbf{r}) = \frac{\mu_0}{4\pi}\oint I \frac{d\mathbf{l}\times \hat{\mathbf{r}}}{|\mathbf{r}|^2}
+\end{equation}
+where $I$ is the current through the wire, $\mu_0$ is the vacuum permeability, $\mathbf{l}$ is the differential wire length, and $\hat{\mathbf{r}}$ is the unit vector along $\mathbf{r}$. For the resulting field to trap atoms the minima must be raised to a position above the wire surface. This is performed using an orthogonally applied bias field, ${B}_b$, raising the minima to a height of
+\begin{equation}
+    \mathbf{r}_0 = \frac{\mu_0 I}{2\pi {B}_b},
+\end{equation}
+above the surface. By applying this field orthogonal to the direction of current, this minima can be raised to a location above the wire surface. Though, an issue still remains with the presence of the magnetic minima. If the field drops to zero at the centre of the trap, the atoms can be lost due to Majorana spin flips. This can be prevented with the application of an additional field, ${B}_{p}$, parallel to the wire direction, lifiting the degeneracy of the atomic states, and ensuring they remain trapped. Spatial and temporal adjustments of the potentials are possible, with a fine degree of control. These have been used extensively in recent years for trapping potentials [cite], and as atomic manipulators [cite].
 
-For this work, the system was modeled as three adjacent wires on the atom-chip surface. By applying current and the appropriate magnetic fields to these wires, magnetic minima would be created to act as atomic waveguides. To avoid dispersion, and ensure the atom moved along the waveguide, a harmonic oscillator potential was also added along the parallel axis. The process of simulating the system involved localising the atom by a barrier at one end of the $|L\rangle$ potential, with the system evolved in imaginary time to find the groundstate. After finding the the groundstate, the barrier was removed, and the atom was allowed to propagate along the length of the waveguide. The populations in each waveguide could be tracked and calculated at each step of the process, with the final populations taken as the atom approached the end of the harmonic oscillator. The fidelity of the process could then be calculated by comparing the initial $| L \rangle$ and final $|R \rangle$ populations, as well as any intermediary $| M \rangle$ populations. Thus, to fully examine all such dynamics of the system, it is essential to investigate a fully three-dimensional model, which can take into account non-idealised real-world parameters.
-
-Given that fully three-dimensional simulations of the Schr\"odinger equation are numerically expensive, the use of GPU computing methods are an ideal candidate for accelerating the simulation \cite{Bauke:11}. I will now discuss the resulting data and metadata of the simulations.
+For this work, the system was modeled as three adjacent wires on the atom-chip surface, at positions $r_l, r_m, r_r$ respectively. As the magnetic minima travel along the length of a atom-chip surface, we assume that the magnetic fields can be considered planar along the $x-y$ dimension. The direction of progation is then along $z$, where the presence of an additional harmonic oscillator potential is applied to impart motion to the atom, which begins at the $z=0$ position of the atomchip. A schematic of the atomchip device is given by Fig.~\ref{fig}, with a schematic of the resulting potentials shown by Fig.\ref{fig:potschematic}
 
 
+\begin{figure}[tb]
+    \centering
+  \includegraphics[width=0.55\textwidth]{ch3_numerics/MWSTIRAP/Schematic3}
+  \caption{Schematic of atomchip. Adapted with permission from PRA...}
+  \label{fig:schematic}
+\end{figure}
+\begin{figure}[tb]
+    \centering
+  \includegraphics[width=0.55\textwidth]{ch3_numerics/MWSTIRAP/3dpot_schem}
+  \caption{Schematic of atomchip potentials.}
+
+  \label{fig:potschematic}
+\end{figure}
+
+
+
+
+\begin{figure}[tb]
+    \centering
+  \includegraphics[width=0.55\textwidth]{ch3_numerics/MWSTIRAP/3dpot.pdf}
+  \caption{3d}
+  \label{fig:Populations}
+\end{figure}
+
+\begin{figure}[tb]
+    \centering
+  \includegraphics[width=0.55\textwidth]{ch3_numerics/MWSTIRAP/Potential.pdf}
+  \caption{3d}
+  \label{fig:potential}
+\end{figure}
+
+
+
+
+
+
+
+
+By applying current and the appropriate magnetic fields to these wires, magnetic minima would be created to act as atomic waveguides. To avoid dispersion, and ensure the atom moved along the waveguide, a harmonic oscillator potential was also added along the parallel axis. The process of simulating the system involved localising the atom by a barrier at one end of the $|L\rangle$ potential, with the system evolved in imaginary time to find the groundstate. After finding the the groundstate, the barrier was removed, and the atom was allowed to propagate along the length of the waveguide. The populations in each waveguide could be tracked and calculated at each step of the process, with the final populations taken as the atom approached the end of the harmonic oscillator. The fidelity of the process could then be calculated by comparing the initial $| L \rangle$ and final $|R \rangle$ populations, as well as any intermediary $| M \rangle$ populations. Thus, to fully examine all such dynamics of the system, it is essential to investigate a fully three-dimensional model, which can take into account non-idealised real-world parameters.
+
+Given that fully three-dimensional simulations of the Schr\"odinger equation are numerically expensive, the use of GPU computing methods are an ideal candidate for accelerating the simulation \cite{Bauke:11}. In this case, as far as we were aware, no other use of GPU computing to solve a 3D dimensional Schr\"odinger equation were carried out at the time. I will now discuss the resulting data and metadata of the simulations.
+
+
+\subsection{3D Simulations}
+\label{sec:Results}
+
+Simulations of the proposed system assumed a single $^{6}$Li atom localised in the left waveguide. Its transversal wavefunction was determined numerically, with the assumption of a longitudinal Gaussian profile of similar width. The atom was then allowed to propagate along the waveguide potential ($z$), with the tunneling region at the centre of the chip.
+
+The simulations allowed the verification of the addition of the magnetic fields at the center of the atomchips, which in turn drives the central potential out of resonance with the outer two. By adjusting the current in the central wire, such that the magnetic minima was in resonance only within the tunneling region allowed the matter-wave STIRAP process to work as expected. The resulting potentials for equal and optimal currents are given by Fig.~\ref{fig:equaloptcurrent}, showing a slice along $x-z$ and $x-y$ planes for both cases.
+
+\begin{figure}[tb]
+    \centering
+  \includegraphics[width=0.55\textwidth]{ch3_numerics/MWSTIRAP/potentials2.pdf}
+  \caption{adsf}
+  \label{fig:equaloptcurrent}
+\end{figure}
+
+The populations for both the direct tunneling case, and matter-wave STIRAP processes are shown in Fig.~\ref{fig:mwsVsDT}, with the wavefunction probablity density at the end of the process in $|R\rangle$ given in Fig.~\ref{fig:DIRVSMWSTIRAP}. The direct tunneling case can be seen to show large Rabi oscillations across the potentials, with the matter-wave STIRAP process showing a much cleaner transfer, with a minor occupation of the central potential.
+
+\begin{figure}[tb]
+    \centering
+  \includegraphics[width=0.47\textwidth]{ch3_numerics/MWSTIRAP/STIRAP_CINT_POP}
+  \includegraphics[width=0.47\textwidth]{ch3_numerics/MWSTIRAP/STIRAP_INT_POP}
+  \caption{pop}
+  \label{fig:mwsVsDT}
+\end{figure}
+
+\begin{figure}[tb]
+    \centering
+  \includegraphics[width=0.55\textwidth]{ch3_numerics/MWSTIRAP/DIRVSMWSTIRAP.png}
+  \caption{pop}
+  \label{fig:DIRVSMWSTIRAP}
+\end{figure}
 
 %%
 
-
 \subsection{GPU computing performance}
-
-%As fully three-dimensional simulations of the Schrodinger equation are challenging numerically, the use of GPU computing is an effective way to overcome many of the barriers. Whereas traditional computers perform computations using the central processing unit (CPU), GPU computing allows some of the work to be offloaded to the graphics processor.
-As discussed in Section \ref{gpu section}, one example where GPU computing offer large performance gains are fast Fourier transformations (FFTs), which makes the Fourier split operator method being an ideal candidate for GPU systems \cite{Bauke:11}. The body of work for implementing this algorithm was using C, CUDA and Nvidia's CUFFT libraries for the Fourier transforms, whereas the MPI-enabled code was implemented using C.
+Given the large parameter space over which this system could be evaluated (e.g wire current, spatial separations, trap frequencies), many simulations were required to determine optimal system behaviour. As discussed in Section \ref{gpu section}, one example where GPU computing offer large performance gains are fast Fourier transformations (FFTs), which makes the Fourier split operator method being an ideal candidate for GPU systems \cite{Bauke:11}. The body of work for implementing this algorithm was using C, CUDA and Nvidia's CUFFT libraries for the Fourier transforms, whereas the MPI-enabled code was implemented using C.
 
 To demonstrate the performance offered by GPU computing we compared it to using FFTW with MPI, a well used parallel programming paradigm and library. The message passing interface (MPI) implementation allows the code to be run across multiple machines, benefiting from the parallelism which may be offered by a supercomputing cluster. Although MPI-enabled FFTW is fast and supports extremely large grid sizes, it requires cluster access of a significant size to be a viable option. The MPI work on this project was carried out on at the Irish Center for High-End Computing (ICHEC) supercomputer system ``Stoney'' [reference the website] over the period 2011 to 2012, with all performance metrics data calculated therefrom. This cluster system had 64 available compute nodes, each housing two 2.8GHz Intel Xeon X5560 processors with 4-cores each, and a total of 48GB of RAM per node with inter-node communication using double-data rate Infiniband.
-
-
 
 Due to the hardware limited memory on the GPU, and that the dynamics along the $x-z$ plane were of most importance, the grid-size of the simulations were scaled as $256\times 64\times1024$ ($x\times y\times z$). Of next importance was the timestep of the simulation.  To ensure minimal loss in precision, the timestep of the simulations were chosen as $\Delta t = 1\times 10^{-6}$ s. For the GPU simulations, the test system was an Intel Core i7 2600K CPU at stock frequency, 8GB DDR3 memory operating at 1600 MHz, 7200 RPM HDD, Nvidia GeForce GTX 580 with 3GB of onboard memory running at 783 MHz GPU core frequency, 1566 MHz shader processor frequency, and 2010 MHz memory frequency. For all simulations the desktop was running Ubuntu 11.10 64-bit operating system and all calculations were performed in double precision (64-bit floating point) where applicable.
 
@@ -86,42 +167,4 @@ Table \ref{tbl:timing} shows the approximate timings for the completion of runs 
    \label{tbl:timing}
 \end{table}
 
-
-
-\subsection{3D Simulations}
-\label{sec:Results}
-
-Given the large parameter space over which this system could be optimised, many simulations were required to determine optimal system behaviour. Making use of eight Nvidia M2090 GPUs available at OIST, terabytes of numerical results were generated in a relatively short time. The simulations assumed a single $^{6}$Li atom localised in the left waveguide. Its transversal wavefunction was determined numerically, with the assumption of a longitudinal Gaussian profile of similar width. The atom was then allowed to propagate along the waveguide potential, with the tunneling region at the centre of the chip.
-
-The simulations allowed the verification of the addition of the magnetic fields at the center of the atomchips, which in turn drives the central potential out of resonance with the outer two. By adjusting the current in the central wire, such that the magnetic minima was in resonance only within the tunneling region allowed the matter-wave STIRAP process to work as expected. The resulting potentials for equal and optimal currents are given by Fig.~\ref{fig:equaloptcurrent}, showing a slice along $x-z$ and $x-y$ planes for both cases.
-
-The populations for both the direct tunneling case, and matter-wave STIRAP processes are shown in Fig.~\ref{mwsVsDT}, with the wavefunction probablity density in the tunneling region given in Fig.~\ref{mwsVsDT}. The direct tuneling case can be seen to show large Rabi oscillations across the potentials, with the matter-wave STIRAP process showing a much cleaner transfer, with minimal occupation of the central potential.
-
-\begin{figure}[tb]
-    \centering
-  \includegraphics[width=0.55\textwidth]{ch3_numerics/3dpot.pdf}
-  \caption{3d}
-  \label{fig:Populations}
-\end{figure}
-
-\begin{figure}[tb]
-    \centering
-  \includegraphics[width=0.55\textwidth]{ch3_numerics/potentials2.pdf}
-  \caption{(Color online) The population in the left (blue dashed line), middle (green dot-dash line) and right (red solid line) waveguides as a function of time for (a) the counter-intuitive waveguide arrangement and (b) for intuitive, direct tunnelling one. The current in the middle wire is reduced to $I_M=0.07 A$.}
-  \label{fig:Populations}
-\end{figure}
-
-\begin{figure}[tb]
-    \centering
-  \includegraphics[width=0.47\textwidth]{ch3_numerics/STIRAP_CINT_POP}
-  \includegraphics[width=0.47\textwidth]{ch3_numerics/STIRAP_INT_POP}
-  \caption{pop}
-  \label{fig:Populations}
-\end{figure}
-
-\begin{figure}[tb]
-    \centering
-  \includegraphics[width=0.55\textwidth]{ch3_numerics/DIRVSMWSTIRAP.png}
-  \caption{pop}
-  \label{fig:Populations}
-\end{figure}
+Making use of eight Nvidia M2090 GPUs available at OIST, terabytes of numerical results were generated in a relatively short time, and allowed the problem to be tractible in a reasonable timescale.
