@@ -66,7 +66,7 @@ and with $\omega_i$ representing the trapping frequency in the $i$-th spatial di
 with $a_s$ being the s-wave scattering length. Inserting the contact potential Eq. \eqref{eqn:v_int} into the second quantised interaction Hamiltonian $\hat{H}_2$ from Eq. \eqref{eqn:ham2ndq} above yields the following relations
 \begin{subequations}
 \begin{align}
-\hat{H}_2 &= \frac{g}{2} \int \hat{\Psi}^{\dagger}(\textbf{r})\hat{\Psi}^{\dagger}(\textbf{r\textprime}) \delta\left(\textbf{r} - \textbf{r\textprime}\right)\hat{\Psi}(\textbf{r\textprime})\hat{\Psi}(\textbf{r})d\textbf{r}d\textbf{r\textprime} \\
+\hat{H}_2 &= \frac{g}{2} \int \hat{\Psi}^{\dagger}(\textbf{r})\hat{\Psi}^{\dagger}(\textbf{r}^{\prime}) \delta\left(\textbf{r} - \textbf{r}^{\prime}\right)\hat{\Psi}(\textbf{r}^{\prime})\hat{\Psi}(\textbf{r})d\textbf{r}d\textbf{r}^{\prime} \\
  & = \frac{g}{2}\int \hat{\Psi}^{\dagger}(\textbf{r})\hat{\Psi}^{\dagger}(\textbf{r}) \hat{\Psi}(\textbf{r})\hat{\Psi}(\textbf{r})d\textbf{r}d\textbf{r} \\
  & = \frac{g}{2}\int \hat{\Psi}^{\dagger}\left(\textbf{r}\right)\hat{n}\left(\textbf{\textbf{r}}\right)\hat{\Psi}^{\dagger}d\textbf{r}.
 \end{align}
@@ -117,7 +117,11 @@ Due to the macroscopic occupation of the lowest lying single-particle state, $\h
 \end{equation}
 Substituting Eq.~\ref{eqn:gpe_fluc} into \ref{eqn:ham2ndq}, taking terms in $\Psi$, and following the above procedure gives the time dependent mean-field Gross--Pitaevskii equation (GPE) as
 \begin{equation}\label{eqn:gpe}
-i\hbar\frac{\partial}{\partial t}\Psi(\textbf{r},t) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\textbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 \right]\Psi(\textbf{r},t),
+i\hbar\frac{\partial}{\partial t}\Psi(\textbf{r},t) = H_{\textrm{GP}} \Psi(\textbf{r},t),
+\end{equation}
+with the GPE Hamiltonian,
+\begin{equation}\label{eqn:h_gp}
+H_{\textrm{GP}} = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\textbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 \right],
 \end{equation}
 where $\Psi(\textbf{r},t) = \Psi(\textbf{r})e^{-\frac{i\mu t}{\hbar}}$.
 Assuming a zero-temperature condensate, the number of uncondensed atoms will be zero, and thus one can we can safely ignore all terms in $\delta\hat{\Psi}$, all of which are order greater than unity. The remaining condensed term is of the form of a classical field, wherein the problem moves from a quantum one to semiclassical. The time independent form can be found by evaluating the left-hand side derivative and dividing across by $e^{-\frac{i\mu t}{\hbar}}$, yielding
@@ -128,7 +132,7 @@ where the wavefunction is normalised to the particle number, $N$, as follows
 \begin{equation}\label{eqn:norm}
 \displaystyle\int\limits_{-\infty}^{\infty}d\textbf{r} \left\vert \Psi\left(\textbf{r}\right) \right\vert^2 = N.
 \end{equation}
-In the case of a rotating condensate an additional term appears in the GPE, $-\Omega L$, where $\Omega$ is the angular rotation frequency, and $L$ is the angular momentum. Assuming rotation about a single axis, the longitudinal direction, $z$, $L$ can be replaced with $L_z$, giving the final form of the GPE in the co-rotating frame as
+In the case of a rotating condensate an additional term appears in the GPE Hamiltonian, $-\Omega L$, where $\Omega$ is the angular rotation frequency, and $L$ is the angular momentum. Assuming rotation about a single axis, the longitudinal direction, $z$, $L$ can be replaced with $L_z$, giving the final form of the GPE in the co-rotating frame as
 \begin{equation}\label{eqn:gpe_rotation}
 i\hbar\frac{\partial}{\partial t}\Psi(\textbf{r},t) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\textbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 - \Omega L_z  \right]\Psi(\textbf{r},t).
 \end{equation}
