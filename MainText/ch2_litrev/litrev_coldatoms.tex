@@ -6,8 +6,7 @@ It relies on the use of counter-propagating detuned laser fields which are shown
 I will assume the effectiveness of these techniques to allow the creation of Bose--Einstein condensates in dilute atomic gases.
 
 \subsection{Introduction to Bose--Einstein condensation}\label{sub:becintro}
-Bose--Einstein condensation was predicted by N. Bose and A. Einstein \cite{BEC:Ketterle_revmod_2002}. This began as a work on the statistical behaviour of photons, eventually leading to the derivation of the ``Bose--Einstein distribution'' for an ideal bosonic gas.
-In the framework of the grand canonical ensemble and following the description given by Pitaevskii and Stringari \cite[chap. 2]{BK:Pitaevskii_Stringari_2003}, the Bose--Einstein distribution is given by
+Bose--Einstein condensation was predicted by N. Bose and A. Einstein \cite{BEC:Ketterle_revmod_2002}, and began as a work on the statistical behaviour of photons. This eventually lead to their derivation of the ``Bose--Einstein distribution'' for an ideal bosonic gas. In the framework of the grand canonical ensemble and following the description given by Pitaevskii and Stringari \cite[chap. 2]{BK:Pitaevskii_Stringari_2003}, the Bose--Einstein distribution is given by
 \begin{equation}
 \bar{n}_i = \frac{1}{e^{\beta(\epsilon_i - \mu)} -1},
 \end{equation}
@@ -24,7 +23,7 @@ with $\epsilon_0$ representing the lowest energy eigenvalue. Since negative occu
 \begin{equation}
 N = N_0 + N_T = N_0 + \displaystyle\sum_{i\neq 0}\bar{n}_i(T,\mu),
 \end{equation}
-a relation for the the onset of Bose--Einstein condensation can be given. For a finite temperature system ($T>0$) this will happen when the temperature drops below a critical value, $T_c$, where $\mu$ will approach $\epsilon_0$, resulting in the macroscopic occupation of the lowest lying state, yielding a Bose--Einstein condensate (BEC).
+allows for a relation for the the onset of Bose--Einstein condensation can be given. For a finite temperature system ($T>0$) this will happen when the temperature drops below a critical value, $T_c$, where $\mu$ will approach $\epsilon_0$, resulting in the macroscopic occupation of the lowest lying state, yielding a Bose--Einstein condensate (BEC).
 
 BECs of ultracold atomic gases are a prime example of coherent matter waves, and demonstrate quantum mechanical effects on length-scales which can be considered mesoscopic. Given a cloud of identical bosons at higher temperature, the atoms exhibit billiard-ball type behaviour. As they are cooled, their thermal de Broglie wavelength increases as
 \begin{equation}
@@ -40,7 +39,7 @@ k_BT_c = \frac{\hbar\bar{\omega}N^{1/3}}{\zeta(3)^{1/3}},
 \end{equation}
 where $\bar{\omega}=(\omega_x\omega_y\omega_z)^{1/3}$ is the geometric mean of the oscillator frequencies. Critical temperatures for harmonically trapped gases are on the order of nano-Kelvin assuming realisable trapping frequencies, which were experimentally inaccessible during the time of Bose and Einstein.
 
-Fritz London, in 1938, following on from the body of work derived by Einstein and Bose drew the connection between superfluidity in liquid $^4$He and Bose--Einstein condensation \cite[Chap.~1]{BK:Pitaevskii_Stringari_2003}. However, due to the liquid nature of $^4$He at low temperatures only approximately $10\%$ of the atoms condense into a BEC \cite{BEC:Penrose_pr_1956}. In order to achieve the large occupation of the lowest energy state the system must be prepared so that the interparticle interaction strength does not destroy the coherence, as is the case for liquid $^4$He.
+Fritz London, in 1938, following on from the body of work derived by Einstein and Bose drew the connection between superfluidity in liquid $^4$He and Bose--Einstein condensation \cite[Chap.~1]{BK:Pitaevskii_Stringari_2003}. However, due to the liquid nature of $^4$He at low temperatures only approximately $10\%$ of the atoms condense into a BEC \cite{BEC:Penrose_pr_1956}. In order to achieve the large occupation of the lowest energy state the system must be prepared so that the inter-particle interaction strength does not destroy the coherence, as is the case for liquid $^4$He.
 
 Due to their weak interactions, dilute atomic gases are closer to the ideal case discussed by Bose and Einstein. One negative impact, though, were the higher masses of the atoms used in such systems, which required reaching much lower transition temperatures. As such, the use of lighter elements were considered. Spin-polarised hydrogen
 was one of the first systems to be investigated to create BEC \cite{BEC:Kleppner_enfe_1998,BK:Pitaevskii_Stringari_2003} in the 1970's. Using trapping and cooling techniques
@@ -124,7 +123,7 @@ with the GPE Hamiltonian,
 H_{\textrm{GP}} = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\textbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 \right],
 \end{equation}
 where $\Psi(\textbf{r},t) = \Psi(\textbf{r})e^{-\frac{i\mu t}{\hbar}}$.
-Assuming a zero-temperature condensate, the number of uncondensed atoms will be zero, and thus one can we can safely ignore all terms in $\delta\hat{\Psi}$, all of which are order greater than unity. The remaining condensed term is of the form of a classical field, wherein the problem moves from a quantum one to semiclassical. The time independent form can be found by evaluating the left-hand side derivative and dividing across by $e^{-\frac{i\mu t}{\hbar}}$, yielding
+Assuming a zero-temperature condensate, the number of uncondensed atoms will be zero, and thus one can we can safely ignore all terms in $\delta\hat{\Psi}$. The remaining condensed term is of the form of a classical field, wherein the problem moves from a quantum one to semiclassical. The time independent form can be found by evaluating the left-hand side derivative and dividing across by $e^{-\frac{i\mu t}{\hbar}}$, yielding
 \begin{equation}
 \mu\Psi(\textbf{r}) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\textbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 \right]\Psi(\textbf{r}),
 \end{equation}
@@ -157,22 +156,16 @@ Taking this expression where $\mu$ is the chemical potential of the condensate, 
 \begin{equation}\label{eqn:bogo_psi}
 \Psi(\mathbf{r},t) = \exp\left(-i\frac{\mu t}{\hbar}\right)[\Psi_0(\mathbf{r}) + u(\mathbf{r})\exp\left(-i\omega t\right) + v^{*}(\mathbf{r})\exp\left(i\omega t\right) ],
 \end{equation}
-where $\Psi_0(\mathbf{r})$ is the stationary state solution.
-
-Firstly, we calculate the time-derivative of eq. \ref{eqn:bogo_psi}, which after simplification becomes
+where $\Psi_0(\mathbf{r})$ is the stationary state solution. Firstly, we calculate the time-derivative of eq. \ref{eqn:bogo_psi}, which after simplification becomes
 \begin{equation}\label{eqn:bogo_lhs}
     i\hbar\partial_t \Psi(\mathbf{r},t) = \exp\left(\frac{-i\mu t}{\hbar}\right)\left[\mu\Psi_0 + (\mu+\hbar\omega)u\exp\left(-it\omega\right) + (\mu+\hbar\omega)v^{*}\exp\left(it\omega\right) \right],
 \end{equation}
 where I have dropped the dependence on $\mathbf{r}$ for notational simplicity. Next, the nonlinear interaction term is given as
 \begin{subequations}
 \begin{align}\label{eqn:bogo_nonlin}
-    g|\Psi|^2\Psi &= g \Psi_0^{*}\Psi_0\Psi_0 \\
-                &= g\exp\left(\frac{-i\mu t}{\hbar}\right)\left(\Psi_0^{*} + u^{*}\exp(i\omega t) + v\exp(-i\omega t)\right)\left(\Psi_0 + u\exp(-i\omega t) + v^{*}\exp(i\omega t)\right)^2, \\
-                & \approx g\exp\left(\frac{-i\mu t}{\hbar}\right)\left[
-                |\Psi_0|^2\left(
-                 \Psi_0 + 2(u\exp\left(-i\omega t\right) + v^{*}\exp\left(i\omega t\right) )\right) + \Psi_0^2\left( u^{*}\exp\left(i\omega t\right) + v\exp\left(-i\omega t\right)
-                \right)
-                \right].
+    g|\Psi|^2\Psi &= g\Psi_0^{*}\Psi_0\Psi_0 \\
+    &= g\exp\left(\frac{-i\mu t}{\hbar}\right)(\Psi_0^{*} + u^{*}\exp(i\omega t) + v\exp(-i\omega t))\\ &~~~~~~\times (\Psi_0 + u\exp(-i\omega t) + v^{*}\exp(i\omega t))^2, \nonumber \\
+    & \approx g\exp\left(\frac{-i\mu t}{\hbar}\right)[|\Psi_0|^2(\Psi_0 + 2(u\exp(-i\omega t) + v^{*}\exp(i\omega t) )) \\ &~~~~~~+ \Psi_0^2( u^{*}\exp(i\omega t) + v\exp(-i\omega t))]. \nonumber
 \end{align}
 \end{subequations}
 
@@ -188,7 +181,7 @@ where
 \begin{equation}\label{eqn:bogo_h0}
 H_0 = -\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r})
 \end{equation}
-This can be written as a matrix as
+This can be written in matrix form as
 \begin{equation}
     \begin{pmatrix}
         H_0 - \mu -\Omega L_z & g\Psi_0^2 \\
@@ -207,9 +200,9 @@ This can be written as a matrix as
 where the eigenvalues of these modes can be used to determine the stability of the system. The norm of these values is given by $\int d\mathbf{r}(|u|^2 - |v|^2)$. If the norm is positive, with positive eigenvalues, we can say the system is stable. If the norm is negative, the system will have an energetic instability. This will cause the system to move towards the lowest energy state only in the presence of dissipation. If, however, the norm is 0 with imaginary eigenvalues, the modes of fluctuations are dynamically unstable. Due to the complex eigenvalues over time the mode will dominate exponentially and destroy the initial state of the condensate. %In a later section I  will use this approach later to examine the behaviour of the Bose--Einstein condensate.
 
 \subsection{Lower dimensional condensates}\label{sub:coldatom_recent}
-Whilst the full 3D dimensional GPE describes the dynamics of a condensed cloud of cold atoms, often the physics of lower dimensional systems can be quite fruitful. For a BEC tightly confined along one axis, the system can be described as a pancake shaped condensate, or cigar shaped for tight confinement along two axes. These teightly confined systems allow for the examination of both two and one dimensional physics. For a BEC harmonically confined in a trap with a transverse frequency, $\omega_\perp$, and tightly confined along $z$ with frequency $\omega_z >> \omega_\perp$, all dynamics can be frozen out along $z$, leaving the system in the groundstate of the oscillator along $z$. This assumes that the energy to excite the system along $z$, $\hbar\omega_z$ is significantly greater than that to excite along the transverse plane $\hbar\omega_\perp$. This assumption allows for the wavefunction to be written as $\Psi(\mathbf{r},t) = \Psi(x,y,t)\phi(z)$ where $\mathbf{r} = [x,y,z]$, $\Psi(x,y,t)$ is the transverse wavefunction, and $\phi(z) = \left(\frac{m\omega_z}{\pi\hbar}\right)e^{-\frac{m\omega_z}{2\hbar}z^2}$ is the groundstate along $z$.
+Whilst the full three dimensional GPE describes the dynamics of a condensed cloud of cold atoms, often the physics of lower dimensional systems can be quite fruitful. For a BEC tightly confined along one axis, the system can be described as a pancake shaped condensate, or cigar shaped for tight confinement along two axes. These tightly confined systems allow for the examination of both two and one dimensional physics. For a BEC harmonically confined in a trap with a transverse frequency, $\omega_\perp$, and tightly confined along $z$ with frequency $\omega_z \gg \omega_\perp$, all dynamics can be frozen out along $z$, leaving the system in the groundstate of the oscillator along $z$. This assumes that the energy to excite the system along $z$, $\hbar\omega_z$ is significantly greater than that to excite along the transverse plane $\hbar\omega_\perp$. This assumption allows for the wavefunction to be written as $\Psi(\mathbf{r},t) = \Psi(x,y,t)\phi(z)$ where $\mathbf{r} = [x,y,z]$, $\Psi(x,y,t)$ is the transverse wavefunction, and $\phi(z) = \left(\frac{m\omega_z}{\pi\hbar}\right)e^{-\frac{m\omega_z}{2\hbar}z^2}$ is the groundstate along $z$.
 Substituting this separable wavefunction into the GPE and integrating over all space with respect to $z$ modifies the nonlinear interaction strength as
 \begin{equation}
-    g^{\prime} = g\sqrt{\frac{m\omega_z}{2\pi\hbar}}.
+    g_{2D} = g\sqrt{\frac{m\omega_z}{2\pi\hbar}}.
 \end{equation}
-Though still technically a 3D system, by integrating along the stationary axis the net effect gives an effective interaction strength for a \textit{quasi}-2D model. Provided the previous assumptions hold for the trapping frequencies, the system can be modeled in two-dimensions without any loss of generality. A major advantage of the confinement of a BEC to a two-dimensional pancake geometry is the added stability of excitations. For all work and models discussed later I will assume a quasi-2D condensate.
+Though still technically a 3D system, by integrating along the stationary axis the net effect gives an effective interaction strength for a \textit{quasi}-2D model. Provided the previous assumptions hold for the trapping frequencies, the system can be modeled in two-dimensions without any loss of generality. A major advantage of the confinement of a BEC to a two-dimensional pancake geometry is the added stability of excitations. For all work and models discussed later I will assume a quasi-2D condensate. For notational simplicity, $g$ will refer to $g_{2D}$ throughout.

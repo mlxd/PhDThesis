@@ -16,30 +16,29 @@ If we initially consider two separated harmonic potentials (traps), with grounds
 \begin{equation}
     H = -\hbar
     \begin{pmatrix}
-        0 & \Omega_{LR} \\
-        \Omega_{RL} & \Delta
+        0 & J_{LR} \\
+        J_{RL} & \Delta
     \end{pmatrix}
 \end{equation}
-where $\Omega_{LR} = \Omega_{RL}$ are the couplings between states, and $\Delta$ is the detuning of state $| R \rangle$, relative to $| L \rangle$. Assuming an atom initially localised in $| L \rangle$, and with an increase in coupling strength between the levels, the localised atom will tunnel from $| L \rangle$ to $| R \rangle $. However, this processes is difficult to control, as Rabi oscillations introduce an explicit time-dependence and cause the atomic population to continuously transfer between both traps. This will require precise timing and control to ensure a fully robust transfer of population. From this we see that a double-well potential is a difficult system in which to realise coherent control.
+where $J_{LR} = J_{RL}$ are the couplings between states, and $\Delta$ is the detuning of state $| R \rangle$, relative to $| L \rangle$. Assuming an atom initially localised in $| L \rangle$, and with an increase in coupling strength between the levels, the localised atom will tunnel from $| L \rangle$ to $| R \rangle $. However, this processes is difficult to control, as Rabi oscillations introduce an explicit time-dependence and cause the atomic population to continuously transfer between both traps. This will require precise timing and control to ensure a fully robust transfer of population. From this we see that a double-well potential is a difficult system in which to realise coherent control.
 
 A more robust method, using three adjacent harmonic traps and the aforementioned matter-wave STIRAP process, improves upon the double-well system. For this SAP technique, we model the adjacent trapping potentials as coupled with their nearest neighbour solely. For three such potentials, $L,M,R$, on resonance, this is given by the Hamiltonian
 \begin{equation}\label{eqn:sap_ham}
     H = -\frac{\hbar}{2}
     \begin{pmatrix}
-        0 & \Omega_{LM} & 0 \\
-        \Omega_{LM} & 0 & \Omega_{MR} \\
-        0 & \Omega_{MR} & 0
+        0 & J_{LM} & 0 \\
+        J_{LM} & 0 & J_{MR} \\
+        0 & J_{MR} & 0
     \end{pmatrix},
 \end{equation}
-where $\Omega_{LM},~\Omega_{MR}$ describe the coupling between left-middle and middle-right potentials respectively. Diagonalising this Hamiltonian gives three distinctive eigenstates, however only one is of interest here. For the zero-valued eigenstate of this Hamiltonian, known as the \textit{dark state}, the dependence on the middle potential vanishes, with the state given by
+where $J_{LM},~J_{MR}$ describe the coupling between left-middle and middle-right potentials respectively. Diagonalising this Hamiltonian gives three distinctive eigenstates, however only one is of interest here. For the zero-valued eigenstate of this Hamiltonian, known as the \textit{dark state}, the dependence on the middle potential vanishes, with the state given by
 \begin{equation}
  | 0 \rangle = \cos\ \Theta| L \rangle - \sin \Theta | R \rangle
 \end{equation}
-where $\tan \Theta=\Omega_{MR}/\Omega_{LM}$ is the mixing angle. From the adiabatic theorem of quantum mechanics, it is known that if an eigenstate has its Hamiltonian perturbed slowly enough, then we can follow its evolution ensuring that it always remains in an eigenstate of the Hamiltonian. By preparing the system in state $| L \rangle$, and varying $\Theta$ slowly, we can shift the population from the leftmost harmonic potential to the rightmost, without populating the center.
+where $\tan \Theta=J_{MR}/J_{LM}$ is the mixing angle. From the adiabatic theorem of quantum mechanics, it is known that if an eigenstate has its Hamiltonian perturbed slowly enough, then we can follow its evolution ensuring that it always remains in an eigenstate of the Hamiltonian. By preparing the system in state $| L \rangle$, and varying $\Theta$ slowly, we can shift the population from the leftmost harmonic potential to the rightmost, without populating the center.
 
  [\lee{***MORE TECHNICAL DETAILS***}]
-Varying the couplings between trapping potentials, and hence controlling this mixing angle, can be achieved by either lowering the barrier height of adjacent potentials, or decreasing the distance between them. Here, I will discuss the use of varying the spatial separation of the traps. To ensure full transfer from
-$|L \rangle$ to $| R \rangle$, the mixing angle must vary smoothly from $\Theta = 0 \rightarrow \pi/2$. Given the properties of $\arctan$, this can be achieved by applying the same spatial variation between $|M \rangle$ and $| R\rangle$, as with $|L \rangle$ and $| M\rangle$ following a delay, $\tau$. Assuming a stationary central potential, $| L \rangle$ and $| R\rangle$ can be varied following a $\cos(0 \rightarrow 2\pi)$ spatial shift of separation with $| M \rangle$, with the peaks separated by $\tau$.
+%Varying the couplings between trapping potentials, and hence controlling this mixing angle, can be achieved by either lowering the barrier height of adjacent potentials, or decreasing the distance between them. Here, I will discuss the use of varying the spatial separation of the traps. To ensure full transfer from $|L \rangle$ to $| R \rangle$, the mixing angle must vary smoothly from $\Theta = 0 \rightarrow \pi/2$. Given the properties of $\arctan$, this can be achieved by applying the same spatial variation between $|M \rangle$ and $| R\rangle$, as with $|L \rangle$ and $| M\rangle$ following a delay, $\tau$. Assuming a stationary central potential, $| L \rangle$ and $| R\rangle$ can be varied following a $\cos(0 \rightarrow 2\pi)$ spatial shift of separation with $| M \rangle$, with the peaks separated by $\tau$.
 
 
 \begin{figure}
@@ -49,11 +48,11 @@ $|L \rangle$ to $| R \rangle$, the mixing angle must vary smoothly from $\Theta 
     \label{fig:ch3_stirap}
 \end{figure}
 
-This technique makes use of tunneling, with the rate of transfer between trapping potentials controlled by the respective spatial separation, and is demonstrated by Fig.~\ref{fig:ch3_stirap}. Typically, the method would be performed with time-dependent potentials. However, a static potential variant can be considered using parallel atomic waveguides, wherein the separation varies as a function of distance along the parallel axis. If we consider an atom that travels along such a waveguide, the coupling and hence tunneling rates seen by the atom in the waveguide are altered as the atom propagates. Such work has been discussed and considered in a realistic system for two spatial dimensions \cite{OSullivan:10}. Although a two dimensional model will be effective at describing much of the relevant dynamics, the lack of $z$-dimension ensures the effects stemming from dispersion, curvature of the waveguides and the absence of any such eigenstates along $z$ reduce the realism of such a model.
+This technique makes use of tunneling to control the coupling strength, with the rate of transfer between trapping potentials controlled by the respective spatial separation, and is demonstrated by Fig.~\ref{fig:ch3_stirap}. Typically, the method would be performed with time-dependent potentials. However, a static potential variant can be considered using parallel atomic waveguides, where the separation varies as a function of distance along the parallel axis. If we consider an atom that travels along such a waveguide, the coupling and hence tunneling rates seen by the atom in the waveguide are altered as the atom propagates. Such work has been discussed and considered in a realistic system for two spatial dimensions \cite{OSullivan:10}. Although a two dimensional model will be effective at describing much of the relevant dynamics, the lack of $z$-dimension ensures the effects stemming from dispersion, curvature of the waveguides and the absence of any such eigenstates along $z$ reduce the realism of such a model.
 
 \subsection{Physical model}
 
-As discussed previously, to fully understand the dynamics of such a system we must investigate the fully three-dimensional model. One method of creating the required potential landscape is through the use of atom chips \cite{Bartenstein_ieee_2000}[cite Atoms and Wires: Toward Atom Chips]. These systems consist of micro-fabricated current-carrying wires, and can be used to create a variety of trapping potential shapes. With the application of current a magnetic field is created around individual wires, of which has a minima at the wire core. A magnetic field $\mathbf{B}$ through a wire of negligible thickness at position $\mathbf{r}$ can be modelled using the Biot-Savart law as
+As discussed previously, to fully understand the dynamics of such a system we must investigate the fully three-dimensional model. One method of creating the required potential landscape is through the use of atom chips \cite{Bartenstein_ieee_2000}[cite Atoms and Wires: Toward Atom Chips]. These systems consist of micro-fabricated current-carrying wires, and can be used to create a variety of trapping potential shapes. With the application of current a magnetic field is created around individual wires, of which has a minima at the wire core. A magnetic field $\mathbf{B}$ around a wire of negligible thickness at position $\mathbf{r}$ can be modelled using the Biot-Savart law as
 \begin{equation}
     \mathbf{B}(\mathbf{r}) = \frac{\mu_0}{4\pi}\oint I \frac{d\mathbf{l}\times \hat{\mathbf{r}}}{|\mathbf{r}|^2}
 \end{equation}
@@ -61,7 +60,7 @@ where $I$ is the current through the wire, $\mu_0$ is the vacuum permeability, $
 \begin{equation}
     \mathbf{r}_0 = \frac{\mu_0 I}{2\pi {B}_b},
 \end{equation}
-above the surface. By applying this field orthogonal to the direction of current, this minima can be raised to a location above the wire surface. Though, an issue still remains with the presence of the magnetic minima. If the field drops to zero at the centre of the trap, the atoms can be lost due to Majorana spin flips. This can be prevented with the application of an additional field, ${B}_{p}$, parallel to the wire direction, lifiting the degeneracy of the atomic states, and ensuring they remain trapped. Spatial and temporal adjustments of the potentials are possible, with a fine degree of control. These have been used extensively in recent years for trapping potentials [cite], and as atomic manipulators [cite].
+above the surface. Though, an issue still remains with the presence of the magnetic minima. If the field drops to zero at the centre of the trap, the atoms can be lost due to Majorana spin flips. This can be prevented with the application of an additional field, ${B}_{p}$, parallel to the wire direction, lifiting the degeneracy of the atomic states, and ensuring they remain trapped. Spatial and temporal adjustments of the potentials are possible, with a fine degree of control. These have been used extensively in recent years for trapping potentials [cite], and as atomic manipulators [cite].
 
 For this work, the system was modeled as three adjacent wires on the atom-chip surface, at positions $r_l, r_m, r_r$ respectively. As the magnetic minima travel along the length of a atom-chip surface, we assume that the magnetic fields can be considered planar along the $x-y$ dimension. The direction of progation is then along $z$, where the presence of an additional harmonic oscillator potential is applied to impart motion to the atom, which begins at the $z=0$ position of the atomchip. A schematic of the atomchip device is given by Fig.~\ref{fig}, with a schematic of the resulting potentials shown by Fig.\ref{fig:potschematic}
 

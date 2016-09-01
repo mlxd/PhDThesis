@@ -14,7 +14,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[11pt, twoside]{book} % 12 pt font, two-sided book style
+\documentclass[11pt, twoside, draft]{book} % 12 pt font, two-sided book style
 \usepackage[a4paper, includehead, headheight=0.6cm, inner=3cm ,outer=2.5cm, top=2.5 cm, bottom=2.5cm]{geometry}  % Changing size of document
 \usepackage[english]{babel} % The document is in English
 %\usepackage[utf8]{inputenc} % UTF8 encoding
@@ -176,14 +176,14 @@
 \vtxdyntrue
 %\vtxdynfalse
 \ifvtxdyn
-    \numberedchapter{Bose--Einstein condensate dynamics}
+    \numberedchapter{Bose--Einstein condensate dynamics}\label{sec:vortlatt}
     %\chapter{Bose--Einstein condensate dynamics}
         \input{MainText/ch4_vort/vort_lattice}
     \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifmoire
 \moiretrue
-\moirefalse
+%\moirefalse
 \ifmoire
     \numberedchapter{Moir\'e superlattice structures}
     %\chapter{Moir\'e superlattice structures}
@@ -192,12 +192,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifdefect
 \defecttrue
-\defectfalse
+%\defectfalse
 \ifdefect
     \numberedchapter{Defect engineering}
     %\chapter{Defect engineering}
         %\input{MainText/ch6_phasegineer/phasegineer_dislocate}
-        \input{MainText/ch6_phasegineer/ch6_phasegineer2}
+        \input{MainText/ch6_phasegineer/ch6_phasegineer4}
         \input{MainText/ch6_phasegineer/ch6_delaunay_voronoi}
 
 \fi
@@ -219,7 +219,7 @@
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 \appendix % Starts of appendices
 
-\numberedchapter{Appendix}
+%\numberedchapter{Appendix}
 %\input{MainText/appendixA}
 %\input{MainText/appendixB}
 %\input{MainText/appendixC}

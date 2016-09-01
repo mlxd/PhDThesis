@@ -27,7 +27,7 @@ If the linear ramp is performed too quickly, or if I instantaneously choose a gr
 
 \begin{figure}
     \includegraphics[width=0.85\textwidth]{Images/ch4_vtx/ramp_omega.pdf}
-    \caption{The density distributions of the wavefunction in position (top) and momentum (bottom) space are given for rotation frequencies (L-R) $\Omega/\omega_\perp=[0.366,0.796,0.962,0.995]$. The color axis differs for each plot, as a constant axis is difficult to view densities across all magnitudes. The growth rate of the condensate radius in both position and momentum space becomes large when $\Omega \approx \omega_\perp$.}
+    \caption{If the rotation frequency is chosen at $\Omega=0.995\omega_\perp$ without allowing the lattice to form and order, the resulting vortices all enter instantaneously and compete for position. !!!!}
     \label{fig:malformed_lattice}
 \end{figure}
 
@@ -65,7 +65,7 @@ Wi
 
 
 \subsection{Trapping potential control}
-A system modelled by the GPE Hamiltonian, $H_{\textrm{GP}} = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\textbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 \right]$ Eq.~\ref{eqn:h_gp} allows for a numerically evaluated ground-state. Let us now imagine an abrupt change to this Hamiltonian, such that, $H = H_{\textrm{GP}} + f(t) V_{\textrm{ext}}$, where  $V_{\textrm{ext}}$ is an arbitrary external potential, and $f(t)$ is some function of time to control the application of $V_{\textrm{ext}}$ . In this scenario, the wavefunction, formerly a stationary state of $H_{\textrm{GP}}$, will no longer remain so in the new Hamiltonian provided that $H_{\textrm{GP}} $ and $\Theta V_{\textrm{ext}}$ are non-commuting. Any modification of the Hamiltonian in this way can be viewed as a method for changing the phase of the resulting wavefunction, assuming the time of application of the additional term is much shorter than the timescale of condensate dynamics.
+A system modelled by the GPE Hamiltonian, $H_{\textrm{GP}} = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\textbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 \right]$ Eq.~\ref{eqn:h_gp} allows for a numerically evaluated ground-state. Let us now imagine an abrupt change to this Hamiltonian, such that, $H = H_{\textrm{GP}} + f(t) V_{\textrm{ext}}$, where  $V_{\textrm{ext}}$ is an arbitrary external potential, and $f(t)$ is some function of time to control the application of $V_{\textrm{ext}}$ . In this scenario, the wavefunction, formerly a stationary state of $H_{\textrm{GP}}$, will no longer remain so in the new Hamiltonian provided that $H_{\textrm{GP}} $ and $f(t) V_{\textrm{ext}}$ are non-commuting. Any modification of the Hamiltonian in this way can be viewed as a method for changing the phase of the resulting wavefunction, assuming the time of application of the additional term is much shorter than the timescale of condensate dynamics.
 %\begin{equation}
 %    e^{i\phi} \mapsto \exp\left(-i\frac{Ht}{\hbar}\right),
 %\end{equation}
@@ -88,7 +88,7 @@ where $\alpha$ is the field amplitude. Assuming counter propagating plane waves,
 \end{equation}
 where $\gamma$ is the resulting field intensity. The optical potential forms a highly periodic system given an appropriately choosen $\mathbf{k}$, and is known as an \textit{optical lattice}. Optical lattices have become very prolific in BEC experiments, with experimental control being very highly developed.
 
-The optical lattice potential can be used to create one, two, or three-dimensional periodic trapping structures. This is achieved by the summation of additional lattice potentials with wavevectors $\mathbf{k}_{1,..,n}$. To create a lattice with $n$-fold rotational symmetry requires $n/2$ $\mathbf{k}$-vectors separated by $\frac{2\pi}{n}$, and that $n/2 \in \mathbb{Z}$. Taking a square lattice as an example, it has 4-fold rotational symmetry, giving a requirement of two $\mathbf{k}$-vectors, separated by $\pi/2$, as
+The optical lattice potential can be used to create one, two, or three-dimensional periodic trapping structures. This is achieved by the summation of additional lattice potentials with wavevectors $\mathbf{k}_{1,..,n}$. To create a lattice with $n$-fold rotational symmetry requires $n/2$ $\mathbf{k}$-vectors separated by $\frac{2\pi}{n}$, and that $n/2 \in \mathbb{Z}^{+}$. Taking a square lattice as an example, it has 4-fold rotational symmetry, giving a requirement of two $\mathbf{k}$-vectors, separated by $\pi/2$, as
 \begin{equation}
     \mathbf{k} =
     \begin{bmatrix}
@@ -106,12 +106,12 @@ For the purpose of my system, I intend to create a two-dimensional optical latti
 
 \begin{subequations}
     \begin{align}
-        \mathbf{k}_1 = k_0\{\frac{\sqrt(3)}{2},\frac{1}{2}\} \\
-        \mathbf{k}_2 = k_0\{0,1\} \\
-        \mathbf{k}_3 = k_0\{\frac{\sqrt(3)}{2},-\frac{1}{2}\} \\
+        \mathbf{k}_1 &= k_0\left\{\frac{\sqrt(3)}{2},\frac{1}{2}\right\} \\
+        \mathbf{k}_2 &= k_0\{0,1\} \\
+        \mathbf{k}_3 &= k_0\left\{\frac{\sqrt(3)}{2},-\frac{1}{2}\right\} \\
     \end{align}
 \end{subequations}
-where $k_0 = \frac{4\pi}{\sqrt(3)a_0}$, and $a_0$ is the lattice spacing.
+where $k_0 = 4\pi/(\sqrt(3)a_0)$, and $a_0$ is the lattice spacing.
 
 
 By choice of $f(t)$, the time of application of the optical lattice to the condensate can be controlled. Given some time for evolution, the wavefunction phase will be modified and evolve due to the presence of the new potential. Of particular interest is the use of an instantaneously switched optical potential. For an optical lattice that is switched on and permanently remains on, such as $f(t) = \Theta(t)$ where $\Theta$ is the Heaviside step function, the condensate will see this as a quench, and attempt to adjust to the new Hamiltonian. However, for a pulsed optical lattice, such as a $\delta$-function in time, the condensate responds as though it receives a kick, with the resulting kick modifying the phase profile of the wavefunction. Experimentally, one can imagine this effect coming from the use of an optical shutter, and thus we can assume this is a realisable perturbation, with the potential intensity controlled by beam power.

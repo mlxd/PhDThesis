@@ -62,7 +62,7 @@ This approach accrues an error not encountered using methods solely in position 
  \subsection{Vortex tracking}
  To efficiently follow the vortex dynamics, some robust algorithm is needed to track their positions. One could track regions where the density drops to zero. However, this gives very little information on the topological excitation, and may mistake density dips such as phonons for the presence of such excitations. One of the most effective ways is to locate the $\pm 2\pi$ charge in the wavefunction phase, which is a signature of quantum vortices. We can assume that around a $2\times 2$ subgrid, the phase rotates from $-\pi$ to $+\pi$ in the presence of a vortex located on the subgrid. After an initial pass to determine the vortex locations closest the nearest grid element, a least-squares fit is performed to more accurately determine the vortex core position.
 
- Linear least squares is used generally for an overdetermined linear system $\mathbf{A}\mathbf{x} = \mathbf{b}$, where unique solutions are unlikely to exist. Thus, for a solution, we seek the best fit plane that minimises the error, of the form
+ Linear least squares is used generally for an overdetermined linear system $\mathbf{A}\mathbf{r} = \mathbf{b}$, where unique solutions are unlikely to exist. Thus, for a solution, we seek the best fit plane that minimises the error, of the form
 
  \begin{equation}
  S(\mathbf{r}) = \displaystyle\sum |b_i - \displaystyle\sum A_{ij} r_j |^2
@@ -74,7 +74,9 @@ This approach accrues an error not encountered using methods solely in position 
     \mathbf{r} &= (\mathbf{A}^{T}\mathbf{A})^{-1}\mathbf{A}^{T}\mathbf{b}.
 \end{align}
 \end{subequations}
-For this the best-fit plane is sought of the form $\alpha x + \beta y + \gamma c = f(x,y)$,
+For this the best-fit plane is sought of the form
+$a_0 c + \displaystyle\sum\limits_{i}^{m} a_i r_i = f(\mathbf{r})$
+which for a two-dimensional system, $\mathbf{r} = \{x,y\}$, is given by the matrix,
 \begin{equation}
     \mathbf{A} = \left(
     \begin{array}{ccc}
@@ -108,7 +110,7 @@ Upon evaluating the vector $\mathbf{r}$ above, one can obtain the best fit plane
     \end{array}\right).
 \end{equation}
 
-The goal is to find where both the real and imaginary components cross through zero, and thus we seek a solution of the form $x + y = -c$. Rerranging the above equations as
+The goal is to find where both the real and imaginary components cross through zero, and thus we seek a solution of the form $x + y = -c$. Rearranging the above equations as
 \begin{equation}\left(
     \begin{array}{cc}
         \Re(x) & \Re(y) \\

@@ -2,16 +2,16 @@
 \section{Introduction}
 
 \iffalse
-The use of delta-kicked Hamiltonians are common in the study of chaotic systems \cite{CT:Ullah_epjd_2012,CT:White_njp_2014}. The delta-kicked rotor is a prime example of such a system that exhibits chaotic motion following a series of successive kicks. Another such model, building upon the kicked rotor, is the kicked harmonic oscillator, wherein the Hamiltonian acquires an additional quadratic potential. The behaviour of such systems have been well studied \cite{CT:Berman_nonlin_1991, CT:Duffy_pra_2004}, and are interesting models to examine the onset of chaos in both classical and quantum mechanical systems. By converting the conjugate variables to quantum operators, the quantum mechanical analogues can be examined. Granted, chaos in the quantum mechanical world differs from that of the classical world (e.g. quantum unitary evolution), insights may be gained from the study of systems on the boundary between the quantum and classical world.
+%The use of delta-kicked Hamiltonians are common in the study of chaotic systems \cite{CT:Ullah_epjd_2012,CT:White_njp_2014}. The delta-kicked rotor is a prime example of such a system that exhibits chaotic motion following a series of successive kicks. Another such model, building upon the kicked rotor, is the kicked harmonic oscillator, wherein the Hamiltonian acquires an additional quadratic potential. The behaviour of such systems have been well studied \cite{CT:Berman_nonlin_1991, CT:Duffy_pra_2004}, and are interesting models to examine the onset of chaos in both classical and quantum mechanical systems. By converting the conjugate variables to quantum operators, the quantum mechanical analogues can be examined. Granted, chaos in the quantum mechanical world differs from that of the classical world (e.g. quantum unitary evolution), insights may be gained from the study of systems on the boundary between the quantum and classical world.
 
-Here I propose such a system, given a rapidly Bose-Einstein condensate featuring a well ordered vortex lattice. The goal is to generate chaotic motion of the vortices in the condensate through kicking with an optical lattice having a period given by the rotation and translational symmetry of the vortex lattice. Since it is known that the vortex lattice is an Abrikosov lattice with 6-fold symmetry, one can say that given a rotation frequency of $\Omega$, the lattice will return to the same orientation after a rotation of $\Omega/6$. Thus, I can kick the system at this interval with a stationary optical lattice potential, without the need to rotate with the system, making this more experimentally realistic. While the expected dynamics of vortices were not observed in the proposed system, additional interesting behaviour was seen. Thus, I will continue to discuss the model of the system, and the observed dynamical behaviour will be described.
+%Here I propose such a system, given a rapidly Bose-Einstein condensate featuring a well ordered vortex lattice. The goal is to generate chaotic motion of the vortices in the condensate through kicking with an optical lattice having a period given by the rotation and translational symmetry of the vortex lattice. Since it is known that the vortex lattice is an Abrikosov lattice with 6-fold symmetry, one can say that given a rotation frequency of $\Omega$, the lattice will return to the same orientation after a rotation of $\Omega/6$. Thus, I can kick the system at this interval with a stationary optical lattice potential, without the need to rotate with the system, making this more experimentally realistic. While the expected dynamics of vortices were not observed in the proposed system, additional interesting behaviour was seen. Thus, I will continue to discuss the model of the system, and the observed dynamical behaviour will be described.
 \fi
 
-As discussed in Sec.~\ref{sec:vortlatt}, the use of optical lattice potentials are ubiquitous in the field of ultracold atoms. 
+As discussed in Sec.~\ref{sec:vortlatt}, the use of optical lattice potentials are ubiquitous in the field of ultracold atoms. Given their highly periodic structure, it is interesting to examine the effect these lattices have on already periodic structures. For a rapidly rotating condensate, the density will feature a large periodic Abrikosov lattice having $6$-fold triangular symmetry. The use of optical lattices on vortex lattices has been shown to allow for pinning of the vortex cores to the lattice maxima \cite{Duine,Cornell}. Assuming blue detuned laser fields, the lattice maxima will drive atoms away, and make it favourable for vortex cores to sit in these positions. The observance of a transition between lattice geometries can be observed in these cases.
 
+This is, however, experimentally challenging as the optical lattice must rotate with the vortex lattice. One way to overcome this is by the use of a flashed optical potential. As we can known the rotation rate of atoms in a trapping potential, the use of a flashed, or \textit{kicked} optical lattice can be controlled to occur at well controlled intervals during the condensate rotation. For short application times, the potential will kick the wavefunction, and can be seen as leaving a phase imprint with minimal initial density change. The effect of the kick can then be observed in the ensuing dynamics during time evolution. Here, I examine the use of kicked optical potentials on vortex lattices. Interestingly, one can observed the appearance of moir\'e interference patterns in the condensate density, with minimal effect on the vortex cores. I will begin by discussing the model, and the resulting explanation of the interference pattern origin. I show that this results from the lattice interference in $\mathbf{k}$-space, with signatures of the effect visible in the condensate kinetic energy spectrum. Finally, I discuss the uses of this effect, wherein I propose it as a microscope for observing the presence of vortex lattices without time-of-flight.
 
-\section{Model}
-For the purpose of this work the standard single component Bose--Einstein condensate in a radially symmetric trap of frequency $\omega_\perp$ was assumed. By tightly confining the condensate along the $z$-dimension, with trapping frequency $\omega_z$, such that $\omega_z >> \omega_\perp$, the condensate enters a pancake-shaped geometry. Since the energy required to excite any higher modes along $z$ is $\geq \hbar\omega_z$, one can assume all excitations are planar along the radial coordinate $x-y$ axes, with the $z$ axis in the harmonic oscillator ground state. Modelling of this system is performed in the mean-field limit, given by the Gross--Pitaevskii equation, with Hamiltonian
+In this work I assume the standard formalism of a single component Bose--Einstein condensate in a radially symmetric trap of frequency $\omega_\perp$. By tightly confining the condensate along the $z$-dimension, with trapping frequency $\omega_z$, such that $\omega_z \gg \omega_\perp$, the condensate enters a pancake-shaped geometry. As the energy required to excite any higher modes along $z$ is $\geq \hbar\omega_z$, one can assume all excitations are planar along the radial coordinate $x-y$ axes, with the $z$ axis in the harmonic oscillator ground state. Modelling of this system is performed in the mean-field limit, given by the Gross--Pitaevskii equation, with Hamiltonian
 
 \begin{equation}\label{eqn:gpe_h0}
 	H_{\mathrm{GP}} = -\frac{\hbar^2}{2m}\nabla^2 + \frac{1}{2}m\omega_{\perp}^2\mathbf{r}^2 + g\vert\Psi(\mathbf{r},t)\vert^2.
@@ -20,40 +20,52 @@ For the purpose of this work the standard single component Bose--Einstein conden
 Here $g$ describes the interaction between atoms in the condensate, given by \begin{equation}
 g = \frac{4\pi\hbar^2a_s}{m},
 \end{equation}
-where $a_s$ is the s-wave scattering length of the atomic species. Restricting the system to a two-dimensional geometry also requires the move to an effective interaction which encompasses the net effect of the $z$-dimension. This is enabled by scaling the interaction by the length of the harmonic oscillator along the $z$-dimension, and becomes
+where $a_s$ is the s-wave scattering length of the atomic species. Restricting the system to a two-dimensional geometry also requires the move to an effective interaction which encompasses the net effect of the $z$-dimension. This is enabled by scaling the interaction by the length of the harmonic oscillator along the $z$-dimension, and becomes \cite[pg. 456]{BK:Pethick_smith_}
 \begin{equation}
 g_{2D} = g\sqrt{\frac{m\omega_\perp}{2\pi\hbar}}.
 \end{equation}
 
-To generate vortices in the condensate angular momentum must be added to the system. Experimentally, this can be achieved by various techniques, such as stirring the condensate with a blue-detuned beam \cite{Vtx:Raman_prl_2001}, by carefully inverting the trap bias field potential \cite{Vtx:Kawaguchi_pra_2004}, or through use of artificial gauge fields \cite{AO:Dalibard_rmp_2011}, to name but a few. Numerically, this is achieved by assuming that the system is in the co-rotating frame with the condensate, and accounted for by addition of an angular momentum operator along to the Hamiltonian scaled by rotation frequency, $\Omega L$. The time dependent dynamics of the system can be analysed using the form
+To generate vortices in the condensate angular momentum must be added to the system. Experimentally, this can be achieved by various techniques, such as stirring the condensate with a blue-detuned beam \cite{Vtx:Raman_prl_2001}, by carefully inverting the trap bias field potential \cite{Vtx:Kawaguchi_pra_2004}[Nakahara Phys. Rev. A 93, 013626], or through use of artificial gauge fields \cite{AO:Dalibard_rmp_2011}, to name but a few. To theoretically describe the system we enter the co-rotating, which is done by adding the angular momentum operator to the Hamiltonian. The time dependent dynamics of the system can be analysed using the form
 \begin{equation}\label{eqn:gpe2d}
 	i\hbar\frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \left[ H_{\text{GP}}  -  \Omega_z L_z \right] \Psi(\mathbf{r},t),
 \end{equation}
-where $\Omega_z$ is the angular frequency and $L_z = xp_y - yp_x$ is the angular momentum operator both about the $z$-axis. This is the form of \ref{eqn:gpe} for a two-dimensional harmonically trapped condensate. If the angular rotation frequency approaches the condensate trapping frequency, $\Omega_z \approx \omega_\perp$ the condensate gains a large triangular lattice of vortices. Assuming an upper limit frequency of $\Omega = 0.995\omega_\perp$ allows the system to have a very large vortex lattice, and still be described capably by mean-field theory. Further increases in the rotation frequency would allow the condensate to enter into a strongly correlated regime, and will no longer be described using Gross--Pitaveskii theory.
+where $\Omega$ is the angular frequency and $L_z = xp_y - yp_x$ is the angular momentum operator about the $z$-axis. This is the form of \ref{eqn:gpe} for a two-dimensional harmonically trapped condensate. If the angular rotation frequency approaches the condensate trapping frequency, $\Omega_z \approx \omega_\perp$ the condensate gains a large triangular lattice of vortices.  The effect of setting $\Omega=\omega_\perp$, can be partially understood in a mean field setting by rewriting the Hamiltonian in the form
+\begin{equation}
+    i\hbar\partial_t \Psi =
+    \left(\frac{\hbar^2}{2m}(i\nabla - m\Omega\times\mathbf{r})^2 + \frac{m}{2}(\omega_\perp - \Omega)^2 + g_{2d}|\Psi|^2 \right)\Psi.
+\end{equation}
+The above Hamiltonian rises from the equivalence between a rotating condensate and that of a charged particle in a magnetic field. One can see that were the rotation and trapping frequencies equal, the condensate would no longer see a confining potential, due to the centrifugal forces experienced, resulting in an untrapped system.
 
-As I am interested in lattice ordering effects, the assumption that the trapping frequency along the $z$-axis, $\omega_z$, being much larger than the one along the transverse axis, $\omega_\perp$, allowing the condensate to enter a pancake-shaped geometry is valid~\cite{BEC:Fetter_revmodphys_2009}. Neglecting the $z$ dimension ($\textbf{r}\equiv [x,y]$) simplifies the analysis of the system and resulting dynamics. For this work eq.~\eqref{eqn:gpe2d} will be numerically solved, using the pseudospectral Fourier split operator method making use of GPU computing\cite{NUMERICS}. For realistic experimental parameters I assumed  $N=4.9\times 10^5$ atoms of $^{87}$Rb, with an s-wave scattering length of $a_s=4.76\times10^{-9}$ m~\cite{AO:Roberts_prl_1998}.
+As $\Omega$ approaches $\omega_\perp$ the use of mean-field theory becomes less effective, as the system enters a strongly correlated regime. This is often
+characterised by the filling factor (or filling fraction) $\nu=N/N_v$, i.e.~the ratio of atoms to vortices discussed in Sec.~\ref{sec:intro}. Values of $10 \leq \nu \leq 1000$ enter the so-called ``mean-field quantum Hall'' regime, with Gross--Pitaevskii theory working well. For values $\nu \leq 10$ the system is said to be strongly correlated[!!!cite!!!], and will require the use of a discrete boson model, which becomes next to impossible for a realistic number of atoms in a condensate. Assuming an upper limit frequency of $\Omega = 0.995\omega_\perp$ allows the system to have a very large vortex lattice, and still be described capably by mean-field theory \cite{Vtx:Fetter_rmp_2009}.
 
-The numerically evaluated ground-state for the given set of parameters is shown in Fig.~\ref{fig:vlatt_gnd}, and it can be characterised by the filling factor (or filling fraction) $\nu=N/N_v$, i.e.~the ratio of atoms to vortices discussed in Sec.~\ref{sec:intro}. Values of $10 \leq \nu \leq 1000$ enter the so-called ``mean-field quantum Hall'' regime, with Gross--Pitaevskii theory working well. For values $\nu \leq 10$ the system is said to be strongly correlated. For the chosen parameters, the number of vortices within the visible density region is approximately 600, giving a filling factor of $\nu \approx 800 $. This places the system within the mean-field quantum Hall regime, and therefore a description using Gross--Pitaevskii theory is adequate~\cite{Vtx:Schweikhard_prl_2004}
+As I am interested in lattice ordering effects, I assume that the trapping frequency along the $z$-axis, $\omega_z$, is much larger than the one along the transverse axis, $\omega_\perp$. This allows the condensate to be modelled as a quasi-2d pancake-shaped geometry, and is a valid assumption for realistic condensates~\cite{BEC:Fetter_revmodphys_2009}. Neglecting the $z$ dimension ($\textbf{r}\equiv [x,y]$) simplifies the analysis of the system and resulting dynamics. For this work eq.~\eqref{eqn:gpe2d} will be numerically solved, using the pseudospectral Fourier split operator method making use of GPU computing\cite{NUMERICS}. For realistic experimental parameters I assumed  $N=9.8\times 10^5$ atoms of $^{87}$Rb, with an s-wave scattering length of $a_s=4.76\times10^{-9}$ m~\cite{AO:Roberts_prl_1998}. The numerically evaluated ground-state for the given set of parameters is shown in Fig.~\ref{fig:vlatt_gnd}, and it can be
 
-\begin{figure}[tb]
+For the chosen parameters, the number of vortices within the visible density region is approximately 600, giving a filling factor of $\nu \approx 800 $. This places the system within the mean-field quantum Hall regime, and therefore a description using Gross--Pitaevskii theory is adequate~\cite{Vtx:Schweikhard_prl_2004}.
+
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.55\textwidth, angle=0, trim=0 0 0 0]{ch5_kickit/fig1}
     \caption[Comparison of vortex lattice and optical lattice structures.]{(a) Vortex lattice ground-state in a harmonic trap with $\omega_\perp=2\pi$ s$^{-1}$ and rotating at $\Omega=0.995\omega_\perp$. This plot shows a condensate with a diameter of approximately $580~\mu\textrm{m}$; (b) Zoom in of vortex lattice at central density; (c) Optical lattice potential with a periodicity matching that of the vortex lattice.}
     \label{fig:vlatt_gnd}
 \end{figure}
 
-Given the large number of vortices in the condesate density, as well as the lowered density resulting from large centrifugal forces, the vortex cores become large and form a highly periodic triangular lattice. The non-orthogonal lattice vectors are given in $\mathbf{r}$-space by $\mathbf{a}_1 = a_v\{1,0\}$ and $\mathbf{a}_2 = a_v\{-1/2, \sqrt{3}/2\}$, where $a_v$ is the distance between vortex cores. The lattice ``constant'' is truly only constant in areas of near uniform density. Thus, due to the inhomogeneous wavefunction density, the vortices near the edges are separated by a much greater distance than those at the centre. For my analysis I have chosen to ignore all vortices near the condensate edge. The momentum space ($\mathbf{k}$-space) lattice vectors reciprocal to the given $\mathbf{r}$-space vectors are $\mathbf{b}_1 = 4\pi/(\sqrt{3}a_v)\{\sqrt{3}/2,1/2\}$ and $\mathbf{b}_2 = (4\pi/(\sqrt{3}a_v))\{0,1\}$.
+Given the large number of vortices in the condensate density, as well as the lowered density resulting from large centrifugal forces, the vortex cores become large and form a highly periodic triangular lattice. The non-orthogonal lattice vectors are given in $\mathbf{r}$-space by $\mathbf{a}_1 = a_v\{1,0\}$ and $\mathbf{a}_2 = a_v\{-1/2, \sqrt{3}/2\}$, where $a_v$ is the distance between vortex cores. The lattice ``constant'' is truly only constant in areas of near uniform density. Thus, due to the inhomogeneous wavefunction density, the vortices near the edges are separated by a much greater distance than those at the centre. For my analysis I have chosen to ignore all vortices near the condensate edge. The momentum space ($\mathbf{k}$-space) lattice vectors reciprocal to the given $\mathbf{r}$-space vectors are $\mathbf{b}_1 = 4\pi/(\sqrt{3}a_v)\{\sqrt{3}/2,1/2\}$ and $\mathbf{b}_2 = (4\pi/(\sqrt{3}a_v))\{0,1\}$.
+[!!!!check for consistency!!!!]
 
-Using an optical potential one can create a perturbation in the condensate density by switching it on for a brief period of time. Such a {\it kick} must occur only for a time much shorter than the rotation period of the vortex lattice, $\Omega = 0.995\omega_\perp$. For the work carried out herein, the time of the kick was given by $\tau_{\text{kick}}=10^{-5}$~s. This ensured that the vortex lattice was essentially stationary during the kick. To examine the effect that periodicity plays on the system, the optical potential was chosen to match the structure of the Abrikosov vortex lattice, with the angle of relative rotation $\theta_\Delta$ given as a free parameter. The optical potential was modeled as the sum of counter-propagating laser beams, as
+
+\section{Model}
+
+Using an optical potential one can create a perturbation in the condensate density by switching it on for a brief period of time. Such a {\it kick} must occur only for a time much shorter than the rotation period of the vortex lattice, $\Omega = 0.995\omega_\perp$. For the work carried out herein, the duration of the kick is  $\tau_{\text{kick}}=10^{-5}$~s. This ensured that the vortex lattice was essentially stationary during the kick. To examine the effect that periodicity plays on the system, the optical potential was chosen to match the structure of the Abrikosov vortex lattice, with the angle of relative rotation $\theta_\Delta$ given as a free parameter. The optical potential was modeled as the sum of counter-propagating laser beams, as
 \begin{equation}
     V_{\text{opt}} = V_0\displaystyle\sum_{j}\cos^2 \left[ \textbf{k}_{j}\cdot\textbf{r} \right],
 \end{equation}
-where $V_0$ is the optical lattice potential amplitude, and $j=\lbrace 0,1,2,\ldots \rbrace$ is the index of each respective laser with a differing $\mathbf{k}$-space wave-vector. By careful choice of the wave-vectors $\textbf{k}_{j}$ the density modulation given by the vortices is matched to the optical potential. This is achieved using the reciprocal lattice vectors defined by the vortex lattice, $\mathbf{b}_{1,2}$, and an additional third wave-vector, $\mathbf{k}_3 = 4\pi/(\sqrt{3}a_o)\{\sqrt{3}/2,-1/2\}$. The lattice constant of the resulting potential is based on the optical intensity to match that of the vortex lattice.
+where $V_0$ is the optical lattice potential amplitude, and $j=\lbrace 0,1,2,\ldots \rbrace$ is the index of each respective laser with a differing $\mathbf{k}$-space wave-vector. By careful choice of the wave-vectors $\textbf{k}_{j}$ the density modulation given by the vortices is matched to the optical potential. This is achieved using the reciprocal lattice vectors defined by the vortex lattice, $\mathbf{b}_{1,2}$, and an additional third wave-vector, $\mathbf{k}_3 = 4\pi/(\sqrt{3}a_o)\{\sqrt{3}/2,-1/2\}$. For the resulting optical potential, I define the lattice sites as the maxima of intensity. These are in turn matched with the condensate density minima of the vortex lattice.
 
 
-As the vortex lattice constant in a rapidly rotating atomic BEC is large, optical lattices with wavelengths on the order of tens of microns are necessary \cite{BEC:Fallani_optexp_2005, AO:Williams_optexp_2008}. By ensuring a short kick with an amplitude on the order of $10^{-2} \mu $, with $\mu$ as the BEC chemical potential, the result of the kick is an imprinted phase on the wavefunction \cite{Vtx:Dobrek_pra_1999}. This leads to the development of a flow from the origin of each optical lattice potential maxima, and creates well-defined interference patterns resulting from phonons created by the kick. In the presence of a vortex lattice with a periodic core arrangement, this creates moir\'e superlattice structures \cite{SS:Murata_acsn_2010} in the density of the condensate. Although this type of pattern has been observed in many solid-state systems, such as graphene on hexagonal boron nitride~\cite{SS:Yankowitz_natphys_2012}, they appear to be static in such cases. In this system, the structures are dynamical, and revive at well defined intervals.
+As the vortex lattice constant in a rapidly rotating atomic BEC is large, optical lattices with wavelengths on the order of tens of microns are necessary \cite{BEC:Fallani_optexp_2005, AO:Williams_optexp_2008}. By ensuring a short kick with an amplitude on the order of $10^{-2} \mu $, with $\mu$ as the BEC chemical potential, the result of the kick is an imprinted phase on the wavefunction \cite{Vtx:Dobrek_pra_1999}. This leads to the development of a flow from the origin of each optical lattice potential maxima, and creates well-defined interference patterns resulting from phonons created by the kick. In the presence of a vortex lattice with a periodic core arrangement, this creates moir\'e superlattice structures \cite{SS:Murata_acsn_2010} in the density of the condensate. Although this type of pattern has been observed in many solid-state systems, such as graphene on hexagonal boron nitride~\cite{SS:Yankowitz_natphys_2012}, they are static in such cases. In this system, the structures are dynamical, and revive at well defined intervals.
 
-To study these resulting structures, I performed a spectral decomposition of the kinetic energy of the condesate~\cite{CT:Nore_prl_1997,CT:Nore_pof_1997,CT:Bradley_prx_2012}. For this the wavefunction is first written in amplitude (density) $\rho(\mathbf{r},t)$ and phase $S(\mathbf{r},t)$ form via a Madelung transform as given by \ref{eqn:madelung}.
+To study these resulting structures, I have performed a spectral decomposition of the kinetic energy of the condesate~\cite{CT:Nore_prl_1997,CT:Nore_pof_1997,CT:Bradley_prx_2012}. For this the wavefunction is first written in amplitude (density) $\rho(\mathbf{r},t)$ and phase $S(\mathbf{r},t)$ form via a Madelung transform as given by \ref{eqn:madelung}.
 \iffalse
 as
 $
@@ -65,10 +77,48 @@ Making use of the Gross--Pitaevskii energy functional \ref{eqn:gpe_functional}, 
     E_{\text{kqp}} = \int d\mathbf{r} \left( \frac{\hbar^2}{2m}| \nabla\sqrt{\rho(\mathbf{r},t)} |^2  + \frac{m}{2}|\sqrt{\rho(\mathbf{r},t)}\mathbf{v}(\mathbf{r},t) |^2\right).
 \end{equation}
 One can decompose this into the quantum pressure (first) and kinetic energy (second) terms. The kinetic energy term can seen as a density-weighted velocity field, $\mathbf{u}(\mathbf{r},t) = \sqrt{\rho(\mathbf{r},t)}\mathbf{v}(\mathbf{r},t)$. This can be further decomposed into the sum of compressible and incompressible terms,
-\begin{equation}
+\begin{equation}\label{eqn:kin_en}
     \mathbf{u(r},t) = \mathbf{u}^c(\mathbf{r},t) + \mathbf{u}^i(\mathbf{r},t),
 \end{equation}
-where $\mathbf{u}^c, \mathbf{u}^i$ are the compressible and incompressible terms respectively. These can be solved by assuming $\nabla \times \mathbf{u}^c(\mathbf{r},t) = 0$, and $\nabla \cdot \mathbf{u}^i(\mathbf{r},t) = 0$. This decomposition separates the energy contribution from phonons and vortex cores, representing compressible and incompressible terms respectively~\cite{CT:Horng_pra_2009}. By averaging over binned shells in $\mathbf{k}$-space, the kinetic energy spectra, $E^{c,i}(k)$, are calculated as~\cite{CT:Bradley_prx_2012}
+where $\mathbf{u}^c, \mathbf{u}^i$ are the compressible and incompressible terms respectively. This can be solved for both terms by performing a Helmholtz decomposition on the resulting field separating terms that are longitudinal ($\mathbf{u}^c$) and transverse ($\mathbf{u}^i$) with
+\begin{subequations}\label{eqn:kinterms}
+\begin{align}
+    \nabla \times \mathbf{u}^c(\mathbf{r},t) = 0, \\
+    \nabla \cdot \mathbf{u}^i(\mathbf{r},t) = 0.\\
+\end{align}
+\end{subequations}
+By introducing the vector potential, $\mathbf{A}$, and scalar potential, $B$, such that
+\begin{subequations}
+\begin{align}
+    \mathbf{u}^c = \nabla B, \\
+    \mathbf{u}^i = \nabla \times \mathbf{A} \\
+\end{align}
+\end{subequations}
+we can rewrite eq.~\ref{eqn:kin_en} as
+\begin{align}
+    \nabla \times \mathbf{u}(\mathbf{r},t) = -\nabla^2 \mathbf{A}, \\
+    \nabla \cdot \mathbf{u}(\mathbf{r},t) = \nabla^2 {B}. \\
+\end{align}
+
+To solve the above equation I begin by solving for $B$ by performing a spectral decomposition as
+\begin{equation}
+    B = \displaystyle\sum\limits_{j} \frac{k_j}{|\mathbf{k}|^2}\mathscr{F}[\mathbf{u}],
+\end{equation}
+where $k_j$ is the $j$-th component in $\mathbf{k}$ space, and $\mathscr{F}$ is the Fourier transform. The resulting solution for $\mathbf{u}^c$ is given by
+\begin{equation}
+    \mathscr{F}[\mathbf{u}_i^c] = \displaystyle\sum\limits_{j} \frac{k_i k_j}{|\mathbf{k}|^2} \mathscr{F}[\mathbf{u}],
+\end{equation}
+which after taking note of eq.~\ref{eqn:kin_en} gives
+\begin{align}
+    \mathscr{F}[\mathbf{u}_i^i] &= \mathscr{F}[\mathbf{u}_i] - \mathscr{F}[\mathbf{u}_i^c]. \\
+    &= \displaystyle\sum\limits_{j}\left(\delta_{i,j} - \frac{k_ik_j}{|\mathbf{k}|^2}\right)\mathscr{F}[\mathbf{u}_i].
+\end{align}
+
+[DO NOT USE i AS AN INDEX ABOVE!!!]
+
+
+
+This decomposition separates the energy contribution from phonons and vortex cores, represented by compressible and incompressible terms respectively~\cite{CT:Horng_pra_2009}. By averaging over binned shells in $\mathbf{k}$-space, the kinetic energy spectra, $E^{c,i}(k)$, are calculated as~\cite{CT:Bradley_prx_2012}
 \begin{equation}
 	E^{c,i}(k) = \frac{mk}{2}\sum\limits_{j\in\mathbf{r}} \int\limits_{0}^{2\pi}d\phi_k \frac{ |\mathcal{U}_j^{c,i}(\mathbf{k},t) |^2}{s_k},
 \end{equation}
@@ -81,7 +131,7 @@ The terms $u_j^{c,i}(\mathbf{r},t)$ represent the position-space density-weighte
 For a rapidly rotating vortex lattice carrying condensate, calculating the spectra via the above method returns quantities which closely resemble those used in classical fluid calculations. Such an example can be seen in Fig. \ref{fig:ek_clvqu}. However, Reeves {\it et al} [PHYS. REV. A 89, 053631 (2014)] have discussed how this method does not truly represent the kinetic energy of the system, as the decomposed spectra terms are not additive in $k$-space. The classical interpretation is described as being ``obtained by applying the general correspondence between a two-point correlation function and its associated
 power spectrum to the velocity field'', as stated by the authors. They propose a quantum version of the above description, which involves including the condensate phase, alongside the density weighted velocity field, as $\mathbf{u}(\mathbf{r},t) = \sqrt{\rho(\mathbf{r},t)}\mathbf{v}(\mathbf{r},t)\exp\left(iS(\mathbf{r},t)\right)$. The inclusion of a quantum phase term essentially destroys the correspondence in the classical case. The resulting kinetic spectra may now accurately describe the true spectrum of the condensate, however, the structure observed in the classical spectra are lost, which were reminiscent of a two-body correlation function, as seen in Fig. \ref{fig:ek_clvqu}. The effect of kicking on the kinetic terms can be observed in the compressible spectrum in both cases, and thus, the work described will use the ``classical'' method herein to allow observable peaks to be easily examined.
 
-\begin{figure}[tb]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.45\textwidth,trim=0 0 0 0,clip=true]{ch5_kickit/Ek_classical/VTXLATT_Ek.png}
     \includegraphics[width=0.45\textwidth,trim=0 0 0 0]{ch5_kickit/Ek_quantum/VTXLATT_Ek.png}
@@ -104,7 +154,7 @@ To fully characterise the effect kicking has on a rapidly rotating BEC carrying 
 
 For a stationary (non-kicked) condensate the kinetic energy spectrum will remain constant during time-evolution, with a kick leading to the appearance of new, time varying components. To observe this I numerically evolve the system by setting $V(\mathbf{r},t) = V_{\text{ext}}(\mathbf{r}) + V_{\text{opt}}(\mathbf{r},t)$, where the time dependent optical potential is only active for $\tau=10^{-5}$~s of the simulation time. As discussed earlier, this short kicking duration is sufficient to allow a phase imprint onto the condensate wavefunction, without any change in the density on the timescales of the kick itself. Next, I examine the compressible and incompressible kinetic energy spectrum following the kick (see Fig.~\ref{fig:ekc_eki_novtx}). Unsurprisingly, the spectrum is dominated by a peak corresponding to the wave-number associated with the optical potential at $k=4\pi/(\sqrt{3}a_o)$, and several smaller ones corresponding to higher harmonics of $n$-th next nearest neighbour components of the lattice. This makes sense as the nearest neighbour lattice spacings should be the dominant structure with higher order spacings dropping in intensity due to the finite system size. As no rotation is added by the imparted phonon modes, the incompressible energy is an order of magnitude smaller compared to the compressible energy \ref{fig:ordermagsmaller}. Following from this I will restrict the analysis to the compressible part of the spectrum.
 
-\begin{figure}[tb]
+\begin{figure}[ht]
     %\includegraphics[width=0.48\textwidth]{ch5_kickit/fig2}
     \centering
     \includegraphics[width=0.55\textwidth]{ch5_kickit/EKcEKi_kick_dt2}
@@ -115,7 +165,7 @@ For a stationary (non-kicked) condensate the kinetic energy spectrum will remain
 
 The evolution of the nearest neighbour peak in the compressible kinetic energy spectrum during the first 250 ms after the kick is shown in Fig.~\ref{fig:novtx_p5k}(a). It initially oscillates in and out of existence and eventually disperses over a wide range of wave-numbers. Snapshots of the density evolution are given in Fig.~\ref{fig:novtx_p5k}(b), which clearly show that the oscillations correspond to the existence of a transient lattice pattern with several revivals, having the same underlying structure as the optical potential. In fact, the lattice pattern is best formed whenever the main peak in the kinetic energy spectrum goes to zero, i.e.~when the imprinted kinetic energy has been converted into density modulations. The period of the oscillations can be related to the speed of sound divided by the lattice constant and therefore the appearance of the lattice can be attributed to phonon interference.
 
-\begin{figure}[tb]
+\begin{figure}[ht]
     \centering
 
 	\includegraphics[width=0.55\textwidth]{ch5_kickit/fig3}
@@ -131,16 +181,16 @@ The evolution of the nearest neighbour peak in the compressible kinetic energy s
 
     If $\theta_\Delta=0$ (see Fig.~\ref{fig:moire_density}(a)) the kicking imparts kinetic energy at wave-numbers that are already well defined in the lattice. Provided that the optical lattice makes contact with some non-zero density region their cores will expand and contract with oscillations in the density. No significant change to the compressible kinetic energy spectrum is observed in this case, apart from small amplitude modulations on the well defined peaks.
 
-	\begin{figure}[tb]
+	\begin{figure}[ht]
         \centering
 			\includegraphics[width=0.55\textwidth]{ch5_kickit/fig4}
 			\caption[Effect of kicking on condensate with a large vortex lattice.]{Condensate density at $t=1.4\times10^{-2}$ s for several optical lattice rotation angles. The cell size of the super-lattice structures can be seen to shrink as the angle is increased. The angles for the examples shown are $(a)~\theta_\Delta=0$, $(b)~\theta_\Delta=2\pi/45$, $(c)~\theta_\Delta=4\pi/45$, $(d)~\theta_\Delta=2\pi/15$. }
 			\label{fig:moire_density}
 		\end{figure}
 
-    However, if the angle between both lattices is finite, and not an integer multiple of $\pi/3$, superlattice structures appear after a short time (see Fig.~\ref{fig:moire_density}(b)-(d)), which have a structure cell size that decreases for increasing values of $\theta_\Delta\in[0,\pi/6]$ and beyond which increases for larger values until the misalignment angle reaches the lattice symmetry point again at $\theta_\Delta=\pi/3$. These structures are transient, and several revivals can be observed before the condensate settles back into the vortex lattice structure with an increase in the background wave-number spread, as expected based on kicking the non-rotating condensate. An example of this for a fixed angle is shown in Fig.~\ref{fig:dtheta20_ev}. It is expected that with dissipation this would return to the perfect Abrikosov lattice, with no background increase of wave-numbers.
+    However, if the angle between both lattices is finite, and not an integer multiple of $\pi/3$, superlattice structures appear after a short time (see Fig.~\ref{fig:moire_density}(b)-(d)), which have a structure cell size that decreases for increasing values of $\theta_\Delta\in[0,\pi/6]$ and beyond which increases for larger values until the misalignment angle reaches the lattice symmetry point again at $\theta_\Delta=\pi/3$. These structures are transient, and several revivals can be observed before the condensate settles back into the vortex lattice structure with an increase in the background wave-number spread, as expected based on kicking the non-rotating condensate. An example of this for a fixed angle is shown in Fig.~\ref{fig:dtheta20_ev}.
 
-	\begin{figure}[bt]
+	\begin{figure}[ht]
         \centering
 		\includegraphics[width=0.55\textwidth]{ch5_kickit/fig5}
 		\caption[Oscillation of moir\'e wavelength.]{Condensate density shows visible moir\'e structures upon receiving a kick with $\theta_\Delta=\pi/9$. The appearance and disappearance of a moir\'e structure with wavelength $\lambda_M \approx 2.9 a$ over a timescale of about $50$ ms can be seen.}
@@ -172,7 +222,7 @@ The evolution of the nearest neighbour peak in the compressible kinetic energy s
 These super-structures become observable when the wavelength becomes smaller than the radius of the condensate, which for the chosen parameters is $\lambda_M \approx 11a$ and which corresponds to an angle $\theta_\Delta \approx \pi/36$.
 One can see from Fig.~\ref{fig:moire_lambda_1} that once the relative angle is increased beyond this value the structure sizes shrink to a minimum value at the point of complete misalignment, $\theta_\Delta=\pi/6$, giving $\lambda_M\approx 1.93\,a$, and increase again up to the point of symmetry. Beyond this point the behaviour starts over, due to the symmetry of the lattice. Note that in principle the above procedure can be carried out for square or other optical lattice geometries.
 
-\begin{figure}[tb]
+\begin{figure}[ht]
     \centering
 
 	\includegraphics[width=0.55\textwidth]{ch5_kickit/Moire_lattice_BEC_HigherK_lambda}
@@ -181,7 +231,7 @@ One can see from Fig.~\ref{fig:moire_lambda_1} that once the relative angle is i
 
 
 
-\begin{figure}[tb]
+\begin{figure}[ht]
     \centering
 
 	\includegraphics[width=0.55\textwidth]{ch5_kickit/fig6}
@@ -190,13 +240,13 @@ One can see from Fig.~\ref{fig:moire_lambda_1} that once the relative angle is i
 \end{figure}
 
     The appearance of the moir\'e vector in $\mathbf{k}$-space can be confirmed from the numerical simulations by looking at the compressible kinetic energy spectra which is given in Fig.~\ref{fig:dtheta_kspec}. Apart from the dominant peaks corresponding to the underlying triangular geometry of the Abrikosov lattice, which are independent of $\theta_\Delta$ (straight lines in Fig.~\ref{fig:dtheta_kspec}), a number of additional peaks appear. Their position is a function of the misalignment angle and the lowest wave-number that appears increases its value with increasing $\theta_\Delta$. This is consistent with the moir\'e model and the appearance of density structures of differing size. Furthermore, a symmetric repeat of this structure about the $\theta_\Delta=\pi/6$ point is also visible, which corresponds to the $\pi/3 - \theta_\Delta$ lattice vector component. The minimum wavelength observed agrees with the theoretically determined minimum value of $\lambda_M\approx 1.93\,a$ and all other values over the range of observed angles. Note that for the higher harmonics at larger wave-numbers similar behaviour exists and is also covered by the moir\'e model.
-	\begin{figure}[tb]
+	\begin{figure}[ht]
         \centering
 		\includegraphics[width=0.55\textwidth]{ch5_kickit/fig7}
 		\caption[Compressible kinetic energy spectrum as a function of $\theta_\Delta$.]{Compressible kinetic energy spectrum as a function of $\theta_\Delta$. All values are time-averaged over an interval $t=0$ s to $t=1$ s. The moir\'e peak corresponding to the lowest wave-number can be seen shifting to larger values for increasing angles and similar behavior is visible for the higher order components.}
 		\label{fig:dtheta_kspec}
 	\end{figure}
-    \begin{figure}[tb]
+    \begin{figure}[ht]
         \centering
         \includegraphics[width=0.55\textwidth]{ch5_kickit/theta_sweep_diff}
         \caption[Compressible kinetic energy spectrum with the background structure removed.]{Compressible kinetic energy spectrum with the static background structure removed. The effect of the moir\'e interference pattern for lower and higher modes is more easily visualised, compared with Fig. \ref{fig:dtheta_kspec}.}
@@ -205,17 +255,17 @@ One can see from Fig.~\ref{fig:moire_lambda_1} that once the relative angle is i
 
     I will now briefly discuss what happens for stronger kicking, or when the two lattices are non-commensurate. In the above the strength of the kicking pulse was chosen such that its perturbation only leads to a phase imprinting \cite{Vtx:Dobrek_pra_1999,BEC:Denschlag_sci_2000}, with minimal change to the initial density. If one increases the kicking intensity the situation becomes quite different and one can see from Fig.~\ref{fig:kickp20k}(a) that higher order wave-numbers become more strongly excited. This, in turn, leads to modulations of the condensate density at shorter wavelength and an example is shown in Figs.~\ref{fig:kickp20k}(b)-(e), with the numerically calculated averaged spectra given in Fig.~\ref{fig:kick_compare_spec}. However, as for fully realistic experimental situations it is necessary to consider the heating of the condensates due to the disturbance once the kicking becomes stronger, I restrict this investigation to low intensity pulses.
 
-\begin{figure}[tb]
+\begin{figure}[ht]
     \centering
 	\includegraphics[width=0.55\textwidth]{ch5_kickit/fig8}
 	\caption[Higher order modes induced by stronger kicking.]{(a) For a kicking strength of $V_0 = 5.4\times10^{-2}\mu$ for a non-rotating condensate higher order modes become non-negligible contributors to the compressible kinetic energy spectrum. This leads to a variety of different density structures, with some close-ups shown for (b) 24 ms, (c) 36 ms, (d) 56 ms, and (e) 88 ms. Note that the larger structures in these plots are given by the optical lattice constant, which sets the scale.}
 	\label{fig:kickp20k}
 \end{figure}
-\begin{figure}[tb]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.49\textwidth]{ch5_kickit/EKc_novtx_tavg_p5k_10k_20k}
     \includegraphics[width=0.49\textwidth]{ch5_kickit/EKi_novtx_tavg_p5k_10k_20k}
-	\caption[Comparison of kinetic energy spectra for increased kicking strengths.]{Numerically invetigating the effect stronger kicking pulses have on the imparted kinetic energies show a clear increase in higher order modes being excited with an increase in optical lattice amplitude, for both compressible ($E_c$) and incompressible ($E_i$) cases.}\label{fig:kick_compare_spec}
+	\caption[Comparison of kinetic energy spectra for increased kicking strengths.]{Numerically investigating the effect stronger kicking pulses have on the imparted kinetic energies show a clear increase in higher order modes being excited with an increase in optical lattice amplitude, for both compressible ($E_c$) and incompressible ($E_i$) cases.}\label{fig:kick_compare_spec}
 \end{figure}
 
     A situation where the optical and the vortex lattice have different lattice constants can be imagined to appear naturally due to experimental uncertainties. Defining $a_o = a_v(1+\epsilon)$ the expression in eq.~\eqref{eq:InterferenceVectors} can be calculated to be
@@ -225,8 +275,21 @@ One can see from Fig.~\ref{fig:moire_lambda_1} that once the relative angle is i
     \end{equation}
     which reduces to eq.~\eqref{eqn:moire_size} for $\epsilon=0$. Evaluating this expression shows that the largest moir\'e wavelength changes slightly for small values of $\epsilon$, but it remains distinct enough from the underlying wave-vectors to stay visible in the evolution. This ensures that the system examined here is experimentally realistic.
 
-\section{Conclusions}
-\label{sec:ch5_conc}
+\section{Vortex dynamics following a kick}
+While I have concentrated mostly on the phonon modes of the condensate density it is necessary to also examine the result of kicking on the vortex lattice. Fig.~\ref{fig:kickit_traj} shows the densities and trajectories for a kick at $\theta_{\Delta}=\{3, 18\}$ respectively. Some deviation from solid-body rotation is observed at the edge of the examined vortex region, but the central vortex regions show almost no variation from their ideal lattice positions.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{ch5_kickit/Trajectory_after_kick_theta0_15_3offset}
+	\caption[Vortex trajectories following a kick.]{The densities of the vortices are shown for times $t=20,200$ ms, and for $\theta_\Delta = 3^{\textrm{o}},18^{\textrm{o}}$. The resulting trajectories of the vortices shown minimal deviation from their lattice position over 2 seconds of time evolution.}\label{fig:kickit_traj}
+\end{figure}
+
+Both cases demonstrate the same overall dynamics, with the lattice showing extreme robustness against variations following a kick, despite the appearance of the moir\'e superlattice in the condensate density. From this we can see that the phonon modes induced by optical kicking have negligible impact on the vortex lattice.
+
+
+\section{Conclusions}\label{sec:ch5_conc}
 While originally the intent of the proposed system was to investigate chaotic dynamics, it was instructive to investigate the interference pattern resulting from the kicking. As observed in the incompressible spectrum, kicking gave negligible effect to the vortex positions, with the lattice remaining well defined with near constant spacings, even in the long time limit. The optical lattice kicks solely modified the background density around the cores. One could observe that the vortex lattice remains incredibly stable and strongly resilient to perturbations and modulations in density. Given the stability of the lattice, it is expected that for a finite number of kicks, the lattice will remain unbroken. It is also expected that heating effects would play a role in destabilising the condensate, and to determine any such chaotic behaviour from this system, a non-negligible thermal cloud contribution would be necessary.
 
-While not initially expected, this interference effect had some nice consequences. As a tool to test the periodidicity of a structure that is too small to resolve without time of flight, the moir\'e super-lattice structure may be useful for just that. Carrying out preliminary work in zig-zag and linear crystals in conjunction with A. Barahmi and Th. Busch, it was observed that without well defined periodic behaviour there is negligible observation of any peaks in the compressible energy spectrum. As such, there was negligible discernible moir\'e patterns in the density. It is expected that for such an effect to be useful highly periodic systems are required, with well defined wave-vectors. It remains an open question as to whether this can be used in a realistic experimental setting for such a purpose.
+While not initially expected, this interference effect had some nice consequences. As a tool to test the periodicity of a structure that is too small to resolve without time of flight, the moir\'e super-lattice structure may be useful for just that. Carrying out preliminary work in zig-zag and linear crystals in conjunction with A. Barahmi and Th. Busch, it was observed that without well defined periodic behaviour there is negligible observation of any peaks in the compressible energy spectrum. As such, there was negligible discernible moir\'e patterns in the density. It is expected that for such an effect to be useful highly periodic systems are required, with well defined wave-vectors. It remains an open question as to whether this can be used in a realistic experimental setting for such a purpose.
+
+
+\section{Outlook}
