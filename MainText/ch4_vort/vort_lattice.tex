@@ -1,21 +1,68 @@
 %\chapter{Bose--Einstein condensate dynamics}
-\section{Condensate dynamics}
-In the following section I will examine the dynamics of the condensate following two distinct perturbations. Firstly, I will discuss the application of an external potential to the trapped condensate for a short timescale. Next, I will directly manipulate the wavefunction phase. Though these two methods are physically implemented by similar means, they serve two very different purposes, and they will be treated as such.
+In the following sections I will examine the dynamics of the BEC. I will begin by introducing some analytical condensate solutions, and comparing these to the numerical solutions. Vortex solutions are presented, with the evolution examined under several different scenarios and states.
 
-\section{Simulating Bose--Einstein condensates}
+Next, I will discuss the application of two distinct perturbations to a condensate: (1) an external potential to the trapped condensate for a short timescale, and (2) direct manipulation of the wavefunction phase. Both of these methods are experimentally accessible perturbations, and their uses in the context of examining BEC dynamics will be discussed. Though these two methods are experimentally implemented by similar means, they serve two very different purposes, and they will be treated as such.
+
+Motivations for these numerical solutions will then be given, in the context of examining condensate dynamics, especially in the presence of vortices.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Simulating Bose--Einstein condensate dynamics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 In Sections ~\ref{sec:analytics,sec:numerics} I have outlined both analytical Thomas-Fermi (TF) and numerical solutions of the Gross--Pitaevskii equation. It is instructive to compare the results from these two methods. The profile and width should be comparable, with the TF solution deviating only in the low-density regions. Fig.~\ref{fig:gpe_tf_3} shows a comparison of the two-dimensional profile for both methods, showing good agreement, and hence a well developed numerical procedure.
 \begin{figure}\centering
     \includegraphics[width=\textwidth,trim=0ex 0ex 0ex 0ex]{Images/ch4_vtx/gpe_tf_3.pdf}
     \caption{The numerical solution (left) and Thomas-Fermi (middle) solutions for a two-dimensional condensate of $^{87}$Rb with $N=1\times 10^5$ atoms. The lineplot (right) is a central cut through both profiles showing the close match.}\label{fig:gpe_tf_3}
 \end{figure}
 
-While the Thomas--Fermi solution is a close agreement with the numerical solution of the Gross--Pitaevskii equation, this solution is only applicable for stationary states with negligible kinetic energy. For more complex problems involving dynamics, full numerical integration of the Gross--Pitaevskii equation is required. One such example is that of superfluid vortex dynamics. The numerical generation of a stable set of vortices in a Bose--Einstein condensate is achieved by solving the Gross--Pitaevskii equation Hamiltonian in the frame co-rotating with the condensate Eq.~\ref{eqn:}. To seed a single vortex in the condensate, the frequency of rotation, $\Omega$, must be higher than the critical rotation frequency $\Omega_c$, as discussed in Sec.~\ref{sec:}, and in the presence of dissipation to allow for energetic losses. Numerically, this is achieved by simulating the condensate in the co-rotating frame as given by Eq.~\ref{eqn:gpe_rotation} in imaginary time.
+While the Thomas--Fermi solution is a close agreement with the numerical solution of the Gross--Pitaevskii equation, this solution is only applicable for stationary states with negligible kinetic energy. For more complex problems involving dynamics, full numerical integration of the Gross--Pitaevskii equation is required.
 
-\lee{{!!!Need to fix this!!!]}
+One such example is that of superfluid vortex dynamics. The numerical generation of a stable set of vortices in a Bose--Einstein condensate is achieved by solving the Gross--Pitaevskii equation Hamiltonian in the frame co-rotating with the condensate Eq.~\ref{eqn:}. To seed a single vortex in the condensate, the frequency of rotation, $\Omega$, must be higher than the critical rotation frequency $\Omega_c$, as discussed in Sec.~\ref{sec:}, and in the presence of dissipation to allow for energetic losses. Numerically, this is achieved by simulating the condensate in the co-rotating frame as given by Eq.~\ref{eqn:gpe_rotation} in imaginary time, allowing for the loss of contributions from higher energy states.
 
 
-\section{Vortex lattice solutions}
-To generate vortices in a BEC the energy of the condensate in the presence of a vortex at the required rotation rate must be lower than without. The rotation frequency should be greater than or equal to that of the critical rotation frequency for seeding a vortex, $\Omega \geq\Omega_c$, as given by Eq.~\ref{eqn:crit_rot}. For a linear ramp of the rotation frequency during imaginary time evolution, as discussed in Sec.~\ref{sec:linramp}, I essentially follow the groundstate solution at all times. This has an added advantage of returning a groundstate solution for any required rotation frequency, with the number of vortices increasing as higher frequencies are reached. An example of several states from a single simulation are given in Fig.~\ref{fig:inc_omega}. The previously discussed resolution considerations become apparent as the rotation rate is increased for both position and momentum space representations of the wavefunction. A sample movie of the generation is given here \cite{MLXD:movie_groundstates}, wherein I ramp the frequency from $\Omega/\omega_\perp = 0.39 \to 0.995$ and plot the wavefunction density $|\Psi(\mathbf{r},t)|$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Quantum vortex dynamics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Few vortex condensates}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+As discussed in Section~\ref{sec:superfluid}, the discovery and manipulation of quantum vortices remains an active area of research. As the condensate kinetic energy scales quadratically in  $l^2$, the system prefers to maintain singly charged vortices. To generate vortices in a BEC the energy of the condensate with a vortex at the required rotation rate must be lower than without. The rotation frequency should be greater than or equal to that of the critical rotation frequency for seeding a vortex, $\Omega \geq\Omega_c$, as given by Eq.~\ref{eqn:crit_rot}. Alternatively, using the methods discussed for phase imprinting, a controlled number of vortices can be created in the condensate during imaginary time evolution. This method can be quite effective at creating vortices, with a demonstration of 4 such states given by Fig.~\ref{fig:few_rho}
+
+For a single vortex in a condensate the vortex resides at the exact centre of the density peak.
+
+
+For two vortices the radial symmetry of the system is broken, with the two vortices arranging themselves in the most favourable position to minimise the energy, which is a competition between the condensates kinetic term and their mutually repulsive potentials, for like signed vortices.
+
+If instead of two like-signed vortices, we have the pairing of a vortex and an antivortex, they will attract. Due to their respective velocity fields they will tend to approach, accelerate and travel linearly when close, then begin to circulate to the lower density region of the condensate as they rotation in opposite directions, before repeating this process.
+[Maybe use point vortex model]
+
+\begin{equation}\label{eqn:angular_vel}
+    v_\theta = \frac{}{r}
+\end{equation}
+
+\begin{figure}\centering
+    \includegraphics[width=0.48\textwidth]{Images/ch4_vtx/fewvortex_rho.pdf}
+    \includegraphics[width=0.48\textwidth]{Images/ch4_vtx/fewvortex_theta.pdf}
+    \caption{Density (left) and phase (right) for condensates carrying 1,2,3,and 7 vortices respectively.}
+    \label{fig:few_rho}
+\end{figure}
+
+\begin{figure}\centering
+    \includegraphics[width=0.95\textwidth]{Images/ch4_vtx/velocity/velocity.pdf}
+    \caption{The magnitude of the velocity field and the direction of rotation of the field are indicated. The flow lines indicate the vortices are circulating clockwise. As the angular velocity becomes singular at the core centre, the flow lines grow large originating in this region.}
+    \label{fig:vel_field}
+\end{figure}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Many vortices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+For a linear ramp of the rotation frequency during imaginary time evolution, as discussed in Sec.~\ref{sec:linramp}, I essentially follow the groundstate solution at all times. This has an added advantage of returning a groundstate solution for any required rotation frequency, with the number of vortices increasing as higher frequencies are reached. An example of several states from a single simulation are given in Fig.~\ref{fig:inc_omega}. The previously discussed resolution considerations become apparent as the rotation rate is increased for both position and momentum space representations of the wavefunction. A sample movie of the generation is given here \cite{MLXD:movie_groundstates}, wherein I ramp the frequency from $\Omega/\omega_\perp = 0.39 \to 0.995$ and plot the wavefunction density $|\Psi(\mathbf{r},t)|$.
 
 \begin{figure}\centering
     \includegraphics[width=0.85\textwidth]{Images/ch4_vtx/ramp_omega.pdf}
@@ -23,48 +70,132 @@ To generate vortices in a BEC the energy of the condensate in the presence of a 
     \label{fig:inc_omega}
 \end{figure}
 
-If the linear ramp is performed too quickly, or if I instantaneously choose a groundstate with a large amount of angular momentum, the vortices tend to enter from the boundary all at one instance, and fail to ever find a well ordered groundstate. An example of this such issue is given by Fig.~\ref{}, and indicates the need for a slow linear ramp that is essentially adiabatic in imaginary time.
+If the linear ramp is performed too quickly, or if I instantaneously choose a groundstate with a large amount of angular momentum, the vortices tend to enter from the boundary all at one instance, and fail to ever find a well ordered groundstate. An example of this such issue is given by Fig.~\ref{fig:malformed_lattice}, and indicates the need for a slow linear ramp that is essentially adiabatic in imaginary time.
 
 \begin{figure}
-    \includegraphics[width=0.85\textwidth]{Images/ch4_vtx/ramp_omega.pdf}
-    \caption{If the rotation frequency is chosen at $\Omega=0.995\omega_\perp$ without allowing the lattice to form and order, the resulting vortices all enter instantaneously and compete for position. !!!!}
+    \centering
+    \includegraphics[width=0.65\textwidth]{Images/ch4_vtx/toofast_099_1e7}
+    \caption{Disordered lattice resulting from starting in imaginary time evolution at the required rotation rate (here $\Omega=0.99\omega_\perp$). If the rotation frequency is chosen too large without allowing the lattice to form and order, the resulting vortices all enter instantaneously and compete for position. }
     \label{fig:malformed_lattice}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Rapidly rotating vortex lattice}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Given the need for a well ordered vortex lattice it is instructive to discuss the generation of such a system. I assume an initial wavefunction guess of a two-dimensional gaussian having some finite overlap with the groundstate of the system in the absence of angular rotation. Following an imaginary time-evolution like what was outlined in Sec.~\ref{sec:numerics}, the groundstate of the condensate is found.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Model system}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Gaussian phase}
+In this work I assume the standard formalism of a single component Bose--Einstein condensate in a radially symmetric trap of frequency $\omega_\perp$. By tightly confining the condensate along the $z$-dimension, with trapping frequency $\omega_z$, such that $\omega_z \gg \omega_\perp$, the condensate enters a pancake-shaped geometry. As the energy required to excite any higher modes along $z$ is $\geq \hbar\omega_z$, one can assume all excitations are planar along the radial coordinate $x-y$ axes, with the $z$ axis in the harmonic oscillator ground state. Modelling of this system is performed in the mean-field limit, given by the Gross--Pitaevskii equation, with Hamiltonian
 
-\subsubsection{One dimensional}
+\begin{equation}\label{eqn:gpe_h0}
+	H_{\mathrm{GP}} = -\frac{\hbar^2}{2m}\nabla^2 + \frac{1}{2}m\omega_{\perp}^2\mathbf{r}^2 + g\vert\Psi(\mathbf{r},t)\vert^2.
+\end{equation}
 
-\subsubsection{Two dimensional}
+Here $g$ describes the interaction between atoms in the condensate, given by \begin{equation}
+g = \frac{4\pi\hbar^2a_s}{m},
+\end{equation}
+where $a_s$ is the s-wave scattering length of the atomic species. Restricting the system to a two-dimensional geometry also requires the move to an effective interaction which encompasses the net effect of the $z$-dimension. This is enabled by scaling the interaction by the length of the harmonic oscillator along the $z$-dimension, and becomes \cite[pg. 456]{BK:Pethick_smith_}
+\begin{equation}
+g_{2D} = g\sqrt{\frac{m\omega_\perp}{2\pi\hbar}}.
+\end{equation}
 
+To generate vortices in the condensate angular momentum must be added to the system. Experimentally, this can be achieved by various techniques, such as stirring the condensate with a blue-detuned beam \cite{Vtx:Raman_prl_2001}, by carefully inverting the trap bias field potential \cite{Vtx:Kawaguchi_pra_2004}[Nakahara Phys. Rev. A 93, 013626], or through use of artificial gauge fields \cite{AO:Dalibard_rmp_2011}, to name but a few. To theoretically describe the system we enter the co-rotating, which is done by adding the angular momentum operator to the Hamiltonian. The time dependent dynamics of the system can be analysed using the form
+\begin{equation}\label{eqn:gpe2d}
+	i\hbar\frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \left[ H_{\text{GP}}  -  \Omega_z L_z \right] \Psi(\mathbf{r},t),
+\end{equation}
+where $\Omega$ is the angular frequency and $L_z = xp_y - yp_x$ is the angular momentum operator about the $z$-axis. This is the form of \ref{eqn:gpe} for a two-dimensional harmonically trapped condensate. If the angular rotation frequency approaches the condensate trapping frequency, $\Omega_z \approx \omega_\perp$ the condensate gains a large triangular lattice of vortices.  The effect of setting $\Omega=\omega_\perp$, can be partially understood in a mean field setting by rewriting the Hamiltonian in the form
+\begin{equation}
+    i\hbar\partial_t \Psi =
+    \left(\frac{1}{2m}(-i\hbar\nabla - m\Omega\times\mathbf{r})^2 + \frac{m}{2}(\omega_\perp - \Omega)^2 + g_{2d}|\Psi|^2 \right)\Psi.
+\end{equation}
+The above Hamiltonian rises from the equivalence between a rotating condensate and that of a charged particle in a magnetic field. One can see that were the rotation and trapping frequencies equal, the condensate would no longer see a confining potential, due to the centrifugal forces experienced, resulting in an untrapped system.
 
+As $\Omega$ approaches $\omega_\perp$ the use of mean-field theory becomes less effective, as the system enters a strongly correlated regime. This is often
+characterised by the filling factor (or filling fraction) $\nu=N/N_v$, i.e.~the ratio of atoms to vortices discussed in Sec.~\ref{sec:intro}. Values of $10 \leq \nu \leq 1000$ enter the so-called ``mean-field quantum Hall'' regime, with Gross--Pitaevskii theory working well. For values $\nu \leq 10$ the system is said to be strongly correlated[!!!cite!!!], and will require the use of a discrete boson model, which becomes next to impossible for a realistic number of atoms in a condensate. Assuming an upper limit frequency of $\Omega = 0.995\omega_\perp$ allows the system to have a very large vortex lattice, and still be described capably by mean-field theory \cite{Vtx:Fetter_rmp_2009}.
 
-\section{Few vortex states}
-As discussed in Section~\ref{sec:superfluid}, the discovery and manipulation of quantum vortices remains an active area of research.
+As I am interested in lattice ordering effects, I assume that the trapping frequency along the $z$-axis, $\omega_z$, is much larger than the one along the transverse axis, $\omega_\perp$. This allows the condensate to be modelled as a quasi-2d pancake-shaped geometry, and is a valid assumption for realistic condensates~\cite{BEC:Fetter_revmodphys_2009}. Neglecting the $z$ dimension ($\textbf{r}\equiv [x,y]$) simplifies the analysis of the system and resulting dynamics. For this work eq.~\eqref{eqn:gpe2d} will be numerically solved, using the pseudospectral Fourier split operator method making use of GPU computing\cite{NUMERICS}. For realistic experimental parameters I assumed  $N=9.8\times 10^5$ atoms of $^{87}$Rb, with an s-wave scattering length of $a_s=4.76\times10^{-9}$ m~\cite{AO:Roberts_prl_1998}. The numerically evaluated ground-state for the given set of parameters is shown in Fig.~\ref{fig:vlatt_gnd}, and it can be
 
+For the chosen parameters, the number of vortices within the visible density region is approximately 600, giving a filling factor of $\nu \approx 800 $. This places the system within the mean-field quantum Hall regime, and therefore a description using Gross--Pitaevskii theory is adequate~\cite{Vtx:Schweikhard_prl_2004}.
 
-Given that the energy of a vortex-carrying condensate scales as $E\propto l^2$, as $L_z \propto l$, any increase in the angular momentum causes a squared increase in the energy. Thus, for energetic favorability, the system prefers to maintain singly-charged vortices. To generate a vortex in the condensate costs energy,
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.55\textwidth, angle=0, trim=0 0 0 0]{ch5_kickit/fig1}
+    \caption[Comparison of vortex lattice and optical lattice structures.]{(a) Vortex lattice ground-state in a harmonic trap with $\omega_\perp=2\pi$ s$^{-1}$ and rotating at $\Omega=0.995\omega_\perp$. This plot shows a condensate with a diameter of approximately $580~\mu\textrm{m}$; (b) Zoom in of vortex lattice at central density; (c) Optical lattice potential with a periodicity matching that of the vortex lattice.}
+    \label{fig:vlatt_gnd}
+\end{figure}
 
-Wi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Kinetic energy decomposition}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Quantum vortex dynamics}
+To study these resulting structures, I have performed a spectral decomposition of the kinetic energy of the condesate~\cite{CT:Nore_prl_1997,CT:Nore_pof_1997,CT:Bradley_prx_2012}. For this the wavefunction is first written in amplitude (density) $\rho(\mathbf{r},t)$ and phase $S(\mathbf{r},t)$ form via a Madelung transform as given by \ref{eqn:madelung}.
+\iffalse
+as
+$
+		\Psi(\mathbf{r},t) = \sqrt{\rho(\mathbf{r},t)}\exp{\left[\mathrm{i}S(\mathbf{r},t)\right]}.
+$
+\fi
+Making use of the Gross--Pitaevskii energy functional \ref{eqn:gpe_functional}, and substituting in the above form gives
+\begin{equation}
+    E_{\text{kqp}} = \int d\mathbf{r} \left( \frac{\hbar^2}{2m}| \nabla\sqrt{\rho(\mathbf{r},t)} |^2  + \frac{m}{2}|\sqrt{\rho(\mathbf{r},t)}\mathbf{v}(\mathbf{r},t) |^2\right).
+\end{equation}
+One can decompose this into the quantum pressure (first) and kinetic energy (second) terms. The kinetic energy term can seen as a density-weighted velocity field, $\mathbf{u}(\mathbf{r},t) = \sqrt{\rho(\mathbf{r},t)}\mathbf{v}(\mathbf{r},t)$. This can be further decomposed into the sum of compressible and incompressible terms,
+\begin{equation}\label{eqn:kin_en}
+    \mathbf{u(r},t) = \mathbf{u}^c(\mathbf{r},t) + \mathbf{u}^i(\mathbf{r},t),
+\end{equation}
+where $\mathbf{u}^c, \mathbf{u}^i$ are the compressible and incompressible terms respectively. This can be solved for both terms by performing a Helmholtz decomposition on the resulting field separating terms that are longitudinal ($\mathbf{u}^c$) and transverse ($\mathbf{u}^i$) with
+\begin{subequations}\label{eqn:kinterms}
+\begin{align}
+    \nabla \times \mathbf{u}^c(\mathbf{r},t) = 0, \\
+    \nabla \cdot \mathbf{u}^i(\mathbf{r},t) = 0.\\
+\end{align}
+\end{subequations}
+By introducing the vector potential, $\mathbf{A}$, and scalar potential, $B$, such that
+\begin{subequations}
+\begin{align}
+    \mathbf{u}^c = \nabla B, \\
+    \mathbf{u}^i = \nabla \times \mathbf{A} \\
+\end{align}
+\end{subequations}
+we can rewrite eq.~\ref{eqn:kin_en} as
+\begin{align}
+    \nabla \times \mathbf{u}(\mathbf{r},t) = -\nabla^2 \mathbf{A}, \\
+    \nabla \cdot \mathbf{u}(\mathbf{r},t) = \nabla^2 {B}. \\
+\end{align}
 
+To solve the above equation I begin by solving for $B$ by performing a spectral decomposition as
+\begin{equation}
+    B = \displaystyle\sum\limits_{j} \frac{k_j}{|\mathbf{k}|^2}\mathscr{F}[\mathbf{u}],
+\end{equation}
+where $k_j$ is the $j$-th component in $\mathbf{k}$ space, and $\mathscr{F}$ is the Fourier transform. The resulting solution for $\mathbf{u}^c$ is given by
+\begin{equation}
+    \mathscr{F}[\mathbf{u}_i^c] = \displaystyle\sum\limits_{j} \frac{k_i k_j}{|\mathbf{k}|^2} \mathscr{F}[\mathbf{u}],
+\end{equation}
+which after taking note of eq.~\ref{eqn:kin_en} gives
+\begin{align}
+    \mathscr{F}[\mathbf{u}_i^i] &= \mathscr{F}[\mathbf{u}_i] - \mathscr{F}[\mathbf{u}_i^c]. \\
+    &= \displaystyle\sum\limits_{j}\left(\delta_{i,j} - \frac{k_ik_j}{|\mathbf{k}|^2}\right)\mathscr{F}[\mathbf{u}_i].
+\end{align}
 
+This decomposition separates the energy contribution from phonons and vortex cores, represented by compressible and incompressible terms respectively~\cite{CT:Horng_pra_2009}. By averaging over binned shells in $\mathbf{k}$-space, the kinetic energy spectra, $E^{c,i}(k)$, are calculated as~\cite{CT:Bradley_prx_2012}
+\begin{equation}
+	E^{c,i}(k) = \frac{mk}{2}\sum\limits_{j\in\mathbf{r}} \int\limits_{0}^{2\pi}d\phi_k \frac{ |\mathcal{U}_j^{c,i}(\mathbf{k},t) |^2}{s_k},
+\end{equation}
+where
+\begin{equation}
+	\mathcal{U}_j^{c,i}(\mathbf{k},t) = \int d^2 \mathbf{r} e^{-i(\mathbf{k}\cdot\mathbf{r})} u_j^{c,i}(\mathbf{r},t).
+\end{equation}
+The terms $u_j^{c,i}(\mathbf{r},t)$ represent the position-space density-weighted velocity components in the specified shell, where $\phi_k$ is the polar angle, and $s_k$ is the number of values in the chosen shell.
 
-\section{Vortex lattice states}
-    \begin{equation}
-        E(\Psi) = \int \Psi^{*} H_{\text GP} -\Omega L_z \Psi
-    \end{equation}
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Condensate perturbations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Trapping potential control}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 A system modelled by the GPE Hamiltonian, $H_{\textrm{GP}} = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\textbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 \right]$ Eq.~\ref{eqn:h_gp} allows for a numerically evaluated ground-state. Let us now imagine an abrupt change to this Hamiltonian, such that, $H = H_{\textrm{GP}} + f(t) V_{\textrm{ext}}$, where  $V_{\textrm{ext}}$ is an arbitrary external potential, and $f(t)$ is some function of time to control the application of $V_{\textrm{ext}}$ . In this scenario, the wavefunction, formerly a stationary state of $H_{\textrm{GP}}$, will no longer remain so in the new Hamiltonian provided that $H_{\textrm{GP}} $ and $f(t) V_{\textrm{ext}}$ are non-commuting. Any modification of the Hamiltonian in this way can be viewed as a method for changing the phase of the resulting wavefunction, assuming the time of application of the additional term is much shorter than the timescale of condensate dynamics.
 %\begin{equation}
 %    e^{i\phi} \mapsto \exp\left(-i\frac{Ht}{\hbar}\right),
@@ -113,52 +244,17 @@ For the purpose of my system, I intend to create a two-dimensional optical latti
 \end{subequations}
 where $k_0 = 4\pi/(\sqrt(3)a_0)$, and $a_0$ is the lattice spacing.
 
-
 By choice of $f(t)$, the time of application of the optical lattice to the condensate can be controlled. Given some time for evolution, the wavefunction phase will be modified and evolve due to the presence of the new potential. Of particular interest is the use of an instantaneously switched optical potential. For an optical lattice that is switched on and permanently remains on, such as $f(t) = \Theta(t)$ where $\Theta$ is the Heaviside step function, the condensate will see this as a quench, and attempt to adjust to the new Hamiltonian. However, for a pulsed optical lattice, such as a $\delta$-function in time, the condensate responds as though it receives a kick, with the resulting kick modifying the phase profile of the wavefunction. Experimentally, one can imagine this effect coming from the use of an optical shutter, and thus we can assume this is a realisable perturbation, with the potential intensity controlled by beam power.
-
-
-\iffalse
-The resulting intensity pattern is given by
-\begin{equation}
-    I = | \Re{E} \Re{E^{*}}| = \gamma \cos^2 (\mathbf{k} \cdot \mathbf{r} - \omega t),
-\end{equation}
-with $\gamma = \alpha\alpha^{*}$ as the intensity amplitude. If one assumes the field describes a wave propagating along $\mathbf{k}$, a standing wave pattern can be formed by counter-propagation of the same field along $-\mathbf{k}$.  The resulting field intensity is given by
-\begin{equation}
-    I_{sw} = \Gamma \cos^2 (\mathbf{k} \cdot \mathbf{r})\cos( \omega t)
-\end{equation}
-where the intensity of the fields are stationary along $x$, and the amplitudes oscillate in time at a rate $\omega$. The dipole force experienced by an atom is directly proportional to the gradient of the intensity, $\mathbf{F} \propto -\nabla I_{sw}$. By assuming the rotating wave-approximation, where we rotate at the rate of the laser field, we obtain a time-dependent optical potential, given by
-\begin{equation}
-    I_{sw} = \Gamma \cos^2 (\mathbf{k} \cdot \mathbf{r})\cos( \omega t)
-\end{equation}
-\fi
-\iffalse
-An arbitrary set of optical fields can be given by
-\begin{equation}\label{eqn:optfield}
-    f_{\textrm{P}} = \displaystyle\sum\limits_{j} \alpha_j e^{\textrm{i}\left(\mathbf{k}_j\cdot\mathbf{r} - \omega t\right)},
-\end{equation}
-where $j$ is the row index of the individual optical field, $\alpha_j$ is the amplitude of the field, $\mathbf{k}_j$ is the respective wavevector, and $\omega$ is the oscillation frequency of the wave. By careful choice of $\alpha$ and $\mathbf{k}$ any arbitrary potential geometry can be formed through Fourier synthesis. For the purpose of my system this may reduced through several simplifications, resulting in what remains as a realistic system. Given that an explicit time-dependence on the potentials would introduce experimental difficulties, one can assume that for the cases examined herein that the optical fields are time independent (i.e $\omega=0$), and are counter-propagating plane waves. This reduces the summation to a linear combination of cosine terms. Lastly, as I only require the intensity for defining the potential geometry, the corresponding optical potential can be written as
-\begin{equation}\label{eqn:vopt}
-    V_{\textrm{O}} = \displaystyle\sum\limits_{j} \gamma_j \cos^2 \left(\mathbf{k}_j \mathbf{r}\right),
-\end{equation}
-where $\gamma$ is the amplitude of the individual potential components. By choosing the values of $\mathbf{k}_j$ to match the lattice vectors of a required lattice geometry, the optical potential may take this form. For the work described herein I restrict the dynamics to two-dimensions. Fig.~\ref{fig:squarelatt} demonstrates this with a square lattice geometry, given by
-\begin{equation}\label{eqn:sqlatt}
-    \mathbf{k} =
-    \begin{bmatrix}
-     1 & 0 \\
-     0 & 1
-    \end{bmatrix} =
-    \begin{bmatrix}
-     \mathbf{k}_1  \\
-     \mathbf{k}_2
-    \end{bmatrix}.
-\end{equation}
-\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Direct phase manipulation}\label{sec:phase}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+While groundstate condensates will have a flat phase across the system, there are some interesting examples where a spatially dependent phase exists: dark solitons and vortices. I have previously discussed the $2\pi$ phase profile of a vortex. Dark solitons are another type of topological excitation that feature a $\pi$ jump phase profile. These excitations are unstable dimensions higher than one, and will decay via a snake instability to paired vortices and antivortices [citation], which can be seen in Fig.~\ref{fig:solitons}.
 
-While groundstate condensates will have a flat phase across the system, there are some interesting examples where a spatially dependent phase exists: dark solitons and vortices. I have previously discussed the $2\pi$ phase profile of a vortex. Dark solitons are another type of topological excitation that feature a $\pi$ jump phase profile. These excitations are unstable dimensions higher than one, and will decay via a snake instability to vortices [citation].
+\begin{figure}\centering
+    \includegraphics[width=0.75\textwidth]{Images/ch4_vtx/solitons.pdf}
+    \caption{A dark soliton in two-dimensions decaying via the snake instability to pairs of vortices and antivortices. The density (top) and phase (bottom) are given for times $t=0,0.4,0.5$ s.}\label{fig:solitons}
+\end{figure}
 
 Where previously I have considered the evolution of the wavefunction in the presence of a kicked smoothly varying optical potential, one can also consider the case of a directly imprinted phase. Phase imprinting is a technique that applies a spatially inhomogeneous potential across a condensate in such a way that the phase is modified to a desired form. As a consequence the density distribution will adjust itself in time and dark solitons \cite{BEC:Denschlag_science_2000}, as well as vortices \cite{Vtx:Dobrek_pra_1999} have been created this way. For the latter the signature is given by a phase singularity, around which the phase winds through $\pm 2\pi$, depending upon the direction of rotation. As discussed in Sec.~\ref{sec:}, this is the phase profile given for a quantum vortex, and by application of this pattern one can create such a topological defect in the wavefunction.
 
@@ -194,3 +290,22 @@ An example of this is given in Fig.~\ref{fig:0to1vtx}, where the condensate dens
     \caption{The condensate density and phase are shown in the absence and presence of a vortex. The density dip location corresponds exactly with the phase singularity, around which it winds from $-\pi$ to $\pi$}.\label{fig:0to1vtx}
 \end{figure}
 While here I have shown the creation of a groundstate solution with the phase imprint and imaginary time evolution, this process may also be carried out during real-time evolution. For a closed system the vortex imprint will raise the energy of the system, and likely not be a groundstate.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Gaussian phase}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+As imprinting is directly controlling the condensate phase, given the dependence of superfluid velocity on the phase any change can also be considered a direct manipulation of the kinetic energy. By applying spatially inhomogeneous phase profiles the atomic velocity can be adjusted to different values in different regions of the condensate. One such example I will consider is that of the application of a Gaussian phase profile to the condensate, of the form
+
+\begin{equation}
+    \theta^{(i)}(\mathbf{r}) = A\exp\left( -\frac{ |\mathbf{r}-\mathbf{r}_0|^2 }{2\sigma^2 } \right) \mod 2\pi
+\end{equation}
+with $A$ as the phase profile amplitude adjusted, $\mathbf{r}_0$ as the centre of the Gaussian curve, and $\sigma$ adjusted to match the condensate width. The modulo $2\pi$ ensures that the phase wraps around for amplitudes exceeding $(0,2\pi)$ range.
+
+
+
+
+For simplicity, I define a phase amplitude
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Two dimensional}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

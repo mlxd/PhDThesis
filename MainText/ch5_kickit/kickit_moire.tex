@@ -11,6 +11,8 @@ As discussed in Sec.~\ref{sec:vortlatt}, the use of optical lattice potentials a
 
 This is, however, experimentally challenging as the optical lattice must rotate with the vortex lattice. One way to overcome this is by the use of a flashed optical potential. As we can known the rotation rate of atoms in a trapping potential, the use of a flashed, or \textit{kicked} optical lattice can be controlled to occur at well controlled intervals during the condensate rotation. For short application times, the potential will kick the wavefunction, and can be seen as leaving a phase imprint with minimal initial density change. The effect of the kick can then be observed in the ensuing dynamics during time evolution. Here, I examine the use of kicked optical potentials on vortex lattices. Interestingly, one can observed the appearance of moir\'e interference patterns in the condensate density, with minimal effect on the vortex cores. I will begin by discussing the model, and the resulting explanation of the interference pattern origin. I show that this results from the lattice interference in $\mathbf{k}$-space, with signatures of the effect visible in the condensate kinetic energy spectrum. Finally, I discuss the uses of this effect, wherein I propose it as a microscope for observing the presence of vortex lattices without time-of-flight.
 
+%%%fromhereto
+\iffalse
 In this work I assume the standard formalism of a single component Bose--Einstein condensate in a radially symmetric trap of frequency $\omega_\perp$. By tightly confining the condensate along the $z$-dimension, with trapping frequency $\omega_z$, such that $\omega_z \gg \omega_\perp$, the condensate enters a pancake-shaped geometry. As the energy required to excite any higher modes along $z$ is $\geq \hbar\omega_z$, one can assume all excitations are planar along the radial coordinate $x-y$ axes, with the $z$ axis in the harmonic oscillator ground state. Modelling of this system is performed in the mean-field limit, given by the Gross--Pitaevskii equation, with Hamiltonian
 
 \begin{equation}\label{eqn:gpe_h0}
@@ -49,6 +51,8 @@ For the chosen parameters, the number of vortices within the visible density reg
     \caption[Comparison of vortex lattice and optical lattice structures.]{(a) Vortex lattice ground-state in a harmonic trap with $\omega_\perp=2\pi$ s$^{-1}$ and rotating at $\Omega=0.995\omega_\perp$. This plot shows a condensate with a diameter of approximately $580~\mu\textrm{m}$; (b) Zoom in of vortex lattice at central density; (c) Optical lattice potential with a periodicity matching that of the vortex lattice.}
     \label{fig:vlatt_gnd}
 \end{figure}
+\fi
+%%%here
 
 Given the large number of vortices in the condensate density, as well as the lowered density resulting from large centrifugal forces, the vortex cores become large and form a highly periodic triangular lattice. The non-orthogonal lattice vectors are given in $\mathbf{r}$-space by $\mathbf{a}_1 = a_v\{1,0\}$ and $\mathbf{a}_2 = a_v\{-1/2, \sqrt{3}/2\}$, where $a_v$ is the distance between vortex cores. The lattice ``constant'' is truly only constant in areas of near uniform density. Thus, due to the inhomogeneous wavefunction density, the vortices near the edges are separated by a much greater distance than those at the centre. For my analysis I have chosen to ignore all vortices near the condensate edge. The momentum space ($\mathbf{k}$-space) lattice vectors reciprocal to the given $\mathbf{r}$-space vectors are $\mathbf{b}_1 = 4\pi/(\sqrt{3}a_v)\{\sqrt{3}/2,1/2\}$ and $\mathbf{b}_2 = (4\pi/(\sqrt{3}a_v))\{0,1\}$.
 [!!!!check for consistency!!!!]
@@ -65,6 +69,9 @@ where $V_0$ is the optical lattice potential amplitude, and $j=\lbrace 0,1,2,\ld
 
 As the vortex lattice constant in a rapidly rotating atomic BEC is large, optical lattices with wavelengths on the order of tens of microns are necessary \cite{BEC:Fallani_optexp_2005, AO:Williams_optexp_2008}. By ensuring a short kick with an amplitude on the order of $10^{-2} \mu $, with $\mu$ as the BEC chemical potential, the result of the kick is an imprinted phase on the wavefunction \cite{Vtx:Dobrek_pra_1999}. This leads to the development of a flow from the origin of each optical lattice potential maxima, and creates well-defined interference patterns resulting from phonons created by the kick. In the presence of a vortex lattice with a periodic core arrangement, this creates moir\'e superlattice structures \cite{SS:Murata_acsn_2010} in the density of the condensate. Although this type of pattern has been observed in many solid-state systems, such as graphene on hexagonal boron nitride~\cite{SS:Yankowitz_natphys_2012}, they are static in such cases. In this system, the structures are dynamical, and revive at well defined intervals.
 
+
+%%%Spectral
+\iffalse
 To study these resulting structures, I have performed a spectral decomposition of the kinetic energy of the condesate~\cite{CT:Nore_prl_1997,CT:Nore_pof_1997,CT:Bradley_prx_2012}. For this the wavefunction is first written in amplitude (density) $\rho(\mathbf{r},t)$ and phase $S(\mathbf{r},t)$ form via a Madelung transform as given by \ref{eqn:madelung}.
 \iffalse
 as
@@ -114,8 +121,6 @@ which after taking note of eq.~\ref{eqn:kin_en} gives
     &= \displaystyle\sum\limits_{j}\left(\delta_{i,j} - \frac{k_ik_j}{|\mathbf{k}|^2}\right)\mathscr{F}[\mathbf{u}_i].
 \end{align}
 
-[DO NOT USE i AS AN INDEX ABOVE!!!]
-
 
 
 This decomposition separates the energy contribution from phonons and vortex cores, represented by compressible and incompressible terms respectively~\cite{CT:Horng_pra_2009}. By averaging over binned shells in $\mathbf{k}$-space, the kinetic energy spectra, $E^{c,i}(k)$, are calculated as~\cite{CT:Bradley_prx_2012}
@@ -127,6 +132,14 @@ where
 	\mathcal{U}_j^{c,i}(\mathbf{k},t) = \int d^2 \mathbf{r} e^{-i(\mathbf{k}\cdot\mathbf{r})} u_j^{c,i}(\mathbf{r},t).
 \end{equation}
 The terms $u_j^{c,i}(\mathbf{r},t)$ represent the position-space density-weighted velocity components in the specified shell, where $\phi_k$ is the polar angle, and $s_k$ is the number of values in the chosen shell.
+
+\fi
+%%%EndSpectral
+[DO NOT USE i AS AN INDEX ABOVE!!!]
+
+
+
+
 
 For a rapidly rotating vortex lattice carrying condensate, calculating the spectra via the above method returns quantities which closely resemble those used in classical fluid calculations. Such an example can be seen in Fig. \ref{fig:ek_clvqu}. However, Reeves {\it et al} [PHYS. REV. A 89, 053631 (2014)] have discussed how this method does not truly represent the kinetic energy of the system, as the decomposed spectra terms are not additive in $k$-space. The classical interpretation is described as being ``obtained by applying the general correspondence between a two-point correlation function and its associated
 power spectrum to the velocity field'', as stated by the authors. They propose a quantum version of the above description, which involves including the condensate phase, alongside the density weighted velocity field, as $\mathbf{u}(\mathbf{r},t) = \sqrt{\rho(\mathbf{r},t)}\mathbf{v}(\mathbf{r},t)\exp\left(iS(\mathbf{r},t)\right)$. The inclusion of a quantum phase term essentially destroys the correspondence in the classical case. The resulting kinetic spectra may now accurately describe the true spectrum of the condensate, however, the structure observed in the classical spectra are lost, which were reminiscent of a two-body correlation function, as seen in Fig. \ref{fig:ek_clvqu}. The effect of kicking on the kinetic terms can be observed in the compressible spectrum in both cases, and thus, the work described will use the ``classical'' method herein to allow observable peaks to be easily examined.

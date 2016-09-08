@@ -1,6 +1,66 @@
 \section{GPUE: GPU Gross--Pitaevskii equation solver}
 
-Given the effectiveness of GPU computing in completing the simulation of a linear Sch\"odinger equation system, I next applied the newly-developed techniques to simulating Bose--Einstein condensates, which formed the bulk of work during my thesis. The body of work developed for this new project has been realeased as the software tool ``GPUE'', available at \url{https://github.com/mlxd/gpue}. Performance metrics of this code was carried out by Peter Wittek, ICFO, Barcelona [cite website]. The comparison was performed with GPUE, the Trotter-Suzuki package developed by Wittek \textit{et al}, and the mature GPELab software suite for MATLAB [url]. The sample results taken for time evolution are given by Fig.~\ref{fig:gpuevsts}. GPUE and GPU-enabled TS clearly beat MATLAB, and CPU performance by a significant margin. Although TS is a more generalised suite for computing, the GPU computation does not yet allow for states with angular momentum, and so GPUE is currently the optimal choice for two dimensional rotating condensate systems out of the examined software suites.
+Given the effectiveness of GPU computing in completing the simulation of a linear Sch\"odinger equation system, I next applied the newly-developed techniques to simulating Bose--Einstein condensates, which formed the bulk of work during my thesis. The body of software developed for this new project has been released as the tool ``GPUE'', available at \url{https://github.com/mlxd/gpue}. Performance metrics of this code was carried out by Peter Wittek, ICFO, Barcelona [cite website]. The comparison was performed with GPUE, the Trotter-Suzuki package developed by Wittek \textit{et al}, and the mature GPELab software suite for MATLAB [url]. The sample results taken for time evolution are given by Fig.~\ref{fig:gpuevsts}. GPUE and GPU-enabled TS clearly beat MATLAB, and CPU performance by a significant margin. Although TS is a more generalised suite for computing, the GPU computation does not yet allow for states with angular momentum, and so GPUE is currently the optimal choice for two dimensional rotating condensate systems out of the examined software suites.
+
+Fig.~\ref{fig:profile_ev} and \ref{fig:profile_im} demonstrates some of the resulting calls to different segments of the code, with timings given in Table \ref{tbl:gpue_ev} and \ref{tbl:gpue_im}. The data shows the average time spent in each individual kernel during both real and imaginary time evolution for 1010 steps at $2^{10}\times 2^{10}$ resolution for with (real) and without (imaginary) angular momentum operators. While further optimisations can almost always be provided for such simulations, the performance of the software as a whole is defined by its slowest component. In this case the routines are equally met in performance by the Fourier transforms, which are already fully optimised as an external library. As such, improving performance much beyond this with the other kernels will be wasteful in time and resources.
+
+%\iffalse
+\begin{figure}
+    \centering
+    \includegraphics[width=0.98\textwidth,]{ch3_numerics/CUDA/Profiler_ev_1k_1024.png}
+    \caption{GPUE real time evolution simulation for 1010 steps at $2^{10}\times 2^{10}$ resolution. The respective kernel calls and total utilisation are listed on the left.}
+    \label{fig:profile_ev}
+\end{figure}
+
+\begin{table}\label{tbl:gpue_ev}
+    \small
+    \centering
+\begin{tabular}{c|c|c|c}
+\textbf{Kernel}  & \textbf{Info} & \textbf{Avg. runtime} & \textbf{Total runs} \\
+\hline
+Mem. copy [H2D] & Memory copy from host to GPU & $2.312$ ms & 11 \\
+Mem. copy [D2H] & Memory copy from GPU to host & $2.18$ ms & 9 \\
+cMult & Complex mult. in time ev. & $0.342$ ms & 3030 \\
+cMultDensity & Complex mult. in time ev. for nonlinear op. & $0.456$ ms & 2020 \\
+scalarDiv & Renorm. of $\Psi$ following FFT & $0.2216$ ms & 8080 \\
+dpRadix0032B & Internal CUFFT operation & $0.237$ ms & 8080 \\
+dpVector1024D & Internal CUFFT operation & $0.252$ ms & 8080 \\
+\end{tabular}
+\caption{Kernel usage and timings for 1010 steps of real time evolution with angular momentum.}
+
+\end{table}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.98\textwidth,]{ch3_numerics/CUDA/Profiler_im_1k_1024.png}
+    \caption{GPUE imaginary time simulation for 1010 steps at $2^{10}\times 2^{10}$ resolution with angular momentum. The respective kernel calls and total utilisation are listed on the left.}
+    \label{fig:profile_im}
+\end{figure}
+
+\begin{table}\label{tbl:gpue_im}
+    \small
+    \centering
+\begin{tabular}{c|c|c|c}
+\textbf{Kernel}  & \textbf{Info} & \textbf{Avg. runtime} & \textbf{Total runs} \\
+\hline
+Mem. copy [H2D] & Memory copy from host to GPU & $2.311$ ms & 3 \\
+Mem. copy [D2H] & Memory copy from GPU to host & $1.85$ ms & 5 \\
+cMult & Complex mult. in time ev. & $0.342$ ms & 1010 \\
+cMultDensity & Complex mult. in time ev. for nonlinear op. & $0.346$ ms & 2020 \\
+multipass & Optimised parallel summation & $0.125$ ms & 3030 \\
+scalarDiv & Renorm. of $\Psi$ following FFT & $0.221$ ms & 2020 \\
+scalarDiv_wfcNorm & Normalisation of wavefunction during ev. & $0.226$ ms & 1010 \\
+dpRadix0032B & Internal CUFFT operation & $0.237$ ms & 4040 \\
+dpVector1024D & Internal CUFFT operation & $0.251$ ms & 2020 \\
+\end{tabular}
+\caption{Kernel usage and timings for 1010 steps of imaginary time evolution for a non-rotating condensate.}
+
+
+\end{table}
+
+
+
 
 \begin{figure}[htb]
     \centering
@@ -47,7 +107,7 @@ This approach accrues an error not encountered using methods solely in position 
  \exp{i \alpha_1}\exp{i \alpha_2} = 1.
  \end{equation}
 
- Although alternating will provide a cancellation of this error, it can be assumed that for large timesteps the error will have a non-insignificant contribution to the overall dynamics, as the wavefunction evolves from timestep to timestep. Thus, for this method to remain accurate we can perform the previous decomposition for a second-order accurate scheme.
+ Although alternating will provide a cancellation of this error, it can be assumed that for large timesteps the error will have a non-insignificant contribution to the overall dynamics, as the wavefunction evolves from timestep to timestep. Thus, for this method to remain accurate we can perform a decomposition following Eq.~\ref{eqn:3} for a third-order error, or using the above splitting for second-order.
 
  A sample wavefunction at a rotation of $\Omega = 0.995\omega_x$ is given by Fig.~\ref{fig:showingoff} showing the density and phase at a resolution of $2^{11}\times 2^{11}$. Although aliasing may be apparent in the phase, this is more likely due to the limited resolution of the computer monitor (printer).
 
@@ -60,7 +120,7 @@ This approach accrues an error not encountered using methods solely in position 
  \end{figure}
 
  \subsection{Vortex tracking}
- To efficiently follow the vortex dynamics, some robust algorithm is needed to track their positions. One could track regions where the density drops to zero. However, this gives very little information on the topological excitation, and may mistake density dips such as phonons for the presence of such excitations. One of the most effective ways is to locate the $\pm 2\pi$ charge in the wavefunction phase, which is a signature of quantum vortices. We can assume that around a $2\times 2$ subgrid, the phase rotates from $-\pi$ to $+\pi$ in the presence of a vortex located on the subgrid. After an initial pass to determine the vortex locations closest the nearest grid element, a least-squares fit is performed to more accurately determine the vortex core position.
+ To efficiently follow the vortex dynamics, some robust algorithm is needed to track their positions. One could track regions where the density drops to zero. However, this gives very little information on the topological excitation, and may miss many such vortices, as the numerical wavefunction may never truly approach this value. One of the most effective ways is to locate the $\pm 2\pi$ charge in the wavefunction phase, which is a signature of quantum vortices. We can assume that around a $2\times 2$ subgrid, the phase rotates from $-\pi$ to $+\pi$ (or vice versa) in the presence of a vortex located on the subgrid. After an initial pass to determine the vortex locations closest the nearest grid element, a least-squares fit is performed to more accurately determine the vortex core position \cite{c42f}.
 
  Linear least squares is used generally for an overdetermined linear system $\mathbf{A}\mathbf{r} = \mathbf{b}$, where unique solutions are unlikely to exist. Thus, for a solution, we seek the best fit plane that minimises the error, of the form
 
@@ -74,7 +134,7 @@ This approach accrues an error not encountered using methods solely in position 
     \mathbf{r} &= (\mathbf{A}^{T}\mathbf{A})^{-1}\mathbf{A}^{T}\mathbf{b}.
 \end{align}
 \end{subequations}
-For this the best-fit plane is sought of the form
+The best-fit plane is sought of the form
 $a_0 c + \displaystyle\sum\limits_{i}^{m} a_i r_i = f(\mathbf{r})$
 which for a two-dimensional system, $\mathbf{r} = \{x,y\}$, is given by the matrix,
 \begin{equation}
