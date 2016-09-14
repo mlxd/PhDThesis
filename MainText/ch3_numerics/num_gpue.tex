@@ -1,4 +1,4 @@
-\section{GPUE: GPU Gross--Pitaevskii equation solver}
+\section{GPUE: GPU Gross--Pitaevskii equation solver}\label{sec:GPUE}
 
 Given the effectiveness of GPU computing in completing the simulation of a linear Sch\"odinger equation system, I next applied the newly-developed techniques to simulating Bose--Einstein condensates, which formed the bulk of work during my thesis. The body of software developed for this new project has been released as the tool ``GPUE'', available at \url{https://github.com/mlxd/gpue}. Performance metrics of this code was carried out by Peter Wittek, ICFO, Barcelona [cite website]. The comparison was performed with GPUE, the Trotter-Suzuki package developed by Wittek \textit{et al}, and the mature GPELab software suite for MATLAB [url]. The sample results taken for time evolution are given by Fig.~\ref{fig:gpuevsts}. GPUE and GPU-enabled TS clearly beat MATLAB, and CPU performance by a significant margin. Although TS is a more generalised suite for computing, the GPU computation does not yet allow for states with angular momentum, and so GPUE is currently the optimal choice for two dimensional rotating condensate systems out of the examined software suites.
 
@@ -84,7 +84,7 @@ A simplified sequence and state diagram combination is given in Fig.~\ref{gpue_s
     \label{fig:gpue_seq}
 \end{figure}
 
-\subsection{Angular momentum operators using Fourier split-operator (FSO) method}
+\subsection{Angular momentum operators using Fourier split-operator (FSO) method}\label{ss:ang_mom_fso}
 In the presence of large values of angular momentum, the condensate wavefunction will accommodate many vortices. To ensure a well ordered lattice, it is insufficient to numerically solve the GPE at the required rotation rate. Assuming an initial Gaussian guess, the large number of vortices will enter the condensate from the edge and compete for lattice sites to form the expected Abrikosov pattern. Given the finite resolution and highly degenerate nature of the Abrikosov vortex lattice, it can take a significantly long time to reach and ordered state close to the transverse trapping frequency [Physical
 Review Letters, 88(18):180403, (2002)]. Thus, to overcome this issue, I chose to follow the groundstate of the condensate with a ramp of the rotation rate. This is essentially adiabatic evolution during imaginary time, and for all required rotation rates of the condensate we get a vortex lattice ground-state. To allow for this we must examine the behaviour of the angular momentum operators within the FSO algorithm.
 

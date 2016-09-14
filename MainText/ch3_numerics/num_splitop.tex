@@ -1,7 +1,7 @@
 Numerical solutions to problems in quantum physics are important, given the limited availability of exact solutions. Many such models and methods exist when dealing with many-body systems, and have been shown to provide good estimates of physical behaviour \cite{}. Techniques such as Monte Carlo methods, exact diagonalisation, and DMRG are often used to solve a wide variety of many-body problems, but often fail to capture the full system dynamics of problems~\cite{}. To understand the behaviour of systems such as Bose--Einstein condensates, the use of these methods is incredibly limited. The increased complexity of the problem with increasing dimensionality of the system renders DMRG unusable. Exact diagonalisation requires a linear system to obtain realistic solutions, and also grows in complexity with increased dimensionality. Monte Carlo methods do not allow for real-time dynamics or yield much information about the underlying wavefunction. To obtain solutions to BEC problems I make use of a mean-field approach, outlined previously as the Gross--Pitaevskii equation \ref{sec:gpe}. Using the GPE and performing a numerical integration allows for almost all examinable dynamics that are valid in the mean-field theory. It can be noted though that the computational cost increases significantly with increased dimensions, and is already non-trivial for two-dimensions. I will lay the framework for the methods I have used to overcome this problem, and discuss the cutting edge numerical techniques involved.
 
 
-\section{Time evolution}
+\section{Time evolution}\label{sec:timeev}
 One can write the wavefunction of a quantum system as a linear superposition of states as
 \begin{equation}
     |\Psi \rangle = \displaystyle\sum\limits_{n} C_n |\Psi_n \rangle,
