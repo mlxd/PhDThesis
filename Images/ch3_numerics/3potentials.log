@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/MacPorts 2015_10) (preloaded format=pdflatex 2016.5.9)  15 JUN 2016 15:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/MacPorts 2016_0) (preloaded format=pdflatex 2016.7.13)  19 SEP 2016 16:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -10,7 +10,7 @@ Babel <3.9l> and hyphenation patterns for 44 languages loaded.
 Document Class: standalone 2012/09/15 v1.1b Class to compile TeX sub-files stan
 dalone
 (/opt/local/share/texmf-texlive/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
 (/opt/local/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
@@ -564,18 +564,18 @@ ABD: EveryShipout initializing macros [1
 {/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./3potentials.au
 x) ) 
 Here is how much of TeX's memory you used:
- 15167 strings out of 494185
- 322958 string characters out of 6156888
- 393031 words of memory out of 5000000
- 18201 multiletter control sequences out of 15000+600000
+ 15230 strings out of 494180
+ 324245 string characters out of 6156812
+ 416759 words of memory out of 5000000
+ 18267 multiletter control sequences out of 15000+600000
  4094 words of font info for 16 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 55i,7n,67p,424b,616s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,7n,67p,424b,633s stack positions out of 5000i,500n,10000p,200000b,80000s
 </opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
 /opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb></opt/l
 ocal/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/local/s
 hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on 3potentials.pdf (1 page, 36979 bytes).
+Output written on 3potentials.pdf (1 page, 40847 bytes).
 PDF statistics:
  27 PDF objects out of 1000 (max. 8388607)
  19 compressed objects within 1 object stream

@@ -40,10 +40,17 @@
     % Place nodes
 
     \node [block] (wfcr1) {$\Psi(\mathbf{r},t)$};
-        \node [cloud, below of=wfcr1,node distance=1.2cm] (EKr1) at (-2.5,0) {$\times\hat{U}_{r,\frac{\tau}{2}}$};
+    \node [left of=wfcr1, node distance = 4.5cm] (num1) {$(1)$};
+
+    \node [cloud, below of=wfcr1,node distance=1.2cm] (EKr1) at (-2.5,0) {$\times\hat{U}_{r,\frac{\tau}{2}}$};
 
     %\node [cloud, right of=wfcr1] (FFTr1) {$\mathscr{F}$};
     \node [block, below of=EKr1,node distance=1.2cm] (wfcr3) {$\Psi\left(\mathbf{r},t+\tau/2\right)$};
+
+    \node [left of=wfcr3, node distance = 2cm] (num2) {$(2)$};
+
+
+
     \node [cloud, right of=wfcr3] (FFTr2) {$\mathscr{F}$};
         %\node [note, above of=FFTr2, node distance=4em] (Start) {\Large\textbf{$wfc(\bar{r},t)$}};
 
@@ -52,6 +59,8 @@
     \node [block, below of=EKp2,node distance=1.2cm] (wfcp4) {$\Psi^{'}\left(\mathbf{k},t+\tau\right)$};
     \node [cloud, left of=wfcp4] (FFTp2) {$\mathscr{F}^{-1}$};
     \node [block, left of=FFTp2] (wfcr4) {$\Psi^{'}\left(\mathbf{r},t+\tau/2\right)$};
+    \node [left of=wfcr4, node distance = 2cm] (num2) {$(3)$};
+
         \node [cloud, below of=wfcr4,node distance=1.2cm] (EKr2) {$\times\hat{U}_{r,\frac{\tau}{2}}$};
 
     \node [block, below of=EKr2, node distance=1.2cm] (wfcrfin) at (0,-6) {$\Psi(\mathbf{r},t+\tau)$};
