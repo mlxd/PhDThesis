@@ -98,6 +98,8 @@ As stated earlier in Sec.~\ref{sec:sec2_vtxlatt} as $\Omega$ approaches $\omega_
 
 For this work eq.~\eqref{eqn:gpe2d} will be numerically solved, using the pseudospectral Fourier split operator method making use of GPU computing~\cite{sec:GPUE}. For realistic experimental parameters I assumed  $N=9.8\times 10^5$ atoms of $^{87}$Rb, with an s-wave scattering length of $a_s=4.76\times10^{-9}$ m~\cite{AO:Roberts_prl_1998}. The numerically evaluated ground-state for the given set of parameters is previously shown in Fig.~\ref{fig:showingoff} with a radius of approximately $3.5\times 10^{-4}$ m, though solutions were also obtained for lower resolutions and different maximum system sizes.
 
+
+
 For the chosen parameters, the number of vortices within the visible density region is approximately 600, giving a filling factor of $\nu \approx 800 $. This places the system within the mean-field quantum Hall regime, and therefore a description using Gross--Pitaevskii theory is adequate~\cite{Vtx:Schweikhard_prl_2004}.
 
 To numerically solve for this system, I used GPUE, assuming an initial wavefunction guess of a two-dimensional gaussian having some finite overlap with the groundstate of the system in the absence of angular rotation. Following an imaginary time-evolution as outlined in Sec.~\ref{sec:numerics}, the groundstate of the condensate in a harmonic potential was found. Starting with a condensate without vortices, I linearly ramp the rotation frequency, as to avoid the disordering issue as discussed in Sec.~\ref{ss:ang_mom_fso}. For a ramp of the rotation frequency during imaginary time evolution, I essentially follow the groundstate solution at all times. This has an added advantage of returning a groundstate solution for any required rotation frequency, with the number of vortices increasing for higher frequencies. An example of several states from a single simulation are given in Fig.~\ref{fig:inc_omega}. The previously discussed resolution considerations become apparent as the rotation rate is increased for both position and momentum space representations of the wavefunction. A sample movie of the generation is available here~\cite{goo.gl/30Mj1q}, wherein I ramp the frequency from $\Omega/\omega_\perp = 0.39 \to 0.995$ and plot the wavefunction density $|\Psi(\mathbf{r},t)|^2$. It can be noted however that as higher rotation frequencies are reached, the rate at which vortices enter the condensate increases. It can also be observed that with a well ordered lattice in the central region, this has little to no effect in disordering the incoming vortices, which arrange themselves into the expected lattice positions.
@@ -117,7 +119,7 @@ If the linear ramp is performed too quickly, or if I instantaneously choose a gr
     \label{fig:malformed_lattice}
 \end{figure}
 
-The velocity field direction and magnitude of the rapidly rotating vortex lattice is is known to exhibit solid-body-like rotation. This can be observed in Fig.~\ref{fig:solidbody}, where the coarse-grained flow of the velocity field increases as a function of the distance from the lattice centre. This rigid-body behaviour allows us to assume and treat the lattice as a solid object. Recalling the Feynman relation for vortex density, $n_v = m\Omega/\pi/\hbar$, for the above system parameters, and defining a hard-walled radial boundary $r=2\times 10^{-4}$ m, the number of vortices are calculated to being $N_v \approx 342$. Employing the vortex detection and tracking methods described in Sec.~\ref{sec:vorttrack}, within the same region gives $N_v = 341$ vortices, demonstrating the well ordered lattice.
+The velocity field direction and magnitude of the rapidly rotating vortex lattice is is known to exhibit solid-body-like rotation. This can be observed in Fig.~\ref{fig:solidbody}, where the coarse-grained flow of the velocity field increases as a function of the distance from the lattice centre. This rigid-body behaviour allows us to assume and treat the lattice as a solid object. Recalling the Feynman relation for vortex density, $n_v = m\Omega/\pi/\hbar$, for the above system parameters, and defining a hard-walled radial boundary $r=2\times 10^{-4}$ m, the number of vortices are calculated to being $N_v \approx 342$. Employing the vortex detection and tracking methods described in Sec.~\ref{sec:vorttrack}, within the same region gives $N_v = 341$ vortices, demonstrating the well ordered lattice. At the given parameters the vortices form an ordered triangular lattice with spacing $a_0 \approx 2.1\times 10^{-5}$ m, and as such can be said to rotate similarly to a solid-body in the large number limit \cite{BEC:Fetter_rmp_2009}.
 
 In the following section I will discuss perturbations of the condensate in the presence and absence of vortices. For the above system, one can investigate the overall effect of perturbations to both global condensate order, and local to individual vortices.
 
@@ -337,3 +339,28 @@ where
 	\mathcal{U}_j^{c,i}(\mathbf{k},t) = \int d^2 \mathbf{r} e^{-i(\mathbf{k}\cdot\mathbf{r})} u_j^{c,i}(\mathbf{r},t).
 \end{equation}
 The terms $u_j^{c,i}(\mathbf{r},t)$ represent the position-space density-weighted velocity components in the specified shell, where $\phi_k$ is the polar angle, and $s_k$ is the number of values in the chosen shell.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Delaunay triangulation and voronoi tessellation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A common method for examining the ordering and periodicity of large-scale crystalline structures is to generate a mesh with each vertex being the location of a particle. With this, we can easily observe ordered and disordered regions in a material; well defined straight lines indicate a perfect crystal, with any bends indicating the presence of imperfections. Some of the most widely used methods for this are the dual techniques from computational geometry of Delaunay triangulation, and voronoi tessellation.
+
+The Delaunay triangulation of an arbitrary set of points in Euclidian space, $\mathbf{R}$, which I will denote as $D(\mathbf{R})$, is contructed between points by following:
+\begin{enumerate}
+    \item No point will fall within the interior of any circumcircle of 3 points where $\mathbf{r}_{1..3} \subset \mathbf{R}$
+    \item The Delaunay triangulation will maximise the minimum angle between points.
+    \item If four points are on the same circumcircle, then both possible configurations give a Delaunay triangulation.
+\end{enumerate}
+
+\begin{figure}\centering
+    \includegraphics[width=0.55\textwidth]{Images/ch6_phasegineer/imgs/delaun}
+    \caption{Non-Delaunay (a) and Delaunay (b) triangulation of 4 Euclidian points.}\label{fig:delaun}
+\end{figure}
+This concept is more easily explained visually. Fig.~\ref{fig:delaun} shows two different triangulations of four points;  \ref{fig:delaun}(a) is a non-Delaunay triangulation, as the point $\mathbf{r}_1$ falls within the circumcircle of the other points. However, by simply flipping the central edge from $(\mathbf{r}_2, \mathbf{r}_3)$ to $(\mathbf{r}_1, \mathbf{r}_4)$ we can see that we now have a legal Delaunay triangulation with $(b)$. No point falls within the circumcircle of the other points, and the minimum angle formed is maximised relative to configuation $(a)$. Following directly from this one can see that Delaunay triangulation can be used to connected the closest vertices in a network. A nice side-effect of Delaunay triangulation is that one can examine the appearance of vertices with a different number of edge connections to the norm. This can be a useful means to locate defects in a crystal lattice, and I will make use of this during later discussions.
+
+An alternative representation, using the dual of the Delaunay triangulation, is that of the Voronoi diagram. The characteristic of these diagrams is that they are composed of cells each encompassing an individual vertex, within which all area is closer to that particular vertex than any other. This can be generated from the Delaunay triangulation and vice-versa. Taking the centres of the circumcircles decribing the Delaunay triangulations, and connecting these forms the boundaries of the voronoi cells. A simple generation method can be seen as creating and expanding the radius of circles (or n-spheres in n-dimensions) centred on each vertex. Where circles intersect with one another defines the boundary of each individual cell. An example of a Voronoi diagram compared with a Delaunay triangulation is given by Fig.~\ref{fig:voronoi}.
+\begin{figure}\centering
+    \includegraphics[width=0.55\textwidth]{Images/ch6_phasegineer/imgs/voronoi}
+    \caption{Comparison of Delaunay triangulation $(a)$ with a Voronoi diamgram $(b)$. These graphs are duals, and if given one, can be used to generate the other.}\label{fig:voronoi}
+\end{figure}
+The area of each cell can be used as a metric of the strength of the bonding in a many-body system, but also we may represent quantities local to each region in a system by the colourscale of each cell.
