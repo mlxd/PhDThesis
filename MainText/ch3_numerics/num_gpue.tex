@@ -1,15 +1,15 @@
 \section{GPUE: GPU Gross--Pitaevskii equation solver}\label{sec:GPUE}
 
-Given the effectiveness of GPU computing in completing the simulation of the linear Sch\"odinger equation system for matter-wave STIRAP, I next applied the newly-developed techniques to simulating Bose--Einstein condensates, which formed the bulk of work during my thesis. The body of software developed for this project has been released as the tool ``GPUE'', available at \url{https://github.com/mlxd/gpue}. Performance metrics of this code was carried out by Peter Wittek, ICFO, Barcelona [cite website]. The comparison was performed with GPUE, the Trotter--Suzuki (TS) package developed by Wittek \textit{et al}, and the mature GPELab software suite for MATLAB \cite{http://gpelab.math.cnrs.fr/}. The sample results taken for time evolution are given by Fig.~\ref{fig:gpuevsts}. GPUE and GPU-enabled TS clearly beat MATLAB, and CPU performance by a significant margin. Although TS is a more generalised suite for computing, the GPU computation does not yet allow for states with angular momentum, and so GPUE is currently the optimal choice for two dimensional rotating condensate systems out of the examined software suites.
+Given the effectiveness of GPU computing in completing the simulation of the linear Sch\"odinger equation system for matter-wave STIRAP, I next applied the newly-developed techniques to simulating Bose--Einstein condensates, which formed the bulk of work during my thesis. The body of software developed for this project has been released as the tool ``GPUE'', available at \url{https://github.com/mlxd/gpue}~\cite{MLXD_GPUE}. Performance metrics of this code was carried out by Peter Wittek, ICFO, Barcelona \cite{Wittek:2016}. The comparison was performed with GPUE, the Trotter--Suzuki (TS) package developed by Wittek \textit{et} al. \cite{NUM:Wittek_cpc_2013}, and the mature GPELab software suite for MATLAB \cite{NUM:GPElab_1,NUM:GPElab_2}. The sample results taken for time evolution are given by Fig.~\ref{fig:gpuevsts}. GPUE and GPU-enabled TS clearly beat MATLAB, and CPU performance by a significant margin. Although TS is a more generalised suite for computing, the GPU computation does not yet allow for states with angular momentum, and so GPUE is currently the optimal choice for two dimensional rotating condensate systems out of the examined software suites.
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.7\textwidth,]{ch3_numerics/GPUEvsTS.png}
-    \caption{Performance comparison of GPUE and other GPE simulation packages. Data adapted from [wittek url].}
+    \caption{Performance comparison of GPUE and other GPE simulation packages. Data adapted from \cite{Wittek:2016}.}
     \label{fig:gpuevsts}
 \end{figure}
 
-Figures ~\ref{fig:profile_ev} and \ref{fig:profile_im} demonstrate some of the resulting calls to different segments of the code, with timings given in Table \ref{tbl:gpue_ev} and \ref{tbl:gpue_im}. The important data of the figures is both the kernel percentage utilisation, and that the operations are mostly saturating the available number of GPU cores. The data shows the average time spent in each individual kernel during both real and imaginary time evolution for 1010 steps at $2^{10}\times 2^{10}$ resolution with (real) and without (imaginary) angular momentum operators. As can be seen, the inclusion of angular momentum operators have a large performance hit, compared with an imaginary time evolution for a static condensate. While further optimisations can almost always be provided for such simulations, the performance of the software as a whole is defined by its slowest component. In this case the routines are equally met in performance by the Fourier transforms, which are already fully optimised as an external library. As such, improving performance much beyond this with the other kernels will be wasteful in time and resources.
+Figures ~\ref{fig:profile_ev} and \ref{fig:profile_im} demonstrate some of the resulting calls to different segments of the code, with timings given in Table \ref{tbl:gpue_ev} and \ref{tbl:gpue_im}. The important data of the figures is both the kernel percentage utilisation, and that the operations are mostly saturating the available number of GPU cores. The data shows the average time spent in each individual kernel during both real and imaginary time evolution for 1010 steps at $2^{10}\times 2^{10}$ resolution with (real) and without (imaginary) angular momentum operators. As can be seen, the inclusion of angular momentum operators lead to a large performance hit, compared with an imaginary time evolution for a static condensate. While further optimisations can almost always be provided for such simulations, the performance of the software as a whole is defined by its slowest component. In this case the routines are equally met in performance by the Fourier transforms, which are already fully optimised as an external library. As such, improving performance much beyond this with the other kernels will be wasteful in time and resources.
 
 %\iffalse
 \begin{figure}
@@ -43,7 +43,7 @@ dpVector1024D & Internal CUFFT operation & $0.252$ ms & 8080 & $2.0362$ s\\
     \label{fig:profile_im}
 \end{figure}
 
-\begin{table}\label{tbl:gpue_im}
+\begin{table}
     \scriptsize
     \centering
 \begin{tabular}{c|c|c|c|c}
@@ -59,30 +59,30 @@ scalarDiv_wfcNorm & Normalisation of wavefunction during ev. & $0.226$ ms & 1010
 dpRadix0032B & Internal CUFFT operation & $0.237$ ms & 4040 & $0.957$ s \\
 dpVector1024D & Internal CUFFT operation & $0.251$ ms & 2020 & $0.507$ s \\
 \end{tabular}
-\caption{Kernel usage and timings for 1010 steps of imaginary time evolution for a non-rotating condensate.}
+\caption{Kernel usage and timings for 1010 steps of imaginary time evolution for a non-rotating condensate.}\label{tbl:gpue_im}
 
 
 \end{table}
 
-A simplified sequence and state diagram combination is given by Fig.~\ref{gpue_seq1},~\ref{gpue_seq2} which describes the operating process for GPUE. A manual describing all aspects of component dependencies and intercommunication is available at \cite{https://github.com/mlxd/gpue/docs/gpue.pdf}. For brevity, I will refer the reader to this location for more information.
+A simplified sequence and state diagram combination is given by Fig.~\ref{fig:gpue_seq1},~\ref{fig:gpue_seq2} which describes the operating process for GPUE. A manual describing all aspects of component dependencies and intercommunication is available at \cite[docs/gpue.pdf]{MLXD_GPUE}. For brevity, I will refer the reader to this location for more information.
 
 \begin{figure}[h]
     \centering
         \includegraphics[height=\textwidth,angle=270]{ch3_numerics/GPUE_Seq1}
-    \caption{Simplified combined sequence and state diagram for GPUE operation (1 of 2).}
+    \caption{Simplified combined sequence and state diagram for GPUE operation (1 of 2). The operation procedure of GPUE is outlined in sequence from top-to-bottom. While much of the setup and analysis takes place on the host (CPU), the device (GPU) is used to offload all the time-evolution calculations. After setup, the wavefunction and all required operators are sent to the GPU.}
     \label{fig:gpue_seq1}
 \end{figure}
 \begin{figure}[h]
     \centering
         \includegraphics[height=\textwidth,angle=270]{ch3_numerics/GPUE_Seq2}
-    \caption{Simplified combined sequence and state diagram for GPUE operation (2 of 2).}
+    \caption{Simplified combined sequence and state diagram for GPUE operation (2 of 2). Following the completion of the time evolution after a predetermined number of steps, the wavefunction is unloaded from the GPU and returned to the CPU for output. Minimising this transfer allows for optimal performance from the device. Further details of dependencies and data flow are given by \cite[docs/gpue.pdf]{MLXD_GPUE}.}
     \label{fig:gpue_seq2}
 \end{figure}
 
 \subsection{Angular momentum operators using Fourier split-operator  method}\label{ss:ang_mom_fso}
-As discussed earlier, in the presence of large values of angular momentum, the condensate wavefunction will accommodate many vortices. To ensure a well ordered lattice, it is insufficient to numerically solve the GPE at the required rotation rate. Assuming an initial Gaussian guess, the large number of vortices will enter the condensate from the edge and compete for lattice sites to form the expected Abrikosov pattern. Given the finite resolution and highly degenerate nature of the Abrikosov vortex lattice, it can take a significantly long time to reach an ordered state for rotation frequencies close to the transverse trapping frequency [Physical Review Letters, 88(18):180403, (2002)]. To overcome this issue, I chose to follow the groundstate of the condensate with a ramp of the rotation rate. This is essentially adiabatic evolution during imaginary time, and for all required rotation rates of the condensate we get a vortex lattice ground-state. To allow for this we must examine the behaviour of the angular momentum operators within the Fourier split-operator (FSO) algorithm.
+As discussed earlier, in the presence of large values of angular momentum, the condensate wavefunction will accommodate many vortices. To ensure a well ordered lattice, more consideration is required than to just directly numerically solve the GPE at the required rotation rate. Assuming an initial Gaussian guess, a large number of vortices will enter the condensate from the edge and compete for lattice sites to form the expected Abrikosov pattern. Given the finite resolution and highly degenerate nature of the Abrikosov vortex lattice, it can take a significantly long time to reach an ordered state for rotation frequencies close to the transverse trapping frequency \cite{Vtx:Mueller_prl_2002}. To overcome this issue, I chose to follow the groundstate of the condensate with a ramp of the rotation rate. This is essentially adiabatic evolution during imaginary time, and for all required rotation rates of the condensate we get a vortex lattice ground-state.
 
-The FSO algorithm described earlier works well in handling cases where the operators live in position or momentum space respectively. However, the angular momentum operators are essentially a combination of both spaces. Taking the angular momentum operator along the $z$-axis, $L_z = xp_y - yp_x$, to apply it to the wavefunction requires each basis elements be in the correct space, given the mixed dependencies. For applying this operator we must Fourier transform along a single dimension, multiply by the respective $\mathbf{k}$-space component, take the inverse, multiply by the respective $\mathbf{r}$-space component, and then perform this operation along the other dimensions, summing the results.
+The FSO algorithm described earlier works well in handling cases where the individual operators live in position or momentum space respectively. However, the angular momentum operators are a combination of both spaces. Taking the angular momentum operator along the $z$-axis, $L_z = xp_y - yp_x$, and applying it to the wavefunction requires each basis element to be in a different space in the different directions. For applying this operator we must therefore Fourier transform along a single dimension, multiply by the respective $\mathbf{k}$-space component, take the inverse, multiply by the respective $\mathbf{r}$-space component in the other direction, and then perform this operation along the other dimensions, summing the results.
 
 This approach accrues an error not encountered using methods solely in position or momentum space. Following the process given in Sec.~\ref{sec:} the error can be determined by checking the commutativity of the respective components of the angular momentum operator as
 
@@ -91,29 +91,29 @@ This approach accrues an error not encountered using methods solely in position 
  	\alpha_1 = [x p_y,-y p_x] &= [x p_y,-y] p_x  -  y[x p_y,p_x] = -[-y,x p_y] p_x + y [p_x, x p_y] \nonumber \\
  		&= -\left( {\cancelto{0}{[-y,x]}} p_y + x [-y,p_y] \right) p_x + y \left( [p_x,x] p_y + x {\cancelto{0}{[p_x,p_y]}} \right) \nonumber \\
  		&= -x {\cancelto{i\hbar}{[-y, p_y]}} p_x + y {\cancelto{-i\hbar}{[p_x,x]}} p_y \nonumber \\
-        = -i\hbar \left(x p_x + y p_y \right).
+        &= -i\hbar \left(x p_x + y p_y \right).
  \end{align}
 \end{subequations}
 
- The complex error term can be seen as, in the case of the implemented evolution, allowing the angular momentum operator to change from imaginary time to real-time, and vice-versa in each respective case. To overcome this, we simply swap the application order of the operator components, between even and odd steps during the evolution. Starting with the alternate order we obtain a value of $\alpha_2 = [-y p_x, x p_y] = i\hbar \left(x p_x + y p_y \right)$. Since we are applying these operators to the condensate we can overcome the error of one term by the application of the other, as
+ The complex error term can be seen as, in the case of the above implemented evolution, allowing the angular momentum operator to change from imaginary time to real-time, and vice-versa in each respective case. To overcome this, we simply swap the application order of the operator components, between odd and even steps during the evolution. Starting with the alternate order we obtain a value of $\alpha_2 = [-y p_x, x p_y] = i\hbar \left(x p_x + y p_y \right)$. Since we are applying these operators to the condensate we can overcome the error of one term by the application of the other, as
  \begin{equation}
  \exp{i \alpha_1}\exp{i \alpha_2} = 1.
  \end{equation}
 
- Although alternating will provide a cancellation of this error, it can be assumed that for large timesteps the error will have a significant contribution to the overall dynamics, as the wavefunction evolves from over timesteps. For greater accuracy of this method one can perform a decomposition following Eq.~\ref{eqn:3} for a third-order error, or using the above splitting for second-order.
+ Although alternating will provide a cancellation of this error, it can be assumed that for large timesteps the error will have a significant contribution to the overall dynamics, as the wavefunction evolves during each timestep. For greater accuracy of this method one can perform a decomposition following Eq.~\eqref{eqn:3} for a third-order error, or using the above splitting for second-order.
 
- A sample wavefunction at a rotation of $\Omega = 0.995\omega_x$ is given by Fig.~\ref{fig:showingoff} showing the density and phase at a resolution of $2^{11}\times 2^{11}$. Although aliasing may be apparent in the phase, this is more likely due to the limited resolution of the computer monitor (printer).
+ A sample wavefunction at a rotation of $\Omega = 0.995\omega_x$ is given by Fig.~\ref{fig:showingoff} showing the density and phase at a resolution of $2^{11}\times 2^{11}$. Although aliasing may be apparent in the phase, this is more likely due to the limited resolution of the computer monitor (printer). The presence of a well ordered Abrikosov lattice is clearly visible.
 
  \begin{figure}
      \centering
      \includegraphics[width=0.45\textwidth,]{ch3_numerics/Rho_995}
      \includegraphics[width=0.45\textwidth,]{ch3_numerics/phi_995}
-     \caption{Condensate density (L) and phase (R) at a rotation rate of $\Omega=0.995\omega_x$ for a $2^{11}\times 2^{11}$ grid showing approximately 600 vortices in the visible density regions.}
+     \caption{Condensate density (left) and phase (right) at a rotation rate of $\Omega=0.995\omega_x$ for a $2^{11}\times 2^{11}$ grid showing approximately 600 vortices in the visible density regions. For both images the box size is $7\times 10^{-4} ~\times ~7\times 10^{-4}$ m$^2$.}
      \label{fig:showingoff}
  \end{figure}
 
  \subsection{Vortex tracking}
- To efficiently follow the vortex dynamics, some robust algorithm is needed to track their positions. One could track regions where the density drops to zero. However, this gives very little information on the topological excitation, and may miss many such vortices, as the numerical wavefunction may never truly approach this value. One of the most effective ways is to locate the $\pm 2\pi$ charge in the wavefunction phase, which is a signature of quantum vortices. We can assume that around a $2\times 2$ subgrid, the phase rotates from $-\pi$ to $+\pi$ (or vice versa) in the presence of a vortex (antivortex) located on the subgrid. After an initial pass to identify vortex locations closest the nearest grid element, a least-squares fit is performed to more accurately determine the vortex core position \cite{c42f}. Linear least squares is used generally for an overdetermined linear system $\mathbf{A}\mathbf{r} = \mathbf{b}$, where unique solutions are unlikely to exist. Thus, for a solution, we seek the best fit plane that minimises the error, of the form
+ To efficiently follow the dynamics of individual vortices, a robust algorithm is needed to track their positions. One could track regions where the density drops to zero. However, this gives very little information on the topological excitation, and may miss many vortices, as the numerical wavefunction may never truly approach this value. A more effective way is to locate the $\pm 2\pi$ charge in the wavefunction phase, which is a signature of quantum vortices.For this we examine each $2\times 2$ subgrid of the underlying lattice and check if the phase rotates from $-\pi$ to $+\pi$ (or vice versa). After an initial pass to identify vortex locations closest the nearest grid element, a least-squares fit is performed to more accurately determine the vortex core position \cite{c42f}. Linear least squares is used generally for an overdetermined linear system $\mathbf{A}\mathbf{r} = \mathbf{b}$, where unique solutions are unlikely to exist. Thus, for a solution, we seek the best fit plane that minimises the error, of the form
 
  \begin{equation}
  S(\mathbf{r}) = \displaystyle\sum |b_i - \displaystyle\sum A_{ij} r_j |^2
@@ -181,9 +181,9 @@ The goal is to find where both the real and imaginary components cross through z
 \end{equation}
 and again solving the linear system by inverting the left-hand matrix and multiplying across allows one to seek the corrections to the vortex position, $\delta \mathbf{r} = \{\delta x, \delta y \}$.
 
- With this, we can accurately determine the motion of the vortices with high precision. To track the vortices during the evolution, the creation of an initial list of vortices is performed, with each given a unique identifier. Assuming the vortex cores can travel a limited distance (some multiple of the grid resolution) between time steps, we can say at subsequent times which vortex has moved to the newly found positions.
+ With this, we can accurately determine the position of the vortices with high precision. To track their motion during the evolution, we create an initial list of positions and give each vortex a unique identifier (UID). Assuming the vortex cores can travel a limited distance (some multiple of the grid resolution) between time steps, we can say at subsequent times which vortex has moved to the newly found positions.
 
- This is performed through representing vortices as a graph, each with an assigned unique identifier, associated location, phase winding and on/off flag. Edges are created between vortices that are separated by at most root-two the average of the inter-vortex spacings. A finite boundary is chosen to examine only vortices at the center, which can cause vortices to appear and disappear on the boundary. Thus, any vortex which appears without association to an initial vortex, or any vortex that leaves the boundary, is switched off and remains so for all analysis. A graph for the vortex lattice shown in Fig.~ref{fig:showingoff} is given by Fig.~\ref{fig:graphit}, with the identifiers indicated on each node, and the neighbouring distances indicated by edge weights.
+ This process is performed by representing the vortices as a graph, each with an assigned unique identifier, associated location, phase winding and on/off flag. Edges are created between vortices that are separated by at most root-two the average of the inter-vortex spacings. A finite boundary is chosen to examine only vortices in areas of significant condensate density, since vortices can easily appear and disappear close to the condensate boundary. Any vortex which appears without association to an initial vortex, or any tracked vortex that crosses the boundary, is switched off and remains so for all analysis. A graph for the initial vortex lattice shown in Fig.~\ref{fig:graphit}, with the identifiers indicated on each node, and the neighbouring distances indicated by edge weights. %The almost perfect triangular structure is clearly confirmed. %%This is a graph, not a location plot. Positions are chosen at mathematicas discretion
 
  \begin{figure}
      \centering

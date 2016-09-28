@@ -129,6 +129,8 @@
 %----------------------------------------------------------------------------------------
 %	THESIS MAIN TEXT - CHAPTERS
 %----------------------------------------------------------------------------------------
+\listoftodos
+
 
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 \mainmatter % Begin numeric (1,2,3...) page numbering
@@ -161,7 +163,7 @@
 \numericstrue
 %\numericsfalse
 \ifnumerics
-    \numberedchapter{Numerics}
+    \numberedchapter{Numerical methods}
     %\chapter{Numerics}
         \input{MainText/ch3_numerics/num_splitop}
         \input{MainText/ch3_numerics/num_gpgpu}
@@ -194,7 +196,7 @@
 \defecttrue
 %\defectfalse
 \ifdefect
-    \numberedchapter{Defect engineering}
+    \numberedchapter{Defect engineering of the vortex lattice}
     %\chapter{Defect engineering}
         %\input{MainText/ch6_phasegineer/phasegineer_dislocate}
         \input{MainText/ch6_phasegineer/ch6_phasegineer4}
@@ -208,7 +210,7 @@
 \conctrue
 %\concfalse
 \ifconc
-    \numberedchapter{Conclusions} % Title of the unnumbered chapter
+    \numberedchapter{Conclusions and outlook} % Title of the unnumbered chapter
     %\chapter{Conclusion} % Title of the unnumbered chapter
         \input{MainText/ch7_disclusions/conclusion}% Conclusion (unnumbered)
 \fi
@@ -229,7 +231,6 @@
 
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 \unnumberedchapter{Bibliography} % Title of the unnumbered chapter
-\bibliography{Preamble/MLXD_LIB} % The references information are stored in the file named "Thesis_bibliography.bib"
-
+\bibliography{Preamble/MLXD_LIB_BD} % The references information are stored in the file named "Thesis_bibliography.bib"
 
 \end{document}

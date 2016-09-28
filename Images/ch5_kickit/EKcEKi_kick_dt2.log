@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/MacPorts 2015_10) (preloaded format=pdflatex 2016.5.9)  24 MAY 2016 12:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/MacPorts 2016_0) (preloaded format=pdflatex 2016.7.13)  27 SEP 2016 17:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**EKcEKi_kick_dt2.tex
+**./EKcEKi_kick_dt2.tex
 (./EKcEKi_kick_dt2.tex
 LaTeX2e <2015/01/01>
 Babel <3.9l> and hyphenation patterns for 44 languages loaded.
@@ -10,7 +10,7 @@ Babel <3.9l> and hyphenation patterns for 44 languages loaded.
 Document Class: standalone 2012/09/15 v1.1b Class to compile TeX sub-files stan
 dalone
 (/opt/local/share/texmf-texlive/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
 (/opt/local/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
@@ -340,7 +340,7 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1 (rcs-revision 1.2)
 )
 (/opt/local/share/texmf-texlive/tex/latex/pgfplots/pgfplots.sty
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/pgfplots.revision.tex)
-Package: pgfplots 2015/05/02 v1.12.1 Data Visualization (1.12.1)
+Package: pgfplots 2016/01/06 v1.13 Data Visualization (1.13)
 
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/pgfplots.code.tex
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/pgfplotscore.code.tex
@@ -357,7 +357,15 @@ e.tex))
 tex)
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/oldpgfcompatib/pgfplotsold
 pgfsupp_loader.code.tex
-(/opt/local/share/texmf/tex/generic/pgf/libraries/pgflibraryfpu.code.tex))
+(/opt/local/share/texmf/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
+Package pgfplots: loading complementary arithmetics for your pgf version...
+
+(/opt/local/share/texmf-texlive/tex/generic/pgfplots/oldpgfcompatib/pgfplotsold
+pgfsupp_pgflibraryfpu.code.tex)
+(/opt/local/share/texmf-texlive/tex/generic/pgfplots/oldpgfcompatib/pgfplotsold
+pgfsupp_pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count111
+))
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/util/pgfplotsutil.code.tex
 
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/liststructure/pgfplotslist
@@ -366,13 +374,13 @@ structure.code.tex)
 structureext.code.tex)
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/liststructure/pgfplotsarra
 y.code.tex
-\c@pgfplotsarray@tmp=\count111
+\c@pgfplotsarray@tmp=\count112
 )
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/liststructure/pgfplotsmatr
 ix.code.tex)
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/numtable/pgfplotstableshar
 ed.code.tex
-\c@pgfplotstable@counta=\count112
+\c@pgfplotstable@counta=\count113
 \t@pgfplotstable@a=\toks31
 )
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/liststructure/pgfplotsdequ
@@ -385,7 +393,7 @@ ode.tex))
 e.tex)
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/libs/pgflibrarypgfplots.su
 rfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count113
+\c@pgfplotslibrarysurf@no=\count114
 
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/sys/pgflibrarypgfplots.sur
 fshading.pgfsys-pdftex.def)))
@@ -398,7 +406,9 @@ tex)
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/pgfplotsplothandlers.code.
 tex
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/pgfplotsmeshplothandler.co
-de.tex))
+de.tex
+(/opt/local/share/texmf-texlive/tex/generic/pgfplots/pgfplotsmeshplotimage.code
+.tex)))
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/pgfplots.scaling.code.tex)
 
 (/opt/local/share/texmf-texlive/tex/generic/pgfplots/pgfplotscoordprocessing.co
@@ -416,7 +426,7 @@ ydecorations.code.tex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen154
 \pgfdecoratedinputsegmentremainingdistance=\dimen155
 \pgf@decorate@distancetomove=\dimen156
-\pgf@decorate@repeatstate=\count114
+\pgf@decorate@repeatstate=\count115
 \pgfdecorationsegmentamplitude=\dimen157
 \pgfdecorationsegmentlength=\dimen158
 )
@@ -430,7 +440,7 @@ ions.pathmorphing.code.tex))
 ydecorations.pathreplacing.code.tex
 (/opt/local/share/texmf/tex/generic/pgf/libraries/decorations/pgflibrarydecorat
 ions.pathreplacing.code.tex))
-\pgfplots@numplots=\count115
+\pgfplots@numplots=\count116
 \pgfplots@xmin@reg=\dimen159
 \pgfplots@xmax@reg=\dimen160
 \pgfplots@ymin@reg=\dimen161
@@ -463,16 +473,16 @@ LaTeX Font Info:    ... okay on input line 5.
 ABD: EveryShipout initializing macros
 (/opt/local/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count116
+\scratchcounter=\count117
 \scratchdimen=\dimen165
 \scratchbox=\box39
-\nofMPsegments=\count117
-\nofMParguments=\count118
+\nofMPsegments=\count118
+\nofMParguments=\count119
 \everyMPshowfont=\toks32
-\MPscratchCnt=\count119
+\MPscratchCnt=\count120
 \MPscratchDim=\dimen166
-\MPnumerator=\count120
-\makeMPintoPDFobject=\count121
+\MPnumerator=\count121
+\makeMPintoPDFobject=\count122
 \everyMPtoPDFconversion=\toks33
 ) (/opt/local/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -515,7 +525,7 @@ e
 ))
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
-ick labels; missing features). Consider writing \pgfplotsset{compat=1.12} into 
+ick labels; missing features). Consider writing \pgfplotsset{compat=1.13} into 
 your preamble.
  on input line 5.
 
@@ -526,28 +536,28 @@ PGFPlots: reading {kick_novtx_ekcekikbin_dt2.dat}
 NOTE: coordinate (0,0) has been dropped because it is unbounded (in y). (see al
 so unbounded coords=jump). 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 18.
+(Font)              <7> on input line 25.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 18.
+(Font)              <5> on input line 25.
 [1
 
 {/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 (./EKcEKi_kick_dt2.aux) ) 
 Here is how much of TeX's memory you used:
- 21055 strings out of 494185
- 547317 string characters out of 6156888
- 707828 words of memory out of 5000000
- 24034 multiletter control sequences out of 15000+600000
+ 21512 strings out of 494180
+ 565003 string characters out of 6156812
+ 734215 words of memory out of 5000000
+ 24485 multiletter control sequences out of 15000+600000
  3941 words of font info for 15 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 62i,18n,100p,730b,1984s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,18n,100p,732b,1992s stack positions out of 5000i,500n,10000p,200000b,80000s
 </opt/local/share/texmf-texlive/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts
 /cm/cmmi7.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
 r10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb
 ></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></op
 t/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on EKcEKi_kick_dt2.pdf (1 page, 51225 bytes).
+Output written on EKcEKi_kick_dt2.pdf (1 page, 51226 bytes).
 PDF statistics:
  35 PDF objects out of 1000 (max. 8388607)
  25 compressed objects within 1 object stream
