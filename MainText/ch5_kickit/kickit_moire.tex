@@ -39,7 +39,7 @@ where $\Omega$ is the angular frequency and $L_z = xp_y - yp_x$ is the angular m
 \end{equation}
 The above Hamiltonian rises from the equivalence between a rotating condensate and that of a charged particle in a magnetic field. One can see that were the rotation and trapping frequencies equal, the condensate would no longer see a confining potential, due to the centrifugal forces experienced, resulting in an untrapped system.
 
-As I am interested in lattice ordering effects, I assume that the trapping frequency along the $z$-axis, $\omega_z$, is much larger than the one along the transverse axis, $\omega_\perp$. This allows the condensate to be modelled as a quasi-2d pancake-shaped geometry, and is a valid assumption for realistic condensates~\cite{BEC:Fetter_revmodphys_2009}. Neglecting the $z$ dimension ($\textbf{r}\equiv [x,y]$) simplifies the analysis of the system and resulting dynamics. For this work eq.~\eqref{eqn:gpe2d} will be numerically solved, using the pseudospectral Fourier split operator method making use of GPU computing\cite{NUMERICS}. For realistic experimental parameters I assumed  $N=9.8\times 10^5$ atoms of $^{87}$Rb, with an s-wave scattering length of $a_s=4.76\times10^{-9}$ m~\cite{AO:Roberts_prl_1998}. The numerically evaluated ground-state for the given set of parameters is shown in Fig.~\ref{fig:vlatt_gnd}, and it can be
+As I am interested in lattice ordering effects, I assume that the trapping frequency along the $z$-axis, $\omega_z$, is much larger than the one along the transverse axis, $\omega_\perp$. This allows the condensate to be modelled as a quasi-2d pancake-shaped geometry, and is a valid assumption for realistic condensates~\cite{BEC:Fetter_revmodphys_2009}. Neglecting the $z$ dimension ($\textbf{r}\equiv [x,y]$) simplifies the analysis of the system and resulting dynamics. For this work Eq.~\eqref{eqn:gpe2d} will be numerically solved, using the pseudospectral Fourier split operator method making use of GPU computing\cite{NUMERICS}. For realistic experimental parameters I assumed  $N=9.8\times 10^5$ atoms of $^{87}$Rb, with an s-wave scattering length of $a_s=4.76\times10^{-9}$ m~\cite{AO:Roberts_prl_1998}. The numerically evaluated ground-state for the given set of parameters is shown in Fig.~\ref{fig:vlatt_gnd}, and it can be
 
 For the chosen parameters, the number of vortices within the visible density region is approximately 600, giving a filling factor of $\nu \approx 800 $. This places the system within the mean-field quantum Hall regime, and therefore a description using Gross--Pitaevskii theory is adequate~\cite{Vtx:Schweikhard_prl_2004}.
 
@@ -106,7 +106,7 @@ By introducing the vector potential, $\mathbf{A}$, and scalar potential, $B$, su
     \mathbf{u}^i = \nabla \times \mathbf{A} \\
 \end{align}
 \end{subequations}
-we can rewrite eq.~\eqref{eqn:kin_en} as
+we can rewrite Eq.~\eqref{eqn:kin_en} as
 \begin{align}
     \nabla \times \mathbf{u}(\mathbf{r},t) = -\nabla^2 \mathbf{A}, \\
     \nabla \cdot \mathbf{u}(\mathbf{r},t) = \nabla^2 {B}. \\
@@ -120,7 +120,7 @@ where $k_j$ is the $j$-th component in $\mathbf{k}$ space, and $\mathscr{F}$ is 
 \begin{equation}
     \mathscr{F}[\mathbf{u}_i^c] = \displaystyle\sum\limits_{j} \frac{k_i k_j}{|\mathbf{k}|^2} \mathscr{F}[\mathbf{u}],
 \end{equation}
-which after taking note of eq.~\eqref{eqn:kin_en} gives
+which after taking note of Eq.~\eqref{eqn:kin_en} gives
 \begin{align}
     \mathscr{F}[\mathbf{u}_i^i] &= \mathscr{F}[\mathbf{u}_i] - \mathscr{F}[\mathbf{u}_i^c]. \\
     &= \displaystyle\sum\limits_{j}\left(\delta_{i,j} - \frac{k_ik_j}{|\mathbf{k}|^2}\right)\mathscr{F}[\mathbf{u}_i].
@@ -161,7 +161,7 @@ power spectrum to the velocity field}'', as stated by the authors. They propose 
 \section{Delta-kick dynamics}\label{sec:kickvl}
 \subsection{Non-rotating condensate}
 To fully characterise the effect kicking has on a rapidly rotating BEC carrying a vortex lattice it is instructive to understand the dynamics following a kick in the absence of a vortex lattice. For an accurate comparison, the trapping frequency of the non-rotating condensate is adjusted such that the background densities match that of the rotating condensate. This is achieved by assuming the centrifugal term competing against the harmonic oscillator frequency as $V_{\text{opt}} = 1/2m(\omega^2_\perp - \Omega^2)\mathbf
-{r}^2$, where $\Omega=0.995\omega_\perp$ is the value chosen for the rapidly rotating case, as given by eq.~\eqref{eqn:vector_potential_gpe}.
+{r}^2$, where $\Omega=0.995\omega_\perp$ is the value chosen for the rapidly rotating case, as given by Eq.~\eqref{eqn:vector_potential_gpe}.
 
 For a stationary (non-kicked) condensate the kinetic energy spectrum will remain constant during time-evolution, with a kick leading to the appearance of new, time varying components. To observe this I numerically evolve the system by setting $V(\mathbf{r},t) = V_{\text{ext}}(\mathbf{r}) + V_{\text{opt}}(\mathbf{r},t)$, where the time dependent optical potential is only active for $\tau=10^{-5}$~s of the simulation time. As discussed earlier, this short kicking duration is sufficient to allow a phase imprint onto the condensate wavefunction, without any change in the density on the timescales of the kick itself. Next, I examine the compressible and incompressible kinetic energy spectrum following the kick (see Fig.~\ref{fig:ekc_eki_novtx}). Unsurprisingly, the spectrum is dominated by a peak corresponding to the wave-number associated with the optical potential at $k=4\pi/(\sqrt{3}a_o)$ (indicated by the dashed line), and several smaller ones corresponding to higher harmonics of $n$-th next nearest neighbour components of the lattice. This makes sense as the nearest neighbour lattice spacings should be the dominant structure with higher order spacings dropping in intensity due to the finite system size. As no rotation is added by the imparted phonon modes, the incompressible energy is an order of magnitude smaller compared to the compressible energy. Although the incompressible energy should technically be zero for a condensate with no vortices, given the difference in magnitudes this can be taken as a numerical issue, and can be assumed as zero. Following from this I will restrict the analysis to the compressible part of the spectrum.
 
@@ -279,12 +279,12 @@ One can see from Fig.~\ref{fig:moire_lambda_1} that once the relative angle is i
 	\caption[Comparison of kinetic energy spectra for increased kicking strengths.]{For kicking pulses of $V_0 = (1.35,2.7,5.4)\times 10^{-2} \mu$ the kinetic energy spectra show a clear increase in higher order modes being excited for both compressible ($E_c$) and incompressible ($E_i$) cases with increased kicking strength.}\label{fig:kick_compare_spec}
 \end{figure}
 
-    A situation where the optical and the vortex lattice have different lattice constants can be imagined to appear naturally due to experimental uncertainties. Defining $a_o = a_v(1+\epsilon)$ the expression in eq.~\eqref{eq:InterferenceVectors} can be calculated to be
+    A situation where the optical and the vortex lattice have different lattice constants can be imagined to appear naturally due to experimental uncertainties. Defining $a_o = a_v(1+\epsilon)$ the expression in Eq.~\eqref{eq:InterferenceVectors} can be calculated to be
     \begin{equation}
     	\lambda_M = \frac{a_v(1+\epsilon)}{\sqrt{2(1+\epsilon)(1-\cos\theta) + \epsilon^2}}
     	\label{eqn:moire_size_eps}
     \end{equation}
-    which reduces to eq.~\eqref{eqn:moire_size} for $\epsilon=0$. Evaluating this expression for $\epsilon = (-0.1,0,0.1)$ as given by Fig.~\ref{fig:epsilon} shows that the largest moir\'e wavelength changes slightly for small values of $\epsilon$, but it remains distinct enough from the higher order wavelengths to stay visible in the evolution. This ensures that the system examined here is experimentally realistic.
+    which reduces to Eq.~\eqref{eqn:moire_size} for $\epsilon=0$. Evaluating this expression for $\epsilon = (-0.1,0,0.1)$ as given by Fig.~\ref{fig:epsilon} shows that the largest moir\'e wavelength changes slightly for small values of $\epsilon$, but it remains distinct enough from the higher order wavelengths to stay visible in the evolution. This ensures that the system examined here is experimentally realistic.
 
     For large deviations of the lattice constant, the assumption of the largest moir\'e wavevector playing the dominant role is no longer valid, as many wavevectors approach comparable scales, which will require an examination of several resulting wavevectors.
 
