@@ -110,7 +110,7 @@ This accrues an error which is not encountered using methods that are solely in 
      \label{fig:showingoff}
  \end{figure}
 
- \subsection{Vortex tracking}
+ \subsection{Vortex tracking}\label{sec:vortrack}
  To efficiently follow the dynamics of individual vortices, a robust algorithm is needed to track their positions. One could track regions where the density drops to zero. However, this gives very little information on the topological excitation, and may miss many vortices, as the numerical wavefunction may never truly approach this value. A more effective way is to locate the $\pm 2\pi$ charge in the wavefunction phase, which is a signature of quantum vortices.For this we examine each $2\times 2$ subgrid of the underlying lattice and check if the phase rotates from $-\pi$ to $+\pi$ (or vice versa). After an initial pass to identify vortex locations closest the nearest grid element, a least-squares fit is performed to more accurately determine the vortex core position \cite{c42f}. Linear least squares is used generally for an overdetermined linear system $\mathbf{A}\mathbf{r} = \mathbf{b}$, where unique solutions are unlikely to exist. Thus, for a solution, we seek the best fit plane that minimises the error, of the form
 
  \begin{equation}

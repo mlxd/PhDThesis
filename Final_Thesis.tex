@@ -28,7 +28,15 @@
 
 \usepackage{longtable} % tables that can span several pages
 \usepackage[bf]{caption} % caption: FIG in bold
+
+%\renewcommand{\sfdefault}{pcr}
+\captionsetup{font={small,singlespacing}, width=0.9\textwidth}
+
 \usepackage{fancyhdr} % For the headers
+
+
+%\usepackage{mathptmx}
+
 
 \newcommand{\numberedchapter}[1]{ % Preparation for numbered chapters
 	\cleardoublepage % To make sure the previous headers are passed
@@ -105,26 +113,25 @@
 \fancyhf{}% Clears header and footer
 \fancyhead[RO,LE]{\thepage} % page number on the outside of headers
 
-\iffalse
+
 \input{Preamble/declaration}
 \input{Preamble/abstract}
 \input{Preamble/acknowledgments}
-\input{Preamble/abbreviations}
-\input{Preamble/glossary}
-\input{Preamble/nomenclature}
+%\input{Preamble/abbreviations}
+%\input{Preamble/glossary}
+%\input{Preamble/nomenclature}
 \input{Preamble/dedication}
 \input{Preamble/quotation}
-\fi
+\input{Preamble/License_Copyright}
+
+
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES
 %----------------------------------------------------------------------------------------
 
 \unnumberedchapter{Contents}
 \tableofcontents % Write out the Table of Contents
-\unnumberedchapter{List of Figures}
-\listoffigures % Write out the List of Figures
-\unnumberedchapter{List of Tables}
-\listoftables % Write out the List of Tables
+
 
 %----------------------------------------------------------------------------------------
 %	THESIS MAIN TEXT - CHAPTERS
@@ -228,6 +235,12 @@
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
+
+
+\unnumberedchapter{List of Figures}
+\listoffigures % Write out the List of Figures
+\unnumberedchapter{List of Tables}
+\listoftables % Write out the List of Tables
 
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 \unnumberedchapter{Bibliography} % Title of the unnumbered chapter

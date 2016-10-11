@@ -48,7 +48,7 @@ ignore their contribution. The removal of a vortex from the lattice introduces a
 
 
 We model the vortex lattice as a graph, where each vortex represents a node, and edges are given by nearest neighbours at most separated by
-a distance $a_0$, for a triangular lattice configuration, or $\sqrt{2}a_0$ for a square lattice (see Fig. \ref{fig:vtxdist}). The inclusion
+a distance $a_v$, for a triangular lattice configuration, or $\sqrt{2}a_v$ for a square lattice (see Fig. \ref{fig:vtxdist}). The inclusion
 of the square lattice distance is chosen so that upon removal, the vortices can reconfigure their arrangement locally, and may move from
 triangular to square geometries. As they behave like Coulombic particles with a profile that falls off as $r^{-1}$ we can consider that any
 interactions outside these distances to be negligible.
@@ -186,7 +186,7 @@ Hat means normalised (see page 119 of order in two dim binary random arrays, Nel
 
 Each vortex position was found by summing over adjacent grid sites, and looking for a $2\pi$ phase winding. This gave a vortex position
 estimated to the numerical grid. A least-squares fit was performed to more accurately determine the vortex core. Vortices closest the centre
-of the condensate were considered to ensure an almost uniform inter-vortex spacing, giving minimal deviation in lattice constant, $a_0$. Each
+of the condensate were considered to ensure an almost uniform inter-vortex spacing, giving minimal deviation in lattice constant, $a_v$. Each
 vortex was assigned a unique identifier (UID) to allow for it to be tracked individually over the course of the simulations, with the initial
 configuration presented in the graph [ref graph]. By noting these UIDs, vortices can be individually selected for removal by applying the
 global $2\pi$ phase winding in the opposing direction, centered on the core.
