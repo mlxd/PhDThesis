@@ -33,7 +33,7 @@ with
 where $N(r)$ is the number of paired vortices separated by $r=|\mathbf{r}_j - \mathbf{r}_k|$, $\zeta_6$ is the orientational order parameter, $l$ runs over the nearest neighbouring vortices, $n_j$ is the number of elements in the respective bin-range, and $\theta_{jl}$ is the angle a paired vortex and nearest neighbour makes relative to a reference axis \cite{Guillamon_nat_2014}. We examine the orientational correlation function as a measure of the order of a ``vortex unit cell'', defined by the angle made by nearest neighbours to an individual vortex. For a perfectly ordered triangular lattice this value will tend to 1 at $r=a_v$, nearest neighbour and higher order crystal spacings, and 0 elsewhere.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Phase imprinting defects}\label{sec:phase}
+\section{Phase imprinting defects}\label{sec:phase_def}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The phase imprinting methods discussed in Sec.~\ref{sec:phase} can be used to annihilate a vortex from the lattice by applying a phase profile of opposite winding to remove the vortex phase singularity.  This will leave the condensate with a density depletion at the prior location of the singularity, which will consequently fill in and excite phonon modes in the condensate. Alternatively, one can also change the direction of rotation of a vortex in the lattice by applying a $4\pi$ magnitude phase in opposition to the present direction of rotation. Many proposed methods and resulting implementations of this set of techniques have been demonstrated for vortex generation \cite{Vtx:Dobrek_pra_1999,VTX:Nakahara_physb_2000,VTX:Kawaguchi_pra_2004_2,VTX:Leanhardt_prl_2002,VTX:Kuwamoto_jpsj_2010,VTX:Brachmann_osa_2011}, to name but a few, and so it is assumed that the methods and discussions provided are realisable. In the following, we will introduce the effect of removing a vortex on the lattice system, and discuss the resulting dynamics.
@@ -136,7 +136,7 @@ To further demonstrate the localized nature of the defect, let us briefly discus
 
 \begin{figure}[h!]\centering
     \includegraphics[width=0.6\textwidth]{ch6_phasegineer/arxiv/fig9.pdf}
-    \caption{The defect count taken from a Delaunay triangulation of the vortex lattice following the removal of two vortices on opposite sides as a function of time. After a brief settling time, the lattice attains an almost constant defect count.}\label{fig:remove7_defect}
+    \caption{The defect count taken from a Delaunay triangulation of the vortex lattice following the removal of two vortices on opposite sides as a function of time. After a brief settling time, the lattice attains an almost constant defect count.}
     \label{fig:vtx_rem2_edge}
 \end{figure}
 
@@ -180,7 +180,7 @@ An alternative view of the above dynamics can be given from the Voronoi tessella
     \begin{subfigure}{0.6\textwidth}
         \includegraphics[width=\textwidth,page=2]{ch6_phasegineer/voro/varr_area.pdf}\subcaption{Two vortices away from centre removed.}
     \end{subfigure}
-    \caption{Voronoi diagram of vortex lattice following a phase imprint. The cell colour is indicative of the area spanned by the Voronoi cell.}
+    \caption{Voronoi diagram of vortex lattice following a phase imprint. The cell colour is indicative of the area spanned by the Voronoi cell.}\label{fig:voronoisarea}
 \end{figure}
 
 \begin{figure}\ContinuedFloat\centering
@@ -202,7 +202,7 @@ We can also show the local orientational order parameter $g_6(0) = |\zeta_6(\mat
     \begin{subfigure}{0.6\textwidth}
         \includegraphics[width=\textwidth,page=2]{ch6_phasegineer/voro/varr_corr.pdf}\subcaption{Two vortices away from centre removed.}
     \end{subfigure}
-    \caption{Voronoi diagram of vortex lattice following a phase imprint. The cell colour is indicative of local orientational ordering of the vortex lattice $g_6(0) = |\zeta_6(\mathbf{r}_0)|^2$. The mean value of the local orientational order $\bar{g_6}(0)$ and standard deviation $\sigma$ over time area also given.}
+    \caption{Voronoi diagram of vortex lattice following a phase imprint. The cell colour is indicative of local orientational ordering of the vortex lattice $g_6(0) = |\zeta_6(\mathbf{r}_0)|^2$. The mean value of the local orientational order $\bar{g_6}(0)$ and standard deviation $\sigma$ over time area also given.}\label{fig:voronoiscorr}
 \end{figure}
 
 \begin{figure}\ContinuedFloat\centering

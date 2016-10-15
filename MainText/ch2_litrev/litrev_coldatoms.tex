@@ -2,14 +2,14 @@
 \subsection{Cooling of atomic gases}\label{sub:cooling}
 One of the major advances in experimental physics towards creating matter in extreme situations has been the laser cooling of trapped atoms to temperatures near absolute zero. This feat resulted from the pioneering work of C. Cohen-Tannoudji, S. Chu and W.
 Phillips, and earned them the Nobel Prize in Physics, 1997 \cite{AO:Chu_revmod_1998,AO:Cohen_revmod_1998,AO:Phillips_revmod_1998}.
-It relies on the use of counter-propagating detuned laser fields which are shown at a trapped cloud of atoms. Due to Doppler shifting of the frequencies, atoms moving towards the respective beams see resonant photons, absorb them and slow down due to the momentum absorbed. This is followed by a spontaneous emission in a random direction, for which the recoil kicks average out to zero; hence, the atoms become cooler. This technique is termed ``Laser Cooling''. As a result, the atoms eventually reach a velocity below that which no photons can be absorbed from the lasers due to the change in resonance frequency, leaving a narrower velocity distribution with a peak at a lower value. Although laser cooling allowed temperatures to reach micro-Kelvin regimes, additional techniques, such as evaporative cooling, must be used to obtain atoms deep in the nano-Kelvin temperature range. A further discussion of these methods is presented in \cite{BK:Foot_2005,BK:Metcalf_1999}. These techniques allow the creation of Bose--Einstein condensates in dilute atomic gases.
+It relies on the use of counter-propagating detuned laser fields which act upon a trapped cloud of atoms. Due to Doppler shifting of the frequencies, atoms moving towards the respective beams see resonant photons, absorb them and slow down due to the momentum absorbed. This is followed by a spontaneous emission in a random direction, for which the recoil kicks average out to zero; hence, the atoms become cooler. This technique is known as ``laser cooling''. As a result, the atoms eventually reach a velocity below that which no photons can be absorbed from the lasers due to the change in resonance frequency, leaving a narrower velocity distribution with a peak at a lower value. Although laser cooling allowed temperatures to reach micro-Kelvin regimes, additional techniques, such as evaporative cooling, must be used to obtain atoms deep in the nano-Kelvin temperature range. A further discussion of these methods is presented in \cite{BK:Foot_2005,BK:Metcalf_1999}. These techniques allow the creation of Bose--Einstein condensates in dilute atomic gases.
 
 \subsection{Introduction to Bose--Einstein condensation}\label{sub:becintro}
-Bose--Einstein condensation of particles was predicted by A.~Einstein \cite{Einstein_bec_1925}, upon learning of a work by N.~Bose on the statistical behaviour of photons. This led to the derivation of the Bose--Einstein distribution for an ideal bosonic gas. In the framework of the grand canonical ensemble and following the description given by Pitaevskii and Stringari \cite[chap. 2]{BK:Pitaevskii_Stringari_2003}, the Bose--Einstein distribution is given by
+Bose--Einstein condensation of particles was predicted by A.~Einstein \cite{Einstein_bec_1925}, upon learning of a work by S.~N.~Bose on the statistical behaviour of photons. This led to the derivation of the Bose--Einstein distribution for an ideal bosonic gas. In the framework of the grand canonical ensemble and following the description given by Pitaevskii and Stringari \cite[chap. 2]{BK:Pitaevskii_Stringari_2003}, the Bose--Einstein distribution is given by
 \begin{equation}
 \bar{n}_i = \frac{1}{e^{\beta(\epsilon_i - \mu)} -1},
 \end{equation}
-where $\bar{n}_i$ is the average occupation number of the $i$-th energy state, $\beta=(k_BT)^{-1}$ with $k_B$ being the Boltzmann constant and $T$ as the temperature, $\epsilon_i$ is the $i$-th energy eigenvalue, and $\mu$ is the chemical potential giving the energy required to add an atom to the system.
+where $\bar{n}_i$ is the average occupation number of the $i$-th energy state, $\beta=(k_BT)^{-1}$ with $k_B$ being the Boltzmann constant and $T$ the temperature, $\epsilon_i$ is the $i$-th energy eigenvalue, and $\mu$ is the chemical potential giving the energy required to add an atom to the system.
 The total number of particles in the system, $N$, can be evaluated by summing over the individual occupation numbers, as
 \begin{equation}
 N=\displaystyle\sum_i \bar{n}_i.
@@ -18,11 +18,11 @@ This work predicted that non-interacting, indistinguishable (bosonic) particles 
 \begin{equation}
 N_0 \equiv \bar{n}_0 = \frac{1}{e^{\beta(\epsilon_0 - \mu)} - 1},
 \end{equation}
-with $\epsilon_0$ representing the lowest energy eigenvalue. Since negative occupation numbers would be a nonphysical result, the chemical potential is limited to values of $\mu < \epsilon_0$. As $\mu$ tends to $\epsilon_0$ the occupation of the lowest energy state grows large. Separating the total number of atoms into the lowest lying (condensed), $N_0$, and higher lying (thermal), $N_T$, states as
+with $\epsilon_0$ representing the lowest energy eigenvalue. Since negative occupation numbers would be a nonphysical result, the chemical potential is limited to values of $\mu < \epsilon_0$. As $\mu$ tends to $\epsilon_0$, the occupation of the lowest energy state grows large. Separating the total number of atoms into the lowest lying (condensed), $N_0$, and higher lying (thermal), $N_T$, states as
 \begin{equation}
 N = N_0 + N_T = N_0 + \displaystyle\sum_{i\neq 0}\bar{n}_i(T,\mu),
 \end{equation}
-allows for a relation for the the onset of Bose--Einstein condensation to be given. For a finite temperature system ($T>0$) this will happen when the temperature drops below a critical value, $T_c$, where $\mu$ will approach $\epsilon_0$, resulting in the macroscopic occupation of the lowest lying state, yielding a Bose--Einstein condensate (BEC).
+allows for a relation for the onset of Bose--Einstein condensation to be given. For a finite temperature system ($T>0$) this will happen when the temperature drops below a critical value, $T_c$, where $\mu$ will approach $\epsilon_0$. This results in the macroscopic occupation of the lowest lying state, yielding a Bose--Einstein condensate (BEC).
 
 Given a cloud of identical bosons at higher temperature, the particles exhibit billiard-ball type scattering. As they are cooled, their thermal de Broglie wavelength increases as
 \begin{equation}
@@ -34,26 +34,25 @@ k_BT_c = \frac{2\pi}{\zeta\left(\frac{3}{2}\right)^{2/3}}\frac{\hbar^2n^{2/3}}{m
 \end{equation}
 It is worth noting that the above derivation assumes an ideal gas, in which there are no interactions between particles. As this is not the case for most physical systems, one must consider systems where interactions are weak. Fritz London, in 1938, following on from the body of work derived by Einstein and Bose drew the connection between superfluidity in liquid $^4$He and Bose--Einstein condensation \cite[Chap.~1]{BK:Pitaevskii_Stringari_2003}. However, due to the liquid nature of $^4$He at low temperatures only approximately $10\%$ of the atoms condense into a BEC \cite{BEC:Penrose_pr_1956}. In order to achieve the large occupation of the lowest energy state the system must be prepared so that the inter-particle interaction strength does not destroy the coherence, as is the case for liquid $^4$He.
 
-Due to their weak interactions, dilute atomic gases are closer to the ideal case discussed by Bose and Einstein. One negative impact, though, were the higher masses of most atoms compared to $^4$He which required reaching much lower transition temperatures. As such, the use of lighter elements was considered. Spin-polarised hydrogen was one of the first systems to be investigated to create BEC \cite{BEC:Kleppner_enfe_1998,BEC:Fried_prl_1998,BK:Pitaevskii_Stringari_2003} in the 1970's. Using trapping and cooling techniques present at the time, this type of system came close, but did not quite reach the required temperatures and phase-space densities for Bose--Einstein condensation to occur until over twenty years later \cite{BEC:Fried_prl_1998}. Given the advent of laser cooling in the 1980's, the use of alkali atoms was considered partly due to the ease of accessibility of their optical transition frequencies. It was not until 1995 that the first BECs was experimentally realised \cite{BEC:Cornell_science_1995,BEC:Ketterle_prl_1995}.
+Due to their weak interactions, dilute atomic gases are closer to the ideal case discussed by Bose and Einstein. One negative impact, though, were the higher masses of most atoms compared to $^4$He, which required reaching much lower transition temperatures. As such, the use of lighter elements was considered. Spin-polarised hydrogen was one of the first systems to be investigated to create a BEC \cite{BEC:Kleppner_enfe_1998,BEC:Fried_prl_1998,BK:Pitaevskii_Stringari_2003} in the 1970's. Using trapping and cooling techniques available at the time, this type of system came close, but did not quite reach the required temperatures and phase-space densities for Bose--Einstein condensation to occur until over twenty years later \cite{BEC:Fried_prl_1998}. Given the advent of laser cooling in the 1980's, the use of alkali atoms was considered partly due to the ease of accessibility of their optical transition frequencies. It was not until 1995 that the first BECs was experimentally realised \cite{BEC:Cornell_science_1995,BEC:Ketterle_prl_1995}.
 
-For a finite number of atoms in a realistic experimental scenario one can consider the case of a BEC trapped in a harmonic oscillator potential. For this finite-sized sample, and inhomogeneous density profile, the transition temperature is given by
+For a finite number of atoms in a realistic experimental scenario, one can consider the case of a BEC trapped in a harmonic oscillator potential. For this finite-sized sample and inhomogeneous density profile, the transition temperature is given by
 \begin{equation}
 k_BT_c = \frac{\hbar\bar{\omega}N^{1/3}}{\zeta(3)^{1/3}},
 \end{equation}
-where $\bar{\omega}=(\omega_x\omega_y\omega_z)^{1/3}$ is the geometric mean of the oscillator frequencies. Critical temperatures for harmonically trapped dilute gases are on the order of nano-Kelvin, assuming realisable trapping frequencies.
+where $\bar{\omega}=(\omega_x\omega_y\omega_z)^{1/3}$ is the geometric mean of the harmonic oscillator frequencies. Critical temperatures for harmonically trapped dilute gases are on the order of nano-Kelvin for experimentally realistic systems.
 
 \subsection{Theoretical description of BECs: Gross--Pitaevskii equation}\label{sub:gpederiv}
 I will, in the following section, outline the derivation of the mean-field Gross--Pitaevskii equation, which is widely used to study the behaviour of condensates in many works cited in this review. Following the \textit{Les Houches 2013 Lecture Course} by J. Walraven \cite{LEC:Walraven_lh_2013} the second quantization form of the many-body Hamiltonian for interacting particles in an external potential is given by
 \begin{equation}\label{eqn:ham2ndq}
-\hat{\mathcal{H}} = \hat{H_1} + \hat{H_2} = \int \hat{\Psi}^{\dagger} H_0\left(\textbf{r},\textbf{p} \right)  \hat{\Psi} \; d\textbf{r}  + \frac{1}{2} \int\hat{\Psi}^{\dagger}\hat{\Psi}^{\dagger}V_{\textrm{int}}(\textbf{r}^\prime-\textbf{r})\hat{\Psi}\hat{\Psi} \; d\textbf{r}^\prime d\textbf{r},
+\hat{\mathcal{H}} = \hat{H_1} + \hat{H_2} = \int \hat{\Psi}^{\dagger} H_0\left(\textbf{r},\textbf{p} \right)  \hat{\Psi} \; d\textbf{r}  + \frac{1}{2} \int\hat{\Psi}^{\dagger}\hat{\Psi}^{\dagger}V_{\textrm{int}}(\textbf{r}^\prime,\textbf{r})\hat{\Psi}\hat{\Psi} \; d\textbf{r}^\prime d\textbf{r},
 \end{equation}
-with $H_0\left(\mathbf{r}, \mathbf{p} \right) = -\frac{\hbar}{2m}\nabla^2 + V_{\textrm{ext}}\left(\mathbf{r}\right)$. The external potential, $V_{\text{ext}}(\mathbf{r})$ is taken as harmonic, of the form
+with $H_0\left(\mathbf{r}, \mathbf{p} \right) = -\frac{\hbar}{2m}\nabla^2 + V_{\textrm{ext}}\left(\mathbf{r}\right)$, and $\mathbf{r} = [x,y,z]$,. The external potential, $V_{\text{ext}}(\mathbf{r})$ is taken as harmonic, of the form
 \begin{equation}
-V_{\text{ext}}(\mathbf{r}) = \frac{m}{2}\displaystyle\sum_{i}{\omega_i r_i},
-\end{equation}
-and with $\omega_i$ representing the trapping frequency in the $i$-th spatial dimension. The interaction potential, $V_{\text{int}}$ is assumed to be point-like as
+V_{\text{ext}}(\mathbf{r}) = \frac{m}{2}\displaystyle\sum_{i}{\left(\omega_i r_i \right)^2},\end{equation}
+where $\omega_i$ represents the trapping frequency in the $i$-th spatial dimension. The interaction potential, $V_{\text{int}}$ is assumed to be point-like as
 \begin{equation}\label{eqn:v_int}
-	V_{\text{int}}\left(\mathbf{r}_i,\mathbf{r}_j \right) = g\delta\left(\mathbf{r}_i - \mathbf{r}_j\right),
+	V_{\text{int}}\left(\mathbf{r},\mathbf{r}^{\prime} \right) = g\delta\left(\mathbf{r} - \mathbf{r}^{\prime}\right),
 \end{equation} where $\delta$ is the Dirac delta function and the mean-field interaction, $g$ is given by
 \begin{equation}
 	g = \frac{4\pi\hbar^2 a_s}{m},
@@ -84,7 +83,7 @@ The operator, $\hat{\Psi}_H$ can be interpreted as the one removing an atom from
 \end{align}
 \end{subequations}
 
-where $\mu=E_0(N) - E_0(N-1)$ is the chemical potential. Using the bosonic commutation relations
+where the chemical potential is defined as $\mu=E_0(N) - E_0(N-1)$. Using the bosonic commutation relations
 \begin{eqnarray}
 \left[\hat{\Psi}(\mathbf{r}'), \hat{\Psi}^{\dagger}(\mathbf{r})\right] &=& \delta(\mathbf{r}' - \mathbf{r}), \\
 \left[\hat{\Psi}(\mathbf{r}'), \hat{\Psi}(\mathbf{r})\right] &=& \left[\hat{\Psi}^{\dagger}(\mathbf{r}'), \hat{\Psi}^{\dagger}(\mathbf{r})\right] = 0,
@@ -110,7 +109,7 @@ Due to the macroscopic occupation of the lowest lying single-particle state, $\h
 \begin{equation}\label{eqn:gpe_fluc}
     \hat{\Psi} = \Psi + \delta\hat{\Psi},
 \end{equation}
-where $\Psi = \langle \hat{\Psi} \rangle$ is the expectation value of the condensate wavefunction. $\Psi$ takes the form of a classical field, and can be used to model the behaviour of the condensate, provided the number of atoms is sufficiently large ($>10^3$ for most experimental set-ups) and the correlations are not too strong i.e. the gas is dilute. Substituting Eq.~\eqref{eqn:gpe_fluc} into \eqref{eqn:ham2ndq}, and noting that groundstate is macroscopically occupied, terms that are quadratic in $\delta \hat{\Psi}$ will be small and can be safely neglected. Assuming a zero-temperature condensate, the number of uncondensed atoms will be zero, and thus we can safely ignore all terms linear in $\delta\hat{\Psi}$. The above procedure gives the time dependent mean-field Gross--Pitaevskii equation (GPE) as
+where $\Psi = \langle \hat{\Psi} \rangle$ is the expectation value of the condensate wavefunction. $\Psi$ takes the form of a classical field, and can be used to model the behaviour of the condensate, provided the number of atoms is sufficiently large ($N>10^3$ for most experimental set-ups) and the correlations are not too strong i.e. the gas is dilute. Substituting Eq.~\eqref{eqn:gpe_fluc} into \eqref{eqn:ham2ndq}, and noting that the groundstate is macroscopically occupied, terms that are quadratic in $\delta \hat{\Psi}$ will be small and can be safely neglected. Assuming a zero-temperature condensate, the number of uncondensed atoms will be zero, and thus we can safely ignore all terms linear in $\delta\hat{\Psi}$. The above procedure gives the time dependent mean-field Gross--Pitaevskii equation (GPE) as
 \begin{equation}\label{eqn:gpe}
 i\hbar\frac{\partial}{\partial t}\Psi(\mathbf{r},t) = H_{\textrm{GP}} \Psi(\textbf{r},t),
 \end{equation}
@@ -119,7 +118,7 @@ with the non-linear GPE Hamiltonian,
 H_{\textrm{GP}} = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\textbf{r}) + g\vert\Psi(\mathbf{r},t)\vert^2 \right],
 \end{equation}
 where $\Psi(\textbf{r},t) = \Psi(\textbf{r})e^{-\frac{i\mu t}{\hbar}}$.
- The time independent form can be found by evaluating the left-hand side derivative and dividing across by $e^{-\frac{i\mu t}{\hbar}}$, yielding
+ The time independent form can be found by evaluating the left-hand side derivative in \eqref{eqn:gpe} and dividing across by $e^{-\frac{i\mu t}{\hbar}}$, yielding
 \begin{equation}
 \mu\Psi(\mathbf{r}) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}) + g\vert\Psi(\mathbf{r})\vert^2 \right]\Psi(\mathbf{r}),
 \end{equation}
@@ -127,20 +126,23 @@ where the wavefunction is normalised to the particle number, $N$, as follows
 \begin{equation}\label{eqn:norm}
 \displaystyle\int\limits_{-\infty}^{\infty}d\mathbf{r} \left\vert \Psi\left(\mathbf{r},t\right) \right\vert^2 = N.
 \end{equation}
-In the case of a rotating condensate an additional term appears in the GPE Hamiltonian, $-\Omega\cdot \mathbf{L}$, where $\Omega$ is the angular rotation frequency, and $\mathbf{L}$ is the angular momentum operator. Assuming rotation about a single axis, the longitudinal direction $z$, $L$ can be replaced with $L_z$, giving the final form of the GPE in the co-rotating frame as
+
+Assuming a large number of bosons in the condensate, $N$, the interaction term dominates over the kinetic term of the Hamiltonian which can therefore be neglected. This approximation turns finding the ground-state of the system into a solvable, algebraic problem, and is known as the Thomas--Fermi approximation \cite[~p. 84]{BK:Ueda_2010}. The Hamiltonian can thus be reduced to a combination of the trapping potential and the mean-field interaction, and the ground-state wavefunction, $\Psi_{\textrm{TF}}$, can be determined from the time independent GPE as
+\begin{equation}
+\Psi_{\textrm{TF}}(\mathbf{r}) = \sqrt{ g^{-1}[\mu - V(\textbf{r})] \Theta(\mu - V(\textbf{r}))},
+\end{equation}
+where $\mu$ is the chemical potential, and $\Theta$ is the Heaviside step function, which ensures that the condensate density does not become negative. The boundary of the cloud is determined by the surface at which the density becomes zero, and corresponds to the point where the trapping potential and chemical potential are equivalent. This gives the Thomas--Fermi radius along the $i$-th direction of the cloud \cite[~p. 165]{BK:Pethick_Smith_2008} as
+\begin{equation}
+{R}_i = a_{\textrm{}}\left(\frac{15Na_s}{a_{\textrm{}}}\right)^{1/5}\frac{\bar{\omega}_{\textrm{}}}{\omega_i},
+\end{equation}
+where the characteristic length of the harmonic oscillator is given by
+${a} = \sqrt{{\hbar}/{m\bar{\omega}}}$, and $\bar{\omega} = \left(\displaystyle\prod\limits_j \omega_j\right)^{1/3}$ is the geometric mean of the harmonic oscillator trapping frequencies. This approximation holds valid for stationary condensate solutions.
+
+To investigate condensate dynamics, it is convenient to consider rotation of the condensate about an axis. For such a rotating condensate, an additional term appears in the GPE Hamiltonian, $-\Omega\cdot \mathbf{L}$, where $\Omega$ is the angular rotation frequency, and $\mathbf{L}$ is the angular momentum operator. Assuming rotation about a single axis, the longitudinal direction $z$, $L$ can be replaced with $L_z$, giving the form of the GPE in the co-rotating frame as
 \begin{equation}\label{eqn:gpe_rotation}
 i\hbar\frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 - \Omega L_z  \right]\Psi(\mathbf{r},t).
 \end{equation}
-Assuming a large number of bosons in the condensate, $N$, the interaction term dominates over the kinetic term of the Hamiltonian which can therefore be neglected. This turns finding the ground-state of the system into a solvable, algebraic problem, and is known as the Thomas--Fermi approximation \cite[~p. 84]{BK:Ueda_2010}. The Hamiltonian can thus be reduced to a combination of the trapping potential and the mean-field interaction, and the ground-state wavefunction, $\Psi_{\textrm{TF}}$, can be determined from the time independent GPE as
-\begin{equation}
-\Psi_\textrm{TF}(\mathbf{r}) = \sqrt{ g^{-1}[\mu - V(\textbf{r})] \Theta(\mu - V(\textbf{r}))},
-\end{equation}
-where $\mu$ is the chemical potential, and $\Theta$ is the Heaviside step function, which ensures that the condensate density does not become negative. The boundary of the cloud is determined by the surface at which the density becomes zero, and corresponds to the point where the trapping potential and chemical potential are equivalent. This gives the geometric mean spatial extent of the cloud \cite[~p. 169]{BK:Pethick_Smith_2008} as
-\begin{equation}
-\bar{R} = \left(\frac{15Na}{\bar{a}}\right)^{1/5}\bar{a},
-\end{equation}
-where the characteristic length of the harmonic oscillator is given by
-$\bar{a} = \sqrt{{\hbar}/{m\bar{\omega}}}$. Thus, within the Thomas-Fermi radius, it is possible to explain the behaviour of the BEC analytically and compare with exact results from numerically integrating the full GPE.
+Within the Thomas-Fermi approximation, it is possible to determine analytical results for the profile of the BEC, and compare with exact results from numerically integrating the full GPE. However, in the case of a rotating condensate to solve the above form of the Gross--Pitaevskii equation will require numerical integration as the kinetic energy term can no longer be neglected.
 
 \subsection{Bogoliubov-de Gennes equations}
 \label{sec:bogo}
@@ -148,28 +150,28 @@ While the Gross--Pitaevskii equation captures the rich array of dynamics exhibit
 \begin{equation}
     \delta\hat{\Psi} = e^{\frac{-i\mu t}{\hbar}}[ue^{-it\omega} + v^{*}e^{it\omega}].
 \end{equation}
-Taking this expression where $\mu$ is the chemical potential of the condensate, the wavefunction \eqref{eqn:gpe_fluc} can be written as
+From this expression, the wavefunction \eqref{eqn:gpe_fluc} can be written as
 \begin{equation}\label{eqn:bogo_psi}
-\Psi(\mathbf{r},t) = e^{\frac{-i\mu t}{\hbar}}\left[\Psi_0(\mathbf{r}) + u(\mathbf{r})e^{-i\omega t} + v^{*}(\mathbf{r})e^{i\omega t} \right],
+\Psi(\mathbf{r},t) = e^{\frac{-i\mu t}{\hbar}}\left[\Psi_0(\mathbf{r}) + u(\mathbf{r})e^{-it\omega} + v^{*}(\mathbf{r})e^{it\omega} \right],
 \end{equation}
 where $\Psi_0(\mathbf{r})$ is the stationary state solution. Firstly, we calculate the time-derivative of Eq.~\eqref{eqn:bogo_psi}, which after simplification becomes
 \begin{equation}\label{eqn:bogo_lhs}
-    i\hbar\partial_t \Psi(\mathbf{r},t) = e^{\frac{-i\mu t}{\hbar}}\left[\mu\Psi_0 + (\mu+\hbar\omega)ue^{-it\omega} + (\mu+\hbar\omega)v^{*}e^{it\omega} \right],
+    i\hbar\partial_t \Psi(t) = e^{\frac{-i\mu t}{\hbar}}\left[\mu\Psi_0 + (\mu+\hbar\omega)ue^{-it\omega} + (\mu-\hbar\omega)v^{*}e^{it\omega} \right],
 \end{equation}
 where the dependence on $\mathbf{r}$ is dropped for notational simplicity. Next, the nonlinear interaction term is given as
 \begin{subequations}
 \begin{align}\label{eqn:bogo_nonlin}
-    g|\Psi|^2\Psi &= g\Psi_0^{*}\Psi_0\Psi_0 \\
-    &= g e^{\frac{-i\mu t}{\hbar}}(\Psi_0^{*} + u^{*}e^{i\omega t} + ve^{-i\omega t})\\ &~~~~~~\times (\Psi_0 + u e^{-i\omega t} + v^{*} e^{i\omega t})^2, \nonumber \\
-    & \approx g e^{\frac{-i\mu t}{\hbar}}[|\Psi_0|^2(\Psi_0 + 2(u e^{-i\omega t} + v^{*} e^{i\omega t} )) \\ &~~~~~~+ \Psi_0^2( u^{*} e^{i\omega t} + v e^{-i\omega t})]. \nonumber
+    g|\Psi|^2\Psi &= g\Psi^{*}\Psi\Psi \\
+    &= g e^{\frac{-i\mu t}{\hbar}}(\Psi_0^{*} + u^{*}e^{it\omega} + ve^{-it\omega})\\ &~~~~~~\times (\Psi_0 + u e^{-it\omega} + v^{*} e^{it\omega})^2, \nonumber \\
+    & \approx g e^{\frac{-i\mu t}{\hbar}}[|\Psi_0|^2(\Psi_0 + 2(u e^{-it\omega} + v^{*} e^{it\omega} )) \\ &~~~~~~+ \Psi_0^2( u^{*} e^{it\omega} + v e^{-it\omega})]. \nonumber
 \end{align}
 \end{subequations}
 with the resulting equations linearised in terms of $u$ and $v$. Plugging these terms into the GPE yields the Bogoliubov-de Gennes (BdG) equations,
 \begin{subequations}\label{eqn:bogo_lhsrhs}
 \begin{align}
     \mu \Psi_0 &= (H_0 - \Omega L + g |\Psi_0|^2)\Psi_0,\\
-    (\mu +\hbar\omega)u &= (H_0 - \Omega L + 2g|\Psi_0|^2)u + g\Psi_0^2 v,\\
-    (\mu +\hbar\omega)v^{*} &= (H_0 - \Omega L + 2g|\Psi_0|^2)v^{*} + g\Psi_0^2 u^{*},
+    (\mu +\hbar\omega)u &= (H_0 - \Omega L_z + 2g|\Psi_0|^2)u + g\Psi_0^2 v,\\
+    (\mu -\hbar\omega)v^{*} &= (H_0 - \Omega L_z + 2g|\Psi_0|^2)v^{*} + g\Psi_0^2 u^{*},
 \end{align}
 \end{subequations}
 where
@@ -195,7 +197,7 @@ This can be written in matrix form as
 where the eigenvalues of these modes can be used to determine the stability of the system. The norm of these functions is given by $\int d\mathbf{r}(|u|^2 - |v|^2)=1$. If the norm is positive, with positive eigenvalues, the system is stable. If the norm is negative, the system will have an energetic instability. This will cause the system to move towards the lowest energy state only in the presence of dissipation. If, however, the norm is 0 with imaginary eigenvalues, the modes of the fluctuations are dynamically unstable. Due to the complex eigenvalues these modes will dominate exponentially over time and destroy the initial state of the condensate. %In a later section I  will use this approach later to examine the behaviour of the Bose--Einstein condensate.
 
 \subsection{Lower dimensional condensates}\label{sub:coldatom_recent}
-Whilst the full three dimensional GPE describes the dynamics of a condensed cloud of cold atoms, often the physics of lower dimensional systems can also be quite interesting. For a BEC tightly confined along one axis, the system can be described as a pancake shaped condensate, or cigar shaped for tight confinement along two axes. These tightly confined systems allow for the examination of both two and one dimensional physics. For a BEC harmonically confined in a trap with a transverse frequency, $\omega_\perp$, and tightly confined along $z$ with frequency $\omega_z \gg \omega_\perp$, all dynamics can be frozen out along $z$, leaving the system in the groundstate of the oscillator along $z$. This assumes that the energy to excite the system along $z$, $\hbar\omega_z$ is significantly greater than that to excite along the transverse plane $\hbar\omega_\perp$, and also the chemical potential $\mu$. This assumption allows for the wavefunction to be written as $\Psi(\mathbf{r},t) = \Psi(x,y,t)\phi(z)$ where $\mathbf{r} = [x,y,z]$, $\Psi(x,y,t)$ is the transverse wavefunction, and $\phi(z) = \left(\frac{m\omega_z}{\pi\hbar}\right)\exp\left(-\frac{m\omega_z}{2\hbar}z^2\right)$ is the groundstate along $z$.
+Whilst the full three dimensional GPE describes the dynamics of a condensed cloud of cold atoms, often the physics of lower dimensional systems can also be quite interesting. For a BEC tightly confined along one axis, the system can be described as a pancake shaped condensate, or cigar shaped for tight confinement along two axes. These tightly confined systems allow for the examination of both two and one dimensional physics. For a BEC harmonically confined in a trap with a transverse frequency, $\omega_\perp$, and tightly confined along $z$ with frequency $\omega_z \gg \omega_\perp$, all dynamics can be frozen out along $z$, leaving the system in the groundstate of the oscillator along $z$. This assumes that the energy to excite the system along $z$, $\hbar\omega_z$ is significantly greater than that to excite along the transverse plane $\hbar\omega_\perp$, and also the chemical potential $\mu$. This assumption allows for the wavefunction to be written as $\Psi(\mathbf{r},t) = \Psi(x,y,t)\phi(z)$ where $\Psi(x,y,t)$ is the transverse wavefunction, and $\phi(z) = \left(\frac{m\omega_z}{\pi\hbar}\right)\exp\left(-\frac{m\omega_z}{2\hbar}z^2\right)$ is the groundstate along $z$.
 Substituting this separable wavefunction into the GPE and integrating over all space with respect to $z$ modifies the nonlinear interaction strength as~\cite{BK:Pethick_Smith_2008}
 \begin{equation}\label{eqn:g2d_efint}
     g_{2D} = g\sqrt{\frac{m\omega_z}{2\pi\hbar}}.
