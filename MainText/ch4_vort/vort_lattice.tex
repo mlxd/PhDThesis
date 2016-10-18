@@ -34,21 +34,30 @@ This respective stability and dynamical behaviour can be understood by examining
 \end{figure}
 
 \begin{figure}\centering
-    \includegraphics[width=0.95\textwidth]{Images/ch4_vtx/velocity.pdf}
-    \caption{Magnitude of the velocity field and the direction of rotation of the field for clockwise circulating vortices. As the velocity follows a $1/r$ profile the magnitude becomes singular at the centre of the vortices, which is capped here at $v=4\times 10^{6} \hbar/m$ ms$^{-1}$.}
+    \includegraphics[width=0.95\textwidth]{Images/ch4_vtx/velocity/velocity_fixedmag}
+    \caption{Magnitude of the velocity field and the direction of rotation of the field for clockwise circulating vortices. As the velocity follows a $1/r$ profile the magnitude becomes singular at the centre of the vortices, which is capped here at $v=2.4\times 10^{-3}$ (ms$^{-1}$).}
     \label{fig:vel_field}
 \end{figure}
 
+\begin{figure}\centering
+    \includegraphics[width=0.55\textwidth]{Images/ch4_vtx/vtx_anti_velfield}
+    \caption{Velocity field direction and magnitude originating from vortex and antivortex present in a condensate. Colour scale is in units of ($ms^{-1}$).}
+    \label{fig:vel_pm}
+\end{figure}
+
+\iffalse
 \begin{figure}\centering
     \includegraphics[width=0.45\textwidth]{Images/ch4_vtx/vtx_anti_velfield}
     \includegraphics[width=0.45\textwidth]{Images/ch4_vtx/vtx_antivtx_traj}
     \caption{(Left) Velocity field originating from vortex and antivortex present in a condensate. (Right) Trajectories of vortex and antivortex in a condensate in the lab frame. Vortices travel on circulating paths which will always intersect through their starting position. Color is used to represent the same times for both vortex and antivortex, which is on the order of seconds.}
     \label{fig:vel_pm}
 \end{figure}
+\fi
 
 \begin{figure}\centering
-    \includegraphics[width=0.95\textwidth]{Images/ch4_vtx/velocity/vel_axis_png}
-    \caption{Magnitude of the velocity field for small numbers of like-signed vortices in a condensate. The velocity field can be seen to become singular at the centre. Regions of minimal velocity are seen, wherein the opposing field lines compensate one another.}
+    %\includegraphics[width=0.95\textwidth]{Images/ch4_vtx/velocity/vel_axis_png}
+    \includegraphics[width=0.95\textwidth]{Images/ch4_vtx/velocity/vel}
+    \caption{Magnitude of the velocity field for small numbers of like-signed vortices in a condensate. The velocity field can be seen to become singular at the centre, which here has its magnitude capped at a lower value than Figs.~\ref{fig:fig:vel_field} and~\ref{fig:vel_field} to aid visibility. Regions of minimal velocity are seen, wherein the opposing field lines compensate one another.}
     \label{fig:vel_pm_contour}
 \end{figure}
 
@@ -60,8 +69,8 @@ This respective stability and dynamical behaviour can be understood by examining
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Model system}\label{sec:modelsystem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\todo[inline]{Fix velocity fields of all the plots and ensure they are all using the same units and similar ranges.}
-\todo[inline]{Explain away the antivortex wobble}
+%\todo[inline]{Fix velocity fields of all the plots and ensure they are all using the same units and similar ranges.}
+%\todo[inline]{Explain away the antivortex wobble}
 For the work to follow we assume a standard single component Bose--Einstein condensate in a radially symmetric trap of frequency $\omega_\perp = 2\pi \times 1$ Hz. By tightly confining the condensate along the $z$-dimension, with trapping frequency $\omega_z = 2\pi\times 16$ Hz, such that $\omega_z $ is greater than $ \omega_\perp$, the condensate enters the desired pancake-shaped geometry. The system will be modeled using the mean-field GPE Hamiltonian as
 \begin{equation}\label{eqn:gpe_h0}
 	H_{\mathrm{GP}} = -\frac{\hbar^2}{2m}\nabla^2 + \frac{1}{2}m\omega_{\perp}^2\mathbf{r}^2 + g_{2D}\vert\Psi(\mathbf{r},t)\vert^2 - \Omega_z L_z.
