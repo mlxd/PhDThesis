@@ -28,7 +28,10 @@
 
 \usepackage{longtable} % tables that can span several pages
 \usepackage{setspace} % For using double spacing
-\usepackage[bf, font=onehalfspacing]{caption} % caption: FIG in bold, 1.5 line spacing in figure and table captions
+\usepackage[bf]{caption} % caption: FIG in bold, 1.5 line spacing in figure and table captions
+\captionsetup{font={small,singlespacing}, width=0.9\textwidth}
+
+
 \usepackage{pdfpages} % If you want to include a pdf file of your published paper as an appendix
 
 \usepackage{fancyhdr} % For the headers
@@ -42,6 +45,11 @@
 	\cleardoublepage % To make sure the previous headers are passed
 	\addcontentsline{toc}{chapter}{#1} % Also adds the chapter name to the Contents
 	\lhead{\bfseries #1}}% Header
+
+\newcommand{\unnumberedchapterNOTOC}[1]{ % Preparation for unnumbered chapters
+    	\cleardoublepage % To make sure the previous headers are passed
+    	\addcontentsline{toc}{chapter}{#1} % Also adds the chapter name to the Contents
+    	\lhead{\bfseries #1}}% Header
 
 \usepackage{eso-pic} % For the background picture on the title page
 \newcommand\BackgroundPic{%
@@ -105,7 +113,7 @@
 
 \input{Preamble/declaration}
 \input{Preamble/abstract}
-\input{Preamble/acknowledgments}
+%\input{Preamble/acknowledgments}
 %\input{Preamble/abbreviations}
 %\input{Preamble/glossary}
 %\input{Preamble/nomenclature}
@@ -117,7 +125,7 @@
 %	LIST OF CONTENTS/FIGURES/TABLES
 %----------------------------------------------------------------------------------------
 
-\unnumberedchapter{Contents}
+\unnumberedchapterNOTOC{Contents}
 \tableofcontents % Write out the Table of Contents
 
 
@@ -211,10 +219,10 @@
 %	APPENDICES
 %----------------------------------------------------------------------------------------
 
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
-\appendix % Starts of appendices
-\numberedchapter{Appendix}
-\input{MainText/Appendices/num_bogo}
+%\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+%\appendix % Starts of appendices
+%\numberedchapter{Appendix}
+%\input{MainText/Appendices/num_bogo}
 %\input{MainText/appendixB}
 %\input{MainText/appendixC}
 
@@ -222,12 +230,12 @@
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
 
-
+\iffalse
 \unnumberedchapter{List of Figures}
 \listoffigures % Write out the List of Figures
 \unnumberedchapter{List of Tables}
 \listoftables % Write out the List of Tables
-
+\fi
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 \unnumberedchapter{Bibliography} % Title of the unnumbered chapter
 \bibliography{Preamble/MLXD_LIB_URL_FIN} % The references information are stored in the file named "Thesis_bibliography.bib"

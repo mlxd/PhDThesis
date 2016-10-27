@@ -24,7 +24,7 @@ One example where the TF approach fails is when investigating superfluid vortex 
 
 As discussed in Section~\ref{sec:superfluid}, the study of quantum vortices remains an active area of research. As the condensate kinetic energy scales as $E_k \propto l^2$ (Sec.~\ref{ss:vorticesinbec}), increased angular momentum leads to the appearance of more singly charged vortices rather than one multiply charged vortex. For a single vortex in a rotating condensate the only stationary solution that exists is if the vortex resides at the exact centre of the trapping potential, making the system radially symmetric. For two vortices the radial symmetry of the system is broken, with the two vortices arranging themselves in the most favourable position to minimise the energy of the system, as with all higher vortex states. Placing vortices of the same sign into a condensate will allow them to behave as identically charged particles, and they will repel, and form ordered lattices with increasing vortex numbers (see Fig.~\ref{fig:few_rho}). Similarly, if instead we pair a vortex and an antivortex, they will attract, and remain in constant motion, or disappear altogether in the presence of dissipation.
 
-This respective stability and dynamical behaviour can be understood by examining the velocity fields of the respective vortices, as shown in Fig.~\ref{fig:vel_field} for like-signed vortices, and Fig.~\ref{fig:vel_pm} for a vortex-antivortex pair. The velocity fields of the vortices are additive, which for like-signed windings creates regions of zero flow, and for opposite-windings creates large flows between them respectively. From Eq.~\ref{eqn:1_over_r} the velocity field of the irrotational quantum vortex scales as $v \propto \frac{1}{r}$, and hence becomes singular at the vortex centre, giving rise to the large velocities close to the singularity. Fig.~\ref{fig:vel_pm_contour} shows a clearer view of the velocity fields as depicted by Fig.~\ref{fig:vel_field}, where the presence of maxima is easily observed at the cores, with field minima also observed due to the vortex-vortex interactions.
+This stability and dynamical behaviour can be understood by examining the velocity fields of the vortices, as shown in Fig.~\ref{fig:vel_field} for like-signed vortices, and Fig.~\ref{fig:vel_pm} for a vortex-antivortex pair. The velocity fields of the vortices are additive, which for like-signed windings creates regions of zero flow, and for opposite-windings creates large flows between them respectively. From Eq.~\ref{eqn:1_over_r} the velocity field of the irrotational quantum vortex scales as $v \propto \frac{1}{r}$, and hence becomes singular at the vortex centre, giving rise to the large velocities close to the singularity. Fig.~\ref{fig:vel_pm_contour} shows a clearer view of the velocity fields as depicted by Fig.~\ref{fig:vel_field}, where the presence of maxima is easily observed at the cores, with field minima also observed due to the vortex-vortex interactions.
 
 \begin{figure}\centering
     \includegraphics[width=0.48\textwidth]{Images/ch4_vtx/fewvortex_rho.pdf}
@@ -71,9 +71,9 @@ This respective stability and dynamical behaviour can be understood by examining
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\todo[inline]{Fix velocity fields of all the plots and ensure they are all using the same units and similar ranges.}
 %\todo[inline]{Explain away the antivortex wobble}
-For the work to follow we assume a standard single component Bose--Einstein condensate in a radially symmetric trap of frequency $\omega_\perp = 2\pi \times 1$ Hz. By tightly confining the condensate along the $z$-dimension, with trapping frequency $\omega_z = 2\pi\times 16$ Hz, such that $\omega_z $ is greater than $ \omega_\perp$, the condensate enters the desired pancake-shaped geometry. The system will be modelled using the mean-field GPE Hamiltonian as
+For the work to follow we assume a standard single component Bose--Einstein condensate in a radially symmetric trap of frequency $\omega_\perp = 2\pi \times 1$ Hz. By tightly confining the condensate along the $z$-dimension, with trapping frequency $\omega_z = 2\pi\times 16$ Hz, such that $\omega_z $ is greater than $ \omega_\perp$, the condensate enters the desired pancake-shaped geometry. The system is then modelled using the mean-field GPE Hamiltonian as
 \begin{equation}\label{eqn:gpe_h0}
-	H_{\mathrm{GP}} = -\frac{\hbar^2}{2m}\nabla^2 + \frac{1}{2}m\omega_{\perp}^2\mathbf{r}^2 + g_{2D}\vert\Psi(\mathbf{r},t)\vert^2 - \Omega_z L_z.
+	H_{\mathrm{GP}} = -\frac{\hbar^2}{2m}\nabla^2 + \frac{1}{2}m\omega_{\perp}^2\mathbf{r}^2 + g_{2D}\vert\Psi(\mathbf{r},t)\vert^2.
 \end{equation}
 
 Here, we define the two-dimensional effective interaction strength $g_{2D}$ given by Eq.~\eqref{eqn:g2d_efint}, as
@@ -93,15 +93,15 @@ If the angular rotation frequency approaches the condensate trapping frequency, 
 
 The resulting changes to the GPE are then given by
 \begin{equation}\label{eqn:vector_potential_gpe}
-    i\hbar\partial_t \Psi =
+    \textrm{i}\hbar\partial_t \Psi =
     \left(\frac{1}{2m}(-i\hbar\nabla - m\boldsymbol{\Omega}\times\mathbf{r})^2 + \frac{m}{2}(\omega_\perp - \Omega)^2{r}^2 + g_{2D}|\Psi|^2 \right)\Psi.
 \end{equation}
-The above Hamiltonian arises from the correspondence between a rotating condensate and that of a non-relativistic charged particle in a magnetic field~\cite{Vtx:Mueller_prl_2002}.
+The above Hamiltonian demonstrates the correspondence between a rotating condensate and that of a non-relativistic charged particle in a magnetic field~\cite{Vtx:Mueller_prl_2002}.
 %\begin{equation}
 %     H_L = \frac{1}{2m}\left(-i\hbar \nabla  - q\mathbf{A}\right)^2 + q\phi
 %\end{equation}
 %where $q$ is the particle charge, $\mathbf{A}$ is the respective gauge potential, and $\phi$ the respective scalar potential.
-One can see that when the rotation and trapping frequencies equal, the condensate no longer sees a confining potential, due to the centrifugal force experienced, given by the term $-m\Omega_z^2r^2/2$, resulting in an untrapped system.
+One can see that when the rotation and trapping frequencies are equal, the condensate no longer sees a confining potential, due to the centrifugal force experienced, given by the term $-m\Omega_z^2r^2/2$.
 
 As stated earlier in Sec.~\ref{sec:sec2_vtxlatt} as $\Omega_z$ approaches $\omega_\perp$, the use of mean-field theory becomes less justified, and the system enters a strongly correlated regime. If the filling fraction $\nu$ is in the range of $10 \leq \nu \leq 1000$, the system enters the ``mean-field quantum Hall'' regime, where the Gross--Pitaevskii theory is still working well. The regime exists up to an upper limit frequency of $\Omega_z = 0.995\omega_\perp$, so that we can work with systems that have a very large vortex lattice, and are still described by mean-field theory \cite{BEC:Fetter_revmodphys_2009}.
 
@@ -133,7 +133,7 @@ If, however, the linear ramp is performed too quickly, or an initial state is ch
     \label{fig:malformed_lattice}
 \end{figure}
 
-In the following section we will discuss perturbations of the condensate in the presence and absence of vortices. For the above system, we will investigate the effect of perturbations to both the global and local condensate order, due to changes in the lattice structure.
+In the following section we will discuss perturbations of the condensate in the presence and absence of vortices. For the above system, we will investigate the effect of perturbations to both the global and local condensate order due to changes in the lattice structure.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 1
 \section{Condensate perturbations}
@@ -141,7 +141,7 @@ In the following section we will discuss perturbations of the condensate in the 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% a
 \subsection{Trapping potential control}\label{ss:pert_opt_latt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-With the model system outlined in Sec.~\ref{sec:modelsystem}, we will now imagine an abrupt change to the Hamiltonian, such that, $H(t) = H_{\textrm{GP}} + f(t) V_{\textrm{ext}}$, where $V_{\textrm{ext}}$ is an external potential, and $f(t)$ is some function of time to control the application of $V_{\textrm{ext}}$. In this scenario the initial wavefunction, which is a stationary state of $H_{\textrm{GP}}$, will no longer remain so provided that $H_{\textrm{GP}}$ and $f(t) V_{\textrm{ext}}$ are non-commuting. Assuming the time of application of the additional term is much shorter than any other timescale of the condensate dynamics, any modification of the Hamiltonian in this way can be viewed as a method for changing the phase of the resulting wavefunction.
+With the model system outlined in Sec.~\ref{sec:modelsystem}, we will now imagine an abrupt change to the Hamiltonian, such that, $H(t) = H_{\textrm{GP}} + f(t) V_{\textrm{ext}}$, where $V_{\textrm{ext}}$ is an external potential, and $f(t)$ is some function of time to control the application of $V_{\textrm{ext}}$. In this scenario the initial wavefunction, which is a stationary state of $H_{\textrm{GP}}$, will no longer remain so provided that $H_{\textrm{GP}}$ and $f(t) V_{\textrm{ext}}$ are non-commuting. Assuming the time of application of the additional term is much shorter than any other timescale of the condensate dynamics, any modification of the Hamiltonian in this way can be viewed as a method for changing the phase of the wavefunction.
 %\begin{equation}
 %    e^{i\phi} \mapsto \exp\left(-i\frac{Ht}{\hbar}\right),
 %\end{equation}
@@ -171,11 +171,11 @@ where ${\mathbf{d}}$ is the electric dipole moment operator. For a two level ato
 &= \boldsymbol{\mu}_{eg} | g \rangle \langle e | + \boldsymbol{\mu}_{eg}^{*} | e \rangle \langle g |,
 \end{align}
 where we have made use of $\langle g|\mathbf{d}|g \rangle = \langle e|\mathbf{d}|e \rangle  = 0$, since the atoms have no permanent dipole moment. From Eq.~\eqref{eqn:dipole_approx} the Hamiltonian of the two-level system can then be written as
-\begin{align}
-    H &= \hbar\omega_0 |e\rangle\langle e |  - \mathcal{V} \nonumber \\
+\begin{align}\label{eqn:dip_hamiltonian}
+    H &= H_0  - \mathcal{V} \nonumber \\
       &=  \hbar\omega_0 |e\rangle\langle e | - (\boldsymbol{\mu}_{eg} | g \rangle \langle e | + \boldsymbol{\mu}_{eg}^{*} | e \rangle \langle g |)\cdot ( \varepsilon_0 e^{\textrm{i}\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)} +  \varepsilon_0^{*} e^{-\textrm{i}\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)}).
 \end{align}
-We can then rewrite $\boldsymbol{\mu}_{eg}\cdot \varepsilon_0 = \hbar\Omega_r$, where $\Omega_r$ is the Rabi-oscillation frequency between the states. Assuming that the detuning $\Delta = \omega - \omega_0$ between the laser field and transition frequency is small, $\Delta \ll \omega + \omega_0$, allows use of the rotating wave approximation. For this we first perform a unitary transformation of the system into the interaction picture rotating with $H_0$ using the operator $U = e^{-\textrm{i}\omega_0 t|e\rangle\langle e|}$ as
+After expanding~\eqref{eqn:dip_hamiltonian} we can then rewrite $\boldsymbol{\mu}_{eg}\cdot \varepsilon_0 = \hbar\Omega_r$, where $\Omega_r$ is the Rabi-oscillation frequency between the states. Assuming that the detuning $\Delta = \omega - \omega_0$ between the laser field and transition frequency is small, $\Delta \ll \omega + \omega_0$, allows use of the rotating wave approximation. For this we first perform a unitary transformation of the system into the interaction picture rotating with $H_0$ using the operator $U = e^{-\textrm{i}\omega_0 t|e\rangle\langle e|}$ as
 \begin{align}
     H_{\textrm{int}} & = U^{\dagger} \mathcal{V} U.
 \end{align}
@@ -238,7 +238,7 @@ where $k_0 = 4\pi/(\sqrt(3)a_\text{O})$, and $a_\text{O}$ is the lattice spacing
 
 While groundstate condensates will have a flat phase across the system, there are two interesting examples where a spatially dependent phase exists: dark solitons~\cite{BEC:Denschlag_science_2000} and vortices~\cite{Vtx:Dobrek_pra_1999}. We have previously discussed the $2\pi$ phase profile of a vortex that leads to the singularities in the wavefunction. In contrast, dark solitons feature a $\pi$ phase jump profile. These excitations are unstable in dimensions higher than one, and will decay via the snake instability to paired vortices and antivortices~\cite{BEC:Brand_pra_2002}. Where so far we have only considered the short-term evolution of the wavefunction after being kicked by an optical potential, we will in the following consider what structures can be created in the condensate by careful phase manipulation techniques, besides dark solitons and vortices.
 
-For this we will assume the BEC allows for a short enough application of potentials so that only the phase is affected, and discuss direct manipulation of the wavefunction, as opposed to modification of the Hamiltonian. Following \cite{BK:Pitaevskii_Stringari_2003} and taking Eq.~\eqref{eqn:madelung}, the phase of the condensate can then be written as
+For this we will assume that the BEC allows for a short enough application of potentials so that only the phase is affected, and discuss direct manipulation of the wavefunction, as opposed to modification of the Hamiltonian. Following \cite{BK:Pitaevskii_Stringari_2003} and taking Eq.~\eqref{eqn:madelung}, the phase of the condensate can then be written as
 \begin{equation}
 \theta = \theta_0 + \theta_i,
 \end{equation}
@@ -262,7 +262,7 @@ which locates the singularity at the position $\left(x_0,y_0\right)$. The result
     \caption{$2\pi$ phase winding shown for a single (left) and three separated (right) phase singularities. The application of separate phase singularities can be treated as summing each individual phase profile, $\left(\displaystyle\sum\limits_i \theta_i \right)\mod 2\pi$. Note that the resolution used in the numerical examples is much higher than can be obtained from currently available SLMs.}\label{fig:atan2phase}
 \end{figure}
 
-This process will create phonons in the condensate density following the imprint that will radiate outwards from the singularity imprint. As imprinting is directly controlling the condensate phase, it can also be considered a direct manipulation of the kinetic energy since the superfluid velocity depends on the phase gradient (see Eq.~\eqref{eqn:velocity}). This, in reverse, means that by applying spatially inhomogeneous phase profiles the atomic velocity can be adjusted to different values in different regions of the condensate. To demonstrate this we consider a simple example of a Gaussian phase profile applied to the condensate. The imprinted profiles has the form
+Following the imprint this process will create phonons in the condensate density that will radiate outwards from the singularity imprint. As imprinting is directly controlling the condensate phase, it can also be considered a direct manipulation of the kinetic energy since the superfluid velocity depends on the phase gradient (see Eq.~\eqref{eqn:velocity}). This, in reverse, means that by applying spatially inhomogeneous phase profiles the atomic velocity can be adjusted to different values in different regions of the condensate. To demonstrate this we consider a simple example of a Gaussian phase profile applied to the condensate. The imprinted profile has the form
 \begin{equation}
     \theta_{i}(\mathbf{r}) = A\exp\left( -\frac{ |\mathbf{r}-\mathbf{r}_0|^2 }{2\sigma^2 } \right) \mod 2\pi,
 \end{equation}
@@ -333,7 +333,7 @@ This decomposition separates the energy contribution from phonons and vortex cor
 \end{equation}
 where
 \begin{equation}
-	\mathcal{U}_j^{c,i}(\mathbf{k},t) = \int d^2 \mathbf{r} e^{-i(\mathbf{k}\cdot\mathbf{r})} u_j^{c,i}(\mathbf{r},t).
+	\mathcal{U}_j^{c,i}(\mathbf{k},t) = \int d^2 \mathbf{r} e^{-\textrm{i}(\mathbf{k}\cdot\mathbf{r})} u_j^{c,i}(\mathbf{r},t).
 \end{equation}
 The terms $u_j^{c,i}(\mathbf{r},t)$ represent the position-space density-weighted velocity components in the specified shell, where $\phi_k$ is the polar angle, and $s_k$ is the number of values in the chosen shell.
 

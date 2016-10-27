@@ -1,6 +1,6 @@
 \section{GPUE: GPU Gross--Pitaevskii equation solver}\label{sec:GPUE}
 
-Given the effectiveness of GPU computing in completing the simulation of the linear Sch\"odinger equation system for matter-wave STIRAP, we next applied the newly-developed techniques to simulating Bose--Einstein condensates, which formed the bulk of work during my thesis. The body of software developed for this project has been released as the tool ``GPUE'', available at \url{https://github.com/mlxd/gpue}~\cite{MLXD_GPUE}. Performance metrics of this code was carried out by Peter Wittek, ICFO, Barcelona \cite{Wittek:2016}. The comparison was performed with GPUE, the Trotter--Suzuki (TS) package developed by Wittek \textit{et} al. \cite{NUM:Wittek_cpc_2013}, and the mature GPELab software suite for MATLAB \cite{NUM:GPElab_1,NUM:GPElab_2}. The sample results taken for time evolution are given in Fig.~\ref{fig:gpuevsts}. GPUE and GPU-enabled TS clearly beat MATLAB, and CPU performance by a significant margin. Although TS is a more generalised suite for computing, as far as we are currently aware the GPU computation does not yet allow for Gross--Pitaevskii or states with angular momentum. GPUE is currently the optimal choice for rotating condensate systems out of the examined software suites. 
+Given the effectiveness of GPU computing in the simulation of the linear Sch\"odinger equation system for SAP, we next applied the newly-developed techniques to simulating Bose--Einstein condensates, which formed the bulk of work during my thesis. The body of software developed for this project has been released as the tool ``GPUE'', available at \url{https://github.com/mlxd/gpue}~\cite{MLXD_GPUE}. Performance testing of this code was carried out by Peter Wittek, ICFO, Barcelona~\cite{Wittek:2016}. A comparison was performed between GPUE, the Trotter--Suzuki (TS) package developed by Wittek \textit{et} al. \cite{NUM:Wittek_cpc_2013}, and the mature GPELab software suite for MATLAB \cite{NUM:GPElab_1,NUM:GPElab_2}. The sample results taken for time evolution are given in Fig.~\ref{fig:gpuevsts}. GPUE and GPU-enabled TS clearly beat MATLAB, and CPU performance by a significant margin. Although TS is a more generalised suite for computing, as far as we are currently aware the GPU computation does not yet allow for Gross--Pitaevskii or states with angular momentum. GPUE is currently the optimal choice for rotating condensate systems out of the examined software suites.
 
 \begin{figure}[htb]
     \centering
@@ -62,7 +62,7 @@ dpVector1024D & Internal CUFFT operation & $0.251$ ms & 2020 & $0.507$ s \\
 \caption{Kernel usage and timings for 1010 steps of imaginary time evolution for a non-rotating condensate.}\label{tbl:gpue_im}
 \end{table}
 
-A simplified sequence and state diagram combination is given in Figs.~\ref{fig:gpue_seq1} and~\ref{fig:gpue_seq2} which describes the operating process for GPUE. A document listing all aspects of component dependencies and intercommunication is available at~\cite{MLXD_GPUE}. For brevity, we will refer the reader to this location for more information\footnote{The documentation is built using ~\href{http://www.stack.nl/~dimitri/doxygen/}{Doxygen}, with the command ``doxygen ./docs/gpue_doxy.conf'', and requires the \textit{dot} package for figure generation.}.
+A simplified sequence and state diagram combination is given in Figs.~\ref{fig:gpue_seq1} and~\ref{fig:gpue_seq2} which describes the operating process for GPUE. A document listing all aspects of component dependencies and intercommunication is available at~\cite{MLXD_GPUE}. For brevity, we will refer the reader to this location for more information\footnote{The documentation is built using ~\href{http://www.stack.nl/~dimitri/doxygen/}{Doxygen} with the command ``doxygen ./docs/gpue_doxy.conf'', and requires the \textit{dot} package for figure generation. This may change during future releases.}.
 
 \begin{figure}[]
     \centering
@@ -84,16 +84,14 @@ The FSO algorithm described earlier works well in handling cases where the indiv
 
 This accrues an error which is not encountered using methods that are solely in position or momentum space. Following the process given in Sec.~\ref{sec:fso} the error can be determined by checking the commutativity of the respective components of the angular momentum operator as
 
- \begin{subequations}
  \begin{align}
  	\alpha_1 = [x p_y,-y p_x] &= [x p_y,-y] p_x  -  y[x p_y,p_x] = -[-y,x p_y] p_x + y [p_x, x p_y] \nonumber \\
  		&= -\left( {\cancelto{0}{[-y,x]}} p_y + x [-y,p_y] \right) p_x + y \left( [p_x,x] p_y + x {\cancelto{0}{[p_x,p_y]}} \right) \nonumber \\
  		&= -x {\cancelto{\textrm{i}\hbar}{[-y, p_y]}} p_x + y {\cancelto{-\textrm{i}\hbar}{[p_x,x]}} p_y \nonumber \\
         &= -\textrm{i}\hbar \left(x p_x + y p_y \right).
  \end{align}
-\end{subequations}
 
- The complex error term can be seen as, in the case of the above implemented evolution, allowing the angular momentum operator to change from imaginary time to real-time, and vice-versa in each respective case. To overcome this, we simply swap the application order of the operator components, between odd and even steps during the evolution. Starting with the alternate order we obtain a value of $\alpha_2 = [-y p_x, x p_y] = i\hbar \left(x p_x + y p_y \right)$. Since we are applying these operators to the condensate we can overcome the error of one term by the application of the other, as
+ The complex error term can be seen as, in the case of the above implemented evolution, allowing the angular momentum operator to change from imaginary time to real-time, and vice-versa in each respective case. To overcome this, we simply swap the application order of the operator components, between odd and even steps during the evolution. Starting with the alternate order we obtain a value of $\alpha_2 = [-y p_x, x p_y] = \textrm{i}\hbar \left(x p_x + y p_y \right)$. Since we are applying these operators to the condensate we can overcome the error of one term by the application of the other, as
  \begin{equation}
  \exp{i \alpha_1}\exp{i \alpha_2} = 1.
  \end{equation}
