@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/MacPorts 2016_0) (preloaded format=pdflatex 2016.7.13)  27 SEP 2016 17:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/MacPorts 2016_0) (preloaded format=pdflatex 2016.7.13)  23 OCT 2016 14:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -536,9 +536,9 @@ PGFPlots: reading {kick_novtx_ekcekikbin_dt2.dat}
 NOTE: coordinate (0,0) has been dropped because it is unbounded (in y). (see al
 so unbounded coords=jump). 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 25.
+(Font)              <7> on input line 26.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 25.
+(Font)              <5> on input line 26.
 [1
 
 {/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}]
@@ -550,14 +550,14 @@ Here is how much of TeX's memory you used:
  24485 multiletter control sequences out of 15000+600000
  3941 words of font info for 15 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 62i,18n,100p,732b,1992s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,18n,100p,732b,1994s stack positions out of 5000i,500n,10000p,200000b,80000s
 </opt/local/share/texmf-texlive/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts
 /cm/cmmi7.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
 r10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb
 ></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></op
 t/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on EKcEKi_kick_dt2.pdf (1 page, 51226 bytes).
+Output written on EKcEKi_kick_dt2.pdf (1 page, 51078 bytes).
 PDF statistics:
  35 PDF objects out of 1000 (max. 8388607)
  25 compressed objects within 1 object stream

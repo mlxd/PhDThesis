@@ -28,15 +28,12 @@
 
 \usepackage{longtable} % tables that can span several pages
 \usepackage[bf]{caption} % caption: FIG in bold
-
 %\renewcommand{\sfdefault}{pcr}
 \captionsetup{font={small,singlespacing}, width=0.9\textwidth}
 
 \usepackage{fancyhdr} % For the headers
 
-
 %\usepackage{mathptmx}
-
 
 \newcommand{\numberedchapter}[1]{ % Preparation for numbered chapters
 	\cleardoublepage % To make sure the previous headers are passed
@@ -44,7 +41,6 @@
 	\fancyhead[RE]{{\bfseries \leftmark}}% Headers for left pages
 	\fancyhead[LO]{{\bfseries \rightmark}}% Headers for right pages
 }
-
 \newcommand{\unnumberedchapter}[1]{ % Preparation for unnumbered chapters
 	\cleardoublepage % To make sure the previous headers are passed
 	\addcontentsline{toc}{chapter}{#1} % Also adds the chapter name to the Contents
@@ -116,12 +112,12 @@
 
 \input{Preamble/declaration}
 \input{Preamble/abstract}
-\input{Preamble/acknowledgments}
+%\input{Preamble/acknowledgments}
 %\input{Preamble/abbreviations}
 %\input{Preamble/glossary}
 %\input{Preamble/nomenclature}
 %\input{Preamble/dedication}
-\input{Preamble/quotation}
+%\input{Preamble/quotation}
 \input{Preamble/License_Copyright}
 
 
@@ -203,7 +199,7 @@
 \defecttrue
 %\defectfalse
 \ifdefect
-    \numberedchapter{Defect engineering of the vortex lattice}
+    \numberedchapter{Defect engineering in vortex lattices}
     %\chapter{Defect engineering}
         %\input{MainText/ch6_phasegineer/phasegineer_dislocate}
         \input{MainText/ch6_phasegineer/ch6_phasegineer4}
@@ -237,10 +233,10 @@
 %----------------------------------------------------------------------------------------
 
 
-\unnumberedchapter{List of Figures}
-\listoffigures % Write out the List of Figures
-\unnumberedchapter{List of Tables}
-\listoftables % Write out the List of Tables
+%\unnumberedchapter{List of Figures}
+%\listoffigures % Write out the List of Figures
+%\unnumberedchapter{List of Tables}
+%\listoftables % Write out the List of Tables
 
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 \unnumberedchapter{Bibliography} % Title of the unnumbered chapter

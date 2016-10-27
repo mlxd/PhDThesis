@@ -8,10 +8,11 @@
 %\pgfplotstableread[col sep = comma]{/Users/mlxd/Desktop/sumEKc.csv}\mydata
 \begin{tikzpicture}
     \begin{semilogyaxis}[name=ekc,
-        xlabel=\textsc{$k~[m^{-1}]$},
+        xlabel=\textsc{$k~(m^{-1})$},
         ylabel=$E(k)$,
         xmin=0,xmax=1.3e6,
-        ymin=1e-28,ymax=1e-12
+        ymin=1e-28,ymax=1e-12,
+        tick scale binop=\times
     ]
     \addplot[mark=none, myblue, thick] table [col sep=comma, trim cells=true, x=c, y=a] {kick_novtx_ekcekikbin_dt2.dat};\addlegendentry{$E^c$}
     \addplot[mark=none, myorange, thick] table [col sep=comma, trim cells=true, x=c, y=b] {kick_novtx_ekcekikbin_dt2.dat};\addlegendentry{$E^i$}

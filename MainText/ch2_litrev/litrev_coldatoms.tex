@@ -14,7 +14,7 @@ The total number of particles in the system, $N$, can be evaluated by summing ov
 \begin{equation}
 N=\displaystyle\sum_i \bar{n}_i.
 \end{equation}
-This work predicted that non-interacting, indistinguishable (bosonic) particles would, if their energy was sufficiently low, undergo a phase transition below a critical temperature into a new phase in which all particles would occupy the same lowest lying energy state of the system. The number of atoms occupying this lowest lying state, $N_0$, at a given temperature is provided by
+This work predicted that non-interacting, indistinguishable bosonic particles would undergo a phase transition below a critical temperature into a new phase in which all particles would occupy the same lowest lying energy state of the system. The number of atoms occupying this lowest lying state, $N_0$, at a given temperature is provided by
 \begin{equation}
 N_0 \equiv \bar{n}_0 = \frac{1}{e^{\beta(\epsilon_0 - \mu)} - 1},
 \end{equation}
@@ -32,9 +32,9 @@ where $m$ is the atom mass, and the wave-nature of the atoms becomes more promin
 \begin{equation}
 k_BT_c = \frac{2\pi}{\zeta\left(\frac{3}{2}\right)^{2/3}}\frac{\hbar^2\rho^{2/3}}{m}.
 \end{equation}
-It is worth noting that the above derivation assumes an ideal gas, in which there are no interactions between particles. As this is not the case for most physical systems, one must consider systems where interactions are weak. Fritz London, in 1938, following on from the body of work derived by Einstein and Bose drew the connection between superfluidity in liquid $^4$He and Bose--Einstein condensation \cite[Chap.~1]{BK:Pitaevskii_Stringari_2003}. However, due to the liquid nature of $^4$He at low temperatures only approximately $10\%$ of the atoms condense into a BEC \cite{BEC:Penrose_pr_1956}. In order to achieve the large occupation of the lowest energy state the system must be prepared so that the inter-particle interaction strength does not destroy the coherence, as is the case for liquid $^4$He.
+It is worth noting that the above derivation assumes an ideal gas, in which there are no interactions between particles. As this is not the case for most physical systems, one must consider systems where interactions are weak. Fritz London, in 1938, following on from the body of work derived by Einstein and Bose drew the connection between superfluidity in liquid $^4$He and Bose--Einstein condensation \cite[Chap.~1]{BK:Pitaevskii_Stringari_2003}. However, due to the liquid nature of $^4$He at low temperatures only approximately $10\%$ of the atoms condense into a BEC \cite{BEC:Penrose_pr_1956}. In order to achieve the large occupation of the lowest energy state the system must be prepared so that the inter-particle interaction strength does not degrade the coherence, as is the case for liquid $^4$He.
 
-Due to their weak interactions, dilute atomic gases are closer to the ideal case discussed by Bose and Einstein. One negative impact, though, were the higher masses of most atoms compared to $^4$He, which required reaching much lower transition temperatures. As such, the use of lighter elements was considered. Spin-polarised hydrogen was one of the first systems to be investigated to create a BEC \cite{BEC:Kleppner_enfe_1998,BEC:Fried_prl_1998,BK:Pitaevskii_Stringari_2003} in the 1970's. Using trapping and cooling techniques available at the time, this type of system came close, but did not quite reach the required temperatures and phase-space densities for Bose--Einstein condensation to occur until over twenty years later \cite{BEC:Fried_prl_1998}. With the advent of laser cooling in the 1980's, the use of alkali atoms was considered partly due to the ease of accessibility of their optical transition frequencies. It was not until 1995 that the first BECs was experimentally realised \cite{BEC:Cornell_science_1995,BEC:Ketterle_prl_1995}.
+Due to their weak interactions, dilute atomic gases are closer to the ideal case discussed by Bose and Einstein. One negative impact, though, were the higher masses of most atoms compared to $^4$He, which required reaching much lower transition temperatures. As such, the use of lighter elements was considered. Spin-polarised hydrogen was one of the first systems to be investigated to create a BEC \cite{BEC:Kleppner_enfe_1998,BEC:Fried_prl_1998,BK:Pitaevskii_Stringari_2003} in the 1970's. Using trapping and cooling techniques available at the time, this type of system came close, but did not quite reach the required temperatures and phase-space densities for Bose--Einstein condensation to occur until over twenty years later \cite{BEC:Fried_prl_1998}. With the advent of laser cooling in the 1980's, the use of alkali atoms was considered partly due to the ease of accessibility of their optical transition frequencies. It was not until 1995 that the first BECs were experimentally realised \cite{BEC:Cornell_science_1995,BEC:Ketterle_prl_1995}.
 
 For a finite number of atoms in a realistic experimental scenario, one can consider the case of a BEC trapped in a harmonic oscillator potential. For this finite-sized sample and inhomogeneous density profile, the transition temperature is given by~\cite{BK:Pitaevskii_Stringari_2003}
 \begin{equation}
@@ -43,11 +43,11 @@ k_BT_c = \frac{\hbar\bar{\omega}N^{1/3}}{\zeta(3)^{1/3}},
 where $\bar{\omega}=(\omega_x\omega_y\omega_z)^{1/3}$ is the geometric mean of the harmonic oscillator frequencies. Critical temperatures for harmonically trapped dilute gases are on the order of nano-Kelvin for experimentally realistic systems.
 
 \subsection{Theoretical description of BECs: Gross--Pitaevskii equation}\label{sub:gpederiv}
-We will, in the following section, outline the derivation of the mean-field Gross--Pitaevskii equation, which is widely used to study the behaviour of condensates in many works cited in this review. Following the \textit{Les Houches 2013 Lecture Course} by J. Walraven \cite{LEC:Walraven_lh_2013} the second quantization form of the many-body Hamiltonian for interacting particles in an external potential is given by
+We will, in the following section, outline the derivation of the mean-field Gross--Pitaevskii equation, which is widely used to study the behaviour of condensates in many works cited in this review. Following the \textit{Les Houches 2013 Lecture Course} by J. Walraven \cite{LEC:Walraven_lh_2013} the second quantized form of the many-body Hamiltonian for interacting particles in an external potential is given by
 \begin{equation}\label{eqn:ham2ndq}
 \hat{\mathcal{H}} = \hat{H_1} + \hat{H_2} = \int \hat{\Psi}^{\dagger} H_0\left(\textbf{r},\textbf{p} \right)  \hat{\Psi} \; d\textbf{r}  + \frac{1}{2} \int\hat{\Psi}^{\dagger}\hat{\Psi}^{\dagger}V_{\textrm{int}}(\textbf{r}^\prime,\textbf{r})\hat{\Psi}\hat{\Psi} \; d\textbf{r}^\prime d\textbf{r},
 \end{equation}
-with $H_0\left(\mathbf{r}, \mathbf{p} \right) = -\frac{\hbar}{2m}\nabla^2 + V_{\textrm{ext}}\left(\mathbf{r}\right)$, and $\mathbf{r} = [x,y,z]$,. The external potential, $V_{\text{ext}}(\mathbf{r})$ is taken as harmonic, of the form
+with $H_0\left(\mathbf{r}, \mathbf{p} \right) = -\frac{\hbar}{2m}\nabla^2 + V_{\textrm{ext}}\left(\mathbf{r}\right)$, and $\mathbf{r} = (x,y,z)$. The external potential, $V_{\text{ext}}(\mathbf{r})$ is taken as harmonic, of the form
 \begin{equation}
 V_{\text{ext}}(\mathbf{r}) = \frac{m}{2}\displaystyle\sum_{i}{\left(\omega_i r_i \right)^2},\end{equation}
 where $\omega_i$ represents the trapping frequency in the $i$-th spatial dimension. The interaction potential, $V_{\text{int}}$ is assumed to be point-like as
@@ -68,18 +68,18 @@ with $a_s$ being the $s$-wave scattering length. Inserting the contact potential
 
 In the Heisenberg picture, the evolution of the system is governed by the equation
 \begin{equation}\label{eqn:heisenberg}
-i\hbar \frac{\partial}{\partial t}\hat{\Psi}_H\left(\mathbf{r}, t\right) = \left[\hat{\Psi}_{H}\left(\mathbf{r}, t\right), \hat{\mathcal{H}}  \right],
+\textrm{i}\hbar \frac{\partial}{\partial t}\hat{\Psi}_H\left(\mathbf{r}, t\right) = \left[\hat{\Psi}_{H}\left(\mathbf{r}, t\right), \hat{\mathcal{H}}  \right],
 \end{equation}
 where the Heisenberg field annihilation operator, $\hat{\Psi}_H\left(\textbf{r}, t\right)$, is given by
 \begin{equation}\label{eqn:psi_heisenberg}
-\hat{\Psi}_H\left(\mathbf{r}, {t} \right) = e^{\frac{i\hat{\mathcal{H}}t}{\hbar}}\hat{\Psi}\left(\mathbf{r}\right) e^{\frac{-i\hat{\mathcal{H}}t}{\hbar}}.
+\hat{\Psi}_H\left(\mathbf{r}, {t} \right) = e^{\frac{\textrm{i}\hat{\mathcal{H}}t}{\hbar}}\hat{\Psi}\left(\mathbf{r}\right) e^{\frac{-\textrm{i}\hat{\mathcal{H}}t}{\hbar}}.
 \end{equation}
 The operator, $\hat{\Psi}_H$, can be interpreted as the one removing an atom from a given state of the system. Therefore, if all $N$ atoms in the system are in the groundstate, $\vert 0_N\rangle$, as would be the case in an ideal condensate, the following relationship holds
 \begin{subequations}
 \begin{align}
-\hat{\Psi}_{H}(\mathbf{r},t)\vert 0_N \rangle &= e^{\frac{iE_0(N-1)t}{\hbar}}\hat{\Psi}(\mathbf{r})e^{\frac{-iE_0(N)t}{\hbar}}\vert 0_N \rangle \\
-&= \hat{\Psi}(\mathbf{r})e^{\frac{i[E_0(N-1) - E_0(N)]t}{\hbar}} \vert 0_N \rangle \\
-&= \hat{\Psi}(\mathbf{r})e^{\frac{-i\mu t}{\hbar}} \vert 0_N \rangle,\label{eqn:psi_dagger_time} %\label{eqn:stationary_soln}
+\hat{\Psi}_{H}(\mathbf{r},t)\vert 0_N \rangle &= e^{\frac{\textrm{i}E_0(N-1)t}{\hbar}}\hat{\Psi}(\mathbf{r})e^{\frac{-\textrm{i}E_0(N)t}{\hbar}}\vert 0_N \rangle \\
+&= \hat{\Psi}(\mathbf{r})e^{\frac{\textrm{i}[E_0(N-1) - E_0(N)]t}{\hbar}} \vert 0_N \rangle \\
+&= \hat{\Psi}(\mathbf{r})e^{\frac{-\textrm{i}\mu t}{\hbar}} \vert 0_N \rangle,\label{eqn:psi_dagger_time} %\label{eqn:stationary_soln}
 \end{align}
 \end{subequations}
 
@@ -96,7 +96,7 @@ and noting the following relations
 \end{align}
 upon substitution of Eq.~\eqref{eqn:psi_dagger_time} into Eq.~\eqref{eqn:heisenberg}, it can be rewritten as
 \begin{equation}\label{eqn:almost_gpe}
-    i \hbar \partial_t \left( \hat{\Psi}(\mathbf{r}) e^{-\frac{i\mu t}{\hbar}} \right) = H \hat{\Psi}(\mathbf{r}) e^{-\frac{i\mu t}{\hbar}}
+    \textrm{i} \hbar \partial_t \left( \hat{\Psi}(\mathbf{r}) e^{-\frac{\textrm{i}\mu t}{\hbar}} \right) = H \hat{\Psi}(\mathbf{r}) e^{-\frac{\textrm{i}\mu t}{\hbar}}
 \end{equation}
 with
 %\begin{equation}\label{eqn:h_many}
@@ -109,15 +109,15 @@ Due to the macroscopic occupation of the lowest lying single-particle state, $\h
 \begin{equation}\label{eqn:gpe_fluc}
     \hat{\Psi} = \Psi + \delta\hat{\Psi},
 \end{equation}
-where $\Psi = \langle \hat{\Psi} \rangle$ is the expectation value of the condensate wavefunction. $\Psi$ takes the form of a classical field, and can be used to model the behaviour of the condensate, provided the number of atoms is sufficiently large ($N>10^3$ for most experimental set-ups) and the correlations are not too strong i.e. the gas is dilute. Substituting Eq.~\eqref{eqn:gpe_fluc} into \eqref{eqn:ham2ndq}, and noting that the groundstate is macroscopically occupied, terms that are quadratic in $\delta \hat{\Psi}$ will be small and can be safely neglected. Assuming a zero-temperature condensate, the number of uncondensed atoms will be zero, and thus we can safely ignore all terms linear in $\delta\hat{\Psi}$. The above procedure gives the time dependent mean-field Gross--Pitaevskii equation (GPE) as
+where $\Psi = \langle \hat{\Psi} \rangle$ is the expectation value of the condensate wavefunction. $\Psi$ takes the form of a classical field, and can be used to model the behaviour of the condensate, provided the number of atoms is sufficiently large ($N>10^3$ for most experimental set-ups) and the correlations are not too strong i.e. the gas is dilute. By substituting Eq.~\eqref{eqn:gpe_fluc} into \eqref{eqn:ham2ndq}, and assuming a condensate at $T=0$~K, the number of uncondensed atoms will be zero, and thus we can safely ignore all terms in $\delta\hat{\Psi}$ and $\delta\hat{\Psi}^{\dagger}$. The above procedure gives the time dependent mean-field Gross--Pitaevskii equation (GPE) as
 \begin{equation}\label{eqn:gpe}
-i\hbar\frac{\partial}{\partial t}\Psi(\mathbf{r},t) = H_{\textrm{GP}} \Psi(\textbf{r},t),
+\textrm{i}\hbar\frac{\partial}{\partial t}\Psi(\mathbf{r},t) = H_{\textrm{GP}} \Psi(\textbf{r},t),
 \end{equation}
 with the nonlinear GPE Hamiltonian,
 \begin{equation}\label{eqn:h_gp}
 H_{\textrm{GP}} = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\textbf{r}) + g\vert\Psi(\mathbf{r},t)\vert^2 \right],
 \end{equation}
-where $\Psi(\textbf{r},t) = \Psi(\textbf{r})e^{-\frac{i\mu t}{\hbar}}$.
+where $\Psi(\textbf{r},t) = \Psi(\textbf{r})e^{-\frac{\textrm{i}\mu t}{\hbar}}$.
  The time independent form can be found by evaluating the left-hand side derivative in \eqref{eqn:gpe} and dividing across by $e^{-\frac{i\mu t}{\hbar}}$, yielding
 \begin{equation}
 \mu\Psi(\mathbf{r}) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}) + g\vert\Psi(\mathbf{r})\vert^2 \right]\Psi(\mathbf{r}),
@@ -140,7 +140,7 @@ ${a} = \sqrt{{\hbar}/{m\bar{\omega}}}$, and \[\bar{\omega} = \left(\displaystyle
 
 To investigate condensate dynamics, it is convenient to consider rotation of the condensate about an axis. For such a rotating condensate, an additional term appears in the GPE Hamiltonian, $-\Omega\cdot \mathbf{L}$, where $\Omega$ is the angular rotation frequency, and $\mathbf{L}$ is the angular momentum operator. Assuming rotation about a single axis, the longitudinal direction $z$, $L$ can be replaced with $L_z$, giving the form of the GPE in the co-rotating frame as
 \begin{equation}\label{eqn:gpe_rotation}
-i\hbar\frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 - \Omega L_z  \right]\Psi(\mathbf{r},t).
+\textrm{i}\hbar\frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}) + g\vert\Psi(\textbf{r},t)\vert^2 - \Omega L_z  \right]\Psi(\mathbf{r},t).
 \end{equation}
 Within the Thomas-Fermi approximation, it is possible to determine analytical results for the profile of the BEC, and compare with exact results from numerically integrating the full GPE. However, in the case of a rotating condensate to solve the above form of the Gross--Pitaevskii equation will require numerical integration as the kinetic energy term can no longer be neglected.
 
@@ -148,22 +148,22 @@ Within the Thomas-Fermi approximation, it is possible to determine analytical re
 \label{sec:bogo}
 While the Gross--Pitaevskii equation captures the rich array of dynamics exhibited by a condensate system, it is often necessary to examine the stability of its solutions. The previously neglected small quantum fluctuations (see Eq.~\eqref{eqn:gpe_fluc}) can be included by writing them as a combination of counterpropagating waves as
 \begin{equation}
-    \delta\hat{\Psi} = e^{\frac{-i\mu t}{\hbar}}[u(\mathbf{r})e^{-it\omega} + v^{*}(\mathbf{r})e^{it\omega}].
+    \delta\hat{\Psi} = e^{\frac{-\textrm{i}\mu t}{\hbar}}[u(\mathbf{r})e^{-\textrm{i}t\omega} + v^{*}(\mathbf{r})e^{it\omega}].
 \end{equation}
 From this expression, the wavefunction \eqref{eqn:gpe_fluc} can be written as
 \begin{equation}\label{eqn:bogo_psi}
-\Psi(\mathbf{r},t) = e^{\frac{-i\mu t}{\hbar}}\left[\Psi_0(\mathbf{r}) + u(\mathbf{r})e^{-it\omega} + v^{*}(\mathbf{r})e^{it\omega} \right],
+\Psi(\mathbf{r},t) = e^{\frac{-\textrm{i}\mu t}{\hbar}}\left[\Psi_0(\mathbf{r}) + u(\mathbf{r})e^{-\textrm{i}t\omega} + v^{*}(\mathbf{r})e^{\textrm{i}t\omega} \right],
 \end{equation}
 where $\Psi_0(\mathbf{r})$ is the stationary state solution. Firstly, we calculate the time-derivative of Eq.~\eqref{eqn:bogo_psi}, which after simplification becomes
 \begin{equation}\label{eqn:bogo_lhs}
-    i\hbar\partial_t \Psi(t) = e^{\frac{-i\mu t}{\hbar}}\left[\mu\Psi_0 + (\mu+\hbar\omega)ue^{-it\omega} + (\mu-\hbar\omega)v^{*}e^{it\omega} \right],
+    \textrm{i}\hbar\partial_t \Psi(t) = e^{\frac{-\textrm{i}\mu t}{\hbar}}\left[\mu\Psi_0 + (\mu+\hbar\omega)ue^{-\textrm{i}t\omega} + (\mu-\hbar\omega)v^{*}e^{\textrm{i}t\omega} \right],
 \end{equation}
 where the dependence on $\mathbf{r}$ is dropped for notational simplicity. Next, the nonlinear interaction term is given as
 \begin{subequations}
 \begin{align}\label{eqn:bogo_nonlin}
     g|\Psi|^2\Psi &= g\Psi^{*}\Psi\Psi \\
-    &= g e^{\frac{-i\mu t}{\hbar}}(\Psi_0^{*} + u^{*}e^{it\omega} + ve^{-it\omega})\\ &~~~~~~\times (\Psi_0 + u e^{-it\omega} + v^{*} e^{it\omega})^2, \nonumber \\
-    & \approx g e^{\frac{-i\mu t}{\hbar}}[|\Psi_0|^2(\Psi_0 + 2(u e^{-it\omega} + v^{*} e^{it\omega} )) \\ &~~~~~~+ \Psi_0^2( u^{*} e^{it\omega} + v e^{-it\omega})]. \nonumber
+    &= g e^{\frac{-\textrm{i}\mu t}{\hbar}}(\Psi_0^{*} + u^{*}e^{\textrm{i}t\omega} + ve^{-\textrm{i}t\omega})\\ &~~~~~~\times (\Psi_0 + u e^{-\textrm{i}t\omega} + v^{*} e^{\textrm{i}t\omega})^2, \nonumber \\
+    & \approx g e^{\frac{-\textrm{i}\mu t}{\hbar}}[|\Psi_0|^2(\Psi_0 + 2(u e^{-\textrm{i}t\omega} + v^{*} e^{\textrm{i}t\omega} )) \\ &~~~~~~+ \Psi_0^2( u^{*} e^{\textrm{i}t\omega} + v e^{-\textrm{i}t\omega})]. \nonumber
 \end{align}
 \end{subequations}
 with the resulting equations linearised in terms of $u$ and $v$. Plugging these terms into the GPE yields the Bogoliubov-de Gennes (BdG) equations,

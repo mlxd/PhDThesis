@@ -56,7 +56,7 @@ This respective stability and dynamical behaviour can be understood by examining
 
 \begin{figure}\centering
     %\includegraphics[width=0.95\textwidth]{Images/ch4_vtx/velocity/vel_axis_png}
-    \includegraphics[width=0.95\textwidth]{Images/ch4_vtx/velocity/vel}
+    \includegraphics[width=0.95\textwidth]{Images/ch4_vtx/velocity/vel.png}
     \caption{Magnitude of the velocity field for small numbers of like-signed vortices in a condensate. The velocity field can be seen to become singular at the centre, which here has its magnitude capped at a lower value than Figs.~\ref{fig:vel_field} and~\ref{fig:vel_pm} to aid visibility. Regions of minimal velocity are seen, wherein the opposing field lines compensate one another.}
     \label{fig:vel_pm_contour}
 \end{figure}
@@ -76,7 +76,7 @@ For the work to follow we assume a standard single component Bose--Einstein cond
 	H_{\mathrm{GP}} = -\frac{\hbar^2}{2m}\nabla^2 + \frac{1}{2}m\omega_{\perp}^2\mathbf{r}^2 + g_{2D}\vert\Psi(\mathbf{r},t)\vert^2 - \Omega_z L_z.
 \end{equation}
 
-Here the two-dimensional effective interaction strength $g_{2D}$ as given by Eq.~\eqref{eqn:g2d_efint}, assuming the value of $\omega_z=2\pi\times 16$ Hz, becomes
+Here, we define the two-dimensional effective interaction strength $g_{2D}$ given by Eq.~\eqref{eqn:g2d_efint}, as
 \begin{equation}
 g_{2D} = g\sqrt{\frac{m\omega_z}{2\pi\hbar}} = 4g \sqrt{\frac{m}{\hbar}}.
 \end{equation}
@@ -96,20 +96,20 @@ The resulting changes to the GPE are then given by
     i\hbar\partial_t \Psi =
     \left(\frac{1}{2m}(-i\hbar\nabla - m\boldsymbol{\Omega}\times\mathbf{r})^2 + \frac{m}{2}(\omega_\perp - \Omega)^2{r}^2 + g_{2D}|\Psi|^2 \right)\Psi.
 \end{equation}
-The above Hamiltonian rises from the equivalence between a rotating condensate and that of a non-relativistic charged particle in a magnetic field \cite{Vtx:Mueller_prl_2002}.
+The above Hamiltonian arises from the correspondence between a rotating condensate and that of a non-relativistic charged particle in a magnetic field~\cite{Vtx:Mueller_prl_2002}.
 %\begin{equation}
 %     H_L = \frac{1}{2m}\left(-i\hbar \nabla  - q\mathbf{A}\right)^2 + q\phi
 %\end{equation}
 %where $q$ is the particle charge, $\mathbf{A}$ is the respective gauge potential, and $\phi$ the respective scalar potential.
 One can see that when the rotation and trapping frequencies equal, the condensate no longer sees a confining potential, due to the centrifugal force experienced, given by the term $-m\Omega_z^2r^2/2$, resulting in an untrapped system.
 
-As stated earlier in Sec.~\ref{sec:sec2_vtxlatt} as $\Omega_z$ approaches $\omega_\perp$, the use of mean-field theory becomes less justified, as the system enters a strongly correlated regime. If the filling fraction $\nu$ is in the range of $10 \leq \nu \leq 1000$, the system enters the so-called ``mean-field quantum Hall'' regime, where the Gross--Pitaevskii theory is still working well. The regime exists up to an upper limit frequency of $\Omega_z = 0.995\omega_\perp$, so that we can work with systems that have a very large vortex lattice, and are still described by mean-field theory \cite{BEC:Fetter_revmodphys_2009}.
+As stated earlier in Sec.~\ref{sec:sec2_vtxlatt} as $\Omega_z$ approaches $\omega_\perp$, the use of mean-field theory becomes less justified, and the system enters a strongly correlated regime. If the filling fraction $\nu$ is in the range of $10 \leq \nu \leq 1000$, the system enters the ``mean-field quantum Hall'' regime, where the Gross--Pitaevskii theory is still working well. The regime exists up to an upper limit frequency of $\Omega_z = 0.995\omega_\perp$, so that we can work with systems that have a very large vortex lattice, and are still described by mean-field theory \cite{BEC:Fetter_revmodphys_2009}.
 
-In the following we will numerically solve Eq.~\eqref{eqn:gpe2d_}, using the pseudospectral Fourier split operator method and making use of GPU computing as described in Sec.~\ref{sec:GPUE}. For realistic experimental parameters we assume  $N\approx 10^6$ atoms of $^{87}$Rb, with an $s$-wave scattering length of $a_s=4.76\times10^{-9}$ m~\cite{AO:Roberts_prl_1998}. The numerically evaluated ground-state for the given set of parameters is shown previously in Fig.~\ref{fig:showingoff} with a radius of approximately $3.5\times 10^{-4}$ m. For these parameters, the number of vortices within the visible density region is approximately 600, giving a filling factor of $\nu \approx 800 $. This places the system within the mean-field quantum Hall regime, and therefore a description using Gross--Pitaevskii theory is adequate~\cite{Vtx:Schweikhard_prl_2004}.
+In the following we will numerically solve Eq.~\eqref{eqn:gpe2d_}, using the pseudospectral Fourier split operator method and making use of GPU computing as described in Sec.~\ref{sec:GPUE}. For realistic experimental parameters we assume  $N\approx 10^6$ atoms of $^{87}$Rb, with an $s$-wave scattering length of $a_s=4.76\times10^{-9}$ m~\cite{AO:Roberts_prl_1998}. The numerically evaluated ground-state for the given set of parameters is shown previously in Fig.~\ref{fig:showingoff} and has a radius of approximately $3.5\times 10^{-4}$ m. For these parameters, the number of vortices within the visible density region is approximately 600, giving a filling factor of $\nu \approx 800 $. This places the system within the mean-field quantum Hall regime, and therefore a description using Gross--Pitaevskii theory is adequate~\cite{Vtx:Schweikhard_prl_2004}.
 
 Following an imaginary time-evolution as outlined in Sec.~\ref{sec:timeev}, we first find the groundstate of the condensate in a harmonic potential, starting with a condensate without vortices. We then linearly ramp the rotation frequency to avoid the lattice disordering issue discussed in Sec.~\ref{ss:ang_mom_fso}. This allows us to follow the groundstate solution at all times while the rotation frequency is increased, which has the added advantage of returning a groundstate solution for any required rotation frequency. Examples of several states obtained during a single simulation are given in Fig.~\ref{fig:inc_omega}. The previously discussed resolution considerations become apparent as the rotation rate is increased for both the position and momentum space representations of the wavefunction. A movie of the wavefunction density is available at the following URL~\cite{YT:BEC_gen}, in which the frequency is ramped from $\Omega/\omega_\perp = 0.39 \to 0.995$.
 
-The rapidly rotating vortex lattice is known to exhibit solid-body-like rotation \cite{Vtx:AboShaeer_sci_2001}. This can be seen in Fig.~\ref{fig:solidbody}, where the coarse-grained flow of the velocity field increases as a function of the distance from the lattice centre. This rigid-body behaviour allows us to treat the lattice as a solid object. Recalling the Feynman relation for vortex density Eq.~\eqref{eqn:feynman}, $n_v = m\Omega/(\pi\hbar)$, we choose an area over which the lattice spacing is almost constant and vortex density closely matches this relation. For the above system parameters, this is fulfilled by a hard-walled radial boundary of $r=2\times 10^{-4}$ m, in which the number of vortices are calculated to being $n_v \approx 342$. Employing the vortex detection and tracking methods described in Sec.~\ref{sec:vortrack}, within the same region gives $n_v = 341$ vortices, with a lattice spacing of $a_v \approx 2.1\times 10^{-5}$ m, and with a standard deviation of $\sigma \approx 2.7 \times 10^{-7}$ m. These values indicate that within this region the lattice is well ordered. While the condensate has more vortices outside this boundary that are initially ordered, during time evolution many of these move more easily due to the large velocity fields closer to the edges. The above boundary gives a well ordered lattice that remains well ordered for seconds of time evolution.
+The rapidly rotating vortex lattice is known to exhibit solid-body-like rotation \cite{Vtx:AboShaeer_sci_2001}. This can be seen in Fig.~\ref{fig:solidbody}, where the coarse-grained flow of the velocity field increases as a function of the distance from the lattice centre. This rigid-body behaviour allows us to treat the lattice as a solid object. Recalling the Feynman relation for vortex density Eq.~\eqref{eqn:feynman}, $n_v = m\Omega/(\pi\hbar)$, we choose an area over which the lattice spacing is almost constant and the vortex density closely matches this relation. In this regime the vortices close to the centre will have an almost uniform profile~\cite{VTX:Watanabe_pra_2006}; for the above system parameters this is fulfilled by a hard-walled radial boundary of $r=2\times 10^{-4}$ m, in which the number of vortices are calculated to being $n_v \approx 342$. Employing the vortex detection and tracking methods described in Sec.~\ref{sec:vortrack}, within the same region gives $n_v = 341$ vortices, with a lattice spacing of $a_v \approx 2.1\times 10^{-5}$ m, and with a standard deviation of $\sigma \approx 2.7 \times 10^{-7}$ m. These values indicate that within this region the lattice is well ordered. While the condensate has more vortices outside this boundary that are initially ordered, during time evolution many of these move more easily due to the large velocity fields closer to the edges. The above boundary gives a well ordered lattice that remains well ordered for several seconds of time evolution.
 
 \begin{figure}\centering
     \includegraphics[width=0.85\textwidth]{Images/ch4_vtx/ramp_omega_2.pdf}
@@ -124,7 +124,7 @@ The rapidly rotating vortex lattice is known to exhibit solid-body-like rotation
     \label{fig:solidbody}
 \end{figure}
 
-If, however, the linear ramp is performed too quickly, or an initial state is chosen that already contains a large amount of angular momentum without being the eigenstate, the vortices tend to enter from the boundary all at once, and fail to converge to the well ordered groundstate. An example of this such issue is given by Fig.~\ref{fig:malformed_lattice}, and indicates the need for a slow ramp of $\Omega$ that is essentially adiabatic in imaginary time. As higher rotation frequencies are reached, the rate at which vortices enter the condensate increases rapidly. While the rapid entry of vortices was a problem for reaching an ordered lattice without a ramp of rotation frequency, the presence of an existing lattice during ramping allows all newly entered vortices to order more easily. Therefore, a linear ramp is effective and does not require a more complex scaling.
+If, however, the linear ramp is performed too quickly, or an initial state is chosen that already contains a large amount of angular momentum without being the eigenstate, the vortices tend to enter from the boundary all at once, and fail to converge to the well ordered groundstate. An example of this such issue is shown in Fig.~\ref{fig:malformed_lattice}, and indicates the need for a slow ramp of $\Omega$ that is essentially adiabatic in imaginary time. As higher rotation frequencies are reached, the rate at which vortices enter the condensate increases rapidly. While the rapid entry of vortices was a problem for reaching an ordered lattice without a ramp of rotation frequency, the presence of an existing lattice during ramping allows all newly entered vortices to order more easily. Therefore, a linear ramp is effective and does not require a more complex scaling.
 
 \begin{figure}
     \centering
@@ -148,12 +148,12 @@ With the model system outlined in Sec.~\ref{sec:modelsystem}, we will now imagin
 The resulting effect on the wavefunction can be given as
 \begin{subequations}
 \begin{align}
-    \Psi(t=0) &= |\Psi(t=0)|e^{i\theta_0} \\
-    \Psi(t) &= \Psi(t=0) e^{-\frac{\textrm{i} V_{\textrm{ext}} \Delta t}{\hbar}} \\
+    \Psi(t=0) &= |\Psi(t=0)|e^{\textrm{i}\theta_0} \\
+    \Psi(t) &= \Psi(t=0) e^{ - \textrm{i} \frac{ V_{\textrm{ext}} \Delta t}{\hbar}} \\
             &= |\Psi(t=0)| e^{\textrm{i}\left(\theta_0 - \frac{V_{\textrm{ext}} \Delta t}{\hbar}\right)} \nonumber
 \end{align}
 \end{subequations}
-where we have made use of Eq.~\eqref{eqn:madelung}. After application of $V_{\textrm{ext}}$ the wavefunction phase can be described as
+where we have made use of Eq.~\eqref{eqn:madelung}. After application of $V_{\textrm{ext}}$ the wavefunction phase is given by
 \begin{equation}
     \theta^{'} = \theta_0 - \frac{E_{\textrm{ext}} \Delta t}{\hbar},
 \end{equation}
@@ -161,7 +161,7 @@ where $E_{\textrm{ext}}$ is the perturbance energy. One commonly used method to 
 \begin{equation}
     \mathbf{E}(\mathbf{r},t) = \varepsilon_0 e^{\textrm{i}\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)} + \ \varepsilon_0^{*} e^{-\textrm{i}\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)},
 \end{equation}
-where $\varepsilon_0$ is the field amplitude. Using the dipole approximation, the interaction of an atom with a laser field can be given as~\cite{BK:Foot_2005}
+where $\varepsilon_0$ is the field amplitude. Using the dipole approximation, the interaction of an atom with a laser field is given by~\cite{BK:Foot_2005}
 \begin{equation}
 \mathcal{V} = -{\mathbf{d}}\cdot {\mathbf{E}},
 \end{equation}
@@ -170,7 +170,7 @@ where ${\mathbf{d}}$ is the electric dipole moment operator. For a two level ato
 \mathbf{d} &= \langle g|\mathbf{d}|e \rangle | g \rangle \langle e | + \langle e|\mathbf{d}|g \rangle | e \rangle \langle g | \nonumber \\
 &= \boldsymbol{\mu}_{eg} | g \rangle \langle e | + \boldsymbol{\mu}_{eg}^{*} | e \rangle \langle g |,
 \end{align}
-as $\langle g|\mathbf{d}|g \rangle = \langle e|\mathbf{d}|e \rangle  = 0$ , since the atoms have no permanent dipole moment. From Eq.~\eqref{eqn:dipole_approx} the Hamiltonian of the two-level system can be written as
+where we have made use of $\langle g|\mathbf{d}|g \rangle = \langle e|\mathbf{d}|e \rangle  = 0$, since the atoms have no permanent dipole moment. From Eq.~\eqref{eqn:dipole_approx} the Hamiltonian of the two-level system can then be written as
 \begin{align}
     H &= \hbar\omega_0 |e\rangle\langle e |  - \mathcal{V} \nonumber \\
       &=  \hbar\omega_0 |e\rangle\langle e | - (\boldsymbol{\mu}_{eg} | g \rangle \langle e | + \boldsymbol{\mu}_{eg}^{*} | e \rangle \langle g |)\cdot ( \varepsilon_0 e^{\textrm{i}\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)} +  \varepsilon_0^{*} e^{-\textrm{i}\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)}).
@@ -195,7 +195,7 @@ which is known as the dipole force. Assuming counter propagating plane waves, we
 \begin{equation}
     V_{\textrm{ext}} \approx -\frac{\Omega_0^2(\mathbf{r})}{4\Delta}  = V_0 \cos^2 (\mathbf{k} \cdot \mathbf{r}),
 \end{equation}
-where $V_0 = -\Omega_0^2/4\Delta$ is the field intensity, and $\Omega_0 \propto |\varepsilon_0|^2$ is the Rabi-frequency of the standing wave. The optical potential forms a highly periodic system given an appropriately chosen $\mathbf{k}$, and is known as an \textit{optical lattice}. Optical lattices have become very common in BEC systems, having extensive theoretical study, and with experimental control being very highly developed \cite{OL:Greiner_nat_2002,OL:Reijnders_prl_2004,OL:Sorensen_prl_2005,Vtx:Tung_prl_2006,Vtx:Vignolo_pra_2007}.
+where $V_0 = -\Omega_0^2/4\Delta$ is the field intensity, and $\Omega_0 \propto |\varepsilon_0|^2$ is the Rabi-frequency of the standing wave. The optical potential forms a highly periodic system given an appropriately chosen $\mathbf{k}$, and is known as an \textit{optical lattice}. Optical lattices have become very common in BEC experiments as they allow for control of the kinetic energy term of the atoms to a very high degree~\cite{OL:Greiner_nat_2002,OL:Reijnders_prl_2004,OL:Sorensen_prl_2005,Vtx:Tung_prl_2006,Vtx:Vignolo_pra_2007,BEC:Watanabe_entropy_2016}.
 
 %The optical lattice potential can be used to create one, two, or three-dimensional periodic trapping structures.
 %\todo[inline]{Add full optical potential including polarisation terms}
@@ -236,18 +236,18 @@ where $k_0 = 4\pi/(\sqrt(3)a_\text{O})$, and $a_\text{O}$ is the lattice spacing
 \subsection{Direct phase manipulation}\label{sec:phase}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-While groundstate condensates will have a flat phase across the system, there are two interesting examples where a spatially dependent phase exists: dark solitons~\cite{BEC:Denschlag_science_2000} and vortices~\cite{Vtx:Dobrek_pra_1999}. We have previously discussed the $2\pi$ phase profile of a vortex that leads to the singularities in the wavefunction. In contrast, dark solitons feature a $\pi$ phase jump profile. These excitations are unstable in dimensions higher than one, and will decay via the snake instability to paired vortices and antivortices~\cite{BEC:Brand_pra_2002}. Where so far we have only considered the short-term evolution of the wavefunction after being kicked by an optical potential, we will in the following consider what structures can be created in the condensate by careful phase manipulation techniques, besides the above discussed dark solitons and vortices.
+While groundstate condensates will have a flat phase across the system, there are two interesting examples where a spatially dependent phase exists: dark solitons~\cite{BEC:Denschlag_science_2000} and vortices~\cite{Vtx:Dobrek_pra_1999}. We have previously discussed the $2\pi$ phase profile of a vortex that leads to the singularities in the wavefunction. In contrast, dark solitons feature a $\pi$ phase jump profile. These excitations are unstable in dimensions higher than one, and will decay via the snake instability to paired vortices and antivortices~\cite{BEC:Brand_pra_2002}. Where so far we have only considered the short-term evolution of the wavefunction after being kicked by an optical potential, we will in the following consider what structures can be created in the condensate by careful phase manipulation techniques, besides dark solitons and vortices.
 
-For the following discussion, we will assume the BECs allow for the application of potentials that are short enough to only affect the phase, and discuss direct manipulation of the wavefunction, as opposed to modification of the Hamiltonian. Following \cite{BK:Pitaevskii_Stringari_2003} and taking Eq.~\eqref{eqn:madelung}, the phase of the condensate may be specified as
+For this we will assume the BEC allows for a short enough application of potentials so that only the phase is affected, and discuss direct manipulation of the wavefunction, as opposed to modification of the Hamiltonian. Following \cite{BK:Pitaevskii_Stringari_2003} and taking Eq.~\eqref{eqn:madelung}, the phase of the condensate can then be written as
 \begin{equation}
 \theta = \theta_0 + \theta_i,
 \end{equation}
 
 where $\theta_0$ is the unperturbed condensate phase, and $\theta_i$ is the phase pattern to be imprinted. Upon solving for the initial condensate groundstate with deterministic phase, an additional phase pattern can be imprinted at any time by simply multiplying the wavefunction by $e^{\text{i}\theta_i}$. However, without careful choice of the phase terms their addition can lead to unwanted dynamics, so care must be taken to choose a well defined initial and imprinted phase pattern.
 
-The advantage of the phase imprinting model is that for topological defects, one can imprint the required winding instantaneously, allowing them to appear at predefined positions. The density also needs to only adjust itself locally to the phase singularity, with the remaining condensate seeing an almost constant shift in phase. The creation of vortices through application of localised $\pm 2\pi$ phase winding defects in the condensate therefore allows for direct control of the angular momentum and vorticity within the BEC. Given the rapid change of the phase, and hence the kinetic energy of the condensate, the appearance of phonons is expected following the imprint. While discussed in the literature for the creation of vortices, it is worth noting that the phase imprinting method can also be used to annihilate a vortex from the condensate by applying a phase profile of opposite winding, removing the singularity. This will leave the condensate with a density depletion at the prior location of the phase singularity. Without the phase singularity this depletion will fill in and excite phonon modes in the condensate during time evolution. This process will form the basis for further discussions and analysis of vortex carrying condensates.
+The advantage of the phase imprinting model is that for topological defects, one can imprint the required winding instantaneously, allowing them to appear at predefined positions. The density also needs to only adjust itself locally to the phase singularity, with the remaining condensate seeing an almost constant shift in phase. The creation of vortices through application of localised $\pm 2\pi$ phase winding defects in the condensate therefore allows for direct control of the angular momentum and vorticity within the BEC. While discussed in the literature for the creation of vortices, it is worth noting that the phase imprinting method can also be used to annihilate a vortex from the condensate by applying a phase profile of opposite winding, removing the singularity. This will leave the condensate with a density depletion at the prior location of the phase singularity. Without the phase singularity this depletion will fill in and excite phonon modes in the condensate during time evolution. This process will form the basis for further discussions and analysis of vortex carrying condensates.
 
-Experimental realisation of arbitrary potential patterns to achieve the required phase landscape control is accessible through the use of spatial light modulators (SLM)~\cite{VTX:Moulder_pra_2012}. These devices behave as digital displays, through which visual patterns can be expressed in a time dependent manner, allowing the application of a laser field in the required form. We will assume for all future discussions that the potentials we require are experimentally realisable with sufficient resolution, and focus on the resulting effect on the condensate. For the creation of a single vortex the $2\pi$ phase winding pattern can be created spatially using the two-argument four-quadrant form of $\arctan$ as given by
+Experimental realisation of arbitrary potential patterns to achieve the required phase is accessible through the use of spatial light modulators (SLM)~\cite{VTX:Moulder_pra_2012}. These devices behave as digital displays, through which visual patterns can be expressed in a time dependent manner, allowing the application of a laser field in the required form. We will assume for all future discussions that the potentials we require are experimentally realisable with sufficient resolution, and focus on the resulting effect on the condensate. For the creation of a single vortex the $2\pi$ phase winding pattern can be created spatially using the two-argument four-quadrant form of $\arctan$ as given by
 \begin{equation}
     \theta_i(\mathbf{x},\mathbf{y};x_0,y_0) = \arctan(\mathbf{y}-y_0,\mathbf{x}-x_0),
 \end{equation}
@@ -262,22 +262,21 @@ which locates the singularity at the position $\left(x_0,y_0\right)$. The result
     \caption{$2\pi$ phase winding shown for a single (left) and three separated (right) phase singularities. The application of separate phase singularities can be treated as summing each individual phase profile, $\left(\displaystyle\sum\limits_i \theta_i \right)\mod 2\pi$. Note that the resolution used in the numerical examples is much higher than can be obtained from currently available SLMs.}\label{fig:atan2phase}
 \end{figure}
 
-This process will create phonons in the condensate density following the imprint that will radiate outwards from the singularity imprint during time evolution. As imprinting is directly controlling the condensate phase, it can also be considered a direct manipulation of the kinetic energy since the superfluid velocity depends on the phase gradient (see Eq.~\eqref{eqn:velocity}). This, in reverse, means that by applying spatially inhomogeneous phase profiles the atomic velocity can be adjusted to different values in different regions of the condensate. A simple example we will consider is that of the application of a Gaussian phase profile to the condensate, of the form
-
+This process will create phonons in the condensate density following the imprint that will radiate outwards from the singularity imprint. As imprinting is directly controlling the condensate phase, it can also be considered a direct manipulation of the kinetic energy since the superfluid velocity depends on the phase gradient (see Eq.~\eqref{eqn:velocity}). This, in reverse, means that by applying spatially inhomogeneous phase profiles the atomic velocity can be adjusted to different values in different regions of the condensate. To demonstrate this we consider a simple example of a Gaussian phase profile applied to the condensate. The imprinted profiles has the form
 \begin{equation}
-    \theta_{i}(\mathbf{r}) = A\exp\left( -\frac{ |\mathbf{r}-\mathbf{r}_0|^2 }{2\sigma^2 } \right) \mod 2\pi
+    \theta_{i}(\mathbf{r}) = A\exp\left( -\frac{ |\mathbf{r}-\mathbf{r}_0|^2 }{2\sigma^2 } \right) \mod 2\pi,
 \end{equation}
-with $A$ as the phase profile amplitude, $\mathbf{r}_0$ as the centre of the Gaussian curve, and $\sigma$ adjusted to match the condensate width. The modulo $2\pi$ ensures that the phase wraps around for amplitudes exceeding the $(0,2\pi)$ range. The Gaussian profile has large radial gradients in two-dimensions, so that an imprint on the condensate should lead to radial velocities and therefore an expansion or contraction of the cloud (see Fig.~\ref{fig:gaussian}). This can be expected to lead to interference fringes, as the faster moving atoms have the possibility to overtake the slower ones for sufficiently large amplitudes~\cite{BEC:Busch_pra_2002}. In Fig.~\ref{fig:gaussian_wfc}, where a slice through the condensate centre is given for both position and momentum space, this can be clearly seen.
+where $A$ is the phase profile amplitude, $\mathbf{r}_0$ is the centre of the Gaussian curve, and $\sigma$ is adjusted to match the condensate width. The modulo $2\pi$ ensures that the phase wraps around for amplitudes exceeding the $(0,2\pi)$ range. The Gaussian profile has large radial gradients in two-dimensions, so that an imprint on the condensate should lead to radial velocities and therefore an expansion or contraction of the cloud (see Fig.~\ref{fig:gaussian}). This can be expected to lead to interference fringes, as the faster moving atoms have the possibility to overtake the slower ones for sufficiently large amplitudes~\cite{BEC:Busch_pra_2002}. In Fig.~\ref{fig:gaussian_wfc}, where a slice through the condensate centre is given for both position and momentum space, this can be clearly seen.
 
 \begin{figure}\centering
     \includegraphics[width=0.95\textwidth]{Images/ch4_vtx/velocity/gaussian_imprint}
-    \caption{Velocity fields and magnitude (left) and phase (right) for a condensate directly following a Gaussian phase imprint. The length of the arrows give the magnitude of the respective velocity components, with the color map indicating this also for clarity. The sign of the imprint changes the direction of the respective kinetic components, with a positive imprint initially creating a density contraction (top), and negative creating an expansion (bottom), with the arrows indicating the direction of the flow.}\label{fig:gaussian}
+    \caption{Velocity fields and magnitude (left) and phase (right) for a condensate directly following a Gaussian phase imprint. The lengths of the arrows give the magnitude of the respective velocity components, with the color map indicating this also for clarity. The sign of the imprint changes the direction of the respective kinetic components, with a positive imprint initially creating a density contraction (top), and negative creating an expansion (bottom), with the arrows indicating the direction of the flow.}\label{fig:gaussian}
 \end{figure}
 
 \begin{figure}\centering
     \includegraphics[width=0.95\textwidth]{Images/ch4_vtx/gaussian_imprint_B}
     %\includegraphics[width=0.95\textwidth]{Images/ch4_vtx/velocity/gaussian_imprint_wfck}
-    \caption{A cut through the condensate wavefunction density following the phase imprinting of a Gaussian with amplitude $A=\pm(2\pi,6\pi,10\pi)$. The positive imprints create an initial contraction of the cloud (top), with the negative imprints creating expansion (bottom). For the larger kicking strengths interference fringes can be observed during expansion and contractions.}.\label{fig:gaussian_wfc}
+    \caption{A cut through the condensate wavefunction density following the phase imprinting of a Gaussian with amplitudes $A=\pm ( 2\pi, 6\pi, 10\pi)$. The positive imprints create an initial contraction of the cloud (top), while the negative imprints lead to expansion (bottom). For the larger kicking strengths interference fringes can be observed during expansion and contractions.}\label{fig:gaussian_wfc}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -329,7 +328,7 @@ which after taking note of Eq.~\eqref{eqn:kin_en} gives
 \end{align}
 
 This decomposition separates the energy contribution from phonons and vortex cores, represented by compressible and incompressible terms respectively~\cite{CT:Horng_pra_2009}. By averaging over binned shells in $\mathbf{k}$-space, the kinetic energy spectra, $E^{c,i}(k)$, are calculated as~\cite{CT:Bradley_prx_2012}
-\begin{equation}
+\begin{equation}\label{eqn:kin_spec_ic}
 	E^{c,i}(k) = \frac{mk}{2}\sum\limits_{j\in\mathbf{r}} \int\limits_{0}^{2\pi}d\phi_k \frac{ |\mathcal{U}_j^{c,i}(\mathbf{k},t) |^2}{s_k},
 \end{equation}
 where
@@ -343,7 +342,7 @@ The terms $u_j^{c,i}(\mathbf{r},t)$ represent the position-space density-weighte
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 A common method for examining the ordering and periodicity of large-scale crystalline structures is to generate a mesh with each vertex being the location of a particle. With this, one can easily observe ordered and disordered regions in a material; well defined straight lines indicate a perfect crystal, with any bends indicating the presence of imperfections. Some of the most widely used methods for this are the dual techniques from computational geometry of Delaunay triangulation and Voronoi tessellation.
 
-The Delaunay triangulation of an arbitrary set of points in Euclidian space, $\mathbf{R}$, which we will denote as $D(\mathbf{R})$, is constructed between points in the following way:
+The Delaunay triangulation of an arbitrary set of points in Euclidian space, $\mathbf{R}$, which we will denote as $D(\mathbf{R})$, is constructed in the following way:
 \begin{enumerate}
     \item No point will fall within the interior of any circumcircle of 3 points where $\mathbf{r}_{1..3} \subset \mathbf{R}$
     \item The Delaunay triangulation will maximise the minimum angle between points.
@@ -354,21 +353,21 @@ The Delaunay triangulation of an arbitrary set of points in Euclidian space, $\m
     \includegraphics[width=0.45\textwidth]{Images/ch6_phasegineer/imgs/delaun}
     \caption{Non-Delaunay $(a)$ and Delaunay $(b)$ triangulation of 4 Euclidian points.}\label{fig:delaun}
 \end{figure}
-This concept is more easily explained visually. Fig.~\ref{fig:delaun} shows two different triangulations of four points; situation $(a)$ is a non-Delaunay triangulation, as the point $\mathbf{r}_1$ falls within the circumcircle of the other points. However, by simply flipping the central edge from $(\mathbf{r}_2, \mathbf{r}_3)$ to $(\mathbf{r}_1, \mathbf{r}_4)$ we can see in $(b)$ that we now have a valid Delaunay triangulation. No point falls within the circumcircle of the other points, and the minimum angle formed is maximised relative to configuration $(a)$. Following directly from this, one can see that Delaunay triangulation can be used to connect the closest vertices in a network. A nice side-effect of Delaunay triangulation is that one can examine when the number of edges from a vertex deviates from the expected value in the lattice, which is 6 for triangular lattices. This can be a useful means to locate defects in a crystal lattice, and we will make use of this during later discussions. This is performed using the built-in \textsc{MATLAB} function ``delaunayTriangulation'', and counting the number of attachments to each individual vertex. A triangulation of the vortex lattice from Fig.~\ref{fig:showingoff} for the previously discussed radial boundary of $r=2\times 10^{-4}$ m is shown in Fig.~\ref{fig:delaun_vtxlatt}.
+This concept is more easily explained visually. Fig.~\ref{fig:delaun} shows two different triangulations of four points; situation $(a)$ is a non-Delaunay triangulation, as the point $\mathbf{r}_1$ falls within the circumcircle of the other points. However, by simply flipping the central edge from $(\mathbf{r}_2, \mathbf{r}_3)$ to $(\mathbf{r}_1, \mathbf{r}_4)$ we can see in $(b)$ that we now have a valid Delaunay triangulation. No point falls within the circumcircle of the other points, and the minimum angle formed is maximised relative to configuration $(a)$. Following directly from this, one can see that Delaunay triangulation can be used to connect the closest vertices in a network. A nice side-effect of Delaunay triangulation is that one can examine when the number of edges from a vertex deviates from the expected value in the lattice, which is 6 for triangular lattices. This can be a useful means to locate defects in a crystal lattice, and we will make use of this during later discussions. This is performed using the built-in \textsc{MATLAB} function ``delaunayTriangulation'', and counting the number of attachments to each individual vertex. A triangulation of the vortex lattice from Fig.~\ref{fig:showingoff} within the previously discussed radial boundary of $r=2\times 10^{-4}$ m is shown in Fig.~\ref{fig:delaun_vtxlatt}.
 
 \begin{figure}\centering
     \includegraphics[width=0.45\textwidth]{Images/ch4_vtx/Del_tr_VTXLATT}
     \caption{Delaunay triangulation of the vortex lattice groundstate. The vertices away from the condensate boundary have the expected 6-edge structure.}\label{fig:delaun_vtxlatt}
 \end{figure}
 
-An alternative representation, using the dual of the Delaunay triangulation, is that of the Voronoi tessellation (diagram). The characteristic of these diagrams is that they are composed of cells each encompassing an individual vertex, within which all enclosed points are closer to that particular vertex than any other. This representation can be generated from the Delaunay triangulation and vice-versa. Taking the centres of the circumcircles describing the Delaunay triangulations, and connecting these forms the boundaries of the Voronoi cells. A simple generation method can be seen as creating and expanding the radius of circles (or $n$-spheres in $n$-dimensions) centred on each vertex. Where circles intersect with one another defines the boundary of each individual cell. An example of a Voronoi diagram compared with a Delaunay triangulation is given by Fig.~\ref{fig:Voronoi}.
+An alternative representation, using the dual of the Delaunay triangulation, is that of the Voronoi tessellation (diagram). The characteristic of these diagrams is that they are composed of cells each encompassing an individual vertex, within which all enclosed points are closer to that particular vertex than any other. This representation can be generated from the Delaunay triangulation and vice-versa. Taking the centres of the circumcircles describing the Delaunay triangulations, and connecting these forms the boundaries of the Voronoi cells. A simple generation method can be seen as creating and expanding the radius of circles (or $n$-spheres in $n$-dimensions) centred on each vertex. Where the circles intersect with one another defines the boundary of each individual cell. An example of a Voronoi diagram compared with a Delaunay triangulation is given by Fig.~\ref{fig:Voronoi}.
 \begin{figure}\centering
-    \includegraphics[width=0.55\textwidth]{Images/ch6_phasegineer/imgs/Voronoi}
+    \includegraphics[width=0.55\textwidth]{Images/ch6_phasegineer/imgs/voronoi}
     \caption{Comparison of Delaunay triangulation $(a)$ with a Voronoi diamgram $(b)$. These graphs are duals, which means that one can be used to generate the other.}\label{fig:Voronoi}
 \end{figure}
 The area of each cell can be used as a metric of the strength of the interaction between particles in a many-body system, but also we may represent quantities local to each region in a system by the colour-scale of each cell. For the vortex lattice as given by Fig.~\ref{fig:showingoff}, a sample Voronoi diagram is given in Fig.~\ref{fig:voron_vtxlatt} with the color representing the area spanned by each Voronoi cell of the lattice.
 
 \begin{figure}\centering
     \includegraphics[width=0.55\textwidth]{Images/ch4_vtx/Voronoi_area_VTXLATT}
-    \caption{Voronoi tesselation of the vortex lattice. The area of each cell is represented by the color mapping. To avoid the tessellation tending to infinity, a buffer region of vortices in created from the boundary. }\label{fig:voron_vtxlatt}
+    \caption{Voronoi tesselation of the vortex lattice. The area of each cell is represented by the color mapping. To avoid the tessellation tending to infinity, a buffer region of vortices is created close to the boundary. }\label{fig:voron_vtxlatt}
 \end{figure}
