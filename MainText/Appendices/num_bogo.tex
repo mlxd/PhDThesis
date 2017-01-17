@@ -1,0 +1,36 @@
+\section{Numerical implementation of the Bogoliubov-de Gennes equations}
+In Sec.~\ref{sec:bogo}, I have shown the BdG equations, which are used to examine the stability of a state in BECs. To solve the Bogoliubov equations numerically requires searching for the solution to a generalised non-Hermitian eigenvalue problem. Thus, the system must be formally specified in matrix form. The derivative operators of $H_0$ are specified using second-order central differences, represented by
+\begin{equation}
+    \partial^2_i = \frac{U_{i+1,j} + U_{i-1,j} - 2U_{i,j}}{h^2}
+\end{equation}
+where $i$ is the respective dimension for the derivative, and $h$ is the step size. In matrix form, this becomes
+\begin{equation}
+    \mathbf{B} =
+    \begin{bmatrix}
+            -2      &   1    &    0   &  \cdots   &  \cdots   &  \cdots   & 0 \\
+            1       &   -2   &    1   &           &           &     &  \vdots \\
+            0       &    1   &   -2   & \ddots    &           &     &  \vdots \\
+            \vdots  &        & \ddots & \ddots    & {\ddots}  &     &  \vdots \\
+            \vdots  &        &        & \ddots    &    -2     &  1  &       0 \\
+            \vdots  &        &        &           &     1     & -2  &       1 \\
+            0       & \cdots & \cdots & \cdots    &     0     &  1  &      -2 \\
+        \end{bmatrix}.
+\end{equation}
+where the number of rows and columns equal the number of elements along the dimension to be differentiated. To construct a multidimensional version, we take a Kronecker sum of the matrix $\mathbf{B}$ along each respective dimension of the system. This can be represented as
+\begin{equation}
+    \mathbf{B}_{i,j} = \mathbf{B}_i \oplus \mathbf{B}_j = \mathbf{B}_i \otimes \mathbf{I}_j + \mathbf{I}_i \otimes \mathbf{B}_j
+\end{equation}
+were $i,j$ are the indices of the respective dimensions, and $\mathbf{I}$ is the identity equal in size to dimensions $i,j$. With this operation, we can obtain a block diagonal matrix that represents the Laplacian operator as
+
+\begin{equation}
+    \nabla^2=
+    \begin{bmatrix}
+        \mathbf{B}    & \mathbf{I} &      0      &  \cdots      &      0       \\
+        \mathbf{I}    & \mathbf{B} &  \ddots     &              &  \vdots      \\
+        0             & \ddots     &  \ddots     &  \ddots      &      0       \\
+        \vdots        &            &  \ddots     &  \ddots      &  \mathbf{I}  \\
+        0             & \cdots     &      0      &  \mathbf{I}  &  \mathbf{B}
+    \end{bmatrix}.
+\end{equation}
+
+Similarly, the angular momentum operator $L_z = i\hbar(x\partial_y + y\partial_x)$ can be defined in terms of first derivative matrices. The non-derivative operators require a reshaping into lexicographical indexing ($N$-D to 1-D), and will sit along the diagonal. As these systems have many more 0's than elements, it makes sense to store them in a sparse matrix format. Given the proposed system is not Hermitian, a generalised eigenvalue solver is required. For the sake of simplicity, these systems can be solved in MATLAB, using \textit{eigs}, which makes use of the Arnoldi (non-Hermitian) or Lanczos (Hermitian) algorithm for finding the specified number of eigenvectors and values.
