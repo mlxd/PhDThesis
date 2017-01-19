@@ -8,7 +8,7 @@ For performance metrics, we will discuss the use of a GPU-enabled Schr\"odinger 
 \subsection{Spatial adiabatic passage}
 Controlling the internal degrees of freedom of atoms is well understood and many spectroscopic techniques exist. External degrees of freedom have, however, only recently become interesting due to the advancements in atom trapping, and techniques for controlling the centre of mass state of a single atom are still in development. One promising group of techniques for the generation of spatial superposition states or high fidelity transfer relies on ideas from spatial adiabatic passage (SAP) \cite{AO:SAP_REVIEW_2016}, which are analogous to STIRAP in optical systems~\cite{AO:Bergmann_jcp_2015}. These techniques are highly robust against variation in the system parameters \cite{Eckert:04}, but suffer from being slow due to the adiabatic requirement. The use of SAP has recently been experimentally demonstrated in Lieb lattices \cite{AO:Taie_oist_2016}, and many other accessible systems have been proposed \cite{Eckert:06,Morgan:11,Kohler:13}.
 
-To describe the method for SAP, we will first consider the case of a two-state system, which can be realised using two separated harmonic potential traps, with groundstates $| L \rangle$ and $| R \rangle$. A reduction of the distance between the traps will increase the coupling, and hence tunneling rate, between them. This can be modelled with a two-level Hamiltonian as
+To describe the method for SAP, we will first consider the case of a two-state system, which can be realised using two separated harmonic potential traps, with ground states $| L \rangle$ and $| R \rangle$. A reduction of the distance between the traps will increase the coupling, and hence tunneling rate, between them. This can be modelled with a two-level Hamiltonian as
 \begin{equation}
     H = -\frac{\hbar}{2}
     \begin{pmatrix}
@@ -32,7 +32,7 @@ where the $|c_{L,R}(t)|^2$ are the populations of the respective states. This ti
         0 & J_{MR} & 0
     \end{pmatrix},
 \end{equation}
-where $J_{LM},~J_{MR}$ describe the left-middle and middle-right couplings respectively. Diagonalising this Hamiltonian gives three distinctive eigenstates,
+where $J_{LM},~J_{MR}$ describe the left-middle and middle-right couplings respectively. Diagonalising this Hamiltonian gives three distinct eigenstates,
 
 \begin{subequations}
 \begin{align}
@@ -87,7 +87,7 @@ For this work, we model the system as three adjacent wires on the atom-chip surf
   \label{fig:schematic_atom-chip}
 \end{figure}
 
-The initial state is created by localising the atom with the help of a barrier at one end of the potential ($z=0$), and in the leftmost waveguide using an additional barrier potential. After finding the groundstate, the barriers are removed, and the atom is allowed to propagate along the length of the waveguide. The populations in each waveguide $|c_{X}|^2$ are tracked at each step of the process as
+The initial state is created by localising the atom with the help of a barrier at one end of the potential ($z=0$), and in the leftmost waveguide using an additional barrier potential. After finding the ground state, the barriers are removed, and the atom is allowed to propagate along the length of the waveguide. The populations in each waveguide $|c_{X}|^2$ are tracked at each step of the process as
 \begin{equation}
     |c_X|^2 = \int\limits_{\mathcal{V}_X} d\mathbf{r}  \Psi^{*} \Psi
 \end{equation}
@@ -99,7 +99,7 @@ Given that fully three-dimensional simulations of the Schr\"odinger equation are
 \subsection{3D Simulations}
 \label{sec:Results}
 
-Simulations of the proposed system assumed a single $^{6}$Li atom localised in the left waveguide. A localised harmonic oscillator potential was added along $z$, with the transverse guiding potential, and the resulting groundstate solution found numerically. The harmonic oscillator width was chosen to closely match the expected size in the transverse direction. The atom was then allowed to propagate along the waveguide potential ($z$).
+Simulations of the proposed system assumed a single $^{6}$Li atom localised in the left waveguide. A localised harmonic oscillator potential was added along $z$, with the transverse guiding potential, and the resulting ground state solution found numerically. The harmonic oscillator width was chosen to closely match the expected size in the transverse direction. The atom was then allowed to propagate along the waveguide potential ($z$).
 
 As the shift in magnetic moment of the atoms is given by $\Delta E = -\mu\cdot\mathbf{B}$, for regions with a larger magnetic field the atom will experience a greater energy shift, and thus the assumption of all traps being in resonance has to be carefully checked. In fact, the simulations showed that the addition of the magnetic fields stemming from the different wires at the center of the atom-chip leads to the central potential moving out of resonance with the outer two. To make SAP work, it therefore required adjusting the current in the central wire, such that the magnetic minima were in resonance within the tunneling region near the atom-chip centre. The resulting potentials for non-optimal (left) and optimal (middle) currents are shown in Fig.~\ref{fig:equaloptcurrent}, which also depicts a three dimensional isosurface of the potential minima along the chip surface for both situations (right).
 
