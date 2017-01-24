@@ -54,15 +54,15 @@ To sustain a vortex the condensate must have sufficient angular momentum, which 
 
 \subsection{Vortices in Bose--Einstein condensates}\label{ss:vorticesinbec}
 
-Given that the circulation of a vortex in a superfluid is quantised, one may assume that for faster rotation rates the circulation increases in integer multiples of $\hbar/m$, beyond critical rotation thresholds to excite each higher multiple. To understand the effect of vortex charge on the condensate, it is necessary to examine the energy functional, as given by
+Given that the circulation of a vortex in a superfluid is quantised, one may assume that for faster rotation rates the circulation increases in integer multiples of $h/m$, beyond critical rotation thresholds to excite each higher multiple. To understand the effect of vortex charge on the condensate, it is necessary to examine the energy functional, as given by
     \begin{equation}\label{eqn:functional}
-        E[\Psi] = \int \Psi^{*} (H_{\text{E}}) \Psi,
+        E[\Psi] = \int \Psi^{*} (H_{\text{E}}) \Psi d\mathbf{r},
     \end{equation}
 where $H_{\text{E}} = (-\hbar^2/2m)\nabla^2 + V + g|\Psi|^2/2 - \Omega L_z$. By substituting \eqref{eqn:madelung_l} into Eq.~\eqref{eqn:functional} the energy functional is given as
 \begin{equation}\label{eqn:functional_full}
     E[\Psi] = \int \frac{\hbar^2}{2m} \left(|\nabla\Psi|^2  + \frac{|\Psi|^2 l^2 m \mathbf{v}^2}{2}  \right) + V|\Psi|^2 + \frac{g}{2}|\Psi|^4 + \Omega \Psi^{*} L_z \Psi,
 \end{equation}
-where $\mathbf{v}$ is the superfluid velocity, as given by Eq.~\eqref{eqn:velocity}. The $l^2$ term shows that the energy scales quadratically with an increase in charge. This energy growth dependence indicates that it will be more favourable to allow for two singly charged vortices, than a single doubly charged vortex, which will decay due to the presence of complex eigenmodes \cite{VTX:Kawaguchi_pra_2004}. For rates of rotation $\Omega_c < \Omega < \omega_\perp$, where $\Omega_c$, is the threshold rotation rate to create a vortex, the condensate will favour many singly quantised vortices, rather than one or several multiply charged ones. For a superfluid condensate $\Omega_c = {E_v/L_z}$, where $E_v$ is the energy of the vortex, and $L_z$ is the angular momentum component of the superfluid along $z$~\cite{BK:Pitaevskii_Stringari_2003}.
+where $\mathbf{v}$ is the superfluid velocity, as given by Eq.~\eqref{eqn:velocity}. The $l^2$ term shows that the energy scales quadratically with an increase in charge. This energy growth dependence indicates that it will be more favourable to allow for two singly charged vortices, than a single doubly charged vortex, which will decay due to the presence of complex eigenmodes \cite{VTX:Kawaguchi_pra_2004}. For rates of rotation $\Omega_c < \Omega < \omega_\perp$, where $\Omega_c$, is the threshold rotation rate to create a vortex, the condensate will favour many singly quantised vortices, rather than one or several multiply charged ones. For a superfluid condensate in the rotating frame $\Omega_c = {E_v/L} = {E_v/(N\hbar)}$, where $E_v$ is the energy of the vortex, and $L$ is the angular momentum component of the superfluid along $z$~\cite{BK:Pitaevskii_Stringari_2003}.
 
 The stability of vortex states in a condensate is also a widely discussed topic \cite{Vtx:Fedichev_pra_1999,Vtx:Feder_prl_1999}, as non-rotating traps show an instability for small displacements of the vortex from the trap centre. Since the ``rotating bucket'' technique used to generate vortices in $^4$He cannot be used for gaseous BECs, many other techniques have been developed \cite{Vtx:Anglin_prl_1999,Vtx:Davies_prl_1999,Vtx:Marshall_pra_1999,Vtx:Dobrek_pra_1999,VTX:Nakahara_physb_2000}. For the work presented in this thesis, the method proposed by Dobrek \textit{et al}. \cite{Vtx:Dobrek_pra_1999}, is of particular interest, as it allows one to optically generate vortices by the use of what they term a ``phase-imprinting'' method. The authors describe a scheme where the phase of the condensate is directly controlled in such a way that the required topological charge to induce a vortex during evolution is provided by external lasers. Through use of an absorption plate whose absorption coefficient depends on the axis angle, the condensate can be imprinted with the required phase pattern. This method will form the basis of one work carried out in this thesis, and will be discussed in detail later in Sec.~\ref{sec:phase}.
 
@@ -77,20 +77,20 @@ At high rotation rates very close to the trap frequency ($\Omega/\omega_\perp \a
 
 The distribution of the vortices in the MFQH regime forms a triangular lattice pattern that is almost regular~\cite{Vtx:Schweikhard_prl_2004}. As discussed earlier, the condensate has an irrotational flow profile due to velocity being defined as Eq.~\eqref{eqn:velocity}. This relation holds true provided that $\theta$ is well defined, which is not the case at the centre of a vortex. As the phase at the vortex core is ill-defined, this singular region creates a non-zero curl. A generalisation of the irrotational flow condition (i.e. $\nabla\times \mathbf{v}=0$) to account for this can be given as as~\cite{BK:Pitaevskii_Stringari_2003,BK:Pethick_Smith_2008}
 \begin{equation}
-    \nabla\times \mathbf{v}=\frac{2\pi l\hbar}{m}\delta^{2}\mathbf{r}_\perp \hat{z},
+    \nabla\times \mathbf{v}=\frac{2\pi l\hbar}{m}\delta^{(2)}(\mathbf{r}_\perp) \hat{z},
 \end{equation}
-where $\delta^2$ is a two-dimensional Dirac delta function, $\hat{z}$ is the unit vector along $z$ and $\mathbf{r}_\perp=(x,y)$. For large rotation frequencies this value becomes very similar to that of a solid-body rotation, as given by $\nabla \times \mathbf{v}=2\Omega$. This result arises for a large regular vortex lattice, where the areal density of vortices can be specified by the Feynman relation~\cite{BK:Pitaevskii_Stringari_2003}
+where $\delta^2$ is a two-dimensional Dirac delta function, $\hat{z}$ is the unit vector along $z$ and $\mathbf{r}_\perp=(x,y)$. For large rotation frequencies this value becomes very similar to that of a solid-body rotation, as given by $\nabla \times \mathbf{v}=2\Omega_z$. This result arises for a large regular vortex lattice, where the areal density of vortices can be specified by the Feynman relation~\cite{BK:Pitaevskii_Stringari_2003}
 \begin{equation}\label{eqn:feynman}
 n_{v} = \frac{m\Omega}{\pi\hbar}.
 \end{equation}
-In the case of realistic condensates systems, where the densities are not uniform due to harmonic trapping, deviations exist from this value which have been calculated theoretically \cite{Vtx:Sheey_pra_2004_2,Vtx:Sheey_pra_2004} and observed experimentally \cite{VTX:Coddington_pra_2004}. However, for the values chosen in all later discussed simulations these deviations tend to be small, and can in most cases be neglected.
+In the case of realistic condensates systems, where the densities are not uniform due to harmonic trapping, deviations exist from this value which have been calculated theoretically \cite{Phys. Rev. Lett. 93, 190401 (2004), Vtx:Sheey_pra_2004_2,Vtx:Sheey_pra_2004, PRA 70, 033604 (2004) } and observed experimentally \cite{VTX:Coddington_pra_2004}. However, for the values chosen in all later discussed simulations these deviations tend to be small, and can in most cases be neglected.
 
 Some key details for the classification of the regime of the condensate are \cite{BEC:Fetter_revmodphys_2009}:
 \begin{itemize}
 \item Mean-field theory and experiment agree well for large atom numbers ($N>10^3$) and rotational frequencies reaching approximately $0.995\omega_{\perp}$.
 \item The density profile of slowly rotating condensates differs very little from that of non-rotating condensates, except for the inclusion of the vortex cores.
-\item The Thomas--Fermi regime holds true for frequencies of $0.75 \leq \Omega \leq 0.99$, where kinetic energy remains negligible compared to flow velocity.
-\item The MFQH regime description, holding for $0.99 \leq \Omega \leq 0.999$, sees the vortex cores expanding to fill all available condensate space. %Density variation gives rise to energy terms of the order of the flow velocity.
+\item The Thomas--Fermi regime holds true for frequencies of $0.75 \leq \Omega_\perp \leq 0.99$, where kinetic energy remains negligible compared to flow velocity.
+\item The MFQH regime description, holding for $0.99 \leq \Omega_\perp \leq 0.999$, sees the vortex cores expanding and form a densely packed lattice. %Density variation gives rise to energy terms of the order of the flow velocity.
 \end{itemize}
 
 Given the above criteria, the rapidly rotating condensate system in our work can be described using mean-field Gross--Pitaevskii theory at a rotation rate of $\Omega = 0.995\omega_{\perp}$, assuming $N\approx 10^6$ atoms, as used in typical experimental setups.
