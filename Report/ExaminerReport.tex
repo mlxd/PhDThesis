@@ -1,4 +1,6 @@
 \documentclass[paper=a4, fontsize=12pt]{scrartcl}
+\usepackage{blindtext}
+\usepackage{enumitem}
 \usepackage[a4paper, includehead, headheight=0.6cm, inner=3cm ,outer=2.5cm, top=2.5 cm, bottom=2.5cm]{geometry}  % Changing size of document
 \usepackage[english]{babel} % The document is in English
 %\usepackage[utf8]{inputenc} % UTF8 encoding
@@ -16,7 +18,9 @@
 %%% Custom headers/footers (fancyhdr package)
 \usepackage{fancyhdr}
 \pagestyle{fancyplain}
-\fancyhead{}											% No page header
+\fancyhead{}		% No page header
+%\lhead[\thepage]{\thesection}
+\rhead[]{\thepage}
 \fancyfoot[L]{}											% Empty
 \fancyfoot[C]{}											% Empty
 \fancyfoot[R]{\thepage}									% Pagenumbering
@@ -52,10 +56,10 @@
         {\Large \bfseries Author:}\\[0.5cm]
         {\large  Lee James O'Riordan}\\
         \vfill
-        {\Large \bfseries Examiners:}\\[0.5cm]
+        {\Large \bfseries Examiners:}\\[0pt]
         \begin{align*}
-            &\text{\large  Prof. Simon Gardiner, Durham University}\\
-            &\text{\large  Prof. Gentaro Watanabe, Zhejiang University}\\
+            &\text{\large  Professor Simon Gardiner, Durham University}\\
+            &\text{\large  Professor Gentaro Watanabe, Zhejiang University}\\
         \end{align*}
         \vfill
 
@@ -64,25 +68,41 @@
          January, 2017
     \end{center}
 \end{titlepage}
-%%% Begin document
-%\maketitle
-\section{Abstract}
-asef
-\section{Chapter 1}
-asdf
-\section{Chapter 2}
-asdf
-\section{Chapter 3}
-asdf
-\section{Chapter 4}
-asdf
-\section{Chapter 5}
-asdf
-\section{Chapter 6}
-asdf
-\section{Chapter 7}
-asdf
-\section{Bibliography}
-asdf
+
+\section{Prof. Gardiner's comments}
+\rule{\textwidth}{1.5pt}\\[0.5cm]
+
+\begin{description}[align=left]
+    \item [Throughout] $k_B$ has been modified to $k_\textrm{B}$.
+    \item [Throughout] $\lambda_{dB}$ has been modified to $\lambda_\textrm{dB}$.
+    \item [Throughout] Inline use of
+\textbackslash frac\{a\}\{b\} has been modified to a/b.
+    \item [Throughout] ``groundstate'' has been converted to ``ground state''.
+    \item [Throughout] $g_{2D}$ has been modified to $g_\textrm{2D}$.
+    \item [P45] ``three distinctive eigenstates'' has been changed to ``three distinct eigenstates''.
+    \item [Throughout] ``i.e.'' has been modified to ``i.e.\textbackslash \ ''.
+    \item [P49] ``waveg-uide'' hyphenation has been prevented.
+    \item [P81] Grammatical dash \LaTeX  code has been modified to ``-{}-{}-''.
+    \item [P6] Modified definition of laser cooling to specifically refer to doppler cooling.
+    \item [P7] Modified introduction to Chapter 2 by correctly stating that Einstein translated Bose' paper for publication.
+    \item [P10] $\mathbf{r}$ and $\mathbf{r}^{\prime}$ arguments are added to integral equation.
+    \item [P11,12] Eq. 2.13, 2.21 modified to $d/dt$ instead of $\partial / \partial t$. Query this one...
+    \item [P21] Eqs 2.49, 2.50 for energy functional modified to correct form.
+    \item [P28] Time evolution derivation in Sec 3.1 modified to remove integral (Eq 3.3). Text clarification added to avoid confusion regarding an assumed approximation with Eq 3.6.
+    \item [P59] Eq 3.28 and subsequent analysis modified to correct form.
+    \item [P89] Section 5.1 ``perfect'' modified to ``near perfect'', and ``density'' modified to ``density profile''.
+    \item [P129] Comments and references add to ``hexatic phase'' description in Sec 6.4.
+\end{description}
+
+\section{Prof. Watanabe's comments}
+\rule{\textwidth}{1.5pt}\\[0.5cm]
+\begin{itemize}
+    \item Additional comments added to the abstract describing the results and outcomes of the works carried out.
+    \item I have added additional commentary about the kinetic energy spectra, including some references linking the power-spectra and autocorrelations of signals. An additional discussion is also added for applying the methods to the condensate analysis by considering the classical continuity equation. I think the added text is adequate to justify the use of the classical methods in this situation.
+    \item While I think this can be a nice study, I do not see the applicability of the XY model consideration to this system, as I think it does not benefit the work carried out. This is something that can be potentially examined at a future date.
+    \item References on pages 19, 24, 66, 78 and 131 have all been updated to include additional publications.
+    \item Eqs 4.5, 4.11, 4.13, 4.15 have been modified to the correct form.
+    \item While I understand the examiners preference for $\mu$m and nm, meter is a more general unit and so I prefer to keep to it in this work.
+\end{itemize}
 
 \end{document}
