@@ -67,7 +67,7 @@ If we consider a unitary evolution operator of the form
 \begin{equation}\label{eqn:1}
 \Psi(\mathbf{x},t+\tau) = \exp\left( -\frac{\text{i}\hat{H}\tau}{\hbar}\right)\Psi(\mathbf{x},t),
 \end{equation}
-where $\hat{H}$ is the Hamiltonian, composed of momentum, potential, nonlinear interaction, and rotation terms defined in Eq. \eqref{eqn:gpe}, we can solve for the wavefunction, and its resulting dynamics over a specified timescale, assuming $\tau$ is a short time such that Eq.~\eqref{eqn:timev_dt} is valid. Care must be taken during the implementation of such integration methods, as the loss of precision due to floating-point rounding, as well as the propagation of errors cannot be neglected. If we take $\hat{H}$ in terms of its components as a combination of position and momentum space operators we obtain
+where $\hat{H}$ is the Hamiltonian, composed of momentum, potential, nonlinear interaction, and rotation terms defined in Eq. \eqref{eqn:gpe}, we can solve for the wavefunction and its resulting dynamics over a specified timescale, assuming $\tau$ is a short time increment such that the formalism given in Sec.~\ref{sec:timeev} is valid. Care must be taken during the implementation of such integration methods, as the loss of precision due to floating-point rounding, as well as the propagation of errors cannot be neglected. If we take $\hat{H}$ in terms of its components as a combination of position and momentum space operators we obtain
 \begin{equation}\label{eqn:2}
 \hat{H} = \hat{H}_{\textbf{r}} + \hat{H}_{\textbf{k}} + \hat{H}_{\textbf{L}},
 \end{equation}
