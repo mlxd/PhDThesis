@@ -93,7 +93,7 @@ This accrues an error which is not encountered using methods that are solely in 
 
  The complex error term can be seen as, in the case of the above implemented evolution, allowing the angular momentum operator to change from imaginary time to real-time, and vice-versa in each respective case. To overcome this, we simply swap the application order of the operator components, between odd and even steps during the evolution. Starting with the alternate order we obtain a value of $\alpha_2 = [-y p_x, x p_y] = \textrm{i}\hbar \left(-x p_x + y p_y \right)$. Since we are applying these operators to the condensate we can overcome the error of one term by the application of the other, as
  \begin{equation}
- \exp{i \alpha_1}\exp{i \alpha_2} = 1.
+ \exp{\textrm{i} \alpha_1}\exp{\textrm{i} \alpha_2} = 1.
  \end{equation}
 
  Although alternating will provide a cancellation of this error, it can be assumed that for large timesteps the error will have a significant contribution to the overall dynamics, as the wavefunction evolves during each timestep. For greater accuracy of this method one can perform a decomposition following Eq.~\eqref{eqn:3} for a third-order error, or using the above splitting for second-order.
