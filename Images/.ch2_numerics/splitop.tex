@@ -1,0 +1,57 @@
+\documentclass[10pt,a4paper]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\author{Lee J. O' Riordan}
+
+\begin{document}
+\tikzstyle{block} = [rectangle, draw, fill=blue!20,text width=6em, text centered, rounded corners, minimum height=2em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2.5cm,
+    minimum height=1em, text height=1em]
+\tikzstyle{note} = [rectangle,draw,rounded corners, node distance=2.5cm,
+    minimum width=20em, text height=1.5em]   
+\begin{tikzpicture}[node distance = 2.5cm, auto, scale=1, transform shape]
+    % Place nodes
+
+    \node [block] (wfcr1) {$\Psi(\mathbf{r},t)$};
+        \node [cloud, below of=wfcr1,node distance=1.2cm] (EKr1) at (-2.5,0) {$\times\hat{U}_{r,\frac{\tau}{2}}$};
+
+    %\node [cloud, right of=wfcr1] (FFTr1) {$\mathcal{F}$};
+    \node [block, below of=EKr1,node distance=1.2cm] (wfcr3) {$\Psi\left(\mathbf{r},t+\tau/2\right)$};
+    \node [cloud, right of=wfcr3] (FFTr2) {$\mathcal{F}$};
+        %\node [note, above of=FFTr2, node distance=4em] (Start) {\Large\textbf{$wfc(\bar{r},t)$}};
+    
+    \node [block, right of=FFTr2] (wfcp2) {$\Psi^{'}\left(\mathbf{k},t\right)$};
+    \node [cloud, below of=wfcp2,node distance=1.2cm] (EKp2) {$\times\hat{U}_{p,\tau}$};
+    \node [block, below of=EKp2,node distance=1.2cm] (wfcp4) {$\Psi^{'}\left(\mathbf{k},t+\tau\right)$};
+    \node [cloud, left of=wfcp4] (FFTp2) {$\mathcal{F}^{-1}$};
+    \node [block, left of=FFTp2] (wfcr4) {$\Psi^{'}\left(\mathbf{r},t+\tau/2\right)$};
+        \node [cloud, below of=wfcr4,node distance=1.2cm] (EKr2) {$\times\hat{U}_{r,\frac{\tau}{2}}$};
+
+    \node [block, below of=EKr2, node distance=1.2cm] (wfcrfin) at (0,-6) {$\Psi(\mathbf{r},t+\tau)$};
+
+
+    %\path [line,dashed] (Start) -- (wfcr1);
+    \path [line] (wfcr1) -- (EKr1);
+    \path [line] (EKr1) -- (wfcr3);
+    %\draw[->] (Start) -- (Fin);
+    %\path [line,dashed] (Start) -- (Fin);
+
+    \path [line] (wfcr3) -- (FFTr2);
+    \path [line] (FFTr2) -- (wfcp2);    
+    \path [line] (wfcp2) -- (EKp2);
+    \path [line] (EKp2) -- (wfcp4); 
+
+    \path [line] (wfcp4) -- (FFTp2);
+    \path [line] (FFTp2) -- (wfcr4); 
+	\path [line] (wfcr4) -- (EKr2);
+	\path [line] (EKr2) -- (wfcrfin);
+
+\end{tikzpicture}
+\end{document}

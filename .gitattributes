@@ -1,0 +1,10 @@
+./Images filter=lfs diff=lfs merge=lfs -text
+./Images/ch2_litrev filter=lfs diff=lfs merge=lfs -text
+./Images/ch4_vtx filter=lfs diff=lfs merge=lfs -text
+./Images/ch6_phasegineer filter=lfs diff=lfs merge=lfs -text
+./Images/ch3_numerics filter=lfs diff=lfs merge=lfs -text
+./Images/ch5_kickit filter=lfs diff=lfs merge=lfs -text
+./Images/colour_incl.tex filter=lfs diff=lfs merge=lfs -text
+./Images/complex_conjugate.png filter=lfs diff=lfs merge=lfs -text
+./Images/papers filter=lfs diff=lfs merge=lfs -text
+./Images/symbol.jpg filter=lfs diff=lfs merge=lfs -text
