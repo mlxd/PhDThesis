@@ -1,2 +1,2 @@
-# OIST-thesis-LaTeX-template
-Template for the OIST thesis, both the temporary bound, sent to examiners only, and the final version
+# My PhD thesis repository (cloned)
+Use xelatex to build the repo. If it complains, you can figure it out. I'm done!
